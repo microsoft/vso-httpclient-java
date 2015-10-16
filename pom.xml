@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.microsoft.alm</groupId>
+    <artifactId>alm-http-client-parent</artifactId>
+    <version>0.4.2-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Microsoft ALM HTTP Client</name>
+    <description>Microsoft Visual Studio ALM HTTP Client</description>
+    <url>https://www.visualstudio.com/</url>
+
+    <licenses>
+        <license>
+            <name>The MIT License (MIT)</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Alex Rukhlin</name>
+            <email></email>
+            <organization>Microsoft</organization>
+            <organizationUrl>http://www.microsoft.com/</organizationUrl>
+        </developer>
+        <developer>
+            <name>David Staheli</name>
+            <email></email>
+            <organization>Microsoft</organization>
+            <organizationUrl>http://www.microsoft.com/</organizationUrl>
+        </developer>
+        <developer>
+            <name>Jason Prickett</name>
+            <email></email>
+            <organization>Microsoft</organization>
+            <organizationUrl>http://www.microsoft.com/</organizationUrl>
+        </developer>
+        <developer>
+            <name>Jason Sholl</name>
+            <email></email>
+            <organization>Microsoft</organization>
+            <organizationUrl>http://www.microsoft.com/</organizationUrl>
+        </developer>
+        <developer>
+            <name>Jeff Young</name>
+            <email></email>
+            <organization>Microsoft</organization>
+            <organizationUrl>http://www.microsoft.com/</organizationUrl>
+        </developer>
+        <developer>
+            <name>Leah Antkiewicz</name>
+            <email></email>
+            <organization>Microsoft</organization>
+            <organizationUrl>http://www.microsoft.com/</organizationUrl>
+        </developer>
+        <developer>
+            <name>Madhuri Gummalla</name>
+            <email></email>
+            <organization>Microsoft</organization>
+            <organizationUrl>http://www.microsoft.com/</organizationUrl>
+        </developer>
+        <developer>
+            <name>Olivier Dagenais</name>
+            <email></email>
+            <organization>Microsoft</organization>
+            <organizationUrl>http://www.microsoft.com/</organizationUrl>
+        </developer>
+        <developer>
+            <name>Yang Cao</name>
+            <email></email>
+            <organization>Microsoft</organization>
+            <organizationUrl>http://www.microsoft.com/</organizationUrl>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <version.major>0</version.major>
+        <version.minor>4</version.minor>
+        <version.service>2</version.service>
+
+        <alm.http.client.version>0.4.2-SNAPSHOT</alm.http.client.version>
+
+        <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
+        <buildNumber>${version.major}.${version.minor}.${version.service}.${maven.build.timestamp}</buildNumber>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${mvn.compiler.version}</version>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <addMavenDescriptor>false</addMavenDescriptor>
+                        </archive>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                    <configuration>
+                        <archive>
+                            <addMavenDescriptor>false</addMavenDescriptor>
+                        </archive>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins> 
+            <plugin> 
+                <groupId>org.apache.maven.plugins</groupId> 
+                <artifactId>maven-javadoc-plugin</artifactId> 
+                <version>2.10.3</version> 
+                <configuration>
+                    <skip>${skip.javadoc}</skip>
+                </configuration>
+                <executions> 
+                    <execution> 
+                        <id>attach-javadocs</id> 
+                        <goals> 
+                            <goal>jar</goal> 
+                        </goals> 
+                        </execution> 
+                </executions> 
+            </plugin> 
+
+            <plugin> 
+                <groupId>org.apache.maven.plugins</groupId> 
+                <artifactId>maven-source-plugin</artifactId> 
+                <version>2.4</version> 
+                <configuration>
+                    <skipSource>${skip.sources}</skipSource>
+                </configuration>
+                <executions> 
+                    <execution> 
+                        <id>attach-sources</id> 
+                        <goals> 
+                            <goal>jar</goal> 
+                        </goals> 
+                    </execution> 
+                </executions> 
+            </plugin> 
+        </plugins> 
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>vss-artifacts</id>
+            <name>Private Maven releases repository on artifacts.cloudapp.net</name>
+            <url>http://artifacts.cloudapp.net:8081/nexus/content/repositories/releases</url>
+            <uniqueVersion>false</uniqueVersion>
+        </repository>
+        <snapshotRepository>
+            <id>vss-artifacts-snapshots</id>
+            <name>Private Maven snapshot repository on artifacts.cloudapp.net</name>
+            <url>http://artifacts.cloudapp.net:8081/nexus/content/repositories/snapshots</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <scm> 
+        <url>git:https://mseng.visualstudio.com/DefaultCollection/VSOnline/Java/_git/Java.RestClient</url>
+    </scm> 
+
+</project>

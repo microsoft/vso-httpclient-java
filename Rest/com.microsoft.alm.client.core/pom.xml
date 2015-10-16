@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.microsoft.alm</groupId>
+        <artifactId>alm-http-client</artifactId>
+        <version>0.4.2-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>com.microsoft.alm.client.core</artifactId>
+
+    <name>Microsoft VSO SDK server core API</name>
+    <description>This package contains Microsoft VSO TFS Core subsystem API.</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.alm</groupId>
+            <artifactId>com.microsoft.alm.client</artifactId>
+            <version>${project.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.microsoft.alm</groupId>
+            <artifactId>com.microsoft.alm.client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>1.5</version>
+          </plugin>
+        </plugins>
+    </build>
+</project>

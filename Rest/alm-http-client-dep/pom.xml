@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.microsoft.alm</groupId>
+        <artifactId>alm-http-client</artifactId>
+        <version>0.4.2-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>alm-http-client-dep</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Microsoft VSO SDK all components POM package</name>
+    <description>This package contains Microsoft VSS HTTP client dependencies.</description>
+
+    <!-- Microsoft TFS REST Client Components -->
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.alm</groupId>
+            <artifactId>com.microsoft.alm.client</artifactId>
+            <version>0.4.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.alm</groupId>
+            <artifactId>com.microsoft.alm.client.core</artifactId>
+            <version>0.4.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.alm</groupId>
+            <artifactId>com.microsoft.alm.client.build2</artifactId>
+            <version>0.4.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.alm</groupId>
+            <artifactId>com.microsoft.alm.client.distributedtask</artifactId>
+            <version>0.4.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.alm</groupId>
+            <artifactId>com.microsoft.alm.client.sourcecontrol</artifactId>
+            <version>0.4.2-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.alm</groupId>
+            <artifactId>com.microsoft.alm.client.workitemtracking</artifactId>
+            <version>0.4.2-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

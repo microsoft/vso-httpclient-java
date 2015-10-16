@@ -1,0 +1,7 @@
+.idea
+*.iml
+target
+.metadata
+.recommenders
+bin
+.DS_Store

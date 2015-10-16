@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.microsoft.alm</groupId>
+        <artifactId>alm-http-client-parent</artifactId>
+        <version>0.4.2-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>alm-http-client</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Microsoft ALM HTTP Client</name>
+    <description>Microsoft Visual Studio ALM HTTP Client</description>
+    <url>https://www.visualstudio.com/</url>
+
+    <properties>
+<!--
+        <skip.javadoc>true</skip.javadoc>
+        <skip.sources>true</skip.sources>
+-->
+        <jaxrs-api.version>2.0.1</jaxrs-api.version>
+        <common-codec.version>1.10</common-codec.version>
+        <mvn.compiler.version>3.3</mvn.compiler.version>
+        <jackson.version>2.4.4</jackson.version>
+    </properties>
+
+    <modules>
+        <module>com.microsoft.alm.client/pom.xml</module>
+        <module>com.microsoft.alm.client.build2/pom.xml</module>
+        <module>com.microsoft.alm.client.core/pom.xml</module>
+        <module>com.microsoft.alm.client.distributedtask/pom.xml</module>
+        <module>com.microsoft.alm.client.sourcecontrol/pom.xml</module>
+        <module>com.microsoft.alm.client.workitemtracking/pom.xml</module>
+        <module>alm-http-client-dep/pom.xml</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <configuration>
+                        <appendAssemblyId>false</appendAssemblyId>
+                        <descriptors>
+                            <descriptor>src/main/assembly/bin.xml</descriptor>
+                        </descriptors>
+                        <finalName>AlmHttpClient-${buildNumber}</finalName>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <addMavenDescriptor>false</addMavenDescriptor>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>1.5</version>
+                    <executions>
+                        <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/main/generated</source>
+                            </sources>
+                        </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <scm> 
+        <url>git:https://mseng.visualstudio.com/DefaultCollection/VSOnline/Java/_git/Java.RestClient</url>
+    </scm> 
+
+</project>
