@@ -1956,6 +1956,47 @@ public abstract class WorkItemTrackingHttpClientBase
     /** 
      * @param document 
      *            
+     * @param project 
+     *            
+     * @param validateOnly 
+     *            
+     * @param bypassRules 
+     *            
+     * @return WorkItem
+     */
+    public WorkItem createWorkItem(
+        final JsonPatchDocument document, 
+        final String type,
+        final String project,
+        final Boolean validateOnly, 
+        final Boolean bypassRules) {
+
+        final UUID locationId = UUID.fromString("62d3d110-0047-428c-ad3c-4fe872c91c74"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("2.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project);
+        routeValues.put("type", type); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("validateOnly", validateOnly); //$NON-NLS-1$
+        queryParameters.addIfNotNull("bypassRules", bypassRules); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       document,
+                                                       APPLICATION_JSON_PATCH_TYPE,
+                                                       queryParameters,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, WorkItem.class);
+    }
+    
+    /** 
+     * @param document 
+     *            
      * @param id 
      *            
      * @param validateOnly 
