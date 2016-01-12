@@ -12,8 +12,8 @@
 
     <artifactId>com.microsoft.alm.client.core</artifactId>
 
-    <name>Microsoft VSO SDK server core API</name>
-    <description>This package contains Microsoft VSO TFS Core subsystem API.</description>
+    <name>Microsoft VSTS SDK server core API</name>
+    <description>This package contains Microsoft VSTS TFS Core subsystem API.</description>
 
     <dependencies>
         <dependency>

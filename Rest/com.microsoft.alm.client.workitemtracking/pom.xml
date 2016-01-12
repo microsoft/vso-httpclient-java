@@ -12,8 +12,8 @@
 
     <artifactId>com.microsoft.alm.client.workitemtracking</artifactId>
 
-    <name>Microsoft VSO SDK work item tracking API</name>
-    <description>This package contains Microsoft VSO WorkItemTracking subsystem API.</description>
+    <name>Microsoft VSTS SDK work item tracking API</name>
+    <description>This package contains Microsoft VSTS WorkItemTracking subsystem API.</description>
 
     <dependencies>
         <dependency>
