@@ -12,8 +12,8 @@
 
     <artifactId>com.microsoft.alm.client.sourcecontrol</artifactId>
 
-    <name>Microsoft VSO SDK source control API</name>
-    <description>This package contains Microsoft VSO SourceControl subsystem API.</description>
+    <name>Microsoft VSTS SDK source control API</name>
+    <description>This package contains Microsoft VSTS SourceControl subsystem API.</description>
 
     <dependencies>
         <dependency>

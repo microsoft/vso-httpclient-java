@@ -12,8 +12,8 @@
 
     <artifactId>com.microsoft.alm.client.build2</artifactId>
 
-    <name>Microsoft VSO SDK build API</name>
-    <description>This package contains Microsoft VSO Build subsystem API.</description>
+    <name>Microsoft VSTS SDK build API</name>
+    <description>This package contains Microsoft VSTS Build subsystem API.</description>
 
     <dependencies>
         <dependency>

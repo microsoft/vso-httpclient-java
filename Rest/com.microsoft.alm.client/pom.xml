@@ -12,8 +12,8 @@
 
     <artifactId>com.microsoft.alm.client</artifactId>
 
-    <name>Microsoft VSO SDK core</name>
-    <description>This package contains Microsoft VSO SDK Core package.</description>
+    <name>Microsoft VSTS SDK core</name>
+    <description>This package contains Microsoft VSTS SDK Core package.</description>
 
     <dependencies>
         <dependency>

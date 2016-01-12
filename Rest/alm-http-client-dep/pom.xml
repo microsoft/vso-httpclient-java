@@ -13,7 +13,7 @@
     <artifactId>alm-http-client-dep</artifactId>
     <packaging>pom</packaging>
 
-    <name>Microsoft VSO SDK all components POM package</name>
+    <name>Microsoft VSTS SDK all components POM package</name>
     <description>This package contains Microsoft VSS HTTP client dependencies.</description>
 
     <!-- Microsoft TFS REST Client Components -->

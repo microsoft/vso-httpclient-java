@@ -12,8 +12,8 @@
 
     <artifactId>com.microsoft.alm.client.distributedtask</artifactId>
 
-    <name>Microsoft VSO SDK distributed task API</name>
-    <description>This package contains Microsoft VSO DistributedTask subsystem API.</description>
+    <name>Microsoft VSTS SDK distributed task API</name>
+    <description>This package contains Microsoft VSTS DistributedTask subsystem API.</description>
 
     <dependencies>
         <dependency>

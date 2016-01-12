@@ -1,2 +1,2 @@
 # vso-httpclient-java
-Microsoft Visual Studio Online HTTP Client for Java
+Microsoft Visual Studio Team Services HTTP Client for Java
