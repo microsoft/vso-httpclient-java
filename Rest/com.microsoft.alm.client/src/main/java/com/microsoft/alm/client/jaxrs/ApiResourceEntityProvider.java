@@ -77,12 +77,7 @@ public class ApiResourceEntityProvider
                 objectMapper.getFactory().createGenerator(entityStream);
         jsonGenerator.disable(JsonGenerator.Feature.AUTO_CLOSE_TARGET);
 
-        if (List.class.isInstance(entity)) {
-            jsonGenerator.writeObject(VssJsonCollectionWrapper.newInstance((List<?>)
-                    entity));
-        } else {
-            jsonGenerator.writeObject(entity);
-        }
+        jsonGenerator.writeObject(entity);
     }
 
     /**
