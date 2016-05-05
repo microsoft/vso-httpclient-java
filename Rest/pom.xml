@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.microsoft.alm</groupId>
         <artifactId>alm-http-client-parent</artifactId>
-        <version>0.4.2-SNAPSHOT</version>
+        <version>0.4.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>alm-http-client</artifactId>
@@ -103,7 +103,7 @@
     </build>
 
     <scm> 
-        <url>git:https://mseng.visualstudio.com/DefaultCollection/VSOnline/Java/_git/Java.RestClient</url>
+        <url>git:https://github.com/Microsoft/vso-httpclient-java.git</url>
     </scm> 
 
 </project>
