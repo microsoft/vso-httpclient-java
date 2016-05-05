@@ -6,7 +6,7 @@
 
     <groupId>com.microsoft.alm</groupId>
     <artifactId>alm-http-client-parent</artifactId>
-    <version>0.4.2-SNAPSHOT</version>
+    <version>0.4.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Microsoft ALM HTTP Client</name>
@@ -82,9 +82,9 @@
 
         <version.major>0</version.major>
         <version.minor>4</version.minor>
-        <version.service>2</version.service>
+        <version.service>3</version.service>
 
-        <alm.http.client.version>0.4.2-SNAPSHOT</alm.http.client.version>
+        <alm.http.client.version>0.4.3-SNAPSHOT</alm.http.client.version>
 
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
         <buildNumber>${version.major}.${version.minor}.${version.service}.${maven.build.timestamp}</buildNumber>
@@ -176,7 +176,7 @@
     </distributionManagement>
 
     <scm> 
-        <url>git:https://mseng.visualstudio.com/DefaultCollection/VSOnline/Java/_git/Java.RestClient</url>
+        <url>git:https://github.com/Microsoft/vso-httpclient-java.git</url>
     </scm> 
 
 </project>
