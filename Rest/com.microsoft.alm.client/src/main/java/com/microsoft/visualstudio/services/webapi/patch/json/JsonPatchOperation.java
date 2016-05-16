@@ -30,7 +30,7 @@ public class JsonPatchOperation {
      * The path for the operation
      */
      public Operation getPath() {
-        return op;
+        return path;
      }
 
     /**
