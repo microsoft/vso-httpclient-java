@@ -29,7 +29,7 @@ public class JsonPatchOperation {
     /**
      * The path for the operation
      */
-     public Operation getPath() {
+     public String getPath() {
         return path;
      }
 
