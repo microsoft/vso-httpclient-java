@@ -18,16 +18,10 @@ package com.microsoft.alm.workitemtracking.webapi.models;
  */
 public class WorkItemTypeFieldInstance {
 
-    private WorkItemFieldReference field;
     private String helpText;
-
-    public WorkItemFieldReference getField() {
-        return field;
-    }
-
-    public void setField(final WorkItemFieldReference field) {
-        this.field = field;
-    }
+    private String name;
+    private String referenceName;
+    private String url;
 
     public String getHelpText() {
         return helpText;
@@ -35,5 +29,29 @@ public class WorkItemTypeFieldInstance {
 
     public void setHelpText(final String helpText) {
         this.helpText = helpText;
+    }
+
+    public String getName() {
+      return name;
+    }
+
+    public void setName(String name) {
+      this.name = name;
+    }
+
+    public String getReferenceName() {
+      return referenceName;
+    }
+
+    public void setReferenceName(String referenceName) {
+      this.referenceName = referenceName;
+    }
+
+    public String getUrl() {
+      return url;
+    }
+
+    public void setUrl(String url) {
+      this.url = url;
     }
 }

@@ -21,7 +21,7 @@ public class WorkItemType
     extends WorkItemTrackingResource {
 
     private String description;
-    private List<WorkItemTypeFieldInstance> fields;
+    private List<WorkItemTypeFieldInstance> fieldInstances;
     private String name;
     private String xmlForm;
 
@@ -33,12 +33,12 @@ public class WorkItemType
         this.description = description;
     }
 
-    public List<WorkItemTypeFieldInstance> getFields() {
-        return fields;
+    public List<WorkItemTypeFieldInstance> getFieldInstances() {
+        return fieldInstances;
     }
 
-    public void setFields(final List<WorkItemTypeFieldInstance> fields) {
-        this.fields = fields;
+    public void setFieldInstances(final List<WorkItemTypeFieldInstance> fieldInstances) {
+        this.fieldInstances = fieldInstances;
     }
 
     public String getName() {

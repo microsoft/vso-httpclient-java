@@ -39,15 +39,15 @@ public enum LogicalOperation {
         final String name = super.toString();
 
         if (name.equals("N_O_N_E")) { //$NON-NLS-1$
-            return "nONE"; //$NON-NLS-1$
+            return "none"; //$NON-NLS-1$
         }
 
         if (name.equals("A_N_D")) { //$NON-NLS-1$
-            return "aND"; //$NON-NLS-1$
+            return "and"; //$NON-NLS-1$
         }
 
         if (name.equals("O_R")) { //$NON-NLS-1$
-            return "oR"; //$NON-NLS-1$
+            return "or"; //$NON-NLS-1$
         }
 
         return null;
