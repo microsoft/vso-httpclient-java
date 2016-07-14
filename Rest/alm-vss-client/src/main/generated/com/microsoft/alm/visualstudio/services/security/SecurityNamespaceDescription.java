@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.security;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -28,7 +28,7 @@ public class SecurityNamespaceDescription {
     /**
     * The list of actions that this Security Namespace is responsible for securing.
     */
-    private List<ActionDefinition> actions;
+    private ArrayList<ActionDefinition> actions;
     /**
     * This is the dataspace category that describes where the security information for this SecurityNamespace should be stored.
     */
@@ -81,14 +81,14 @@ public class SecurityNamespaceDescription {
     /**
     * The list of actions that this Security Namespace is responsible for securing.
     */
-    public List<ActionDefinition> getActions() {
+    public ArrayList<ActionDefinition> getActions() {
         return actions;
     }
 
     /**
     * The list of actions that this Security Namespace is responsible for securing.
     */
-    public void setActions(final List<ActionDefinition> actions) {
+    public void setActions(final ArrayList<ActionDefinition> actions) {
         this.actions = actions;
     }
 

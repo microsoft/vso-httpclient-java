@@ -15,29 +15,29 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class TestResultsQuery {
 
-    private List<String> fields;
-    private List<TestCaseResult> results;
+    private ArrayList<String> fields;
+    private ArrayList<TestCaseResult> results;
     private ResultsFilter resultsFilter;
 
-    public List<String> getFields() {
+    public ArrayList<String> getFields() {
         return fields;
     }
 
-    public void setFields(final List<String> fields) {
+    public void setFields(final ArrayList<String> fields) {
         this.fields = fields;
     }
 
-    public List<TestCaseResult> getResults() {
+    public ArrayList<TestCaseResult> getResults() {
         return results;
     }
 
-    public void setResults(final List<TestCaseResult> results) {
+    public void setResults(final ArrayList<TestCaseResult> results) {
         this.results = results;
     }
 

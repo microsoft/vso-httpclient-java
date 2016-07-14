@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi.events;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.teamfoundation.build.webapi.TimelineRecord;
 
 /** 
@@ -23,13 +23,13 @@ import com.microsoft.alm.teamfoundation.build.webapi.TimelineRecord;
 public class TimelineRecordsUpdatedEvent
     extends RealtimeBuildEvent {
 
-    private List<TimelineRecord> timelineRecords;
+    private ArrayList<TimelineRecord> timelineRecords;
 
-    public List<TimelineRecord> getTimelineRecords() {
+    public ArrayList<TimelineRecord> getTimelineRecords() {
         return timelineRecords;
     }
 
-    public void setTimelineRecords(final List<TimelineRecord> timelineRecords) {
+    public void setTimelineRecords(final ArrayList<TimelineRecord> timelineRecords) {
         this.timelineRecords = timelineRecords;
     }
 }

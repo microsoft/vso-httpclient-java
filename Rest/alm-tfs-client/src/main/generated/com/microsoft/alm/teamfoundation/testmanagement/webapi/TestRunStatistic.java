@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class TestRunStatistic {
 
     private ShallowReference run;
-    private List<RunStatistic> runStatistics;
+    private ArrayList<RunStatistic> runStatistics;
 
     public ShallowReference getRun() {
         return run;
@@ -32,11 +32,11 @@ public class TestRunStatistic {
         this.run = run;
     }
 
-    public List<RunStatistic> getRunStatistics() {
+    public ArrayList<RunStatistic> getRunStatistics() {
         return runStatistics;
     }
 
-    public void setRunStatistics(final List<RunStatistic> runStatistics) {
+    public void setRunStatistics(final ArrayList<RunStatistic> runStatistics) {
         this.runStatistics = runStatistics;
     }
 }

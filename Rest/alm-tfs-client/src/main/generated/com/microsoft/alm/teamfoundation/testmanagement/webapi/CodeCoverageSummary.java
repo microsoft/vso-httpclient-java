@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * Represents the code coverage summary results Used to publish or retrieve code coverage summary against a build
@@ -30,7 +30,7 @@ public class CodeCoverageSummary {
     /**
     * List of coverage data and details for the build
     */
-    private List<CodeCoverageData> coverageData;
+    private ArrayList<CodeCoverageData> coverageData;
     /**
     * Uri of build against which difference in coverage is computed
     */
@@ -53,14 +53,14 @@ public class CodeCoverageSummary {
     /**
     * List of coverage data and details for the build
     */
-    public List<CodeCoverageData> getCoverageData() {
+    public ArrayList<CodeCoverageData> getCoverageData() {
         return coverageData;
     }
 
     /**
     * List of coverage data and details for the build
     */
-    public void setCoverageData(final List<CodeCoverageData> coverageData) {
+    public void setCoverageData(final ArrayList<CodeCoverageData> coverageData) {
         this.coverageData = coverageData;
     }
 

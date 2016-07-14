@@ -5,7 +5,7 @@
     </formats>
     <fileSets>
         <fileSet>
-            <directory>com.microsoft.alm.client/target</directory>
+            <directory>alm-vss-client/target</directory>
             <outputDirectory></outputDirectory>
             <includes>
                 <include>*.jar</include>
@@ -16,7 +16,7 @@
             <fileMode>0644</fileMode>
         </fileSet>
         <fileSet>
-            <directory>com.microsoft.alm.client.build2/target</directory>
+            <directory>alm-distributedtask-client/target</directory>
             <outputDirectory></outputDirectory>
             <includes>
                 <include>*.jar</include>
@@ -27,7 +27,7 @@
             <fileMode>0644</fileMode>
         </fileSet>
         <fileSet>
-            <directory>com.microsoft.alm.client.core/target</directory>
+            <directory>alm-gallery-client/target</directory>
             <outputDirectory></outputDirectory>
             <includes>
                 <include>*.jar</include>
@@ -38,7 +38,7 @@
             <fileMode>0644</fileMode>
         </fileSet>
         <fileSet>
-            <directory>com.microsoft.alm.client.distributedtask/target</directory>
+            <directory>alm-extensionmanagement-client/target</directory>
             <outputDirectory></outputDirectory>
             <includes>
                 <include>*.jar</include>
@@ -49,7 +49,7 @@
             <fileMode>0644</fileMode>
         </fileSet>
         <fileSet>
-            <directory>com.microsoft.alm.client.sourcecontrol/target</directory>
+            <directory>alm-releasemanagement-client/target</directory>
             <outputDirectory></outputDirectory>
             <includes>
                 <include>*.jar</include>
@@ -60,7 +60,7 @@
             <fileMode>0644</fileMode>
         </fileSet>
         <fileSet>
-            <directory>com.microsoft.alm.client.workitemtracking/target</directory>
+            <directory>alm-tfs-client/target</directory>
             <outputDirectory></outputDirectory>
             <includes>
                 <include>*.jar</include>

@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.location;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
@@ -27,7 +27,7 @@ public class LocationServiceData {
     /**
     * Data about the access mappings contained by this location service.
     */
-    private List<AccessMapping> accessMappings;
+    private ArrayList<AccessMapping> accessMappings;
     /**
     * Data that the location service holds.
     */
@@ -51,7 +51,7 @@ public class LocationServiceData {
     /**
     * Data about the service definitions contained by this location service.
     */
-    private List<ServiceDefinition> serviceDefinitions;
+    private ArrayList<ServiceDefinition> serviceDefinitions;
     /**
     * The identifier of the deployment which is hosting this location data (e.g. SPS, TFS, ELS, Napa, etc.)
     */
@@ -60,14 +60,14 @@ public class LocationServiceData {
     /**
     * Data about the access mappings contained by this location service.
     */
-    public List<AccessMapping> getAccessMappings() {
+    public ArrayList<AccessMapping> getAccessMappings() {
         return accessMappings;
     }
 
     /**
     * Data about the access mappings contained by this location service.
     */
-    public void setAccessMappings(final List<AccessMapping> accessMappings) {
+    public void setAccessMappings(final ArrayList<AccessMapping> accessMappings) {
         this.accessMappings = accessMappings;
     }
 
@@ -144,14 +144,14 @@ public class LocationServiceData {
     /**
     * Data about the service definitions contained by this location service.
     */
-    public List<ServiceDefinition> getServiceDefinitions() {
+    public ArrayList<ServiceDefinition> getServiceDefinitions() {
         return serviceDefinitions;
     }
 
     /**
     * Data about the service definitions contained by this location service.
     */
-    public void setServiceDefinitions(final List<ServiceDefinition> serviceDefinitions) {
+    public void setServiceDefinitions(final ArrayList<ServiceDefinition> serviceDefinitions) {
         this.serviceDefinitions = serviceDefinitions;
     }
 

@@ -15,20 +15,20 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /** 
  */
 public class WorkItemQueryResult {
 
     private Date asOf;
-    private List<WorkItemFieldReference> columns;
+    private ArrayList<WorkItemFieldReference> columns;
     private QueryResultType queryResultType;
     private QueryType queryType;
-    private List<WorkItemQuerySortColumn> sortColumns;
-    private List<WorkItemLink> workItemRelations;
-    private List<WorkItemReference> workItems;
+    private ArrayList<WorkItemQuerySortColumn> sortColumns;
+    private ArrayList<WorkItemLink> workItemRelations;
+    private ArrayList<WorkItemReference> workItems;
 
     public Date getAsOf() {
         return asOf;
@@ -38,11 +38,11 @@ public class WorkItemQueryResult {
         this.asOf = asOf;
     }
 
-    public List<WorkItemFieldReference> getColumns() {
+    public ArrayList<WorkItemFieldReference> getColumns() {
         return columns;
     }
 
-    public void setColumns(final List<WorkItemFieldReference> columns) {
+    public void setColumns(final ArrayList<WorkItemFieldReference> columns) {
         this.columns = columns;
     }
 
@@ -62,27 +62,27 @@ public class WorkItemQueryResult {
         this.queryType = queryType;
     }
 
-    public List<WorkItemQuerySortColumn> getSortColumns() {
+    public ArrayList<WorkItemQuerySortColumn> getSortColumns() {
         return sortColumns;
     }
 
-    public void setSortColumns(final List<WorkItemQuerySortColumn> sortColumns) {
+    public void setSortColumns(final ArrayList<WorkItemQuerySortColumn> sortColumns) {
         this.sortColumns = sortColumns;
     }
 
-    public List<WorkItemLink> getWorkItemRelations() {
+    public ArrayList<WorkItemLink> getWorkItemRelations() {
         return workItemRelations;
     }
 
-    public void setWorkItemRelations(final List<WorkItemLink> workItemRelations) {
+    public void setWorkItemRelations(final ArrayList<WorkItemLink> workItemRelations) {
         this.workItemRelations = workItemRelations;
     }
 
-    public List<WorkItemReference> getWorkItems() {
+    public ArrayList<WorkItemReference> getWorkItems() {
         return workItems;
     }
 
-    public void setWorkItems(final List<WorkItemReference> workItems) {
+    public void setWorkItems(final ArrayList<WorkItemReference> workItems) {
         this.workItems = workItems;
     }
 }

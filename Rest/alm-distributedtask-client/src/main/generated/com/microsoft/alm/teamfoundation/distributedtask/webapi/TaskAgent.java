@@ -16,7 +16,7 @@
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
 import java.util.Date;
-import java.util.Map;
+import java.util.HashMap;
 import com.microsoft.alm.visualstudio.services.webapi.PropertiesCollection;
 
 /** 
@@ -45,8 +45,8 @@ public class TaskAgent
     * Gets the date on which the last connectivity status change occurred.
     */
     private Date statusChangedOn;
-    private Map<String, String> systemCapabilities;
-    private Map<String, String> userCapabilities;
+    private HashMap<String, String> systemCapabilities;
+    private HashMap<String, String> userCapabilities;
 
     /**
     * Gets the request which is currently assigned to this agent.
@@ -126,19 +126,19 @@ public class TaskAgent
         this.statusChangedOn = statusChangedOn;
     }
 
-    public Map<String, String> getSystemCapabilities() {
+    public HashMap<String, String> getSystemCapabilities() {
         return systemCapabilities;
     }
 
-    public void setSystemCapabilities(final Map<String, String> systemCapabilities) {
+    public void setSystemCapabilities(final HashMap<String, String> systemCapabilities) {
         this.systemCapabilities = systemCapabilities;
     }
 
-    public Map<String, String> getUserCapabilities() {
+    public HashMap<String, String> getUserCapabilities() {
         return userCapabilities;
     }
 
-    public void setUserCapabilities(final Map<String, String> userCapabilities) {
+    public void setUserCapabilities(final HashMap<String, String> userCapabilities) {
         this.userCapabilities = userCapabilities;
     }
 }

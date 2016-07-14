@@ -15,24 +15,24 @@
 
 package com.microsoft.alm.visualstudio.services.profile;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
 public class CreateProfileContext {
 
-    private Map<String, Object> cIData;
+    private HashMap<String, Object> cIData;
     private boolean contactWithOffers;
     private String countryName;
     private String displayName;
     private String emailAddress;
     private String language;
 
-    public Map<String, Object> getCIData() {
+    public HashMap<String, Object> getCIData() {
         return cIData;
     }
 
-    public void setCIData(final Map<String, Object> cIData) {
+    public void setCIData(final HashMap<String, Object> cIData) {
         this.cIData = cIData;
     }
 

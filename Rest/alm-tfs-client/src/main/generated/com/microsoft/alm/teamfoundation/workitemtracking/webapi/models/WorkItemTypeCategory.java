@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -25,7 +25,7 @@ public class WorkItemTypeCategory
     private WorkItemTypeReference defaultWorkItemType;
     private String name;
     private String referenceName;
-    private List<WorkItemTypeReference> workItemTypes;
+    private ArrayList<WorkItemTypeReference> workItemTypes;
 
     public WorkItemTypeReference getDefaultWorkItemType() {
         return defaultWorkItemType;
@@ -51,11 +51,11 @@ public class WorkItemTypeCategory
         this.referenceName = referenceName;
     }
 
-    public List<WorkItemTypeReference> getWorkItemTypes() {
+    public ArrayList<WorkItemTypeReference> getWorkItemTypes() {
         return workItemTypes;
     }
 
-    public void setWorkItemTypes(final List<WorkItemTypeReference> workItemTypes) {
+    public void setWorkItemTypes(final ArrayList<WorkItemTypeReference> workItemTypes) {
         this.workItemTypes = workItemTypes;
     }
 }

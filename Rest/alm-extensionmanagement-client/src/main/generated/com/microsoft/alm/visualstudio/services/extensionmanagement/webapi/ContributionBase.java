@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * Base class shared by contributions and contribution types
@@ -34,7 +34,7 @@ public class ContributionBase {
     /**
     * VisibleTo can be used to restrict whom can reference a given contribution/type. This value should be a list of publishers or extensions access is restricted too.  Examples: &quot;ms&quot; - Means only the &quot;ms&quot; publisher can reference this. &quot;ms.vss-web&quot; - Means only the &quot;vss-web&quot; extension from the &quot;ms&quot; publisher can reference this.
     */
-    private List<String> visibleTo;
+    private ArrayList<String> visibleTo;
 
     /**
     * Description of the contribution/type
@@ -67,14 +67,14 @@ public class ContributionBase {
     /**
     * VisibleTo can be used to restrict whom can reference a given contribution/type. This value should be a list of publishers or extensions access is restricted too.  Examples: &amp;quot;ms&amp;quot; - Means only the &amp;quot;ms&amp;quot; publisher can reference this. &amp;quot;ms.vss-web&amp;quot; - Means only the &amp;quot;vss-web&amp;quot; extension from the &amp;quot;ms&amp;quot; publisher can reference this.
     */
-    public List<String> getVisibleTo() {
+    public ArrayList<String> getVisibleTo() {
         return visibleTo;
     }
 
     /**
     * VisibleTo can be used to restrict whom can reference a given contribution/type. This value should be a list of publishers or extensions access is restricted too.  Examples: &amp;quot;ms&amp;quot; - Means only the &amp;quot;ms&amp;quot; publisher can reference this. &amp;quot;ms.vss-web&amp;quot; - Means only the &amp;quot;vss-web&amp;quot; extension from the &amp;quot;ms&amp;quot; publisher can reference this.
     */
-    public void setVisibleTo(final List<String> visibleTo) {
+    public void setVisibleTo(final ArrayList<String> visibleTo) {
         this.visibleTo = visibleTo;
     }
 }

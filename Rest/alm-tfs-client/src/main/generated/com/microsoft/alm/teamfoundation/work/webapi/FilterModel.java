@@ -15,29 +15,29 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class FilterModel {
 
-    private List<FilterClause> clauses;
-    private List<FilterGroup> groups;
+    private ArrayList<FilterClause> clauses;
+    private ArrayList<FilterGroup> groups;
     private int maxGroupLevel;
 
-    public List<FilterClause> getClauses() {
+    public ArrayList<FilterClause> getClauses() {
         return clauses;
     }
 
-    public void setClauses(final List<FilterClause> clauses) {
+    public void setClauses(final ArrayList<FilterClause> clauses) {
         this.clauses = clauses;
     }
 
-    public List<FilterGroup> getGroups() {
+    public ArrayList<FilterGroup> getGroups() {
         return groups;
     }
 
-    public void setGroups(final List<FilterGroup> groups) {
+    public void setGroups(final ArrayList<FilterGroup> groups) {
         this.groups = groups;
     }
 

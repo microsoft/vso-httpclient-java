@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
@@ -23,7 +23,7 @@ public class WitBatchResponse {
 
     private String body;
     private int code;
-    private Map<String, String> headers;
+    private HashMap<String, String> headers;
 
     public String getBody() {
         return body;
@@ -41,11 +41,11 @@ public class WitBatchResponse {
         this.code = code;
     }
 
-    public Map<String, String> getHeaders() {
+    public HashMap<String, String> getHeaders() {
         return headers;
     }
 
-    public void setHeaders(final Map<String, String> headers) {
+    public void setHeaders(final HashMap<String, String> headers) {
         this.headers = headers;
     }
 }

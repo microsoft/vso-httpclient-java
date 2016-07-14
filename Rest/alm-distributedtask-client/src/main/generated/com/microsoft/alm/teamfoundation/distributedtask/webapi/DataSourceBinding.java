@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
@@ -24,7 +24,7 @@ public class DataSourceBinding {
     private String dataSourceName;
     private String endpointId;
     private String endpointUrl;
-    private Map<String, String> parameters;
+    private HashMap<String, String> parameters;
     private String resultSelector;
     private String resultTemplate;
     private String target;
@@ -54,11 +54,11 @@ public class DataSourceBinding {
         this.endpointUrl = endpointUrl;
     }
 
-    public Map<String, String> getParameters() {
+    public HashMap<String, String> getParameters() {
         return parameters;
     }
 
-    public void setParameters(final Map<String, String> parameters) {
+    public void setParameters(final HashMap<String, String> parameters) {
         this.parameters = parameters;
     }
 

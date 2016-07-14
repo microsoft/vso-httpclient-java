@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.events;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.ReleaseTask;
 
 /** 
@@ -27,7 +27,7 @@ public class ReleaseTasksUpdatedEvent
     private ReleaseTask job;
     private int releaseDeployPhaseId;
     private int releaseStepId;
-    private List<ReleaseTask> tasks;
+    private ArrayList<ReleaseTask> tasks;
 
     public int getEnvironmentId() {
         return environmentId;
@@ -61,11 +61,11 @@ public class ReleaseTasksUpdatedEvent
         this.releaseStepId = releaseStepId;
     }
 
-    public List<ReleaseTask> getTasks() {
+    public ArrayList<ReleaseTask> getTasks() {
         return tasks;
     }
 
-    public void setTasks(final List<ReleaseTask> tasks) {
+    public void setTasks(final ArrayList<ReleaseTask> tasks) {
         this.tasks = tasks;
     }
 }

@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
 /** 
@@ -31,7 +31,7 @@ public class RunCreateModel {
     private String completeDate;
     private Integer[] configurationIds;
     private String controller;
-    private List<CustomTestField> customTestFields;
+    private ArrayList<CustomTestField> customTestFields;
     private ShallowReference dtlAutEnvironment;
     private ShallowReference dtlTestEnvironment;
     private String dueDate;
@@ -126,11 +126,11 @@ public class RunCreateModel {
         this.controller = controller;
     }
 
-    public List<CustomTestField> getCustomTestFields() {
+    public ArrayList<CustomTestField> getCustomTestFields() {
         return customTestFields;
     }
 
-    public void setCustomTestFields(final List<CustomTestField> customTestFields) {
+    public void setCustomTestFields(final ArrayList<CustomTestField> customTestFields) {
         this.customTestFields = customTestFields;
     }
 

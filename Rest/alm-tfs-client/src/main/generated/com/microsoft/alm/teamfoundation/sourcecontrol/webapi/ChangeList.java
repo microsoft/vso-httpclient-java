@@ -15,9 +15,9 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.HashMap;
 import java.util.UUID;
 
 /** 
@@ -25,8 +25,8 @@ import java.util.UUID;
 public class ChangeList<T> {
 
     private boolean allChangesIncluded;
-    private Map<VersionControlChangeType, Integer> changeCounts;
-    private List<Change<T>> changes;
+    private HashMap<VersionControlChangeType, Integer> changeCounts;
+    private ArrayList<Change<T>> changes;
     private String comment;
     private boolean commentTruncated;
     private Date creationDate;
@@ -45,19 +45,19 @@ public class ChangeList<T> {
         this.allChangesIncluded = allChangesIncluded;
     }
 
-    public Map<VersionControlChangeType, Integer> getChangeCounts() {
+    public HashMap<VersionControlChangeType, Integer> getChangeCounts() {
         return changeCounts;
     }
 
-    public void setChangeCounts(final Map<VersionControlChangeType, Integer> changeCounts) {
+    public void setChangeCounts(final HashMap<VersionControlChangeType, Integer> changeCounts) {
         this.changeCounts = changeCounts;
     }
 
-    public List<Change<T>> getChanges() {
+    public ArrayList<Change<T>> getChanges() {
         return changes;
     }
 
-    public void setChanges(final List<Change<T>> changes) {
+    public void setChanges(final ArrayList<Change<T>> changes) {
         this.changes = changes;
     }
 

@@ -15,16 +15,16 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /** 
  */
 public class TestResultsDetailsForGroup {
 
     private Object groupByValue;
-    private List<TestCaseResult> results;
-    private Map<TestOutcome, AggregatedResultsByOutcome> resultsCountByOutcome;
+    private ArrayList<TestCaseResult> results;
+    private HashMap<TestOutcome, AggregatedResultsByOutcome> resultsCountByOutcome;
 
     public Object getGroupByValue() {
         return groupByValue;
@@ -34,19 +34,19 @@ public class TestResultsDetailsForGroup {
         this.groupByValue = groupByValue;
     }
 
-    public List<TestCaseResult> getResults() {
+    public ArrayList<TestCaseResult> getResults() {
         return results;
     }
 
-    public void setResults(final List<TestCaseResult> results) {
+    public void setResults(final ArrayList<TestCaseResult> results) {
         this.results = results;
     }
 
-    public Map<TestOutcome, AggregatedResultsByOutcome> getResultsCountByOutcome() {
+    public HashMap<TestOutcome, AggregatedResultsByOutcome> getResultsCountByOutcome() {
         return resultsCountByOutcome;
     }
 
-    public void setResultsCountByOutcome(final Map<TestOutcome, AggregatedResultsByOutcome> resultsCountByOutcome) {
+    public void setResultsCountByOutcome(final HashMap<TestOutcome, AggregatedResultsByOutcome> resultsCountByOutcome) {
         this.resultsCountByOutcome = resultsCountByOutcome;
     }
 }

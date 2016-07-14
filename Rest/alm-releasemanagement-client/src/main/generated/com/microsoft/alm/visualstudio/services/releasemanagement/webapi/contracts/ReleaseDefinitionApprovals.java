@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class ReleaseDefinitionApprovals {
 
     private ApprovalOptions approvalOptions;
-    private List<ReleaseDefinitionApprovalStep> approvals;
+    private ArrayList<ReleaseDefinitionApprovalStep> approvals;
 
     public ApprovalOptions getApprovalOptions() {
         return approvalOptions;
@@ -32,11 +32,11 @@ public class ReleaseDefinitionApprovals {
         this.approvalOptions = approvalOptions;
     }
 
-    public List<ReleaseDefinitionApprovalStep> getApprovals() {
+    public ArrayList<ReleaseDefinitionApprovalStep> getApprovals() {
         return approvals;
     }
 
-    public void setApprovals(final List<ReleaseDefinitionApprovalStep> approvals) {
+    public void setApprovals(final ArrayList<ReleaseDefinitionApprovalStep> approvals) {
         this.approvals = approvals;
     }
 }

@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -44,7 +44,7 @@ public class BuildDefinitionReference
     * If this is a draft definition, it might have a parent
     */
     private DefinitionReference draftOf;
-    private List<BuildMetric> metrics;
+    private ArrayList<BuildMetric> metrics;
     /**
     * The quality of the definition document (draft, etc.)
     */
@@ -95,40 +95,36 @@ public class BuildDefinitionReference
     /**
     * If this is a draft definition, it might have a parent
     */
-    @JsonProperty("draftOf")
-    public DefinitionReference getParentDefinition() {
+    public DefinitionReference getDraftOf() {
         return draftOf;
     }
 
     /**
     * If this is a draft definition, it might have a parent
     */
-    @JsonProperty("draftOf")
-    public void setParentDefinition(final DefinitionReference draftOf) {
+    public void setDraftOf(final DefinitionReference draftOf) {
         this.draftOf = draftOf;
     }
 
-    public List<BuildMetric> getMetrics() {
+    public ArrayList<BuildMetric> getMetrics() {
         return metrics;
     }
 
-    public void setMetrics(final List<BuildMetric> metrics) {
+    public void setMetrics(final ArrayList<BuildMetric> metrics) {
         this.metrics = metrics;
     }
 
     /**
     * The quality of the definition document (draft, etc.)
     */
-    @JsonProperty("quality")
-    public DefinitionQuality getDefinitionQuality() {
+    public DefinitionQuality getQuality() {
         return quality;
     }
 
     /**
     * The quality of the definition document (draft, etc.)
     */
-    @JsonProperty("quality")
-    public void setDefinitionQuality(final DefinitionQuality quality) {
+    public void setQuality(final DefinitionQuality quality) {
         this.quality = quality;
     }
 

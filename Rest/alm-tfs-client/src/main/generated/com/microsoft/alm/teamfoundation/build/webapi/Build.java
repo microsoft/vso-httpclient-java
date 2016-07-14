@@ -16,8 +16,8 @@
 package com.microsoft.alm.teamfoundation.build.webapi;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.teamfoundation.core.webapi.TeamProjectReference;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
@@ -66,7 +66,7 @@ public class Build {
     /**
     * Demands
     */
-    private List<Demand> demands;
+    private ArrayList<Demand> demands;
     /**
     * Time that the build was completed
     */
@@ -99,7 +99,7 @@ public class Build {
     /**
     * Orchestration plans associated with the build (build, cleanup)
     */
-    private List<TaskOrchestrationPlanReference> plans;
+    private ArrayList<TaskOrchestrationPlanReference> plans;
     /**
     * The build&#039;s priority
     */
@@ -169,7 +169,7 @@ public class Build {
     * Status of the build
     */
     private BuildStatus status;
-    private List<String> tags;
+    private ArrayList<String> tags;
     /**
     * Uri of the build
     */
@@ -178,7 +178,7 @@ public class Build {
     * REST url of the build
     */
     private String url;
-    private List<BuildRequestValidationResult> validationResults;
+    private ArrayList<BuildRequestValidationResult> validationResults;
 
     @JsonProperty("_links")
     public ReferenceLinks getLinks() {
@@ -305,14 +305,14 @@ public class Build {
     /**
     * Demands
     */
-    public List<Demand> getDemands() {
+    public ArrayList<Demand> getDemands() {
         return demands;
     }
 
     /**
     * Demands
     */
-    public void setDemands(final List<Demand> demands) {
+    public void setDemands(final ArrayList<Demand> demands) {
         this.demands = demands;
     }
 
@@ -425,14 +425,14 @@ public class Build {
     /**
     * Orchestration plans associated with the build (build, cleanup)
     */
-    public List<TaskOrchestrationPlanReference> getPlans() {
+    public ArrayList<TaskOrchestrationPlanReference> getPlans() {
         return plans;
     }
 
     /**
     * Orchestration plans associated with the build (build, cleanup)
     */
-    public void setPlans(final List<TaskOrchestrationPlanReference> plans) {
+    public void setPlans(final ArrayList<TaskOrchestrationPlanReference> plans) {
         this.plans = plans;
     }
 
@@ -682,11 +682,11 @@ public class Build {
         this.status = status;
     }
 
-    public List<String> getTags() {
+    public ArrayList<String> getTags() {
         return tags;
     }
 
-    public void setTags(final List<String> tags) {
+    public void setTags(final ArrayList<String> tags) {
         this.tags = tags;
     }
 
@@ -718,11 +718,11 @@ public class Build {
         this.url = url;
     }
 
-    public List<BuildRequestValidationResult> getValidationResults() {
+    public ArrayList<BuildRequestValidationResult> getValidationResults() {
         return validationResults;
     }
 
-    public void setValidationResults(final List<BuildRequestValidationResult> validationResults) {
+    public void setValidationResults(final ArrayList<BuildRequestValidationResult> validationResults) {
         this.validationResults = validationResults;
     }
 }

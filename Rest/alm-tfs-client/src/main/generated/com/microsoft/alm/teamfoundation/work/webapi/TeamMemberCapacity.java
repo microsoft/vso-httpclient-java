@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * Represents capacity for a specific team member
@@ -27,11 +27,11 @@ public class TeamMemberCapacity
     /**
     * Collection of capacities associated with the team member
     */
-    private List<Activity> activities;
+    private ArrayList<Activity> activities;
     /**
     * The days off associated with the team member
     */
-    private List<DateRange> daysOff;
+    private ArrayList<DateRange> daysOff;
     /**
     * Shallow Ref to the associated team member
     */
@@ -40,28 +40,28 @@ public class TeamMemberCapacity
     /**
     * Collection of capacities associated with the team member
     */
-    public List<Activity> getActivities() {
+    public ArrayList<Activity> getActivities() {
         return activities;
     }
 
     /**
     * Collection of capacities associated with the team member
     */
-    public void setActivities(final List<Activity> activities) {
+    public void setActivities(final ArrayList<Activity> activities) {
         this.activities = activities;
     }
 
     /**
     * The days off associated with the team member
     */
-    public List<DateRange> getDaysOff() {
+    public ArrayList<DateRange> getDaysOff() {
         return daysOff;
     }
 
     /**
     * The days off associated with the team member
     */
-    public void setDaysOff(final List<DateRange> daysOff) {
+    public void setDaysOff(final ArrayList<DateRange> daysOff) {
         this.daysOff = daysOff;
     }
 

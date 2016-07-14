@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
@@ -25,7 +25,7 @@ public class StreamedBatch<T> {
     private String continuationToken;
     private boolean isLastBatch;
     private String nextLink;
-    private List<T> values;
+    private ArrayList<T> values;
 
     public String getContinuationToken() {
         return continuationToken;
@@ -53,11 +53,11 @@ public class StreamedBatch<T> {
         this.nextLink = nextLink;
     }
 
-    public List<T> getValues() {
+    public ArrayList<T> getValues() {
         return values;
     }
 
-    public void setValues(final List<T> values) {
+    public void setValues(final ArrayList<T> values) {
         this.values = values;
     }
 }

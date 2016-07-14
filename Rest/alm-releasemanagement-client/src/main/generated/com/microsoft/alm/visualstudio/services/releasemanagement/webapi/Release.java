@@ -15,9 +15,9 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.HashMap;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.Artifact;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.ShallowReference;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
@@ -26,13 +26,13 @@ import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
  */
 public class Release {
 
-    private List<Artifact> artifacts;
+    private ArrayList<Artifact> artifacts;
     private String comment;
     private IdentityRef createdBy;
     private Date createdOn;
     private int definitionSnapshotRevision;
     private String description;
-    private List<ReleaseEnvironment> environments;
+    private ArrayList<ReleaseEnvironment> environments;
     private int id;
     private boolean keepForever;
     private String logsContainerUrl;
@@ -45,13 +45,13 @@ public class Release {
     private String releaseNameFormat;
     private ReleaseStatus status;
     private String url;
-    private Map<String, ConfigurationVariableValue> variables;
+    private HashMap<String, ConfigurationVariableValue> variables;
 
-    public List<Artifact> getArtifacts() {
+    public ArrayList<Artifact> getArtifacts() {
         return artifacts;
     }
 
-    public void setArtifacts(final List<Artifact> artifacts) {
+    public void setArtifacts(final ArrayList<Artifact> artifacts) {
         this.artifacts = artifacts;
     }
 
@@ -95,11 +95,11 @@ public class Release {
         this.description = description;
     }
 
-    public List<ReleaseEnvironment> getEnvironments() {
+    public ArrayList<ReleaseEnvironment> getEnvironments() {
         return environments;
     }
 
-    public void setEnvironments(final List<ReleaseEnvironment> environments) {
+    public void setEnvironments(final ArrayList<ReleaseEnvironment> environments) {
         this.environments = environments;
     }
 
@@ -199,11 +199,11 @@ public class Release {
         this.url = url;
     }
 
-    public Map<String, ConfigurationVariableValue> getVariables() {
+    public HashMap<String, ConfigurationVariableValue> getVariables() {
         return variables;
     }
 
-    public void setVariables(final Map<String, ConfigurationVariableValue> variables) {
+    public void setVariables(final HashMap<String, ConfigurationVariableValue> variables) {
         this.variables = variables;
     }
 }

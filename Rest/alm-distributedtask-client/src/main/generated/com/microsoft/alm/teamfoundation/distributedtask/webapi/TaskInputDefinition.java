@@ -15,8 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.HashMap;
 
 /** 
  */
@@ -27,8 +26,8 @@ public class TaskInputDefinition {
     private String helpMarkDown;
     private String label;
     private String name;
-    private Map<String, String> options;
-    private Map<String, String> properties;
+    private HashMap<String, String> options;
+    private HashMap<String, String> properties;
     private boolean required;
     private String type;
     private String visibleRule;
@@ -73,19 +72,19 @@ public class TaskInputDefinition {
         this.name = name;
     }
 
-    public Map<String, String> getOptions() {
+    public HashMap<String, String> getOptions() {
         return options;
     }
 
-    public void setOptions(final Map<String, String> options) {
+    public void setOptions(final HashMap<String, String> options) {
         this.options = options;
     }
 
-    public Map<String, String> getProperties() {
+    public HashMap<String, String> getProperties() {
         return properties;
     }
 
-    public void setProperties(final Map<String, String> properties) {
+    public void setProperties(final HashMap<String, String> properties) {
         this.properties = properties;
     }
 
@@ -97,13 +96,11 @@ public class TaskInputDefinition {
         this.required = required;
     }
 
-    @JsonProperty("type")
-    public String getInputType() {
+    public String getType() {
         return type;
     }
 
-    @JsonProperty("type")
-    public void setInputType(final String type) {
+    public void setType(final String type) {
         this.type = type;
     }
 

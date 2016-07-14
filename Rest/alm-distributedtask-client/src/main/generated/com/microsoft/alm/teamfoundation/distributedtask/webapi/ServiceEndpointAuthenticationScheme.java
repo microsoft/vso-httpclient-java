@@ -15,23 +15,23 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.visualstudio.services.forminput.InputDescriptor;
 
 /** 
  */
 public class ServiceEndpointAuthenticationScheme {
 
-    private List<AuthorizationHeader> authorizationHeaders;
+    private ArrayList<AuthorizationHeader> authorizationHeaders;
     private String displayName;
-    private List<InputDescriptor> inputDescriptors;
+    private ArrayList<InputDescriptor> inputDescriptors;
     private String scheme;
 
-    public List<AuthorizationHeader> getAuthorizationHeaders() {
+    public ArrayList<AuthorizationHeader> getAuthorizationHeaders() {
         return authorizationHeaders;
     }
 
-    public void setAuthorizationHeaders(final List<AuthorizationHeader> authorizationHeaders) {
+    public void setAuthorizationHeaders(final ArrayList<AuthorizationHeader> authorizationHeaders) {
         this.authorizationHeaders = authorizationHeaders;
     }
 
@@ -43,11 +43,11 @@ public class ServiceEndpointAuthenticationScheme {
         this.displayName = displayName;
     }
 
-    public List<InputDescriptor> getInputDescriptors() {
+    public ArrayList<InputDescriptor> getInputDescriptors() {
         return inputDescriptors;
     }
 
-    public void setInputDescriptors(final List<InputDescriptor> inputDescriptors) {
+    public void setInputDescriptors(final ArrayList<InputDescriptor> inputDescriptors) {
         this.inputDescriptors = inputDescriptors;
     }
 

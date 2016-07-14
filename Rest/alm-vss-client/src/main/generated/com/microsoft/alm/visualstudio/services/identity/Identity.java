@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.identity;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.PropertiesCollection;
@@ -33,9 +33,9 @@ public class Identity {
     private boolean isActive;
     private boolean isContainer;
     private UUID masterId;
-    private List<UUID> memberIds;
-    private List<IdentityDescriptor> memberOf;
-    private List<IdentityDescriptor> members;
+    private ArrayList<UUID> memberIds;
+    private ArrayList<IdentityDescriptor> memberOf;
+    private ArrayList<IdentityDescriptor> members;
     private int metaTypeId;
     private PropertiesCollection properties;
     /**
@@ -103,27 +103,27 @@ public class Identity {
         this.masterId = masterId;
     }
 
-    public List<UUID> getMemberIds() {
+    public ArrayList<UUID> getMemberIds() {
         return memberIds;
     }
 
-    public void setMemberIds(final List<UUID> memberIds) {
+    public void setMemberIds(final ArrayList<UUID> memberIds) {
         this.memberIds = memberIds;
     }
 
-    public List<IdentityDescriptor> getMemberOf() {
+    public ArrayList<IdentityDescriptor> getMemberOf() {
         return memberOf;
     }
 
-    public void setMemberOf(final List<IdentityDescriptor> memberOf) {
+    public void setMemberOf(final ArrayList<IdentityDescriptor> memberOf) {
         this.memberOf = memberOf;
     }
 
-    public List<IdentityDescriptor> getMembers() {
+    public ArrayList<IdentityDescriptor> getMembers() {
         return members;
     }
 
-    public void setMembers(final List<IdentityDescriptor> members) {
+    public void setMembers(final ArrayList<IdentityDescriptor> members) {
         this.members = members;
     }
 

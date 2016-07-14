@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
 /** 
@@ -24,8 +24,8 @@ import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 public class TestSuite {
 
     private String areaUri;
-    private List<TestSuite> children;
-    private List<ShallowReference> defaultConfigurations;
+    private ArrayList<TestSuite> children;
+    private ArrayList<ShallowReference> defaultConfigurations;
     private int id;
     private boolean inheritDefaultConfigurations;
     private String lastError;
@@ -40,7 +40,7 @@ public class TestSuite {
     private int requirementId;
     private int revision;
     private String state;
-    private List<ShallowReference> suites;
+    private ArrayList<ShallowReference> suites;
     private String suiteType;
     private int testCaseCount;
     private String testCasesUrl;
@@ -55,19 +55,19 @@ public class TestSuite {
         this.areaUri = areaUri;
     }
 
-    public List<TestSuite> getChildren() {
+    public ArrayList<TestSuite> getChildren() {
         return children;
     }
 
-    public void setChildren(final List<TestSuite> children) {
+    public void setChildren(final ArrayList<TestSuite> children) {
         this.children = children;
     }
 
-    public List<ShallowReference> getDefaultConfigurations() {
+    public ArrayList<ShallowReference> getDefaultConfigurations() {
         return defaultConfigurations;
     }
 
-    public void setDefaultConfigurations(final List<ShallowReference> defaultConfigurations) {
+    public void setDefaultConfigurations(final ArrayList<ShallowReference> defaultConfigurations) {
         this.defaultConfigurations = defaultConfigurations;
     }
 
@@ -183,11 +183,11 @@ public class TestSuite {
         this.state = state;
     }
 
-    public List<ShallowReference> getSuites() {
+    public ArrayList<ShallowReference> getSuites() {
         return suites;
     }
 
-    public void setSuites(final List<ShallowReference> suites) {
+    public void setSuites(final ArrayList<ShallowReference> suites) {
         this.suites = suites;
     }
 

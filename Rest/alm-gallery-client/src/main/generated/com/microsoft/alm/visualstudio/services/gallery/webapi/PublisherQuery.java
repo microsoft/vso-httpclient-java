@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * An PublisherQuery is used to search the gallery for a set of publishers that match one of many filter values.
@@ -26,7 +26,7 @@ public class PublisherQuery {
     /**
     * Each filter is a unique query and will have matching set of publishers returned from the request. Each result will have the same index in the resulting array that the filter had in the incoming query.
     */
-    private List<QueryFilter> filters;
+    private ArrayList<QueryFilter> filters;
     /**
     * The Flags are used to deterine which set of information the caller would like returned for the matched publishers.
     */
@@ -35,14 +35,14 @@ public class PublisherQuery {
     /**
     * Each filter is a unique query and will have matching set of publishers returned from the request. Each result will have the same index in the resulting array that the filter had in the incoming query.
     */
-    public List<QueryFilter> getFilters() {
+    public ArrayList<QueryFilter> getFilters() {
         return filters;
     }
 
     /**
     * Each filter is a unique query and will have matching set of publishers returned from the request. Each result will have the same index in the resulting array that the filter had in the incoming query.
     */
-    public void setFilters(final List<QueryFilter> filters) {
+    public void setFilters(final ArrayList<QueryFilter> filters) {
         this.filters = filters;
     }
 

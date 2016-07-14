@@ -15,21 +15,21 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class ParentChildWIMap {
 
-    private List<Integer> childWorkItemIds;
+    private ArrayList<Integer> childWorkItemIds;
     private int id;
     private String title;
 
-    public List<Integer> getChildWorkItemIds() {
+    public ArrayList<Integer> getChildWorkItemIds() {
         return childWorkItemIds;
     }
 
-    public void setChildWorkItemIds(final List<Integer> childWorkItemIds) {
+    public void setChildWorkItemIds(final ArrayList<Integer> childWorkItemIds) {
         this.childWorkItemIds = childWorkItemIds;
     }
 

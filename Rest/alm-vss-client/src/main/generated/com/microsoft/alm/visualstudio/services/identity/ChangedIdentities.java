@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.identity;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * Container class for changed identities
@@ -26,7 +26,7 @@ public class ChangedIdentities {
     /**
     * Changed Identities
     */
-    private List<Identity> identities;
+    private ArrayList<Identity> identities;
     /**
     * Last Identity SequenceId
     */
@@ -35,14 +35,14 @@ public class ChangedIdentities {
     /**
     * Changed Identities
     */
-    public List<Identity> getIdentities() {
+    public ArrayList<Identity> getIdentities() {
         return identities;
     }
 
     /**
     * Changed Identities
     */
-    public void setIdentities(final List<Identity> identities) {
+    public void setIdentities(final ArrayList<Identity> identities) {
         this.identities = identities;
     }
 

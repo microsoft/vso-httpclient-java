@@ -17,6 +17,7 @@ package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -127,9 +128,9 @@ public abstract class TestHttpClientBase
      *            
      * @param actionPath 
      *            
-     * @return List&lt;TestActionResultModel&gt;
+     * @return ArrayList&lt;TestActionResultModel&gt;
      */
-    public List<TestActionResultModel> getActionResults(
+    public ArrayList<TestActionResultModel> getActionResults(
         final String project, 
         final int runId, 
         final int testCaseResultId, 
@@ -152,7 +153,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestActionResultModel>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestActionResultModel>>() {});
     }
 
     /** 
@@ -168,9 +169,9 @@ public abstract class TestHttpClientBase
      *            
      * @param actionPath 
      *            
-     * @return List&lt;TestActionResultModel&gt;
+     * @return ArrayList&lt;TestActionResultModel&gt;
      */
-    public List<TestActionResultModel> getActionResults(
+    public ArrayList<TestActionResultModel> getActionResults(
         final UUID project, 
         final int runId, 
         final int testCaseResultId, 
@@ -193,7 +194,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestActionResultModel>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestActionResultModel>>() {});
     }
 
     /** 
@@ -453,9 +454,9 @@ public abstract class TestHttpClientBase
      *            
      * @param testCaseResultId 
      *            
-     * @return List&lt;TestAttachment&gt;
+     * @return ArrayList&lt;TestAttachment&gt;
      */
-    public List<TestAttachment> getTestResultAttachments(
+    public ArrayList<TestAttachment> getTestResultAttachments(
         final String project, 
         final int runId, 
         final int testCaseResultId) { 
@@ -474,7 +475,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestAttachment>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestAttachment>>() {});
     }
 
     /** 
@@ -486,9 +487,9 @@ public abstract class TestHttpClientBase
      *            
      * @param testCaseResultId 
      *            
-     * @return List&lt;TestAttachment&gt;
+     * @return ArrayList&lt;TestAttachment&gt;
      */
-    public List<TestAttachment> getTestResultAttachments(
+    public ArrayList<TestAttachment> getTestResultAttachments(
         final UUID project, 
         final int runId, 
         final int testCaseResultId) { 
@@ -507,7 +508,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestAttachment>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestAttachment>>() {});
     }
 
     /** 
@@ -725,9 +726,9 @@ public abstract class TestHttpClientBase
      *            Project ID or project name
      * @param runId 
      *            
-     * @return List&lt;TestAttachment&gt;
+     * @return ArrayList&lt;TestAttachment&gt;
      */
-    public List<TestAttachment> getTestRunAttachments(
+    public ArrayList<TestAttachment> getTestRunAttachments(
         final String project, 
         final int runId) { 
 
@@ -744,7 +745,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestAttachment>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestAttachment>>() {});
     }
 
     /** 
@@ -754,9 +755,9 @@ public abstract class TestHttpClientBase
      *            Project ID
      * @param runId 
      *            
-     * @return List&lt;TestAttachment&gt;
+     * @return ArrayList&lt;TestAttachment&gt;
      */
-    public List<TestAttachment> getTestRunAttachments(
+    public ArrayList<TestAttachment> getTestRunAttachments(
         final UUID project, 
         final int runId) { 
 
@@ -773,7 +774,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestAttachment>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestAttachment>>() {});
     }
 
     /** 
@@ -851,9 +852,9 @@ public abstract class TestHttpClientBase
      *            
      * @param testCaseResultId 
      *            
-     * @return List&lt;WorkItemReference&gt;
+     * @return ArrayList&lt;WorkItemReference&gt;
      */
-    public List<WorkItemReference> getBugsLinkedToTestResult(
+    public ArrayList<WorkItemReference> getBugsLinkedToTestResult(
         final String project, 
         final int runId, 
         final int testCaseResultId) { 
@@ -872,7 +873,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemReference>>() {});
     }
 
     /** 
@@ -884,9 +885,9 @@ public abstract class TestHttpClientBase
      *            
      * @param testCaseResultId 
      *            
-     * @return List&lt;WorkItemReference&gt;
+     * @return ArrayList&lt;WorkItemReference&gt;
      */
-    public List<WorkItemReference> getBugsLinkedToTestResult(
+    public ArrayList<WorkItemReference> getBugsLinkedToTestResult(
         final UUID project, 
         final int runId, 
         final int testCaseResultId) { 
@@ -905,7 +906,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemReference>>() {});
     }
 
     /** 
@@ -1133,9 +1134,9 @@ public abstract class TestHttpClientBase
      *            
      * @param flags 
      *            
-     * @return List&lt;BuildCoverage&gt;
+     * @return ArrayList&lt;BuildCoverage&gt;
      */
-    public List<BuildCoverage> getBuildCodeCoverage(
+    public ArrayList<BuildCoverage> getBuildCodeCoverage(
         final String project, 
         final int buildId, 
         final int flags) { 
@@ -1157,7 +1158,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildCoverage>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildCoverage>>() {});
     }
 
     /** 
@@ -1169,9 +1170,9 @@ public abstract class TestHttpClientBase
      *            
      * @param flags 
      *            
-     * @return List&lt;BuildCoverage&gt;
+     * @return ArrayList&lt;BuildCoverage&gt;
      */
-    public List<BuildCoverage> getBuildCodeCoverage(
+    public ArrayList<BuildCoverage> getBuildCodeCoverage(
         final UUID project, 
         final int buildId, 
         final int flags) { 
@@ -1193,7 +1194,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildCoverage>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildCoverage>>() {});
     }
 
     /** 
@@ -1349,9 +1350,9 @@ public abstract class TestHttpClientBase
      *            
      * @param flags 
      *            
-     * @return List&lt;TestRunCoverage&gt;
+     * @return ArrayList&lt;TestRunCoverage&gt;
      */
-    public List<TestRunCoverage> getTestRunCodeCoverage(
+    public ArrayList<TestRunCoverage> getTestRunCodeCoverage(
         final String project, 
         final int runId, 
         final int flags) { 
@@ -1373,7 +1374,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestRunCoverage>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestRunCoverage>>() {});
     }
 
     /** 
@@ -1385,9 +1386,9 @@ public abstract class TestHttpClientBase
      *            
      * @param flags 
      *            
-     * @return List&lt;TestRunCoverage&gt;
+     * @return ArrayList&lt;TestRunCoverage&gt;
      */
-    public List<TestRunCoverage> getTestRunCodeCoverage(
+    public ArrayList<TestRunCoverage> getTestRunCodeCoverage(
         final UUID project, 
         final int runId, 
         final int flags) { 
@@ -1409,7 +1410,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestRunCoverage>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestRunCoverage>>() {});
     }
 
     /** 
@@ -1597,9 +1598,9 @@ public abstract class TestHttpClientBase
      *            
      * @param includeAllProperties 
      *            
-     * @return List&lt;TestConfiguration&gt;
+     * @return ArrayList&lt;TestConfiguration&gt;
      */
-    public List<TestConfiguration> getTestConfigurations(
+    public ArrayList<TestConfiguration> getTestConfigurations(
         final String project, 
         final Integer skip, 
         final Integer top, 
@@ -1623,7 +1624,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestConfiguration>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestConfiguration>>() {});
     }
 
     /** 
@@ -1637,9 +1638,9 @@ public abstract class TestHttpClientBase
      *            
      * @param includeAllProperties 
      *            
-     * @return List&lt;TestConfiguration&gt;
+     * @return ArrayList&lt;TestConfiguration&gt;
      */
-    public List<TestConfiguration> getTestConfigurations(
+    public ArrayList<TestConfiguration> getTestConfigurations(
         final UUID project, 
         final Integer skip, 
         final Integer top, 
@@ -1663,7 +1664,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestConfiguration>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestConfiguration>>() {});
     }
 
     /** 
@@ -1741,9 +1742,9 @@ public abstract class TestHttpClientBase
      *            
      * @param project 
      *            Project ID or project name
-     * @return List&lt;CustomTestFieldDefinition&gt;
+     * @return ArrayList&lt;CustomTestFieldDefinition&gt;
      */
-    public List<CustomTestFieldDefinition> addCustomFields(
+    public ArrayList<CustomTestFieldDefinition> addCustomFields(
         final CustomTestFieldDefinition[] newFields, 
         final String project) { 
 
@@ -1761,7 +1762,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<CustomTestFieldDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<CustomTestFieldDefinition>>() {});
     }
 
     /** 
@@ -1771,9 +1772,9 @@ public abstract class TestHttpClientBase
      *            
      * @param project 
      *            Project ID
-     * @return List&lt;CustomTestFieldDefinition&gt;
+     * @return ArrayList&lt;CustomTestFieldDefinition&gt;
      */
-    public List<CustomTestFieldDefinition> addCustomFields(
+    public ArrayList<CustomTestFieldDefinition> addCustomFields(
         final CustomTestFieldDefinition[] newFields, 
         final UUID project) { 
 
@@ -1791,7 +1792,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<CustomTestFieldDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<CustomTestFieldDefinition>>() {});
     }
 
     /** 
@@ -1801,9 +1802,9 @@ public abstract class TestHttpClientBase
      *            Project ID or project name
      * @param scopeFilter 
      *            
-     * @return List&lt;CustomTestFieldDefinition&gt;
+     * @return ArrayList&lt;CustomTestFieldDefinition&gt;
      */
-    public List<CustomTestFieldDefinition> queryCustomFields(
+    public ArrayList<CustomTestFieldDefinition> queryCustomFields(
         final String project, 
         final CustomTestFieldScope scopeFilter) { 
 
@@ -1823,7 +1824,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<CustomTestFieldDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<CustomTestFieldDefinition>>() {});
     }
 
     /** 
@@ -1833,9 +1834,9 @@ public abstract class TestHttpClientBase
      *            Project ID
      * @param scopeFilter 
      *            
-     * @return List&lt;CustomTestFieldDefinition&gt;
+     * @return ArrayList&lt;CustomTestFieldDefinition&gt;
      */
-    public List<CustomTestFieldDefinition> queryCustomFields(
+    public ArrayList<CustomTestFieldDefinition> queryCustomFields(
         final UUID project, 
         final CustomTestFieldScope scopeFilter) { 
 
@@ -1855,7 +1856,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<CustomTestFieldDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<CustomTestFieldDefinition>>() {});
     }
 
     /** 
@@ -2017,9 +2018,9 @@ public abstract class TestHttpClientBase
      *            
      * @param includeActionResults 
      *            
-     * @return List&lt;TestIterationDetailsModel&gt;
+     * @return ArrayList&lt;TestIterationDetailsModel&gt;
      */
-    public List<TestIterationDetailsModel> getTestIterations(
+    public ArrayList<TestIterationDetailsModel> getTestIterations(
         final String project, 
         final int runId, 
         final int testCaseResultId, 
@@ -2043,7 +2044,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestIterationDetailsModel>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestIterationDetailsModel>>() {});
     }
 
     /** 
@@ -2057,9 +2058,9 @@ public abstract class TestHttpClientBase
      *            
      * @param includeActionResults 
      *            
-     * @return List&lt;TestIterationDetailsModel&gt;
+     * @return ArrayList&lt;TestIterationDetailsModel&gt;
      */
-    public List<TestIterationDetailsModel> getTestIterations(
+    public ArrayList<TestIterationDetailsModel> getTestIterations(
         final UUID project, 
         final int runId, 
         final int testCaseResultId, 
@@ -2083,7 +2084,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestIterationDetailsModel>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestIterationDetailsModel>>() {});
     }
 
     /** 
@@ -2093,9 +2094,9 @@ public abstract class TestHttpClientBase
      *            Project ID or project name
      * @param runId 
      *            
-     * @return List&lt;TestMessageLogDetails&gt;
+     * @return ArrayList&lt;TestMessageLogDetails&gt;
      */
-    public List<TestMessageLogDetails> getTestRunLogs(
+    public ArrayList<TestMessageLogDetails> getTestRunLogs(
         final String project, 
         final int runId) { 
 
@@ -2112,7 +2113,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestMessageLogDetails>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestMessageLogDetails>>() {});
     }
 
     /** 
@@ -2122,9 +2123,9 @@ public abstract class TestHttpClientBase
      *            Project ID
      * @param runId 
      *            
-     * @return List&lt;TestMessageLogDetails&gt;
+     * @return ArrayList&lt;TestMessageLogDetails&gt;
      */
-    public List<TestMessageLogDetails> getTestRunLogs(
+    public ArrayList<TestMessageLogDetails> getTestRunLogs(
         final UUID project, 
         final int runId) { 
 
@@ -2141,7 +2142,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestMessageLogDetails>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestMessageLogDetails>>() {});
     }
 
     /** 
@@ -2157,9 +2158,9 @@ public abstract class TestHttpClientBase
      *            
      * @param paramName 
      *            
-     * @return List&lt;TestResultParameterModel&gt;
+     * @return ArrayList&lt;TestResultParameterModel&gt;
      */
-    public List<TestResultParameterModel> getResultParameters(
+    public ArrayList<TestResultParameterModel> getResultParameters(
         final String project, 
         final int runId, 
         final int testCaseResultId, 
@@ -2185,7 +2186,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestResultParameterModel>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestResultParameterModel>>() {});
     }
 
     /** 
@@ -2201,9 +2202,9 @@ public abstract class TestHttpClientBase
      *            
      * @param paramName 
      *            
-     * @return List&lt;TestResultParameterModel&gt;
+     * @return ArrayList&lt;TestResultParameterModel&gt;
      */
-    public List<TestResultParameterModel> getResultParameters(
+    public ArrayList<TestResultParameterModel> getResultParameters(
         final UUID project, 
         final int runId, 
         final int testCaseResultId, 
@@ -2229,7 +2230,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestResultParameterModel>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestResultParameterModel>>() {});
     }
 
     /** 
@@ -2421,9 +2422,9 @@ public abstract class TestHttpClientBase
      *            
      * @param filterActivePlans 
      *            
-     * @return List&lt;TestPlan&gt;
+     * @return ArrayList&lt;TestPlan&gt;
      */
-    public List<TestPlan> getPlans(
+    public ArrayList<TestPlan> getPlans(
         final String project, 
         final String owner, 
         final Integer skip, 
@@ -2451,7 +2452,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestPlan>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestPlan>>() {});
     }
 
     /** 
@@ -2469,9 +2470,9 @@ public abstract class TestHttpClientBase
      *            
      * @param filterActivePlans 
      *            
-     * @return List&lt;TestPlan&gt;
+     * @return ArrayList&lt;TestPlan&gt;
      */
-    public List<TestPlan> getPlans(
+    public ArrayList<TestPlan> getPlans(
         final UUID project, 
         final String owner, 
         final Integer skip, 
@@ -2499,7 +2500,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestPlan>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestPlan>>() {});
     }
 
     /** 
@@ -2681,9 +2682,9 @@ public abstract class TestHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;TestPoint&gt;
+     * @return ArrayList&lt;TestPoint&gt;
      */
-    public List<TestPoint> getPoints(
+    public ArrayList<TestPoint> getPoints(
         final String project, 
         final int planId, 
         final int suiteId, 
@@ -2719,7 +2720,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestPoint>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestPoint>>() {});
     }
 
     /** 
@@ -2745,9 +2746,9 @@ public abstract class TestHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;TestPoint&gt;
+     * @return ArrayList&lt;TestPoint&gt;
      */
-    public List<TestPoint> getPoints(
+    public ArrayList<TestPoint> getPoints(
         final UUID project, 
         final int planId, 
         final int suiteId, 
@@ -2783,7 +2784,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestPoint>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestPoint>>() {});
     }
 
     /** 
@@ -2799,9 +2800,9 @@ public abstract class TestHttpClientBase
      *            
      * @param pointIds 
      *            
-     * @return List&lt;TestPoint&gt;
+     * @return ArrayList&lt;TestPoint&gt;
      */
-    public List<TestPoint> updateTestPoints(
+    public ArrayList<TestPoint> updateTestPoints(
         final PointUpdateModel pointUpdateModel, 
         final String project, 
         final int planId, 
@@ -2825,7 +2826,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestPoint>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestPoint>>() {});
     }
 
     /** 
@@ -2841,9 +2842,9 @@ public abstract class TestHttpClientBase
      *            
      * @param pointIds 
      *            
-     * @return List&lt;TestPoint&gt;
+     * @return ArrayList&lt;TestPoint&gt;
      */
-    public List<TestPoint> updateTestPoints(
+    public ArrayList<TestPoint> updateTestPoints(
         final PointUpdateModel pointUpdateModel, 
         final UUID project, 
         final int planId, 
@@ -2867,7 +2868,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestPoint>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestPoint>>() {});
     }
 
     /** 
@@ -3187,9 +3188,9 @@ public abstract class TestHttpClientBase
      *            Project ID or project name
      * @param runId 
      *            
-     * @return List&lt;TestCaseResult&gt;
+     * @return ArrayList&lt;TestCaseResult&gt;
      */
-    public List<TestCaseResult> addTestResultsToTestRun(
+    public ArrayList<TestCaseResult> addTestResultsToTestRun(
         final TestCaseResult[] results, 
         final String project, 
         final int runId) { 
@@ -3209,7 +3210,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestCaseResult>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestCaseResult>>() {});
     }
 
     /** 
@@ -3221,9 +3222,9 @@ public abstract class TestHttpClientBase
      *            Project ID
      * @param runId 
      *            
-     * @return List&lt;TestCaseResult&gt;
+     * @return ArrayList&lt;TestCaseResult&gt;
      */
-    public List<TestCaseResult> addTestResultsToTestRun(
+    public ArrayList<TestCaseResult> addTestResultsToTestRun(
         final TestCaseResult[] results, 
         final UUID project, 
         final int runId) { 
@@ -3243,7 +3244,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestCaseResult>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestCaseResult>>() {});
     }
 
     /** 
@@ -3257,9 +3258,9 @@ public abstract class TestHttpClientBase
      *            
      * @param resultIds 
      *            
-     * @return List&lt;TestCaseResult&gt;
+     * @return ArrayList&lt;TestCaseResult&gt;
      */
-    public List<TestCaseResult> bulkUpdateTestResults(
+    public ArrayList<TestCaseResult> bulkUpdateTestResults(
         final TestCaseResult result, 
         final String project, 
         final int runId, 
@@ -3284,7 +3285,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestCaseResult>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestCaseResult>>() {});
     }
 
     /** 
@@ -3298,9 +3299,9 @@ public abstract class TestHttpClientBase
      *            
      * @param resultIds 
      *            
-     * @return List&lt;TestCaseResult&gt;
+     * @return ArrayList&lt;TestCaseResult&gt;
      */
-    public List<TestCaseResult> bulkUpdateTestResults(
+    public ArrayList<TestCaseResult> bulkUpdateTestResults(
         final TestCaseResult result, 
         final UUID project, 
         final int runId, 
@@ -3325,7 +3326,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestCaseResult>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestCaseResult>>() {});
     }
 
     /** 
@@ -3421,9 +3422,9 @@ public abstract class TestHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;TestCaseResult&gt;
+     * @return ArrayList&lt;TestCaseResult&gt;
      */
-    public List<TestCaseResult> getTestResults(
+    public ArrayList<TestCaseResult> getTestResults(
         final String project, 
         final int runId, 
         final ResultDetails detailsToInclude, 
@@ -3449,7 +3450,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestCaseResult>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestCaseResult>>() {});
     }
 
     /** 
@@ -3465,9 +3466,9 @@ public abstract class TestHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;TestCaseResult&gt;
+     * @return ArrayList&lt;TestCaseResult&gt;
      */
-    public List<TestCaseResult> getTestResults(
+    public ArrayList<TestCaseResult> getTestResults(
         final UUID project, 
         final int runId, 
         final ResultDetails detailsToInclude, 
@@ -3493,7 +3494,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestCaseResult>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestCaseResult>>() {});
     }
 
     /** 
@@ -3505,9 +3506,9 @@ public abstract class TestHttpClientBase
      *            Project ID or project name
      * @param runId 
      *            
-     * @return List&lt;TestCaseResult&gt;
+     * @return ArrayList&lt;TestCaseResult&gt;
      */
-    public List<TestCaseResult> updateTestResults(
+    public ArrayList<TestCaseResult> updateTestResults(
         final TestCaseResult[] results, 
         final String project, 
         final int runId) { 
@@ -3527,7 +3528,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestCaseResult>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestCaseResult>>() {});
     }
 
     /** 
@@ -3539,9 +3540,9 @@ public abstract class TestHttpClientBase
      *            Project ID
      * @param runId 
      *            
-     * @return List&lt;TestCaseResult&gt;
+     * @return ArrayList&lt;TestCaseResult&gt;
      */
-    public List<TestCaseResult> updateTestResults(
+    public ArrayList<TestCaseResult> updateTestResults(
         final TestCaseResult[] results, 
         final UUID project, 
         final int runId) { 
@@ -3561,7 +3562,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestCaseResult>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestCaseResult>>() {});
     }
 
     /** 
@@ -3815,9 +3816,9 @@ public abstract class TestHttpClientBase
      *            
      * @param project 
      *            Project ID or project name
-     * @return List&lt;TestResultSummary&gt;
+     * @return ArrayList&lt;TestResultSummary&gt;
      */
-    public List<TestResultSummary> queryTestResultsSummaryForReleases(
+    public ArrayList<TestResultSummary> queryTestResultsSummaryForReleases(
         final List<ReleaseReference> releases, 
         final String project) { 
 
@@ -3835,7 +3836,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestResultSummary>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestResultSummary>>() {});
     }
 
     /** 
@@ -3845,9 +3846,9 @@ public abstract class TestHttpClientBase
      *            
      * @param project 
      *            Project ID
-     * @return List&lt;TestResultSummary&gt;
+     * @return ArrayList&lt;TestResultSummary&gt;
      */
-    public List<TestResultSummary> queryTestResultsSummaryForReleases(
+    public ArrayList<TestResultSummary> queryTestResultsSummaryForReleases(
         final List<ReleaseReference> releases, 
         final UUID project) { 
 
@@ -3865,7 +3866,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestResultSummary>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestResultSummary>>() {});
     }
 
     /** 
@@ -3877,9 +3878,9 @@ public abstract class TestHttpClientBase
      *            Project ID or project name
      * @param workItemIds 
      *            
-     * @return List&lt;TestSummaryForWorkItem&gt;
+     * @return ArrayList&lt;TestSummaryForWorkItem&gt;
      */
-    public List<TestSummaryForWorkItem> queryTestSummaryByRequirement(
+    public ArrayList<TestSummaryForWorkItem> queryTestSummaryByRequirement(
         final TestResultsContext resultsContext, 
         final String project, 
         final List<Integer> workItemIds) { 
@@ -3902,7 +3903,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestSummaryForWorkItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestSummaryForWorkItem>>() {});
     }
 
     /** 
@@ -3914,9 +3915,9 @@ public abstract class TestHttpClientBase
      *            Project ID
      * @param workItemIds 
      *            
-     * @return List&lt;TestSummaryForWorkItem&gt;
+     * @return ArrayList&lt;TestSummaryForWorkItem&gt;
      */
-    public List<TestSummaryForWorkItem> queryTestSummaryByRequirement(
+    public ArrayList<TestSummaryForWorkItem> queryTestSummaryByRequirement(
         final TestResultsContext resultsContext, 
         final UUID project, 
         final List<Integer> workItemIds) { 
@@ -3939,7 +3940,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestSummaryForWorkItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestSummaryForWorkItem>>() {});
     }
 
     /** 
@@ -3949,9 +3950,9 @@ public abstract class TestHttpClientBase
      *            
      * @param project 
      *            Project ID or project name
-     * @return List&lt;AggregatedDataForResultTrend&gt;
+     * @return ArrayList&lt;AggregatedDataForResultTrend&gt;
      */
-    public List<AggregatedDataForResultTrend> queryResultTrendForBuild(
+    public ArrayList<AggregatedDataForResultTrend> queryResultTrendForBuild(
         final TestResultTrendFilter filter, 
         final String project) { 
 
@@ -3969,7 +3970,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<AggregatedDataForResultTrend>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<AggregatedDataForResultTrend>>() {});
     }
 
     /** 
@@ -3979,9 +3980,9 @@ public abstract class TestHttpClientBase
      *            
      * @param project 
      *            Project ID
-     * @return List&lt;AggregatedDataForResultTrend&gt;
+     * @return ArrayList&lt;AggregatedDataForResultTrend&gt;
      */
-    public List<AggregatedDataForResultTrend> queryResultTrendForBuild(
+    public ArrayList<AggregatedDataForResultTrend> queryResultTrendForBuild(
         final TestResultTrendFilter filter, 
         final UUID project) { 
 
@@ -3999,7 +4000,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<AggregatedDataForResultTrend>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<AggregatedDataForResultTrend>>() {});
     }
 
     /** 
@@ -4255,9 +4256,9 @@ public abstract class TestHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;TestRun&gt;
+     * @return ArrayList&lt;TestRun&gt;
      */
-    public List<TestRun> getTestRuns(
+    public ArrayList<TestRun> getTestRuns(
         final String project, 
         final String buildUri, 
         final String owner, 
@@ -4291,7 +4292,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestRun>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestRun>>() {});
     }
 
     /** 
@@ -4315,9 +4316,9 @@ public abstract class TestHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;TestRun&gt;
+     * @return ArrayList&lt;TestRun&gt;
      */
-    public List<TestRun> getTestRuns(
+    public ArrayList<TestRun> getTestRuns(
         final UUID project, 
         final String buildUri, 
         final String owner, 
@@ -4351,7 +4352,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestRun>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestRun>>() {});
     }
 
     /** 
@@ -4563,9 +4564,9 @@ public abstract class TestHttpClientBase
      *            
      * @param includeAllProperties 
      *            
-     * @return List&lt;TestSession&gt;
+     * @return ArrayList&lt;TestSession&gt;
      */
-    public List<TestSession> getTestSessions(
+    public ArrayList<TestSession> getTestSessions(
         final String project, 
         final String team, 
         final Integer period, 
@@ -4591,7 +4592,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestSession>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestSession>>() {});
     }
 
     /** 
@@ -4607,9 +4608,9 @@ public abstract class TestHttpClientBase
      *            
      * @param includeAllProperties 
      *            
-     * @return List&lt;TestSession&gt;
+     * @return ArrayList&lt;TestSession&gt;
      */
-    public List<TestSession> getTestSessions(
+    public ArrayList<TestSession> getTestSessions(
         final UUID project, 
         final UUID team, 
         final Integer period, 
@@ -4635,7 +4636,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestSession>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestSession>>() {});
     }
 
     /** 
@@ -4649,9 +4650,9 @@ public abstract class TestHttpClientBase
      *            
      * @param includeAllProperties 
      *            
-     * @return List&lt;TestSession&gt;
+     * @return ArrayList&lt;TestSession&gt;
      */
-    public List<TestSession> getTestSessions(
+    public ArrayList<TestSession> getTestSessions(
         final String project, 
         final Integer period, 
         final Boolean allSessions, 
@@ -4675,7 +4676,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestSession>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestSession>>() {});
     }
 
     /** 
@@ -4689,9 +4690,9 @@ public abstract class TestHttpClientBase
      *            
      * @param includeAllProperties 
      *            
-     * @return List&lt;TestSession&gt;
+     * @return ArrayList&lt;TestSession&gt;
      */
-    public List<TestSession> getTestSessions(
+    public ArrayList<TestSession> getTestSessions(
         final UUID project, 
         final Integer period, 
         final Boolean allSessions, 
@@ -4715,7 +4716,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestSession>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestSession>>() {});
     }
 
     /** 
@@ -4853,9 +4854,9 @@ public abstract class TestHttpClientBase
      *            Project ID or project name
      * @param suiteId 
      *            
-     * @return List&lt;SuiteEntry&gt;
+     * @return ArrayList&lt;SuiteEntry&gt;
      */
-    public List<SuiteEntry> getSuiteEntries(
+    public ArrayList<SuiteEntry> getSuiteEntries(
         final String project, 
         final int suiteId) { 
 
@@ -4872,7 +4873,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<SuiteEntry>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<SuiteEntry>>() {});
     }
 
     /** 
@@ -4882,9 +4883,9 @@ public abstract class TestHttpClientBase
      *            Project ID
      * @param suiteId 
      *            
-     * @return List&lt;SuiteEntry&gt;
+     * @return ArrayList&lt;SuiteEntry&gt;
      */
-    public List<SuiteEntry> getSuiteEntries(
+    public ArrayList<SuiteEntry> getSuiteEntries(
         final UUID project, 
         final int suiteId) { 
 
@@ -4901,7 +4902,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<SuiteEntry>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<SuiteEntry>>() {});
     }
 
     /** 
@@ -4913,9 +4914,9 @@ public abstract class TestHttpClientBase
      *            Project ID or project name
      * @param suiteId 
      *            
-     * @return List&lt;SuiteEntry&gt;
+     * @return ArrayList&lt;SuiteEntry&gt;
      */
-    public List<SuiteEntry> reorderSuiteEntries(
+    public ArrayList<SuiteEntry> reorderSuiteEntries(
         final List<SuiteEntryUpdateModel> suiteEntries, 
         final String project, 
         final int suiteId) { 
@@ -4935,7 +4936,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<SuiteEntry>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<SuiteEntry>>() {});
     }
 
     /** 
@@ -4947,9 +4948,9 @@ public abstract class TestHttpClientBase
      *            Project ID
      * @param suiteId 
      *            
-     * @return List&lt;SuiteEntry&gt;
+     * @return ArrayList&lt;SuiteEntry&gt;
      */
-    public List<SuiteEntry> reorderSuiteEntries(
+    public ArrayList<SuiteEntry> reorderSuiteEntries(
         final List<SuiteEntryUpdateModel> suiteEntries, 
         final UUID project, 
         final int suiteId) { 
@@ -4969,7 +4970,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<SuiteEntry>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<SuiteEntry>>() {});
     }
 
     /** 
@@ -4983,9 +4984,9 @@ public abstract class TestHttpClientBase
      *            
      * @param testCaseIds 
      *            
-     * @return List&lt;SuiteTestCase&gt;
+     * @return ArrayList&lt;SuiteTestCase&gt;
      */
-    public List<SuiteTestCase> addTestCasesToSuite(
+    public ArrayList<SuiteTestCase> addTestCasesToSuite(
         final String project, 
         final int planId, 
         final int suiteId, 
@@ -5006,7 +5007,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<SuiteTestCase>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<SuiteTestCase>>() {});
     }
 
     /** 
@@ -5020,9 +5021,9 @@ public abstract class TestHttpClientBase
      *            
      * @param testCaseIds 
      *            
-     * @return List&lt;SuiteTestCase&gt;
+     * @return ArrayList&lt;SuiteTestCase&gt;
      */
-    public List<SuiteTestCase> addTestCasesToSuite(
+    public ArrayList<SuiteTestCase> addTestCasesToSuite(
         final UUID project, 
         final int planId, 
         final int suiteId, 
@@ -5043,7 +5044,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<SuiteTestCase>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<SuiteTestCase>>() {});
     }
 
     /** 
@@ -5129,9 +5130,9 @@ public abstract class TestHttpClientBase
      *            
      * @param suiteId 
      *            
-     * @return List&lt;SuiteTestCase&gt;
+     * @return ArrayList&lt;SuiteTestCase&gt;
      */
-    public List<SuiteTestCase> getTestCases(
+    public ArrayList<SuiteTestCase> getTestCases(
         final String project, 
         final int planId, 
         final int suiteId) { 
@@ -5150,7 +5151,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<SuiteTestCase>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<SuiteTestCase>>() {});
     }
 
     /** 
@@ -5162,9 +5163,9 @@ public abstract class TestHttpClientBase
      *            
      * @param suiteId 
      *            
-     * @return List&lt;SuiteTestCase&gt;
+     * @return ArrayList&lt;SuiteTestCase&gt;
      */
-    public List<SuiteTestCase> getTestCases(
+    public ArrayList<SuiteTestCase> getTestCases(
         final UUID project, 
         final int planId, 
         final int suiteId) { 
@@ -5183,7 +5184,7 @@ public abstract class TestHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<SuiteTestCase>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<SuiteTestCase>>() {});
     }
 
     /** 
@@ -5269,9 +5270,9 @@ public abstract class TestHttpClientBase
      *            
      * @param suiteId 
      *            
-     * @return List&lt;TestSuite&gt;
+     * @return ArrayList&lt;TestSuite&gt;
      */
-    public List<TestSuite> createTestSuite(
+    public ArrayList<TestSuite> createTestSuite(
         final SuiteCreateModel testSuite, 
         final String project, 
         final int planId, 
@@ -5293,7 +5294,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestSuite>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestSuite>>() {});
     }
 
     /** 
@@ -5307,9 +5308,9 @@ public abstract class TestHttpClientBase
      *            
      * @param suiteId 
      *            
-     * @return List&lt;TestSuite&gt;
+     * @return ArrayList&lt;TestSuite&gt;
      */
-    public List<TestSuite> createTestSuite(
+    public ArrayList<TestSuite> createTestSuite(
         final SuiteCreateModel testSuite, 
         final UUID project, 
         final int planId, 
@@ -5331,7 +5332,7 @@ public abstract class TestHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestSuite>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestSuite>>() {});
     }
 
     /** 
@@ -5493,9 +5494,9 @@ public abstract class TestHttpClientBase
      *            
      * @param asTreeView 
      *            
-     * @return List&lt;TestSuite&gt;
+     * @return ArrayList&lt;TestSuite&gt;
      */
-    public List<TestSuite> getTestSuitesForPlan(
+    public ArrayList<TestSuite> getTestSuitesForPlan(
         final String project, 
         final int planId, 
         final Boolean includeSuites, 
@@ -5523,7 +5524,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestSuite>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestSuite>>() {});
     }
 
     /** 
@@ -5541,9 +5542,9 @@ public abstract class TestHttpClientBase
      *            
      * @param asTreeView 
      *            
-     * @return List&lt;TestSuite&gt;
+     * @return ArrayList&lt;TestSuite&gt;
      */
-    public List<TestSuite> getTestSuitesForPlan(
+    public ArrayList<TestSuite> getTestSuitesForPlan(
         final UUID project, 
         final int planId, 
         final Boolean includeSuites, 
@@ -5571,7 +5572,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestSuite>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestSuite>>() {});
     }
 
     /** 
@@ -5655,9 +5656,9 @@ public abstract class TestHttpClientBase
      * 
      * @param testCaseId 
      *            
-     * @return List&lt;TestSuite&gt;
+     * @return ArrayList&lt;TestSuite&gt;
      */
-    public List<TestSuite> getSuitesByTestCaseId(final int testCaseId) { 
+    public ArrayList<TestSuite> getSuitesByTestCaseId(final int testCaseId) { 
 
         final UUID locationId = UUID.fromString("09a6167b-e969-4775-9247-b94cf3819caf"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -5671,7 +5672,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestSuite>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestSuite>>() {});
     }
 
     /** 
@@ -6031,9 +6032,9 @@ public abstract class TestHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;TestVariable&gt;
+     * @return ArrayList&lt;TestVariable&gt;
      */
-    public List<TestVariable> getTestVariables(
+    public ArrayList<TestVariable> getTestVariables(
         final String project, 
         final Integer skip, 
         final Integer top) { 
@@ -6055,7 +6056,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestVariable>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestVariable>>() {});
     }
 
     /** 
@@ -6067,9 +6068,9 @@ public abstract class TestHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;TestVariable&gt;
+     * @return ArrayList&lt;TestVariable&gt;
      */
-    public List<TestVariable> getTestVariables(
+    public ArrayList<TestVariable> getTestVariables(
         final UUID project, 
         final Integer skip, 
         final Integer top) { 
@@ -6091,7 +6092,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TestVariable>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestVariable>>() {});
     }
 
     /** 
@@ -6375,14 +6376,14 @@ public abstract class TestHttpClientBase
      *            
      * @param workItemCount 
      *            
-     * @return List&lt;WorkItemReference&gt;
+     * @return ArrayList&lt;WorkItemReference&gt;
      */
-    public List<WorkItemReference> queryTestResultWorkItems(
+    public ArrayList<WorkItemReference> queryTestResultWorkItems(
         final String project, 
         final String workItemCategory, 
         final String automatedTestName, 
         final Integer testCaseId, 
-        final java.util.Date maxCompleteDate, 
+        final Date maxCompleteDate, 
         final Integer days, 
         final Integer workItemCount) { 
 
@@ -6407,7 +6408,7 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemReference>>() {});
     }
 
     /** 
@@ -6427,14 +6428,14 @@ public abstract class TestHttpClientBase
      *            
      * @param workItemCount 
      *            
-     * @return List&lt;WorkItemReference&gt;
+     * @return ArrayList&lt;WorkItemReference&gt;
      */
-    public List<WorkItemReference> queryTestResultWorkItems(
+    public ArrayList<WorkItemReference> queryTestResultWorkItems(
         final UUID project, 
         final String workItemCategory, 
         final String automatedTestName, 
         final Integer testCaseId, 
-        final java.util.Date maxCompleteDate, 
+        final Date maxCompleteDate, 
         final Integer days, 
         final Integer workItemCount) { 
 
@@ -6459,6 +6460,6 @@ public abstract class TestHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemReference>>() {});
     }
 }

@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class DependsOn {
 
     private String input;
-    private List<DependencyBinding> map;
+    private ArrayList<DependencyBinding> map;
 
     public String getInput() {
         return input;
@@ -32,11 +32,11 @@ public class DependsOn {
         this.input = input;
     }
 
-    public List<DependencyBinding> getMap() {
+    public ArrayList<DependencyBinding> getMap() {
         return map;
     }
 
-    public void setMap(final List<DependencyBinding> map) {
+    public void setMap(final ArrayList<DependencyBinding> map) {
         this.map = map;
     }
 }

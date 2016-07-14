@@ -15,19 +15,19 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class BuildWorkspace {
 
-    private List<MappingDetails> mappings;
+    private ArrayList<MappingDetails> mappings;
 
-    public List<MappingDetails> getMappings() {
+    public ArrayList<MappingDetails> getMappings() {
         return mappings;
     }
 
-    public void setMappings(final List<MappingDetails> mappings) {
+    public void setMappings(final ArrayList<MappingDetails> mappings) {
         this.mappings = mappings;
     }
 }

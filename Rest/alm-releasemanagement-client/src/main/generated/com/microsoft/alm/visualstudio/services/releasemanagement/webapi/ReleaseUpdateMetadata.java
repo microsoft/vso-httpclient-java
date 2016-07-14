@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -23,7 +23,7 @@ public class ReleaseUpdateMetadata {
 
     private String comment;
     private boolean keepForever;
-    private List<String> manualEnvironments;
+    private ArrayList<String> manualEnvironments;
     private ReleaseStatus status;
 
     public String getComment() {
@@ -42,11 +42,11 @@ public class ReleaseUpdateMetadata {
         this.keepForever = keepForever;
     }
 
-    public List<String> getManualEnvironments() {
+    public ArrayList<String> getManualEnvironments() {
         return manualEnvironments;
     }
 
-    public void setManualEnvironments(final List<String> manualEnvironments) {
+    public void setManualEnvironments(final ArrayList<String> manualEnvironments) {
         this.manualEnvironments = manualEnvironments;
     }
 

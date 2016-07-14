@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 /** 
@@ -28,7 +28,7 @@ public class ReleaseTask {
     private Date dateStarted;
     private Date finishTime;
     private int id;
-    private List<Issue> issues;
+    private ArrayList<Issue> issues;
     private long lineCount;
     private String logUrl;
     private String name;
@@ -77,11 +77,11 @@ public class ReleaseTask {
         this.id = id;
     }
 
-    public List<Issue> getIssues() {
+    public ArrayList<Issue> getIssues() {
         return issues;
     }
 
-    public void setIssues(final List<Issue> issues) {
+    public void setIssues(final ArrayList<Issue> issues) {
         this.issues = issues;
     }
 

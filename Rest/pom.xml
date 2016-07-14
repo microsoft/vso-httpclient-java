@@ -22,10 +22,10 @@
     <url>https://www.visualstudio.com/</url>
 
     <properties>
-<!-- -->
+<!-- 
         <skip.javadoc>true</skip.javadoc>
         <skip.sources>true</skip.sources>
-<!-- -->
+  -->
         <jaxrs-api.version>2.0.1</jaxrs-api.version>
         <common-codec.version>1.10</common-codec.version>
         <mvn.compiler.version>3.3</mvn.compiler.version>
@@ -34,14 +34,12 @@
 
     <modules>
         <module>alm-vss-client/pom.xml</module>
-<!--
-        <module>alm-gallery-client/pom.xml</module>
         <module>alm-distributedtask-client/pom.xml</module>
+        <module>alm-gallery-client/pom.xml</module>
         <module>alm-extensionmanagement-client/pom.xml</module>
         <module>alm-releasemanagement-client/pom.xml</module>
         <module>alm-tfs-client/pom.xml</module>
         <module>alm-http-client-dep/pom.xml</module>
--->
     </modules>
 
     <dependencies>
@@ -72,6 +70,9 @@
                     <configuration>
                         <source>1.6</source>
                         <target>1.6</target>
+<!--
+                        <compilerArgument>-Xlint:unchecked</compilerArgument> 
+-->
                     </configuration>
                 </plugin>
 

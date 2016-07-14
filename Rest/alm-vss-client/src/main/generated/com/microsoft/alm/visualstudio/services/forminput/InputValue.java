@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.forminput;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  * Information about a single value for an input
@@ -26,7 +26,7 @@ public class InputValue {
     /**
     * Any other data about this input
     */
-    private Map<String, Object> data;
+    private HashMap<String, Object> data;
     /**
     * The text to show for the display of this value
     */
@@ -39,14 +39,14 @@ public class InputValue {
     /**
     * Any other data about this input
     */
-    public Map<String, Object> getData() {
+    public HashMap<String, Object> getData() {
         return data;
     }
 
     /**
     * Any other data about this input
     */
-    public void setData(final Map<String, Object> data) {
+    public void setData(final HashMap<String, Object> data) {
         this.data = data;
     }
 

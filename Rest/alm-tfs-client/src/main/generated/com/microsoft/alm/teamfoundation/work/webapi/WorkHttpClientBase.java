@@ -16,6 +16,7 @@
 package com.microsoft.alm.teamfoundation.work.webapi;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -86,9 +87,9 @@ public abstract class WorkHttpClientBase
     /** 
      * [Preview API 3.0-preview.1]
      * 
-     * @return List&lt;BoardSuggestedValue&gt;
+     * @return ArrayList&lt;BoardSuggestedValue&gt;
      */
-    public List<BoardSuggestedValue> getColumnSuggestedValues() { 
+    public ArrayList<BoardSuggestedValue> getColumnSuggestedValues() { 
 
         final UUID locationId = UUID.fromString("eb7ec5a3-1ba3-4fd1-b834-49a5a387e57d"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -98,7 +99,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardSuggestedValue>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardSuggestedValue>>() {});
     }
 
     /** 
@@ -106,33 +107,9 @@ public abstract class WorkHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;BoardSuggestedValue&gt;
+     * @return ArrayList&lt;BoardSuggestedValue&gt;
      */
-    public List<BoardSuggestedValue> getColumnSuggestedValues(final String project) { 
-
-        final UUID locationId = UUID.fromString("eb7ec5a3-1ba3-4fd1-b834-49a5a387e57d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardSuggestedValue>>() {});
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1]
-     * 
-     * @param project 
-     *            Project ID
-     * @return List&lt;BoardSuggestedValue&gt;
-     */
-    public List<BoardSuggestedValue> getColumnSuggestedValues(final UUID project) { 
+    public ArrayList<BoardSuggestedValue> getColumnSuggestedValues(final String project) { 
 
         final UUID locationId = UUID.fromString("eb7ec5a3-1ba3-4fd1-b834-49a5a387e57d"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -146,435 +123,459 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardSuggestedValue>>() {});
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Returns the board filter settings for the given board id or board by name
-     * 
-     * @param project 
-     *            Project ID or project name
-     * @param board 
-     *            
-     * @return BoardFilterSettings
-     */
-    public BoardFilterSettings getBoardFilterSettings(
-        final String project, 
-        final String board) { 
-
-        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("board", board); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, BoardFilterSettings.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Returns the board filter settings for the given board id or board by name
-     * 
-     * @param project 
-     *            Project ID
-     * @param board 
-     *            
-     * @return BoardFilterSettings
-     */
-    public BoardFilterSettings getBoardFilterSettings(
-        final UUID project, 
-        final String board) { 
-
-        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("board", board); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, BoardFilterSettings.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Returns the board filter settings for the given board id or board by name
-     * 
-     * @param project 
-     *            Project ID or project name
-     * @param team 
-     *            Team ID or team name
-     * @param board 
-     *            
-     * @return BoardFilterSettings
-     */
-    public BoardFilterSettings getBoardFilterSettings(
-        final String project, 
-        final String team, 
-        final String board) { 
-
-        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("team", team); //$NON-NLS-1$
-        routeValues.put("board", board); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, BoardFilterSettings.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Returns the board filter settings for the given board id or board by name
-     * 
-     * @param project 
-     *            Project ID
-     * @param team 
-     *            Team ID
-     * @param board 
-     *            
-     * @return BoardFilterSettings
-     */
-    public BoardFilterSettings getBoardFilterSettings(
-        final UUID project, 
-        final UUID team, 
-        final String board) { 
-
-        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("team", team); //$NON-NLS-1$
-        routeValues.put("board", board); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, BoardFilterSettings.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Update board filter settings for the board id or board by name
-     * 
-     * @param filterSettings 
-     *            
-     * @param project 
-     *            Project ID or project name
-     * @param board 
-     *            
-     * @return BoardFilterSettings
-     */
-    public BoardFilterSettings updateBoardFilterSettings(
-        final BoardFilterSettings filterSettings, 
-        final String project, 
-        final String board) { 
-
-        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("board", board); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       filterSettings,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, BoardFilterSettings.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Update board filter settings for the board id or board by name
-     * 
-     * @param filterSettings 
-     *            
-     * @param project 
-     *            Project ID
-     * @param board 
-     *            
-     * @return BoardFilterSettings
-     */
-    public BoardFilterSettings updateBoardFilterSettings(
-        final BoardFilterSettings filterSettings, 
-        final UUID project, 
-        final String board) { 
-
-        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("board", board); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       filterSettings,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, BoardFilterSettings.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Update board filter settings for the board id or board by name
-     * 
-     * @param filterSettings 
-     *            
-     * @param project 
-     *            Project ID or project name
-     * @param team 
-     *            Team ID or team name
-     * @param board 
-     *            
-     * @return BoardFilterSettings
-     */
-    public BoardFilterSettings updateBoardFilterSettings(
-        final BoardFilterSettings filterSettings, 
-        final String project, 
-        final String team, 
-        final String board) { 
-
-        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("team", team); //$NON-NLS-1$
-        routeValues.put("board", board); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       filterSettings,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, BoardFilterSettings.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Update board filter settings for the board id or board by name
-     * 
-     * @param filterSettings 
-     *            
-     * @param project 
-     *            Project ID
-     * @param team 
-     *            Team ID
-     * @param board 
-     *            
-     * @return BoardFilterSettings
-     */
-    public BoardFilterSettings updateBoardFilterSettings(
-        final BoardFilterSettings filterSettings, 
-        final UUID project, 
-        final UUID team, 
-        final String board) { 
-
-        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("team", team); //$NON-NLS-1$
-        routeValues.put("board", board); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       filterSettings,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, BoardFilterSettings.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Returns the list of parent field filter model for the given list of workitem ids
-     * 
-     * @param project 
-     *            Project ID or project name
-     * @param team 
-     *            Team ID or team name
-     * @param childBacklogContextCategoryRefName 
-     *            
-     * @param workitemIds 
-     *            
-     * @return List&lt;ParentChildWIMap&gt;
-     */
-    public List<ParentChildWIMap> getBoardMappingParentItems(
-        final String project, 
-        final String team, 
-        final String childBacklogContextCategoryRefName, 
-        final List<Integer> workitemIds) { 
-
-        final UUID locationId = UUID.fromString("186abea3-5c35-432f-9e28-7a15b4312a0e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("team", team); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.addIfNotEmpty("childBacklogContextCategoryRefName", childBacklogContextCategoryRefName); //$NON-NLS-1$
-        queryParameters.addIfNotNull("workitemIds", workitemIds); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, new TypeReference<List<ParentChildWIMap>>() {});
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Returns the list of parent field filter model for the given list of workitem ids
-     * 
-     * @param project 
-     *            Project ID
-     * @param team 
-     *            Team ID
-     * @param childBacklogContextCategoryRefName 
-     *            
-     * @param workitemIds 
-     *            
-     * @return List&lt;ParentChildWIMap&gt;
-     */
-    public List<ParentChildWIMap> getBoardMappingParentItems(
-        final UUID project, 
-        final UUID team, 
-        final String childBacklogContextCategoryRefName, 
-        final List<Integer> workitemIds) { 
-
-        final UUID locationId = UUID.fromString("186abea3-5c35-432f-9e28-7a15b4312a0e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("team", team); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.addIfNotEmpty("childBacklogContextCategoryRefName", childBacklogContextCategoryRefName); //$NON-NLS-1$
-        queryParameters.addIfNotNull("workitemIds", workitemIds); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, new TypeReference<List<ParentChildWIMap>>() {});
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Returns the list of parent field filter model for the given list of workitem ids
-     * 
-     * @param project 
-     *            Project ID or project name
-     * @param childBacklogContextCategoryRefName 
-     *            
-     * @param workitemIds 
-     *            
-     * @return List&lt;ParentChildWIMap&gt;
-     */
-    public List<ParentChildWIMap> getBoardMappingParentItems(
-        final String project, 
-        final String childBacklogContextCategoryRefName, 
-        final List<Integer> workitemIds) { 
-
-        final UUID locationId = UUID.fromString("186abea3-5c35-432f-9e28-7a15b4312a0e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.addIfNotEmpty("childBacklogContextCategoryRefName", childBacklogContextCategoryRefName); //$NON-NLS-1$
-        queryParameters.addIfNotNull("workitemIds", workitemIds); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, new TypeReference<List<ParentChildWIMap>>() {});
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Returns the list of parent field filter model for the given list of workitem ids
-     * 
-     * @param project 
-     *            Project ID
-     * @param childBacklogContextCategoryRefName 
-     *            
-     * @param workitemIds 
-     *            
-     * @return List&lt;ParentChildWIMap&gt;
-     */
-    public List<ParentChildWIMap> getBoardMappingParentItems(
-        final UUID project, 
-        final String childBacklogContextCategoryRefName, 
-        final List<Integer> workitemIds) { 
-
-        final UUID locationId = UUID.fromString("186abea3-5c35-432f-9e28-7a15b4312a0e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.addIfNotEmpty("childBacklogContextCategoryRefName", childBacklogContextCategoryRefName); //$NON-NLS-1$
-        queryParameters.addIfNotNull("workitemIds", workitemIds); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, new TypeReference<List<ParentChildWIMap>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardSuggestedValue>>() {});
     }
 
     /** 
      * [Preview API 3.0-preview.1]
      * 
-     * @return List&lt;BoardSuggestedValue&gt;
+     * @param project 
+     *            Project ID
+     * @return ArrayList&lt;BoardSuggestedValue&gt;
      */
-    public List<BoardSuggestedValue> getRowSuggestedValues() { 
+    public ArrayList<BoardSuggestedValue> getColumnSuggestedValues(final UUID project) { 
+
+        final UUID locationId = UUID.fromString("eb7ec5a3-1ba3-4fd1-b834-49a5a387e57d"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.GET,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardSuggestedValue>>() {});
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Returns the board filter settings for the given board id or board by name
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param board 
+     *            
+     * @return BoardFilterSettings
+     */
+    public BoardFilterSettings getBoardFilterSettings(
+        final String project, 
+        final String board) { 
+
+        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("board", board); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.GET,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, BoardFilterSettings.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Returns the board filter settings for the given board id or board by name
+     * 
+     * @param project 
+     *            Project ID
+     * @param board 
+     *            
+     * @return BoardFilterSettings
+     */
+    public BoardFilterSettings getBoardFilterSettings(
+        final UUID project, 
+        final String board) { 
+
+        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("board", board); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.GET,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, BoardFilterSettings.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Returns the board filter settings for the given board id or board by name
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param team 
+     *            Team ID or team name
+     * @param board 
+     *            
+     * @return BoardFilterSettings
+     */
+    public BoardFilterSettings getBoardFilterSettings(
+        final String project, 
+        final String team, 
+        final String board) { 
+
+        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+        routeValues.put("board", board); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.GET,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, BoardFilterSettings.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Returns the board filter settings for the given board id or board by name
+     * 
+     * @param project 
+     *            Project ID
+     * @param team 
+     *            Team ID
+     * @param board 
+     *            
+     * @return BoardFilterSettings
+     */
+    public BoardFilterSettings getBoardFilterSettings(
+        final UUID project, 
+        final UUID team, 
+        final String board) { 
+
+        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+        routeValues.put("board", board); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.GET,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, BoardFilterSettings.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Update board filter settings for the board id or board by name
+     * 
+     * @param filterSettings 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param board 
+     *            
+     * @return BoardFilterSettings
+     */
+    public BoardFilterSettings updateBoardFilterSettings(
+        final BoardFilterSettings filterSettings, 
+        final String project, 
+        final String board) { 
+
+        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("board", board); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       filterSettings,
+                                                       APPLICATION_JSON_TYPE,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, BoardFilterSettings.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Update board filter settings for the board id or board by name
+     * 
+     * @param filterSettings 
+     *            
+     * @param project 
+     *            Project ID
+     * @param board 
+     *            
+     * @return BoardFilterSettings
+     */
+    public BoardFilterSettings updateBoardFilterSettings(
+        final BoardFilterSettings filterSettings, 
+        final UUID project, 
+        final String board) { 
+
+        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("board", board); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       filterSettings,
+                                                       APPLICATION_JSON_TYPE,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, BoardFilterSettings.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Update board filter settings for the board id or board by name
+     * 
+     * @param filterSettings 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param team 
+     *            Team ID or team name
+     * @param board 
+     *            
+     * @return BoardFilterSettings
+     */
+    public BoardFilterSettings updateBoardFilterSettings(
+        final BoardFilterSettings filterSettings, 
+        final String project, 
+        final String team, 
+        final String board) { 
+
+        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+        routeValues.put("board", board); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       filterSettings,
+                                                       APPLICATION_JSON_TYPE,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, BoardFilterSettings.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Update board filter settings for the board id or board by name
+     * 
+     * @param filterSettings 
+     *            
+     * @param project 
+     *            Project ID
+     * @param team 
+     *            Team ID
+     * @param board 
+     *            
+     * @return BoardFilterSettings
+     */
+    public BoardFilterSettings updateBoardFilterSettings(
+        final BoardFilterSettings filterSettings, 
+        final UUID project, 
+        final UUID team, 
+        final String board) { 
+
+        final UUID locationId = UUID.fromString("cfe2d81b-12ba-4083-9e5a-859818c763e4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+        routeValues.put("board", board); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       filterSettings,
+                                                       APPLICATION_JSON_TYPE,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, BoardFilterSettings.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Returns the list of parent field filter model for the given list of workitem ids
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param team 
+     *            Team ID or team name
+     * @param childBacklogContextCategoryRefName 
+     *            
+     * @param workitemIds 
+     *            
+     * @return ArrayList&lt;ParentChildWIMap&gt;
+     */
+    public ArrayList<ParentChildWIMap> getBoardMappingParentItems(
+        final String project, 
+        final String team, 
+        final String childBacklogContextCategoryRefName, 
+        final List<Integer> workitemIds) { 
+
+        final UUID locationId = UUID.fromString("186abea3-5c35-432f-9e28-7a15b4312a0e"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotEmpty("childBacklogContextCategoryRefName", childBacklogContextCategoryRefName); //$NON-NLS-1$
+        queryParameters.addIfNotNull("workitemIds", workitemIds); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.GET,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       queryParameters,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ParentChildWIMap>>() {});
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Returns the list of parent field filter model for the given list of workitem ids
+     * 
+     * @param project 
+     *            Project ID
+     * @param team 
+     *            Team ID
+     * @param childBacklogContextCategoryRefName 
+     *            
+     * @param workitemIds 
+     *            
+     * @return ArrayList&lt;ParentChildWIMap&gt;
+     */
+    public ArrayList<ParentChildWIMap> getBoardMappingParentItems(
+        final UUID project, 
+        final UUID team, 
+        final String childBacklogContextCategoryRefName, 
+        final List<Integer> workitemIds) { 
+
+        final UUID locationId = UUID.fromString("186abea3-5c35-432f-9e28-7a15b4312a0e"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotEmpty("childBacklogContextCategoryRefName", childBacklogContextCategoryRefName); //$NON-NLS-1$
+        queryParameters.addIfNotNull("workitemIds", workitemIds); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.GET,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       queryParameters,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ParentChildWIMap>>() {});
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Returns the list of parent field filter model for the given list of workitem ids
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param childBacklogContextCategoryRefName 
+     *            
+     * @param workitemIds 
+     *            
+     * @return ArrayList&lt;ParentChildWIMap&gt;
+     */
+    public ArrayList<ParentChildWIMap> getBoardMappingParentItems(
+        final String project, 
+        final String childBacklogContextCategoryRefName, 
+        final List<Integer> workitemIds) { 
+
+        final UUID locationId = UUID.fromString("186abea3-5c35-432f-9e28-7a15b4312a0e"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotEmpty("childBacklogContextCategoryRefName", childBacklogContextCategoryRefName); //$NON-NLS-1$
+        queryParameters.addIfNotNull("workitemIds", workitemIds); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.GET,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       queryParameters,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ParentChildWIMap>>() {});
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Returns the list of parent field filter model for the given list of workitem ids
+     * 
+     * @param project 
+     *            Project ID
+     * @param childBacklogContextCategoryRefName 
+     *            
+     * @param workitemIds 
+     *            
+     * @return ArrayList&lt;ParentChildWIMap&gt;
+     */
+    public ArrayList<ParentChildWIMap> getBoardMappingParentItems(
+        final UUID project, 
+        final String childBacklogContextCategoryRefName, 
+        final List<Integer> workitemIds) { 
+
+        final UUID locationId = UUID.fromString("186abea3-5c35-432f-9e28-7a15b4312a0e"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotEmpty("childBacklogContextCategoryRefName", childBacklogContextCategoryRefName); //$NON-NLS-1$
+        queryParameters.addIfNotNull("workitemIds", workitemIds); //$NON-NLS-1$
+
+        final Object httpRequest = super.createRequest(HttpMethod.GET,
+                                                       locationId,
+                                                       routeValues,
+                                                       apiVersion,
+                                                       queryParameters,
+                                                       APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ParentChildWIMap>>() {});
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1]
+     * 
+     * @return ArrayList&lt;BoardSuggestedValue&gt;
+     */
+    public ArrayList<BoardSuggestedValue> getRowSuggestedValues() { 
 
         final UUID locationId = UUID.fromString("bb494cc6-a0f5-4c6c-8dca-ea6912e79eb9"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -584,7 +585,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardSuggestedValue>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardSuggestedValue>>() {});
     }
 
     /** 
@@ -592,9 +593,9 @@ public abstract class WorkHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;BoardSuggestedValue&gt;
+     * @return ArrayList&lt;BoardSuggestedValue&gt;
      */
-    public List<BoardSuggestedValue> getRowSuggestedValues(final String project) { 
+    public ArrayList<BoardSuggestedValue> getRowSuggestedValues(final String project) { 
 
         final UUID locationId = UUID.fromString("bb494cc6-a0f5-4c6c-8dca-ea6912e79eb9"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -608,7 +609,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardSuggestedValue>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardSuggestedValue>>() {});
     }
 
     /** 
@@ -616,9 +617,9 @@ public abstract class WorkHttpClientBase
      * 
      * @param project 
      *            Project ID
-     * @return List&lt;BoardSuggestedValue&gt;
+     * @return ArrayList&lt;BoardSuggestedValue&gt;
      */
-    public List<BoardSuggestedValue> getRowSuggestedValues(final UUID project) { 
+    public ArrayList<BoardSuggestedValue> getRowSuggestedValues(final UUID project) { 
 
         final UUID locationId = UUID.fromString("bb494cc6-a0f5-4c6c-8dca-ea6912e79eb9"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -632,7 +633,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardSuggestedValue>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardSuggestedValue>>() {});
     }
 
     /** 
@@ -764,9 +765,9 @@ public abstract class WorkHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;BoardReference&gt;
+     * @return ArrayList&lt;BoardReference&gt;
      */
-    public List<BoardReference> getBoards(final String project) { 
+    public ArrayList<BoardReference> getBoards(final String project) { 
 
         final UUID locationId = UUID.fromString("23ad19fc-3b8e-4877-8462-b3f92bc06b40"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -780,7 +781,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardReference>>() {});
     }
 
     /** 
@@ -788,9 +789,9 @@ public abstract class WorkHttpClientBase
      * 
      * @param project 
      *            Project ID
-     * @return List&lt;BoardReference&gt;
+     * @return ArrayList&lt;BoardReference&gt;
      */
-    public List<BoardReference> getBoards(final UUID project) { 
+    public ArrayList<BoardReference> getBoards(final UUID project) { 
 
         final UUID locationId = UUID.fromString("23ad19fc-3b8e-4877-8462-b3f92bc06b40"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -804,7 +805,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardReference>>() {});
     }
 
     /** 
@@ -814,9 +815,9 @@ public abstract class WorkHttpClientBase
      *            Project ID or project name
      * @param team 
      *            Team ID or team name
-     * @return List&lt;BoardReference&gt;
+     * @return ArrayList&lt;BoardReference&gt;
      */
-    public List<BoardReference> getBoards(
+    public ArrayList<BoardReference> getBoards(
         final String project, 
         final String team) { 
 
@@ -833,7 +834,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardReference>>() {});
     }
 
     /** 
@@ -843,9 +844,9 @@ public abstract class WorkHttpClientBase
      *            Project ID
      * @param team 
      *            Team ID
-     * @return List&lt;BoardReference&gt;
+     * @return ArrayList&lt;BoardReference&gt;
      */
-    public List<BoardReference> getBoards(
+    public ArrayList<BoardReference> getBoards(
         final UUID project, 
         final UUID team) { 
 
@@ -862,7 +863,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardReference>>() {});
     }
 
     /** 
@@ -874,9 +875,9 @@ public abstract class WorkHttpClientBase
      *            Project ID or project name
      * @param id 
      *            identifier for board, either category plural name (Eg:&quot;Stories&quot;) or guid
-     * @return Map&lt;String, String&gt;
+     * @return HashMap&lt;String, String&gt;
      */
-    public Map<String, String> setBoardOptions(
+    public HashMap<String, String> setBoardOptions(
         final Map<String, String> options, 
         final String project, 
         final String id) { 
@@ -896,7 +897,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<Map<String, String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<HashMap<String, String>>() {});
     }
 
     /** 
@@ -908,9 +909,9 @@ public abstract class WorkHttpClientBase
      *            Project ID
      * @param id 
      *            identifier for board, either category plural name (Eg:&quot;Stories&quot;) or guid
-     * @return Map&lt;String, String&gt;
+     * @return HashMap&lt;String, String&gt;
      */
-    public Map<String, String> setBoardOptions(
+    public HashMap<String, String> setBoardOptions(
         final Map<String, String> options, 
         final UUID project, 
         final String id) { 
@@ -930,7 +931,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<Map<String, String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<HashMap<String, String>>() {});
     }
 
     /** 
@@ -944,9 +945,9 @@ public abstract class WorkHttpClientBase
      *            Team ID or team name
      * @param id 
      *            identifier for board, either category plural name (Eg:&quot;Stories&quot;) or guid
-     * @return Map&lt;String, String&gt;
+     * @return HashMap&lt;String, String&gt;
      */
-    public Map<String, String> setBoardOptions(
+    public HashMap<String, String> setBoardOptions(
         final Map<String, String> options, 
         final String project, 
         final String team, 
@@ -968,7 +969,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<Map<String, String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<HashMap<String, String>>() {});
     }
 
     /** 
@@ -982,9 +983,9 @@ public abstract class WorkHttpClientBase
      *            Team ID
      * @param id 
      *            identifier for board, either category plural name (Eg:&quot;Stories&quot;) or guid
-     * @return Map&lt;String, String&gt;
+     * @return HashMap&lt;String, String&gt;
      */
-    public Map<String, String> setBoardOptions(
+    public HashMap<String, String> setBoardOptions(
         final Map<String, String> options, 
         final UUID project, 
         final UUID team, 
@@ -1006,7 +1007,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<Map<String, String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<HashMap<String, String>>() {});
     }
 
     /** 
@@ -1284,9 +1285,9 @@ public abstract class WorkHttpClientBase
      *            Project ID or project name
      * @param iterationId 
      *            
-     * @return List&lt;TeamMemberCapacity&gt;
+     * @return ArrayList&lt;TeamMemberCapacity&gt;
      */
-    public List<TeamMemberCapacity> getCapacities(
+    public ArrayList<TeamMemberCapacity> getCapacities(
         final String project, 
         final UUID iterationId) { 
 
@@ -1303,7 +1304,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamMemberCapacity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamMemberCapacity>>() {});
     }
 
     /** 
@@ -1313,9 +1314,9 @@ public abstract class WorkHttpClientBase
      *            Project ID
      * @param iterationId 
      *            
-     * @return List&lt;TeamMemberCapacity&gt;
+     * @return ArrayList&lt;TeamMemberCapacity&gt;
      */
-    public List<TeamMemberCapacity> getCapacities(
+    public ArrayList<TeamMemberCapacity> getCapacities(
         final UUID project, 
         final UUID iterationId) { 
 
@@ -1332,7 +1333,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamMemberCapacity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamMemberCapacity>>() {});
     }
 
     /** 
@@ -1344,9 +1345,9 @@ public abstract class WorkHttpClientBase
      *            Team ID or team name
      * @param iterationId 
      *            
-     * @return List&lt;TeamMemberCapacity&gt;
+     * @return ArrayList&lt;TeamMemberCapacity&gt;
      */
-    public List<TeamMemberCapacity> getCapacities(
+    public ArrayList<TeamMemberCapacity> getCapacities(
         final String project, 
         final String team, 
         final UUID iterationId) { 
@@ -1365,7 +1366,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamMemberCapacity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamMemberCapacity>>() {});
     }
 
     /** 
@@ -1377,9 +1378,9 @@ public abstract class WorkHttpClientBase
      *            Team ID
      * @param iterationId 
      *            
-     * @return List&lt;TeamMemberCapacity&gt;
+     * @return ArrayList&lt;TeamMemberCapacity&gt;
      */
-    public List<TeamMemberCapacity> getCapacities(
+    public ArrayList<TeamMemberCapacity> getCapacities(
         final UUID project, 
         final UUID team, 
         final UUID iterationId) { 
@@ -1398,7 +1399,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamMemberCapacity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamMemberCapacity>>() {});
     }
 
     /** 
@@ -1550,9 +1551,9 @@ public abstract class WorkHttpClientBase
      *            Project ID or project name
      * @param iterationId 
      *            
-     * @return List&lt;TeamMemberCapacity&gt;
+     * @return ArrayList&lt;TeamMemberCapacity&gt;
      */
-    public List<TeamMemberCapacity> replaceCapacities(
+    public ArrayList<TeamMemberCapacity> replaceCapacities(
         final List<TeamMemberCapacity> capacities, 
         final String project, 
         final UUID iterationId) { 
@@ -1572,7 +1573,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamMemberCapacity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamMemberCapacity>>() {});
     }
 
     /** 
@@ -1584,9 +1585,9 @@ public abstract class WorkHttpClientBase
      *            Project ID
      * @param iterationId 
      *            
-     * @return List&lt;TeamMemberCapacity&gt;
+     * @return ArrayList&lt;TeamMemberCapacity&gt;
      */
-    public List<TeamMemberCapacity> replaceCapacities(
+    public ArrayList<TeamMemberCapacity> replaceCapacities(
         final List<TeamMemberCapacity> capacities, 
         final UUID project, 
         final UUID iterationId) { 
@@ -1606,7 +1607,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamMemberCapacity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamMemberCapacity>>() {});
     }
 
     /** 
@@ -1620,9 +1621,9 @@ public abstract class WorkHttpClientBase
      *            Team ID or team name
      * @param iterationId 
      *            
-     * @return List&lt;TeamMemberCapacity&gt;
+     * @return ArrayList&lt;TeamMemberCapacity&gt;
      */
-    public List<TeamMemberCapacity> replaceCapacities(
+    public ArrayList<TeamMemberCapacity> replaceCapacities(
         final List<TeamMemberCapacity> capacities, 
         final String project, 
         final String team, 
@@ -1644,7 +1645,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamMemberCapacity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamMemberCapacity>>() {});
     }
 
     /** 
@@ -1658,9 +1659,9 @@ public abstract class WorkHttpClientBase
      *            Team ID
      * @param iterationId 
      *            
-     * @return List&lt;TeamMemberCapacity&gt;
+     * @return ArrayList&lt;TeamMemberCapacity&gt;
      */
-    public List<TeamMemberCapacity> replaceCapacities(
+    public ArrayList<TeamMemberCapacity> replaceCapacities(
         final List<TeamMemberCapacity> capacities, 
         final UUID project, 
         final UUID team, 
@@ -1682,7 +1683,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamMemberCapacity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamMemberCapacity>>() {});
     }
 
     /** 
@@ -2528,9 +2529,9 @@ public abstract class WorkHttpClientBase
      *            Project ID or project name
      * @param board 
      *            Identifier for board, either category plural name (Eg:&quot;Stories&quot;) or Guid
-     * @return List&lt;BoardChartReference&gt;
+     * @return ArrayList&lt;BoardChartReference&gt;
      */
-    public List<BoardChartReference> getBoardCharts(
+    public ArrayList<BoardChartReference> getBoardCharts(
         final String project, 
         final String board) { 
 
@@ -2547,7 +2548,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardChartReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardChartReference>>() {});
     }
 
     /** 
@@ -2557,9 +2558,9 @@ public abstract class WorkHttpClientBase
      *            Project ID
      * @param board 
      *            Identifier for board, either category plural name (Eg:&quot;Stories&quot;) or Guid
-     * @return List&lt;BoardChartReference&gt;
+     * @return ArrayList&lt;BoardChartReference&gt;
      */
-    public List<BoardChartReference> getBoardCharts(
+    public ArrayList<BoardChartReference> getBoardCharts(
         final UUID project, 
         final String board) { 
 
@@ -2576,7 +2577,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardChartReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardChartReference>>() {});
     }
 
     /** 
@@ -2588,9 +2589,9 @@ public abstract class WorkHttpClientBase
      *            Team ID or team name
      * @param board 
      *            Identifier for board, either category plural name (Eg:&quot;Stories&quot;) or Guid
-     * @return List&lt;BoardChartReference&gt;
+     * @return ArrayList&lt;BoardChartReference&gt;
      */
-    public List<BoardChartReference> getBoardCharts(
+    public ArrayList<BoardChartReference> getBoardCharts(
         final String project, 
         final String team, 
         final String board) { 
@@ -2609,7 +2610,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardChartReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardChartReference>>() {});
     }
 
     /** 
@@ -2621,9 +2622,9 @@ public abstract class WorkHttpClientBase
      *            Team ID
      * @param board 
      *            Identifier for board, either category plural name (Eg:&quot;Stories&quot;) or Guid
-     * @return List&lt;BoardChartReference&gt;
+     * @return ArrayList&lt;BoardChartReference&gt;
      */
-    public List<BoardChartReference> getBoardCharts(
+    public ArrayList<BoardChartReference> getBoardCharts(
         final UUID project, 
         final UUID team, 
         final String board) { 
@@ -2642,7 +2643,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardChartReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardChartReference>>() {});
     }
 
     /** 
@@ -2812,9 +2813,9 @@ public abstract class WorkHttpClientBase
      *            Project ID or project name
      * @param board 
      *            
-     * @return List&lt;BoardColumn&gt;
+     * @return ArrayList&lt;BoardColumn&gt;
      */
-    public List<BoardColumn> getBoardColumns(
+    public ArrayList<BoardColumn> getBoardColumns(
         final String project, 
         final String board) { 
 
@@ -2831,7 +2832,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardColumn>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardColumn>>() {});
     }
 
     /** 
@@ -2841,9 +2842,9 @@ public abstract class WorkHttpClientBase
      *            Project ID
      * @param board 
      *            
-     * @return List&lt;BoardColumn&gt;
+     * @return ArrayList&lt;BoardColumn&gt;
      */
-    public List<BoardColumn> getBoardColumns(
+    public ArrayList<BoardColumn> getBoardColumns(
         final UUID project, 
         final String board) { 
 
@@ -2860,7 +2861,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardColumn>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardColumn>>() {});
     }
 
     /** 
@@ -2872,9 +2873,9 @@ public abstract class WorkHttpClientBase
      *            Team ID or team name
      * @param board 
      *            
-     * @return List&lt;BoardColumn&gt;
+     * @return ArrayList&lt;BoardColumn&gt;
      */
-    public List<BoardColumn> getBoardColumns(
+    public ArrayList<BoardColumn> getBoardColumns(
         final String project, 
         final String team, 
         final String board) { 
@@ -2893,7 +2894,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardColumn>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardColumn>>() {});
     }
 
     /** 
@@ -2905,9 +2906,9 @@ public abstract class WorkHttpClientBase
      *            Team ID
      * @param board 
      *            
-     * @return List&lt;BoardColumn&gt;
+     * @return ArrayList&lt;BoardColumn&gt;
      */
-    public List<BoardColumn> getBoardColumns(
+    public ArrayList<BoardColumn> getBoardColumns(
         final UUID project, 
         final UUID team, 
         final String board) { 
@@ -2926,7 +2927,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardColumn>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardColumn>>() {});
     }
 
     /** 
@@ -2938,9 +2939,9 @@ public abstract class WorkHttpClientBase
      *            Project ID or project name
      * @param board 
      *            
-     * @return List&lt;BoardColumn&gt;
+     * @return ArrayList&lt;BoardColumn&gt;
      */
-    public List<BoardColumn> updateBoardColumns(
+    public ArrayList<BoardColumn> updateBoardColumns(
         final List<BoardColumn> boardColumns, 
         final String project, 
         final String board) { 
@@ -2960,7 +2961,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardColumn>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardColumn>>() {});
     }
 
     /** 
@@ -2972,9 +2973,9 @@ public abstract class WorkHttpClientBase
      *            Project ID
      * @param board 
      *            
-     * @return List&lt;BoardColumn&gt;
+     * @return ArrayList&lt;BoardColumn&gt;
      */
-    public List<BoardColumn> updateBoardColumns(
+    public ArrayList<BoardColumn> updateBoardColumns(
         final List<BoardColumn> boardColumns, 
         final UUID project, 
         final String board) { 
@@ -2994,7 +2995,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardColumn>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardColumn>>() {});
     }
 
     /** 
@@ -3008,9 +3009,9 @@ public abstract class WorkHttpClientBase
      *            Team ID or team name
      * @param board 
      *            
-     * @return List&lt;BoardColumn&gt;
+     * @return ArrayList&lt;BoardColumn&gt;
      */
-    public List<BoardColumn> updateBoardColumns(
+    public ArrayList<BoardColumn> updateBoardColumns(
         final List<BoardColumn> boardColumns, 
         final String project, 
         final String team, 
@@ -3032,7 +3033,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardColumn>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardColumn>>() {});
     }
 
     /** 
@@ -3046,9 +3047,9 @@ public abstract class WorkHttpClientBase
      *            Team ID
      * @param board 
      *            
-     * @return List&lt;BoardColumn&gt;
+     * @return ArrayList&lt;BoardColumn&gt;
      */
-    public List<BoardColumn> updateBoardColumns(
+    public ArrayList<BoardColumn> updateBoardColumns(
         final List<BoardColumn> boardColumns, 
         final UUID project, 
         final UUID team, 
@@ -3070,7 +3071,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardColumn>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardColumn>>() {});
     }
 
     /** 
@@ -3326,9 +3327,9 @@ public abstract class WorkHttpClientBase
      *            Team ID or team name
      * @param timeframe 
      *            
-     * @return List&lt;TeamSettingsIteration&gt;
+     * @return ArrayList&lt;TeamSettingsIteration&gt;
      */
-    public List<TeamSettingsIteration> getTeamIterations(
+    public ArrayList<TeamSettingsIteration> getTeamIterations(
         final String project, 
         final String team, 
         final String timeframe) { 
@@ -3350,7 +3351,7 @@ public abstract class WorkHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamSettingsIteration>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamSettingsIteration>>() {});
     }
 
     /** 
@@ -3362,9 +3363,9 @@ public abstract class WorkHttpClientBase
      *            Team ID
      * @param timeframe 
      *            
-     * @return List&lt;TeamSettingsIteration&gt;
+     * @return ArrayList&lt;TeamSettingsIteration&gt;
      */
-    public List<TeamSettingsIteration> getTeamIterations(
+    public ArrayList<TeamSettingsIteration> getTeamIterations(
         final UUID project, 
         final UUID team, 
         final String timeframe) { 
@@ -3386,7 +3387,7 @@ public abstract class WorkHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamSettingsIteration>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamSettingsIteration>>() {});
     }
 
     /** 
@@ -3396,9 +3397,9 @@ public abstract class WorkHttpClientBase
      *            Project ID or project name
      * @param timeframe 
      *            
-     * @return List&lt;TeamSettingsIteration&gt;
+     * @return ArrayList&lt;TeamSettingsIteration&gt;
      */
-    public List<TeamSettingsIteration> getTeamIterations(
+    public ArrayList<TeamSettingsIteration> getTeamIterations(
         final String project, 
         final String timeframe) { 
 
@@ -3418,7 +3419,7 @@ public abstract class WorkHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamSettingsIteration>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamSettingsIteration>>() {});
     }
 
     /** 
@@ -3428,9 +3429,9 @@ public abstract class WorkHttpClientBase
      *            Project ID
      * @param timeframe 
      *            
-     * @return List&lt;TeamSettingsIteration&gt;
+     * @return ArrayList&lt;TeamSettingsIteration&gt;
      */
-    public List<TeamSettingsIteration> getTeamIterations(
+    public ArrayList<TeamSettingsIteration> getTeamIterations(
         final UUID project, 
         final String timeframe) { 
 
@@ -3450,7 +3451,7 @@ public abstract class WorkHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamSettingsIteration>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamSettingsIteration>>() {});
     }
 
     /** 
@@ -3636,9 +3637,9 @@ public abstract class WorkHttpClientBase
      *            Project ID or project name
      * @param board 
      *            
-     * @return List&lt;BoardRow&gt;
+     * @return ArrayList&lt;BoardRow&gt;
      */
-    public List<BoardRow> getBoardRows(
+    public ArrayList<BoardRow> getBoardRows(
         final String project, 
         final String board) { 
 
@@ -3655,7 +3656,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardRow>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardRow>>() {});
     }
 
     /** 
@@ -3665,9 +3666,9 @@ public abstract class WorkHttpClientBase
      *            Project ID
      * @param board 
      *            
-     * @return List&lt;BoardRow&gt;
+     * @return ArrayList&lt;BoardRow&gt;
      */
-    public List<BoardRow> getBoardRows(
+    public ArrayList<BoardRow> getBoardRows(
         final UUID project, 
         final String board) { 
 
@@ -3684,7 +3685,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardRow>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardRow>>() {});
     }
 
     /** 
@@ -3696,9 +3697,9 @@ public abstract class WorkHttpClientBase
      *            Team ID or team name
      * @param board 
      *            
-     * @return List&lt;BoardRow&gt;
+     * @return ArrayList&lt;BoardRow&gt;
      */
-    public List<BoardRow> getBoardRows(
+    public ArrayList<BoardRow> getBoardRows(
         final String project, 
         final String team, 
         final String board) { 
@@ -3717,7 +3718,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardRow>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardRow>>() {});
     }
 
     /** 
@@ -3729,9 +3730,9 @@ public abstract class WorkHttpClientBase
      *            Team ID
      * @param board 
      *            
-     * @return List&lt;BoardRow&gt;
+     * @return ArrayList&lt;BoardRow&gt;
      */
-    public List<BoardRow> getBoardRows(
+    public ArrayList<BoardRow> getBoardRows(
         final UUID project, 
         final UUID team, 
         final String board) { 
@@ -3750,7 +3751,7 @@ public abstract class WorkHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardRow>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardRow>>() {});
     }
 
     /** 
@@ -3762,9 +3763,9 @@ public abstract class WorkHttpClientBase
      *            Project ID or project name
      * @param board 
      *            
-     * @return List&lt;BoardRow&gt;
+     * @return ArrayList&lt;BoardRow&gt;
      */
-    public List<BoardRow> updateBoardRows(
+    public ArrayList<BoardRow> updateBoardRows(
         final List<BoardRow> boardRows, 
         final String project, 
         final String board) { 
@@ -3784,7 +3785,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardRow>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardRow>>() {});
     }
 
     /** 
@@ -3796,9 +3797,9 @@ public abstract class WorkHttpClientBase
      *            Project ID
      * @param board 
      *            
-     * @return List&lt;BoardRow&gt;
+     * @return ArrayList&lt;BoardRow&gt;
      */
-    public List<BoardRow> updateBoardRows(
+    public ArrayList<BoardRow> updateBoardRows(
         final List<BoardRow> boardRows, 
         final UUID project, 
         final String board) { 
@@ -3818,7 +3819,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardRow>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardRow>>() {});
     }
 
     /** 
@@ -3832,9 +3833,9 @@ public abstract class WorkHttpClientBase
      *            Team ID or team name
      * @param board 
      *            
-     * @return List&lt;BoardRow&gt;
+     * @return ArrayList&lt;BoardRow&gt;
      */
-    public List<BoardRow> updateBoardRows(
+    public ArrayList<BoardRow> updateBoardRows(
         final List<BoardRow> boardRows, 
         final String project, 
         final String team, 
@@ -3856,7 +3857,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardRow>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardRow>>() {});
     }
 
     /** 
@@ -3870,9 +3871,9 @@ public abstract class WorkHttpClientBase
      *            Team ID
      * @param board 
      *            
-     * @return List&lt;BoardRow&gt;
+     * @return ArrayList&lt;BoardRow&gt;
      */
-    public List<BoardRow> updateBoardRows(
+    public ArrayList<BoardRow> updateBoardRows(
         final List<BoardRow> boardRows, 
         final UUID project, 
         final UUID team, 
@@ -3894,7 +3895,7 @@ public abstract class WorkHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BoardRow>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BoardRow>>() {});
     }
 
     /** 

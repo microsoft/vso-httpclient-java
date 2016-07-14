@@ -16,14 +16,14 @@
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
 import java.util.Date;
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
 public class WorkItemUpdate
     extends WorkItemTrackingResourceReference {
 
-    private Map<String, WorkItemFieldUpdate> fields;
+    private HashMap<String, WorkItemFieldUpdate> fields;
     private int id;
     private WorkItemRelationUpdates relations;
     private int rev;
@@ -31,11 +31,11 @@ public class WorkItemUpdate
     private Date revisedDate;
     private int workItemId;
 
-    public Map<String, WorkItemFieldUpdate> getFields() {
+    public HashMap<String, WorkItemFieldUpdate> getFields() {
         return fields;
     }
 
-    public void setFields(final Map<String, WorkItemFieldUpdate> fields) {
+    public void setFields(final HashMap<String, WorkItemFieldUpdate> fields) {
         this.fields = fields;
     }
 

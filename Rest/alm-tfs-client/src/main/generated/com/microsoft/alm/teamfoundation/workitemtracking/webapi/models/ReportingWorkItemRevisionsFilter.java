@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -24,28 +24,54 @@ public class ReportingWorkItemRevisionsFilter {
     /**
     * A list of fields to return in work item revisions. Omit this parameter to get all reportable fields.
     */
-    private List<String> fields;
+    private ArrayList<String> fields;
+    /**
+    * Include deleted work item in the result.
+    */
+    private boolean includeDeleted;
     /**
     * Return an identity reference instead of a string value for identity fields.
     */
     private boolean includeIdentityRef;
     /**
+    * Include only the latest version of a work item, skipping over all previous revisions of the work item.
+    */
+    private boolean includeLatestOnly;
+    /**
+    * Include tag reference instead of string value for System.Tags field
+    */
+    private boolean includeTagRef;
+    /**
     * A list of types to filter the results to specific work item types. Omit this parameter to get work item revisions of all work item types.
     */
-    private List<String> types;
+    private ArrayList<String> types;
 
     /**
     * A list of fields to return in work item revisions. Omit this parameter to get all reportable fields.
     */
-    public List<String> getFields() {
+    public ArrayList<String> getFields() {
         return fields;
     }
 
     /**
     * A list of fields to return in work item revisions. Omit this parameter to get all reportable fields.
     */
-    public void setFields(final List<String> fields) {
+    public void setFields(final ArrayList<String> fields) {
         this.fields = fields;
+    }
+
+    /**
+    * Include deleted work item in the result.
+    */
+    public boolean getIncludeDeleted() {
+        return includeDeleted;
+    }
+
+    /**
+    * Include deleted work item in the result.
+    */
+    public void setIncludeDeleted(final boolean includeDeleted) {
+        this.includeDeleted = includeDeleted;
     }
 
     /**
@@ -63,16 +89,44 @@ public class ReportingWorkItemRevisionsFilter {
     }
 
     /**
+    * Include only the latest version of a work item, skipping over all previous revisions of the work item.
+    */
+    public boolean getIncludeLatestOnly() {
+        return includeLatestOnly;
+    }
+
+    /**
+    * Include only the latest version of a work item, skipping over all previous revisions of the work item.
+    */
+    public void setIncludeLatestOnly(final boolean includeLatestOnly) {
+        this.includeLatestOnly = includeLatestOnly;
+    }
+
+    /**
+    * Include tag reference instead of string value for System.Tags field
+    */
+    public boolean getIncludeTagRef() {
+        return includeTagRef;
+    }
+
+    /**
+    * Include tag reference instead of string value for System.Tags field
+    */
+    public void setIncludeTagRef(final boolean includeTagRef) {
+        this.includeTagRef = includeTagRef;
+    }
+
+    /**
     * A list of types to filter the results to specific work item types. Omit this parameter to get work item revisions of all work item types.
     */
-    public List<String> getTypes() {
+    public ArrayList<String> getTypes() {
         return types;
     }
 
     /**
     * A list of types to filter the results to specific work item types. Omit this parameter to get work item revisions of all work item types.
     */
-    public void setTypes(final List<String> types) {
+    public void setTypes(final ArrayList<String> types) {
         this.types = types;
     }
 }

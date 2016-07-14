@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * The FilterResult is the set of publishers that matched a particular query filter.
@@ -26,19 +26,19 @@ public class PublisherFilterResult {
     /**
     * This is the set of appplications that matched the query filter supplied.
     */
-    private List<Publisher> publishers;
+    private ArrayList<Publisher> publishers;
 
     /**
     * This is the set of appplications that matched the query filter supplied.
     */
-    public List<Publisher> getPublishers() {
+    public ArrayList<Publisher> getPublishers() {
         return publishers;
     }
 
     /**
     * This is the set of appplications that matched the query filter supplied.
     */
-    public void setPublishers(final List<Publisher> publishers) {
+    public void setPublishers(final ArrayList<Publisher> publishers) {
         this.publishers = publishers;
     }
 }

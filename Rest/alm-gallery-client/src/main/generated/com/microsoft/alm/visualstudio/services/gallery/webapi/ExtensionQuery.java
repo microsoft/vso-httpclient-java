@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * An ExtensionQuery is used to search the gallery for a set of extensions that match one of many filter values.
@@ -26,11 +26,11 @@ public class ExtensionQuery {
     /**
     * When retrieving extensions with a query; frequently the caller only needs a small subset of the assets. The caller may specify a list of asset types that should be returned if the extension contains it. All other assets will not be returned.
     */
-    private List<String> assetTypes;
+    private ArrayList<String> assetTypes;
     /**
     * Each filter is a unique query and will have matching set of extensions returned from the request. Each result will have the same index in the resulting array that the filter had in the incoming query.
     */
-    private List<QueryFilter> filters;
+    private ArrayList<QueryFilter> filters;
     /**
     * The Flags are used to deterine which set of information the caller would like returned for the matched extensions.
     */
@@ -39,28 +39,28 @@ public class ExtensionQuery {
     /**
     * When retrieving extensions with a query; frequently the caller only needs a small subset of the assets. The caller may specify a list of asset types that should be returned if the extension contains it. All other assets will not be returned.
     */
-    public List<String> getAssetTypes() {
+    public ArrayList<String> getAssetTypes() {
         return assetTypes;
     }
 
     /**
     * When retrieving extensions with a query; frequently the caller only needs a small subset of the assets. The caller may specify a list of asset types that should be returned if the extension contains it. All other assets will not be returned.
     */
-    public void setAssetTypes(final List<String> assetTypes) {
+    public void setAssetTypes(final ArrayList<String> assetTypes) {
         this.assetTypes = assetTypes;
     }
 
     /**
     * Each filter is a unique query and will have matching set of extensions returned from the request. Each result will have the same index in the resulting array that the filter had in the incoming query.
     */
-    public List<QueryFilter> getFilters() {
+    public ArrayList<QueryFilter> getFilters() {
         return filters;
     }
 
     /**
     * Each filter is a unique query and will have matching set of extensions returned from the request. Each result will have the same index in the resulting array that the filter had in the incoming query.
     */
-    public void setFilters(final List<QueryFilter> filters) {
+    public void setFilters(final ArrayList<QueryFilter> filters) {
         this.filters = filters;
     }
 

@@ -81,13 +81,11 @@ public class FileContentMetadata {
         this.isImage = isImage;
     }
 
-    @JsonProperty("vsLink")
-    public String getVisualStudioWebLink() {
+    public String getVsLink() {
         return vsLink;
     }
 
-    @JsonProperty("vsLink")
-    public void setVisualStudioWebLink(final String vsLink) {
+    public void setVsLink(final String vsLink) {
         this.vsLink = vsLink;
     }
 }

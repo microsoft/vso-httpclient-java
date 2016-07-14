@@ -15,20 +15,20 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class UpdateRefsRequest {
 
-    private List<GitRefUpdate> refUpdateRequests;
+    private ArrayList<GitRefUpdate> refUpdateRequests;
     private GitRefUpdateMode updateMode;
 
-    public List<GitRefUpdate> getRefUpdateRequests() {
+    public ArrayList<GitRefUpdate> getRefUpdateRequests() {
         return refUpdateRequests;
     }
 
-    public void setRefUpdateRequests(final List<GitRefUpdate> refUpdateRequests) {
+    public void setRefUpdateRequests(final ArrayList<GitRefUpdate> refUpdateRequests) {
         this.refUpdateRequests = refUpdateRequests;
     }
 

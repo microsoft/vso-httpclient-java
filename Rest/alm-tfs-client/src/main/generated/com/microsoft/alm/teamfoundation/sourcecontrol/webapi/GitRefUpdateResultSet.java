@@ -15,9 +15,9 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.HashMap;
 import java.util.UUID;
 
 /** 
@@ -27,9 +27,9 @@ public class GitRefUpdateResultSet {
     private int countFailed;
     private int countSucceeded;
     private UUID pushCorrelationId;
-    private Map<UUID, Integer> pushIds;
+    private HashMap<UUID, Integer> pushIds;
     private Date pushTime;
-    private List<GitRefUpdateResult> results;
+    private ArrayList<GitRefUpdateResult> results;
 
     public int getCountFailed() {
         return countFailed;
@@ -55,11 +55,11 @@ public class GitRefUpdateResultSet {
         this.pushCorrelationId = pushCorrelationId;
     }
 
-    public Map<UUID, Integer> getPushIds() {
+    public HashMap<UUID, Integer> getPushIds() {
         return pushIds;
     }
 
-    public void setPushIds(final Map<UUID, Integer> pushIds) {
+    public void setPushIds(final HashMap<UUID, Integer> pushIds) {
         this.pushIds = pushIds;
     }
 
@@ -71,11 +71,11 @@ public class GitRefUpdateResultSet {
         this.pushTime = pushTime;
     }
 
-    public List<GitRefUpdateResult> getResults() {
+    public ArrayList<GitRefUpdateResult> getResults() {
         return results;
     }
 
-    public void setResults(final List<GitRefUpdateResult> results) {
+    public void setResults(final ArrayList<GitRefUpdateResult> results) {
         this.results = results;
     }
 }

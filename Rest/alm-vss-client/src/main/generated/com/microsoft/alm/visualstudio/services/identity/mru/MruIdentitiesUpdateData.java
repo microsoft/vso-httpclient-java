@@ -15,12 +15,12 @@
 
 package com.microsoft.alm.visualstudio.services.identity.mru;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
  */
 public class MruIdentitiesUpdateData
-    extends JsonPatchOperationData<List<UUID>> {
+    extends JsonPatchOperationData<ArrayList<UUID>> {
 
 }

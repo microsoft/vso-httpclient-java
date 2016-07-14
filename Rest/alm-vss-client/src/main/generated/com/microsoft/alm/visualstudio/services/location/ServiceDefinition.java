@@ -15,9 +15,8 @@
 
 package com.microsoft.alm.visualstudio.services.location;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.PropertiesCollection;
 
 /** 
@@ -28,7 +27,7 @@ public class ServiceDefinition {
     private String displayName;
     private UUID identifier;
     private InheritLevel inheritLevel;
-    private List<LocationMapping> locationMappings;
+    private ArrayList<LocationMapping> locationMappings;
     /**
     * Maximum api version that this resource supports (current server version for this resource). Copied from ApiResourceLocation.
     */
@@ -90,43 +89,39 @@ public class ServiceDefinition {
         this.inheritLevel = inheritLevel;
     }
 
-    public List<LocationMapping> getLocationMappings() {
+    public ArrayList<LocationMapping> getLocationMappings() {
         return locationMappings;
     }
 
-    public void setLocationMappings(final List<LocationMapping> locationMappings) {
+    public void setLocationMappings(final ArrayList<LocationMapping> locationMappings) {
         this.locationMappings = locationMappings;
     }
 
     /**
     * Maximum api version that this resource supports (current server version for this resource). Copied from ApiResourceLocation.
     */
-    @JsonProperty("maxVersion")
-    public String getMaxVersionString() {
+    public String getMaxVersion() {
         return maxVersion;
     }
 
     /**
     * Maximum api version that this resource supports (current server version for this resource). Copied from ApiResourceLocation.
     */
-    @JsonProperty("maxVersion")
-    public void setMaxVersionString(final String maxVersion) {
+    public void setMaxVersion(final String maxVersion) {
         this.maxVersion = maxVersion;
     }
 
     /**
     * Minimum api version that this resource supports. Copied from ApiResourceLocation.
     */
-    @JsonProperty("minVersion")
-    public String getMinVersionString() {
+    public String getMinVersion() {
         return minVersion;
     }
 
     /**
     * Minimum api version that this resource supports. Copied from ApiResourceLocation.
     */
-    @JsonProperty("minVersion")
-    public void setMinVersionString(final String minVersion) {
+    public void setMinVersion(final String minVersion) {
         this.minVersion = minVersion;
     }
 
@@ -173,16 +168,14 @@ public class ServiceDefinition {
     /**
     * The latest version of this resource location that is in &amp;quot;Release&amp;quot; (non-preview) mode. Copied from ApiResourceLocation.
     */
-    @JsonProperty("releasedVersion")
-    public String getReleasedVersionString() {
+    public String getReleasedVersion() {
         return releasedVersion;
     }
 
     /**
     * The latest version of this resource location that is in &amp;quot;Release&amp;quot; (non-preview) mode. Copied from ApiResourceLocation.
     */
-    @JsonProperty("releasedVersion")
-    public void setReleasedVersionString(final String releasedVersion) {
+    public void setReleasedVersion(final String releasedVersion) {
         this.releasedVersion = releasedVersion;
     }
 

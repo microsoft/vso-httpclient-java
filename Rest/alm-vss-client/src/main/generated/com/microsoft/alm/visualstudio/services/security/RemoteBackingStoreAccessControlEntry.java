@@ -16,7 +16,6 @@
 package com.microsoft.alm.visualstudio.services.security;
 
 import java.util.UUID;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
  * Represents a raw access control entry from a remote backing store.
@@ -72,16 +71,14 @@ public class RemoteBackingStoreAccessControlEntry {
     /**
     * The identity for which the access control entry is allowing / denying permission.
     */
-    @JsonProperty("identityId")
-    public UUID getSubjectId() {
+    public UUID getIdentityId() {
         return identityId;
     }
 
     /**
     * The identity for which the access control entry is allowing / denying permission.
     */
-    @JsonProperty("identityId")
-    public void setSubjectId(final UUID identityId) {
+    public void setIdentityId(final UUID identityId) {
         this.identityId = identityId;
     }
 

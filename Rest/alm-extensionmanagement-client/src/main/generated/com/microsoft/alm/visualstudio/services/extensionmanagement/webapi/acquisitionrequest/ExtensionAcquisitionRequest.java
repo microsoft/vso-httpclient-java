@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi.acquisitionrequest;
 
-import com.microsoft.alm.client.json.JObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.microsoft.alm.visualstudio.services.extensionmanagement.webapi.AcquisitionOperationType;
 
 /** 
@@ -43,7 +43,7 @@ public class ExtensionAcquisitionRequest {
     /**
     * Additional properties which can be added to the request.
     */
-    private JObject properties;
+    private ObjectNode properties;
     /**
     * How many licenses should be purchased
     */
@@ -108,14 +108,14 @@ public class ExtensionAcquisitionRequest {
     /**
     * Additional properties which can be added to the request.
     */
-    public JObject getProperties() {
+    public ObjectNode getProperties() {
         return properties;
     }
 
     /**
     * Additional properties which can be added to the request.
     */
-    public void setProperties(final JObject properties) {
+    public void setProperties(final ObjectNode properties) {
         this.properties = properties;
     }
 

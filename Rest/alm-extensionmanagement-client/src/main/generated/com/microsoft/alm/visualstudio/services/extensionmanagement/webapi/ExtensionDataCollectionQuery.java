@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * Represents a query to receive a set of extension data collections
@@ -26,19 +26,19 @@ public class ExtensionDataCollectionQuery {
     /**
     * A list of collections to query
     */
-    private List<ExtensionDataCollection> collections;
+    private ArrayList<ExtensionDataCollection> collections;
 
     /**
     * A list of collections to query
     */
-    public List<ExtensionDataCollection> getCollections() {
+    public ArrayList<ExtensionDataCollection> getCollections() {
         return collections;
     }
 
     /**
     * A list of collections to query
     */
-    public void setCollections(final List<ExtensionDataCollection> collections) {
+    public void setCollections(final ArrayList<ExtensionDataCollection> collections) {
         this.collections = collections;
     }
 }

@@ -16,6 +16,7 @@
 package com.microsoft.alm.visualstudio.services.account.client;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -166,9 +167,9 @@ public abstract class AccountHttpClientBase
      *            
      * @param includeDisabledAccounts 
      *            
-     * @return List&lt;Account&gt;
+     * @return ArrayList&lt;Account&gt;
      */
-    public List<Account> getAccounts(
+    public ArrayList<Account> getAccounts(
         final UUID creatorId, 
         final UUID ownerId, 
         final UUID memberId, 
@@ -193,7 +194,7 @@ public abstract class AccountHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Account>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Account>>() {});
     }
 
     /** 
@@ -252,9 +253,9 @@ public abstract class AccountHttpClientBase
     /** 
      * [Preview API 3.0-preview.1]
      * 
-     * @return List&lt;AccountRegion&gt;
+     * @return ArrayList&lt;AccountRegion&gt;
      */
-    public List<AccountRegion> getRegions() { 
+    public ArrayList<AccountRegion> getRegions() { 
 
         final UUID locationId = UUID.fromString("642a93c7-8385-4d63-a5a5-20d044fe504f"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -264,15 +265,15 @@ public abstract class AccountHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<AccountRegion>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<AccountRegion>>() {});
     }
 
     /** 
      * [Preview API 3.0-preview.1]
      * 
-     * @return Map&lt;String, String&gt;
+     * @return HashMap&lt;String, String&gt;
      */
-    public Map<String, String> getAccountSettings() { 
+    public HashMap<String, String> getAccountSettings() { 
 
         final UUID locationId = UUID.fromString("4e012dd4-f8e1-485d-9bb3-c50d83c5b71b"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -282,6 +283,6 @@ public abstract class AccountHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<Map<String, String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<HashMap<String, String>>() {});
     }
 }

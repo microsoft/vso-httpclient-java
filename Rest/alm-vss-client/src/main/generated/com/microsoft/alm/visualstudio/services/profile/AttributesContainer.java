@@ -15,21 +15,21 @@
 
 package com.microsoft.alm.visualstudio.services.profile;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
 public class AttributesContainer {
 
-    private Map<String, ProfileAttribute> attributes;
+    private HashMap<String, ProfileAttribute> attributes;
     private String containerName;
     private int revision;
 
-    public Map<String, ProfileAttribute> getAttributes() {
+    public HashMap<String, ProfileAttribute> getAttributes() {
         return attributes;
     }
 
-    public void setAttributes(final Map<String, ProfileAttribute> attributes) {
+    public void setAttributes(final HashMap<String, ProfileAttribute> attributes) {
         this.attributes = attributes;
     }
 

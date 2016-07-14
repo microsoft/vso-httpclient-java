@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * The FilterResult is the set of extensions that matched a particular query filter.
@@ -26,7 +26,7 @@ public class ExtensionFilterResult {
     /**
     * This is the set of appplications that matched the query filter supplied.
     */
-    private List<PublishedExtension> extensions;
+    private ArrayList<PublishedExtension> extensions;
     /**
     * The PagingToken is returned from a request when more records exist that match the result than were requested or could be returned. A follow-up query with this paging token can be used to retrieve more results.
     */
@@ -34,19 +34,19 @@ public class ExtensionFilterResult {
     /**
     * This is the additional optional metadata for the given result. E.g. Total count of results which is useful in case of paged results
     */
-    private List<ExtensionFilterResultMetadata> resultMetadata;
+    private ArrayList<ExtensionFilterResultMetadata> resultMetadata;
 
     /**
     * This is the set of appplications that matched the query filter supplied.
     */
-    public List<PublishedExtension> getExtensions() {
+    public ArrayList<PublishedExtension> getExtensions() {
         return extensions;
     }
 
     /**
     * This is the set of appplications that matched the query filter supplied.
     */
-    public void setExtensions(final List<PublishedExtension> extensions) {
+    public void setExtensions(final ArrayList<PublishedExtension> extensions) {
         this.extensions = extensions;
     }
 
@@ -67,14 +67,14 @@ public class ExtensionFilterResult {
     /**
     * This is the additional optional metadata for the given result. E.g. Total count of results which is useful in case of paged results
     */
-    public List<ExtensionFilterResultMetadata> getResultMetadata() {
+    public ArrayList<ExtensionFilterResultMetadata> getResultMetadata() {
         return resultMetadata;
     }
 
     /**
     * This is the additional optional metadata for the given result. E.g. Total count of results which is useful in case of paged results
     */
-    public void setResultMetadata(final List<ExtensionFilterResultMetadata> resultMetadata) {
+    public void setResultMetadata(final ArrayList<ExtensionFilterResultMetadata> resultMetadata) {
         this.resultMetadata = resultMetadata;
     }
 }

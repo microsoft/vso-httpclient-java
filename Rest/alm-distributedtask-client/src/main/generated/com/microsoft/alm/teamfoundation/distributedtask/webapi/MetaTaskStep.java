@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
@@ -25,7 +25,7 @@ public class MetaTaskStep {
     private boolean continueOnError;
     private String displayName;
     private boolean enabled;
-    private Map<String, String> inputs;
+    private HashMap<String, String> inputs;
     private TaskDefinitionReference task;
     private int timeoutInMinutes;
 
@@ -61,11 +61,11 @@ public class MetaTaskStep {
         this.enabled = enabled;
     }
 
-    public Map<String, String> getInputs() {
+    public HashMap<String, String> getInputs() {
         return inputs;
     }
 
-    public void setInputs(final Map<String, String> inputs) {
+    public void setInputs(final HashMap<String, String> inputs) {
         this.inputs = inputs;
     }
 

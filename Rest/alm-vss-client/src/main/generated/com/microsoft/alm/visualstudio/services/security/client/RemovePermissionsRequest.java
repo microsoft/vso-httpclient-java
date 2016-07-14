@@ -15,21 +15,21 @@
 
 package com.microsoft.alm.visualstudio.services.security.client;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
  */
 public class RemovePermissionsRequest {
 
-    private List<UUID> identityIds;
+    private ArrayList<UUID> identityIds;
     private String token;
 
-    public List<UUID> getIdentityIds() {
+    public ArrayList<UUID> getIdentityIds() {
         return identityIds;
     }
 
-    public void setIdentityIds(final List<UUID> identityIds) {
+    public void setIdentityIds(final ArrayList<UUID> identityIds) {
         this.identityIds = identityIds;
     }
 

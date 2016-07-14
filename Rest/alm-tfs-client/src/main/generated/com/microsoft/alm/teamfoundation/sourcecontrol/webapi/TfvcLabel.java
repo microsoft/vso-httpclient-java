@@ -15,20 +15,20 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class TfvcLabel
     extends TfvcLabelRef {
 
-    private List<TfvcItem> items;
+    private ArrayList<TfvcItem> items;
 
-    public List<TfvcItem> getItems() {
+    public ArrayList<TfvcItem> getItems() {
         return items;
     }
 
-    public void setItems(final List<TfvcItem> items) {
+    public void setItems(final ArrayList<TfvcItem> items) {
         this.items = items;
     }
 }

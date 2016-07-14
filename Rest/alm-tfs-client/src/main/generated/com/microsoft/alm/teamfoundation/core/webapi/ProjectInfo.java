@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.core.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 /** 
@@ -30,7 +30,7 @@ public class ProjectInfo {
     private UUID id;
     private Date lastUpdateTime;
     private String name;
-    private List<ProjectProperty> properties;
+    private ArrayList<ProjectProperty> properties;
     /**
     * Current revision of the project
     */
@@ -79,11 +79,11 @@ public class ProjectInfo {
         this.name = name;
     }
 
-    public List<ProjectProperty> getProperties() {
+    public ArrayList<ProjectProperty> getProperties() {
         return properties;
     }
 
-    public void setProperties(final List<ProjectProperty> properties) {
+    public void setProperties(final ArrayList<ProjectProperty> properties) {
         this.properties = properties;
     }
 

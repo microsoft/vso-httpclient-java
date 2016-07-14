@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
@@ -23,7 +23,7 @@ import java.util.UUID;
 public class ExtensionAuthorization {
 
     private UUID id;
-    private List<String> scopes;
+    private ArrayList<String> scopes;
 
     public UUID getId() {
         return id;
@@ -33,11 +33,11 @@ public class ExtensionAuthorization {
         this.id = id;
     }
 
-    public List<String> getScopes() {
+    public ArrayList<String> getScopes() {
         return scopes;
     }
 
-    public void setScopes(final List<String> scopes) {
+    public void setScopes(final ArrayList<String> scopes) {
         this.scopes = scopes;
     }
 }

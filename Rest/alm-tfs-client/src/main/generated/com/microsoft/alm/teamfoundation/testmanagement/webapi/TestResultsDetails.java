@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class TestResultsDetails {
 
     private String groupByField;
-    private List<TestResultsDetailsForGroup> resultsForGroup;
+    private ArrayList<TestResultsDetailsForGroup> resultsForGroup;
 
     public String getGroupByField() {
         return groupByField;
@@ -32,11 +32,11 @@ public class TestResultsDetails {
         this.groupByField = groupByField;
     }
 
-    public List<TestResultsDetailsForGroup> getResultsForGroup() {
+    public ArrayList<TestResultsDetailsForGroup> getResultsForGroup() {
         return resultsForGroup;
     }
 
-    public void setResultsForGroup(final List<TestResultsDetailsForGroup> resultsForGroup) {
+    public void setResultsForGroup(final ArrayList<TestResultsDetailsForGroup> resultsForGroup) {
         this.resultsForGroup = resultsForGroup;
     }
 }

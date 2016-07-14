@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  * A contribution type, given by a json schema
@@ -35,7 +35,7 @@ public class ContributionType
     /**
     * Describes the allowed properties for this contribution type
     */
-    private Map<String, ContributionPropertyDescription> properties;
+    private HashMap<String, ContributionPropertyDescription> properties;
 
     /**
     * Controls whether or not contributions of this type have the type indexed for queries. This allows clients to find all extensions that have a contribution of this type.  NOTE: Only TrustedPartners are allowed to specify indexed contribution types.
@@ -68,14 +68,14 @@ public class ContributionType
     /**
     * Describes the allowed properties for this contribution type
     */
-    public Map<String, ContributionPropertyDescription> getProperties() {
+    public HashMap<String, ContributionPropertyDescription> getProperties() {
         return properties;
     }
 
     /**
     * Describes the allowed properties for this contribution type
     */
-    public void setProperties(final Map<String, ContributionPropertyDescription> properties) {
+    public void setProperties(final HashMap<String, ContributionPropertyDescription> properties) {
         this.properties = properties;
     }
 }

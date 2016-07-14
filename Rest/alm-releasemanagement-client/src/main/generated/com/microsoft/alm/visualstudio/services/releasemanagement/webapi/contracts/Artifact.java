@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Artifact {
 
     private String alias;
-    private Map<String, ArtifactSourceReference> definitionReference;
+    private HashMap<String, ArtifactSourceReference> definitionReference;
     private boolean isPrimary;
     private String sourceId;
     private String type;
@@ -36,11 +36,11 @@ public class Artifact {
         this.alias = alias;
     }
 
-    public Map<String, ArtifactSourceReference> getDefinitionReference() {
+    public HashMap<String, ArtifactSourceReference> getDefinitionReference() {
         return definitionReference;
     }
 
-    public void setDefinitionReference(final Map<String, ArtifactSourceReference> definitionReference) {
+    public void setDefinitionReference(final HashMap<String, ArtifactSourceReference> definitionReference) {
         this.definitionReference = definitionReference;
     }
 

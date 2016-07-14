@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -28,7 +28,7 @@ public class HistoryQueryResults<T> {
     /**
     * The history entries (results) from this query
     */
-    private List<HistoryEntry<T>> results;
+    private ArrayList<HistoryEntry<T>> results;
 
     /**
     * True if there are more results available to fetch (we&amp;#039;re returning the max # of items requested) A more RESTy solution would be to include a Link header
@@ -47,14 +47,14 @@ public class HistoryQueryResults<T> {
     /**
     * The history entries (results) from this query
     */
-    public List<HistoryEntry<T>> getResults() {
+    public ArrayList<HistoryEntry<T>> getResults() {
         return results;
     }
 
     /**
     * The history entries (results) from this query
     */
-    public void setResults(final List<HistoryEntry<T>> results) {
+    public void setResults(final ArrayList<HistoryEntry<T>> results) {
         this.results = results;
     }
 }

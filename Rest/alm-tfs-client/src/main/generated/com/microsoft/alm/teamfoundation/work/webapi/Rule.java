@@ -15,23 +15,23 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class Rule {
 
-    private List<FilterClause> clauses;
+    private ArrayList<FilterClause> clauses;
     private String filter;
     private String isEnabled;
     private String name;
     private attribute settings;
 
-    public List<FilterClause> getClauses() {
+    public ArrayList<FilterClause> getClauses() {
         return clauses;
     }
 
-    public void setClauses(final List<FilterClause> clauses) {
+    public void setClauses(final ArrayList<FilterClause> clauses) {
         this.clauses = clauses;
     }
 

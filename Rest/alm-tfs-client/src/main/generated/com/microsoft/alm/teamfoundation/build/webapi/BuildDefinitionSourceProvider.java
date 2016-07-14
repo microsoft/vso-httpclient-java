@@ -16,7 +16,7 @@
 package com.microsoft.alm.teamfoundation.build.webapi;
 
 import java.util.Date;
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
@@ -29,7 +29,7 @@ public class BuildDefinitionSourceProvider {
     /**
     * fields associated with this build definition
     */
-    private Map<String, String> fields;
+    private HashMap<String, String> fields;
     /**
     * Id of this source provider
     */
@@ -64,14 +64,14 @@ public class BuildDefinitionSourceProvider {
     /**
     * fields associated with this build definition
     */
-    public Map<String, String> getFields() {
+    public HashMap<String, String> getFields() {
         return fields;
     }
 
     /**
     * fields associated with this build definition
     */
-    public void setFields(final Map<String, String> fields) {
+    public void setFields(final HashMap<String, String> fields) {
         this.fields = fields;
     }
 

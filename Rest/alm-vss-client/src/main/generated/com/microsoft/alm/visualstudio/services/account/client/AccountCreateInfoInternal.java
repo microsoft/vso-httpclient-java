@@ -16,9 +16,8 @@
 package com.microsoft.alm.visualstudio.services.account.client;
 
 import java.util.AbstractMap.SimpleEntry;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.PropertiesCollection;
 
 /** 
@@ -30,15 +29,13 @@ public class AccountCreateInfoInternal {
     private String organization;
     private AccountPreferencesInternal preferences;
     private PropertiesCollection properties;
-    private List<SimpleEntry<UUID, UUID>> serviceDefinitions;
+    private ArrayList<SimpleEntry<UUID, UUID>> serviceDefinitions;
 
-    @JsonProperty("accountName")
-    public String getName() {
+    public String getAccountName() {
         return accountName;
     }
 
-    @JsonProperty("accountName")
-    public void setName(final String accountName) {
+    public void setAccountName(final String accountName) {
         this.accountName = accountName;
     }
 
@@ -74,11 +71,11 @@ public class AccountCreateInfoInternal {
         this.properties = properties;
     }
 
-    public List<SimpleEntry<UUID, UUID>> getServiceDefinitions() {
+    public ArrayList<SimpleEntry<UUID, UUID>> getServiceDefinitions() {
         return serviceDefinitions;
     }
 
-    public void setServiceDefinitions(final List<SimpleEntry<UUID, UUID>> serviceDefinitions) {
+    public void setServiceDefinitions(final ArrayList<SimpleEntry<UUID, UUID>> serviceDefinitions) {
         this.serviceDefinitions = serviceDefinitions;
     }
 }

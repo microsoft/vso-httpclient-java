@@ -16,6 +16,7 @@
 package com.microsoft.alm.visualstudio.services.location.client;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -167,9 +168,9 @@ public abstract class LocationHttpClientBase
      * 
      * @param serviceType 
      *            
-     * @return List&lt;ServiceDefinition&gt;
+     * @return ArrayList&lt;ServiceDefinition&gt;
      */
-    public List<ServiceDefinition> getServiceDefinitions(final String serviceType) { 
+    public ArrayList<ServiceDefinition> getServiceDefinitions(final String serviceType) { 
 
         final UUID locationId = UUID.fromString("d810a47d-f4f4-4a62-a03f-fa1860585c4c"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -183,7 +184,7 @@ public abstract class LocationHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ServiceDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ServiceDefinition>>() {});
     }
 
     /** 

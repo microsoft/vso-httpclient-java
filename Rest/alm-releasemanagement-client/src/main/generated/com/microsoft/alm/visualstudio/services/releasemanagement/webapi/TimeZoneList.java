@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class TimeZoneList {
 
     private TimeZone utcTimeZone;
-    private List<TimeZone> validTimeZones;
+    private ArrayList<TimeZone> validTimeZones;
 
     public TimeZone getUtcTimeZone() {
         return utcTimeZone;
@@ -32,11 +32,11 @@ public class TimeZoneList {
         this.utcTimeZone = utcTimeZone;
     }
 
-    public List<TimeZone> getValidTimeZones() {
+    public ArrayList<TimeZone> getValidTimeZones() {
         return validTimeZones;
     }
 
-    public void setValidTimeZones(final List<TimeZone> validTimeZones) {
+    public void setValidTimeZones(final ArrayList<TimeZone> validTimeZones) {
         this.validTimeZones = validTimeZones;
     }
 }

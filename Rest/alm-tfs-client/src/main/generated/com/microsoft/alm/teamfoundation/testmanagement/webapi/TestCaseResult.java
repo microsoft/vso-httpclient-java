@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
 /** 
@@ -25,7 +25,7 @@ public class TestCaseResult {
 
     private int afnStripId;
     private ShallowReference area;
-    private List<ShallowReference> associatedBugs;
+    private ArrayList<ShallowReference> associatedBugs;
     private String automatedTestId;
     private String automatedTestName;
     private String automatedTestStorage;
@@ -38,13 +38,13 @@ public class TestCaseResult {
     private String computerName;
     private ShallowReference configuration;
     private Date createdDate;
-    private List<CustomTestField> customFields;
+    private ArrayList<CustomTestField> customFields;
     private double durationInMs;
     private String errorMessage;
     private FailingSince failingSince;
     private String failureType;
     private int id;
-    private List<TestIterationDetailsModel> iterationDetails;
+    private ArrayList<TestIterationDetailsModel> iterationDetails;
     private IdentityRef lastUpdatedBy;
     private Date lastUpdatedDate;
     private String outcome;
@@ -85,11 +85,11 @@ public class TestCaseResult {
         this.area = area;
     }
 
-    public List<ShallowReference> getAssociatedBugs() {
+    public ArrayList<ShallowReference> getAssociatedBugs() {
         return associatedBugs;
     }
 
-    public void setAssociatedBugs(final List<ShallowReference> associatedBugs) {
+    public void setAssociatedBugs(final ArrayList<ShallowReference> associatedBugs) {
         this.associatedBugs = associatedBugs;
     }
 
@@ -189,11 +189,11 @@ public class TestCaseResult {
         this.createdDate = createdDate;
     }
 
-    public List<CustomTestField> getCustomFields() {
+    public ArrayList<CustomTestField> getCustomFields() {
         return customFields;
     }
 
-    public void setCustomFields(final List<CustomTestField> customFields) {
+    public void setCustomFields(final ArrayList<CustomTestField> customFields) {
         this.customFields = customFields;
     }
 
@@ -237,11 +237,11 @@ public class TestCaseResult {
         this.id = id;
     }
 
-    public List<TestIterationDetailsModel> getIterationDetails() {
+    public ArrayList<TestIterationDetailsModel> getIterationDetails() {
         return iterationDetails;
     }
 
-    public void setIterationDetails(final List<TestIterationDetailsModel> iterationDetails) {
+    public void setIterationDetails(final ArrayList<TestIterationDetailsModel> iterationDetails) {
         this.iterationDetails = iterationDetails;
     }
 

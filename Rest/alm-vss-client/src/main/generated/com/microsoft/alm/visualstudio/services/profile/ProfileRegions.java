@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.profile;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * Container of country/region information
@@ -26,55 +26,55 @@ public class ProfileRegions {
     /**
     * List of country/region code with contact consent requirement type of notice
     */
-    private List<String> noticeContactConsentRequirementRegions;
+    private ArrayList<String> noticeContactConsentRequirementRegions;
     /**
     * List of country/region code with contact consent requirement type of opt-out
     */
-    private List<String> optOutContactConsentRequirementRegions;
+    private ArrayList<String> optOutContactConsentRequirementRegions;
     /**
     * List of country/regions
     */
-    private List<ProfileRegion> regions;
+    private ArrayList<ProfileRegion> regions;
 
     /**
     * List of country/region code with contact consent requirement type of notice
     */
-    public List<String> getNoticeContactConsentRequirementRegions() {
+    public ArrayList<String> getNoticeContactConsentRequirementRegions() {
         return noticeContactConsentRequirementRegions;
     }
 
     /**
     * List of country/region code with contact consent requirement type of notice
     */
-    public void setNoticeContactConsentRequirementRegions(final List<String> noticeContactConsentRequirementRegions) {
+    public void setNoticeContactConsentRequirementRegions(final ArrayList<String> noticeContactConsentRequirementRegions) {
         this.noticeContactConsentRequirementRegions = noticeContactConsentRequirementRegions;
     }
 
     /**
     * List of country/region code with contact consent requirement type of opt-out
     */
-    public List<String> getOptOutContactConsentRequirementRegions() {
+    public ArrayList<String> getOptOutContactConsentRequirementRegions() {
         return optOutContactConsentRequirementRegions;
     }
 
     /**
     * List of country/region code with contact consent requirement type of opt-out
     */
-    public void setOptOutContactConsentRequirementRegions(final List<String> optOutContactConsentRequirementRegions) {
+    public void setOptOutContactConsentRequirementRegions(final ArrayList<String> optOutContactConsentRequirementRegions) {
         this.optOutContactConsentRequirementRegions = optOutContactConsentRequirementRegions;
     }
 
     /**
     * List of country/regions
     */
-    public List<ProfileRegion> getRegions() {
+    public ArrayList<ProfileRegion> getRegions() {
         return regions;
     }
 
     /**
     * List of country/regions
     */
-    public void setRegions(final List<ProfileRegion> regions) {
+    public void setRegions(final ArrayList<ProfileRegion> regions) {
         this.regions = regions;
     }
 }

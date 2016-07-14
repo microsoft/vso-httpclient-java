@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.forminput;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
@@ -51,7 +51,7 @@ public class InputValues {
     /**
     * Possible values that this input can take
     */
-    private List<InputValue> possibleValues;
+    private ArrayList<InputValue> possibleValues;
 
     /**
     * The default value to use for this input
@@ -146,14 +146,14 @@ public class InputValues {
     /**
     * Possible values that this input can take
     */
-    public List<InputValue> getPossibleValues() {
+    public ArrayList<InputValue> getPossibleValues() {
         return possibleValues;
     }
 
     /**
     * Possible values that this input can take
     */
-    public void setPossibleValues(final List<InputValue> possibleValues) {
+    public void setPossibleValues(final ArrayList<InputValue> possibleValues) {
         this.possibleValues = possibleValues;
     }
 }

@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * The input required for a pull request query. Currently there is only one query: LastMergeCommit, which returns all pull requests whose LastMergeCommit is in the list of CommitIds.
@@ -26,7 +26,7 @@ public class GitPullRequestQueryInput {
     /**
     * The list commit ids to search for.
     */
-    private List<String> items;
+    private ArrayList<String> items;
     /**
     * The type of query to perform
     */
@@ -35,14 +35,14 @@ public class GitPullRequestQueryInput {
     /**
     * The list commit ids to search for.
     */
-    public List<String> getItems() {
+    public ArrayList<String> getItems() {
         return items;
     }
 
     /**
     * The list commit ids to search for.
     */
-    public void setItems(final List<String> items) {
+    public void setItems(final ArrayList<String> items) {
         this.items = items;
     }
 

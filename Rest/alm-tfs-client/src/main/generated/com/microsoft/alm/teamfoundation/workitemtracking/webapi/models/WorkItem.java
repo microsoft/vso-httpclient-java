@@ -15,24 +15,24 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /** 
  */
 public class WorkItem
     extends WorkItemTrackingResource {
 
-    private Map<String, Object> fields;
+    private HashMap<String, Object> fields;
     private int id;
-    private List<WorkItemRelation> relations;
+    private ArrayList<WorkItemRelation> relations;
     private int rev;
 
-    public Map<String, Object> getFields() {
+    public HashMap<String, Object> getFields() {
         return fields;
     }
 
-    public void setFields(final Map<String, Object> fields) {
+    public void setFields(final HashMap<String, Object> fields) {
         this.fields = fields;
     }
 
@@ -44,11 +44,11 @@ public class WorkItem
         this.id = id;
     }
 
-    public List<WorkItemRelation> getRelations() {
+    public ArrayList<WorkItemRelation> getRelations() {
         return relations;
     }
 
-    public void setRelations(final List<WorkItemRelation> relations) {
+    public void setRelations(final ArrayList<WorkItemRelation> relations) {
         this.relations = relations;
     }
 

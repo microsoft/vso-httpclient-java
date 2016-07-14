@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.ArtifactMetadata;
 
@@ -23,18 +23,18 @@ import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contract
  */
 public class ReleaseStartMetadata {
 
-    private List<ArtifactMetadata> artifacts;
+    private ArrayList<ArtifactMetadata> artifacts;
     private int definitionId;
     private String description;
     private boolean isDraft;
-    private List<String> manualEnvironments;
+    private ArrayList<String> manualEnvironments;
     private ReleaseReason reason;
 
-    public List<ArtifactMetadata> getArtifacts() {
+    public ArrayList<ArtifactMetadata> getArtifacts() {
         return artifacts;
     }
 
-    public void setArtifacts(final List<ArtifactMetadata> artifacts) {
+    public void setArtifacts(final ArrayList<ArtifactMetadata> artifacts) {
         this.artifacts = artifacts;
     }
 
@@ -64,11 +64,11 @@ public class ReleaseStartMetadata {
         this.isDraft = isDraft;
     }
 
-    public List<String> getManualEnvironments() {
+    public ArrayList<String> getManualEnvironments() {
         return manualEnvironments;
     }
 
-    public void setManualEnvironments(final List<String> manualEnvironments) {
+    public void setManualEnvironments(final ArrayList<String> manualEnvironments) {
         this.manualEnvironments = manualEnvironments;
     }
 

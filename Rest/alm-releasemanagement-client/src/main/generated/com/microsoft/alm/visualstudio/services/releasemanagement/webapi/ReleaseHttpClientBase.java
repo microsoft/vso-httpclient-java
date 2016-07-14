@@ -17,6 +17,7 @@ package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -97,9 +98,9 @@ public abstract class ReleaseHttpClientBase
      *            Project ID or project name
      * @param releaseId 
      *            
-     * @return List&lt;AgentArtifactDefinition&gt;
+     * @return ArrayList&lt;AgentArtifactDefinition&gt;
      */
-    public List<AgentArtifactDefinition> getAgentArtifactDefinitions(
+    public ArrayList<AgentArtifactDefinition> getAgentArtifactDefinitions(
         final String project, 
         final int releaseId) { 
 
@@ -116,7 +117,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<AgentArtifactDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<AgentArtifactDefinition>>() {});
     }
 
     /** 
@@ -126,9 +127,9 @@ public abstract class ReleaseHttpClientBase
      *            Project ID
      * @param releaseId 
      *            
-     * @return List&lt;AgentArtifactDefinition&gt;
+     * @return ArrayList&lt;AgentArtifactDefinition&gt;
      */
-    public List<AgentArtifactDefinition> getAgentArtifactDefinitions(
+    public ArrayList<AgentArtifactDefinition> getAgentArtifactDefinitions(
         final UUID project, 
         final int releaseId) { 
 
@@ -145,7 +146,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<AgentArtifactDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<AgentArtifactDefinition>>() {});
     }
 
     /** 
@@ -367,9 +368,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param includeMyGroupApprovals 
      *            
-     * @return List&lt;ReleaseApproval&gt;
+     * @return ArrayList&lt;ReleaseApproval&gt;
      */
-    public List<ReleaseApproval> getApprovals(
+    public ArrayList<ReleaseApproval> getApprovals(
         final String project, 
         final String assignedToFilter, 
         final ApprovalStatus statusFilter, 
@@ -403,7 +404,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseApproval>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseApproval>>() {});
     }
 
     /** 
@@ -427,9 +428,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param includeMyGroupApprovals 
      *            
-     * @return List&lt;ReleaseApproval&gt;
+     * @return ArrayList&lt;ReleaseApproval&gt;
      */
-    public List<ReleaseApproval> getApprovals(
+    public ArrayList<ReleaseApproval> getApprovals(
         final UUID project, 
         final String assignedToFilter, 
         final ApprovalStatus statusFilter, 
@@ -463,7 +464,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseApproval>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseApproval>>() {});
     }
 
     /** 
@@ -477,9 +478,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;Change&gt;
+     * @return ArrayList&lt;Change&gt;
      */
-    public List<Change> getReleaseChanges(
+    public ArrayList<Change> getReleaseChanges(
         final String project, 
         final int releaseId, 
         final Integer baseReleaseId, 
@@ -503,7 +504,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Change>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Change>>() {});
     }
 
     /** 
@@ -517,9 +518,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;Change&gt;
+     * @return ArrayList&lt;Change&gt;
      */
-    public List<Change> getReleaseChanges(
+    public ArrayList<Change> getReleaseChanges(
         final UUID project, 
         final int releaseId, 
         final Integer baseReleaseId, 
@@ -543,7 +544,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Change>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Change>>() {});
     }
 
     /** 
@@ -729,9 +730,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param expand 
      *            
-     * @return List&lt;ReleaseDefinition&gt;
+     * @return ArrayList&lt;ReleaseDefinition&gt;
      */
-    public List<ReleaseDefinition> getReleaseDefinitions(
+    public ArrayList<ReleaseDefinition> getReleaseDefinitions(
         final String project, 
         final String searchText, 
         final ReleaseDefinitionExpands expand) { 
@@ -753,7 +754,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseDefinition>>() {});
     }
 
     /** 
@@ -765,9 +766,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param expand 
      *            
-     * @return List&lt;ReleaseDefinition&gt;
+     * @return ArrayList&lt;ReleaseDefinition&gt;
      */
-    public List<ReleaseDefinition> getReleaseDefinitions(
+    public ArrayList<ReleaseDefinition> getReleaseDefinitions(
         final UUID project, 
         final String searchText, 
         final ReleaseDefinitionExpands expand) { 
@@ -789,7 +790,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseDefinition>>() {});
     }
 
     /** 
@@ -803,9 +804,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param expand 
      *            
-     * @return List&lt;ReleaseDefinition&gt;
+     * @return ArrayList&lt;ReleaseDefinition&gt;
      */
-    public List<ReleaseDefinition> getReleaseDefinitionsForArtifactSource(
+    public ArrayList<ReleaseDefinition> getReleaseDefinitionsForArtifactSource(
         final String project, 
         final String artifactType, 
         final String artifactSourceId, 
@@ -829,7 +830,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseDefinition>>() {});
     }
 
     /** 
@@ -843,9 +844,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param expand 
      *            
-     * @return List&lt;ReleaseDefinition&gt;
+     * @return ArrayList&lt;ReleaseDefinition&gt;
      */
-    public List<ReleaseDefinition> getReleaseDefinitionsForArtifactSource(
+    public ArrayList<ReleaseDefinition> getReleaseDefinitionsForArtifactSource(
         final UUID project, 
         final String artifactType, 
         final String artifactSourceId, 
@@ -869,7 +870,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseDefinition>>() {});
     }
 
     /** 
@@ -1265,9 +1266,9 @@ public abstract class ReleaseHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;ReleaseDefinitionEnvironmentTemplate&gt;
+     * @return ArrayList&lt;ReleaseDefinitionEnvironmentTemplate&gt;
      */
-    public List<ReleaseDefinitionEnvironmentTemplate> listDefinitionEnvironmentTemplates(final String project) { 
+    public ArrayList<ReleaseDefinitionEnvironmentTemplate> listDefinitionEnvironmentTemplates(final String project) { 
 
         final UUID locationId = UUID.fromString("6b03b696-824e-4479-8eb2-6644a51aba89"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -1281,7 +1282,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseDefinitionEnvironmentTemplate>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseDefinitionEnvironmentTemplate>>() {});
     }
 
     /** 
@@ -1289,9 +1290,9 @@ public abstract class ReleaseHttpClientBase
      * 
      * @param project 
      *            Project ID
-     * @return List&lt;ReleaseDefinitionEnvironmentTemplate&gt;
+     * @return ArrayList&lt;ReleaseDefinitionEnvironmentTemplate&gt;
      */
-    public List<ReleaseDefinitionEnvironmentTemplate> listDefinitionEnvironmentTemplates(final UUID project) { 
+    public ArrayList<ReleaseDefinitionEnvironmentTemplate> listDefinitionEnvironmentTemplates(final UUID project) { 
 
         final UUID locationId = UUID.fromString("6b03b696-824e-4479-8eb2-6644a51aba89"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -1305,7 +1306,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseDefinitionEnvironmentTemplate>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseDefinitionEnvironmentTemplate>>() {});
     }
 
     /** 
@@ -1315,9 +1316,9 @@ public abstract class ReleaseHttpClientBase
      *            Project ID or project name
      * @param releaseId 
      *            
-     * @return List&lt;ReleaseRevision&gt;
+     * @return ArrayList&lt;ReleaseRevision&gt;
      */
-    public List<ReleaseRevision> getReleaseHistory(
+    public ArrayList<ReleaseRevision> getReleaseHistory(
         final String project, 
         final int releaseId) { 
 
@@ -1334,7 +1335,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseRevision>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseRevision>>() {});
     }
 
     /** 
@@ -1344,9 +1345,9 @@ public abstract class ReleaseHttpClientBase
      *            Project ID
      * @param releaseId 
      *            
-     * @return List&lt;ReleaseRevision&gt;
+     * @return ArrayList&lt;ReleaseRevision&gt;
      */
-    public List<ReleaseRevision> getReleaseHistory(
+    public ArrayList<ReleaseRevision> getReleaseHistory(
         final UUID project, 
         final int releaseId) { 
 
@@ -1363,7 +1364,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseRevision>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseRevision>>() {});
     }
 
     /** 
@@ -1949,9 +1950,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param sourceBranchFilter 
      *            
-     * @return List&lt;Release&gt;
+     * @return ArrayList&lt;Release&gt;
      */
-    public List<Release> getReleases(
+    public ArrayList<Release> getReleases(
         final String project, 
         final Integer definitionId, 
         final Integer definitionEnvironmentId, 
@@ -1959,8 +1960,8 @@ public abstract class ReleaseHttpClientBase
         final String createdBy, 
         final ReleaseStatus statusFilter, 
         final Integer environmentStatusFilter, 
-        final java.util.Date minCreatedTime, 
-        final java.util.Date maxCreatedTime, 
+        final Date minCreatedTime, 
+        final Date maxCreatedTime, 
         final ReleaseQueryOrder queryOrder, 
         final Integer top, 
         final Integer continuationToken, 
@@ -2001,7 +2002,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Release>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Release>>() {});
     }
 
     /** 
@@ -2041,9 +2042,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param sourceBranchFilter 
      *            
-     * @return List&lt;Release&gt;
+     * @return ArrayList&lt;Release&gt;
      */
-    public List<Release> getReleases(
+    public ArrayList<Release> getReleases(
         final UUID project, 
         final Integer definitionId, 
         final Integer definitionEnvironmentId, 
@@ -2051,8 +2052,8 @@ public abstract class ReleaseHttpClientBase
         final String createdBy, 
         final ReleaseStatus statusFilter, 
         final Integer environmentStatusFilter, 
-        final java.util.Date minCreatedTime, 
-        final java.util.Date maxCreatedTime, 
+        final Date minCreatedTime, 
+        final Date maxCreatedTime, 
         final ReleaseQueryOrder queryOrder, 
         final Integer top, 
         final Integer continuationToken, 
@@ -2093,7 +2094,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Release>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Release>>() {});
     }
 
     /** 
@@ -2239,9 +2240,9 @@ public abstract class ReleaseHttpClientBase
      *            Project ID or project name
      * @param definitionId 
      *            
-     * @return List&lt;ReleaseDefinitionRevision&gt;
+     * @return ArrayList&lt;ReleaseDefinitionRevision&gt;
      */
-    public List<ReleaseDefinitionRevision> getReleaseDefinitionHistory(
+    public ArrayList<ReleaseDefinitionRevision> getReleaseDefinitionHistory(
         final String project, 
         final int definitionId) { 
 
@@ -2258,7 +2259,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseDefinitionRevision>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseDefinitionRevision>>() {});
     }
 
     /** 
@@ -2268,9 +2269,9 @@ public abstract class ReleaseHttpClientBase
      *            Project ID
      * @param definitionId 
      *            
-     * @return List&lt;ReleaseDefinitionRevision&gt;
+     * @return ArrayList&lt;ReleaseDefinitionRevision&gt;
      */
-    public List<ReleaseDefinitionRevision> getReleaseDefinitionHistory(
+    public ArrayList<ReleaseDefinitionRevision> getReleaseDefinitionHistory(
         final UUID project, 
         final int definitionId) { 
 
@@ -2287,7 +2288,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseDefinitionRevision>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseDefinitionRevision>>() {});
     }
 
     /** 
@@ -2363,9 +2364,9 @@ public abstract class ReleaseHttpClientBase
      *            Project ID or project name
      * @param releaseId 
      *            
-     * @return List&lt;SummaryMailSection&gt;
+     * @return ArrayList&lt;SummaryMailSection&gt;
      */
-    public List<SummaryMailSection> getSummaryMailSections(
+    public ArrayList<SummaryMailSection> getSummaryMailSections(
         final String project, 
         final int releaseId) { 
 
@@ -2382,7 +2383,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<SummaryMailSection>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<SummaryMailSection>>() {});
     }
 
     /** 
@@ -2392,9 +2393,9 @@ public abstract class ReleaseHttpClientBase
      *            Project ID
      * @param releaseId 
      *            
-     * @return List&lt;SummaryMailSection&gt;
+     * @return ArrayList&lt;SummaryMailSection&gt;
      */
-    public List<SummaryMailSection> getSummaryMailSections(
+    public ArrayList<SummaryMailSection> getSummaryMailSections(
         final UUID project, 
         final int releaseId) { 
 
@@ -2411,7 +2412,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<SummaryMailSection>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<SummaryMailSection>>() {});
     }
 
     /** 
@@ -2487,9 +2488,9 @@ public abstract class ReleaseHttpClientBase
      *            Project ID or project name
      * @param definitionId 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> getSourceBranches(
+    public ArrayList<String> getSourceBranches(
         final String project, 
         final int definitionId) { 
 
@@ -2506,7 +2507,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -2516,9 +2517,9 @@ public abstract class ReleaseHttpClientBase
      *            Project ID
      * @param definitionId 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> getSourceBranches(
+    public ArrayList<String> getSourceBranches(
         final UUID project, 
         final int definitionId) { 
 
@@ -2535,7 +2536,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -2549,9 +2550,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param attemptId 
      *            
-     * @return List&lt;ReleaseTask&gt;
+     * @return ArrayList&lt;ReleaseTask&gt;
      */
-    public List<ReleaseTask> getTasks(
+    public ArrayList<ReleaseTask> getTasks(
         final String project, 
         final int releaseId, 
         final int environmentId, 
@@ -2575,7 +2576,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseTask>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseTask>>() {});
     }
 
     /** 
@@ -2589,9 +2590,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param attemptId 
      *            
-     * @return List&lt;ReleaseTask&gt;
+     * @return ArrayList&lt;ReleaseTask&gt;
      */
-    public List<ReleaseTask> getTasks(
+    public ArrayList<ReleaseTask> getTasks(
         final UUID project, 
         final int releaseId, 
         final int environmentId, 
@@ -2615,7 +2616,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseTask>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseTask>>() {});
     }
 
     /** 
@@ -2623,9 +2624,9 @@ public abstract class ReleaseHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;ArtifactTypeDefinition&gt;
+     * @return ArrayList&lt;ArtifactTypeDefinition&gt;
      */
-    public List<ArtifactTypeDefinition> getArtifactTypeDefinitions(final String project) { 
+    public ArrayList<ArtifactTypeDefinition> getArtifactTypeDefinitions(final String project) { 
 
         final UUID locationId = UUID.fromString("8efc2a3c-1fc8-4f6d-9822-75e98cecb48f"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -2639,7 +2640,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ArtifactTypeDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArtifactTypeDefinition>>() {});
     }
 
     /** 
@@ -2647,9 +2648,9 @@ public abstract class ReleaseHttpClientBase
      * 
      * @param project 
      *            Project ID
-     * @return List&lt;ArtifactTypeDefinition&gt;
+     * @return ArrayList&lt;ArtifactTypeDefinition&gt;
      */
-    public List<ArtifactTypeDefinition> getArtifactTypeDefinitions(final UUID project) { 
+    public ArrayList<ArtifactTypeDefinition> getArtifactTypeDefinitions(final UUID project) { 
 
         final UUID locationId = UUID.fromString("8efc2a3c-1fc8-4f6d-9822-75e98cecb48f"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -2663,7 +2664,7 @@ public abstract class ReleaseHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ArtifactTypeDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArtifactTypeDefinition>>() {});
     }
 
     /** 
@@ -2801,9 +2802,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;ReleaseWorkItemRef&gt;
+     * @return ArrayList&lt;ReleaseWorkItemRef&gt;
      */
-    public List<ReleaseWorkItemRef> getReleaseWorkItemsRefs(
+    public ArrayList<ReleaseWorkItemRef> getReleaseWorkItemsRefs(
         final String project, 
         final int releaseId, 
         final Integer baseReleaseId, 
@@ -2827,7 +2828,7 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseWorkItemRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseWorkItemRef>>() {});
     }
 
     /** 
@@ -2841,9 +2842,9 @@ public abstract class ReleaseHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;ReleaseWorkItemRef&gt;
+     * @return ArrayList&lt;ReleaseWorkItemRef&gt;
      */
-    public List<ReleaseWorkItemRef> getReleaseWorkItemsRefs(
+    public ArrayList<ReleaseWorkItemRef> getReleaseWorkItemsRefs(
         final UUID project, 
         final int releaseId, 
         final Integer baseReleaseId, 
@@ -2867,6 +2868,6 @@ public abstract class ReleaseHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ReleaseWorkItemRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ReleaseWorkItemRef>>() {});
     }
 }

@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.forminput;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
@@ -27,7 +27,7 @@ public class InputDescriptor {
     /**
     * The ids of all inputs that the value of this input is dependent on.
     */
-    private List<String> dependencyInputIds;
+    private ArrayList<String> dependencyInputIds;
     /**
     * Description of what this input is used for
     */
@@ -76,14 +76,14 @@ public class InputDescriptor {
     /**
     * The ids of all inputs that the value of this input is dependent on.
     */
-    public List<String> getDependencyInputIds() {
+    public ArrayList<String> getDependencyInputIds() {
         return dependencyInputIds;
     }
 
     /**
     * The ids of all inputs that the value of this input is dependent on.
     */
-    public void setDependencyInputIds(final List<String> dependencyInputIds) {
+    public void setDependencyInputIds(final ArrayList<String> dependencyInputIds) {
         this.dependencyInputIds = dependencyInputIds;
     }
 

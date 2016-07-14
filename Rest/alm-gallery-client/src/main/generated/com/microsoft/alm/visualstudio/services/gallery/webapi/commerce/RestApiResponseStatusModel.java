@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi.commerce;
 
-import com.microsoft.alm.client.json.JToken;
+import com.fasterxml.jackson.databind.JsonNode;
 
 /** 
  * REST Api Response
@@ -26,7 +26,7 @@ public class RestApiResponseStatusModel {
     /**
     * Gets or sets the operation details
     */
-    private JToken operationDetails;
+    private JsonNode operationDetails;
     /**
     * Gets or sets the operation id
     */
@@ -47,14 +47,14 @@ public class RestApiResponseStatusModel {
     /**
     * Gets or sets the operation details
     */
-    public JToken getOperationDetails() {
+    public JsonNode getOperationDetails() {
         return operationDetails;
     }
 
     /**
     * Gets or sets the operation details
     */
-    public void setOperationDetails(final JToken operationDetails) {
+    public void setOperationDetails(final JsonNode operationDetails) {
         this.operationDetails = operationDetails;
     }
 

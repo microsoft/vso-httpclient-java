@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
@@ -23,7 +23,7 @@ public class AggregatedResultsAnalysis {
 
     private String duration;
     private TestResultsContext previousContext;
-    private Map<TestOutcome, AggregatedResultsByOutcome> resultsByOutcome;
+    private HashMap<TestOutcome, AggregatedResultsByOutcome> resultsByOutcome;
     private AggregatedResultsDifference resultsDifference;
     private int totalTests;
 
@@ -43,11 +43,11 @@ public class AggregatedResultsAnalysis {
         this.previousContext = previousContext;
     }
 
-    public Map<TestOutcome, AggregatedResultsByOutcome> getResultsByOutcome() {
+    public HashMap<TestOutcome, AggregatedResultsByOutcome> getResultsByOutcome() {
         return resultsByOutcome;
     }
 
-    public void setResultsByOutcome(final Map<TestOutcome, AggregatedResultsByOutcome> resultsByOutcome) {
+    public void setResultsByOutcome(final HashMap<TestOutcome, AggregatedResultsByOutcome> resultsByOutcome) {
         this.resultsByOutcome = resultsByOutcome;
     }
 

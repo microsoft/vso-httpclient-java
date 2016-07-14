@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
  */
 public class WorkItemQueryClause {
 
-    private List<WorkItemQueryClause> clauses;
+    private ArrayList<WorkItemQueryClause> clauses;
     private WorkItemFieldReference field;
     private WorkItemFieldReference fieldValue;
     private boolean isFieldValue;
@@ -30,11 +30,11 @@ public class WorkItemQueryClause {
     private WorkItemFieldOperation operator;
     private String value;
 
-    public List<WorkItemQueryClause> getClauses() {
+    public ArrayList<WorkItemQueryClause> getClauses() {
         return clauses;
     }
 
-    public void setClauses(final List<WorkItemQueryClause> clauses) {
+    public void setClauses(final ArrayList<WorkItemQueryClause> clauses) {
         this.clauses = clauses;
     }
 

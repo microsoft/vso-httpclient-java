@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.identity;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
@@ -25,7 +25,7 @@ public class IdentitySelf {
     private String accountName;
     private String displayName;
     private UUID id;
-    private List<TenantInfo> tenants;
+    private ArrayList<TenantInfo> tenants;
 
     public String getAccountName() {
         return accountName;
@@ -51,11 +51,11 @@ public class IdentitySelf {
         this.id = id;
     }
 
-    public List<TenantInfo> getTenants() {
+    public ArrayList<TenantInfo> getTenants() {
         return tenants;
     }
 
-    public void setTenants(final List<TenantInfo> tenants) {
+    public void setTenants(final ArrayList<TenantInfo> tenants) {
         this.tenants = tenants;
     }
 }

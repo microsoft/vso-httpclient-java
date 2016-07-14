@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
@@ -27,8 +27,8 @@ public class GitPullRequestIteration {
 
     private ReferenceLinks _links;
     private IdentityRef author;
-    private List<GitPullRequestChange> changeList;
-    private List<GitCommitRef> commits;
+    private ArrayList<GitPullRequestChange> changeList;
+    private ArrayList<GitCommitRef> commits;
     private GitCommitRef commonRefCommit;
     private Date createdDate;
     private String description;
@@ -56,19 +56,19 @@ public class GitPullRequestIteration {
         this.author = author;
     }
 
-    public List<GitPullRequestChange> getChangeList() {
+    public ArrayList<GitPullRequestChange> getChangeList() {
         return changeList;
     }
 
-    public void setChangeList(final List<GitPullRequestChange> changeList) {
+    public void setChangeList(final ArrayList<GitPullRequestChange> changeList) {
         this.changeList = changeList;
     }
 
-    public List<GitCommitRef> getCommits() {
+    public ArrayList<GitCommitRef> getCommits() {
         return commits;
     }
 
-    public void setCommits(final List<GitCommitRef> commits) {
+    public void setCommits(final ArrayList<GitCommitRef> commits) {
         this.commits = commits;
     }
 

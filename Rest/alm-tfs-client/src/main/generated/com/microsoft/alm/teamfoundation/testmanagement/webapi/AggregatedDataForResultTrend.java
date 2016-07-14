@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
@@ -25,7 +25,7 @@ public class AggregatedDataForResultTrend {
     * This is tests execution duration.
     */
     private String duration;
-    private Map<TestOutcome, AggregatedResultsByOutcome> resultsByOutcome;
+    private HashMap<TestOutcome, AggregatedResultsByOutcome> resultsByOutcome;
     private TestResultsContext testResultsContext;
 
     /**
@@ -42,11 +42,11 @@ public class AggregatedDataForResultTrend {
         this.duration = duration;
     }
 
-    public Map<TestOutcome, AggregatedResultsByOutcome> getResultsByOutcome() {
+    public HashMap<TestOutcome, AggregatedResultsByOutcome> getResultsByOutcome() {
         return resultsByOutcome;
     }
 
-    public void setResultsByOutcome(final Map<TestOutcome, AggregatedResultsByOutcome> resultsByOutcome) {
+    public void setResultsByOutcome(final HashMap<TestOutcome, AggregatedResultsByOutcome> resultsByOutcome) {
         this.resultsByOutcome = resultsByOutcome;
     }
 

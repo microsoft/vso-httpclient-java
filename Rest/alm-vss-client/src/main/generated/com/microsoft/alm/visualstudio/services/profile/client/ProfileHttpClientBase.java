@@ -16,13 +16,14 @@
 package com.microsoft.alm.visualstudio.services.profile.client;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.microsoft.alm.client.json.JObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.VssHttpClientBase;
 import com.microsoft.alm.visualstudio.services.profile.Avatar;
@@ -149,9 +150,9 @@ public abstract class ProfileHttpClientBase
      *            
      * @param coreAttributes 
      *            
-     * @return List&lt;ProfileAttribute&gt;
+     * @return ArrayList&lt;ProfileAttribute&gt;
      */
-    public List<ProfileAttribute> getProfileAttributes(
+    public ArrayList<ProfileAttribute> getProfileAttributes(
         final String id, 
         final String partition, 
         final String modifiedSince, 
@@ -179,7 +180,7 @@ public abstract class ProfileHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ProfileAttribute>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ProfileAttribute>>() {});
     }
 
     /** 
@@ -193,7 +194,7 @@ public abstract class ProfileHttpClientBase
      *            
      */
     public void setProfileAttribute(
-        final JObject container, 
+        final ObjectNode container, 
         final String id, 
         final String descriptor) { 
 
@@ -299,7 +300,7 @@ public abstract class ProfileHttpClientBase
      * @return Avatar
      */
     public Avatar getAvatarPreview(
-        final JObject container, 
+        final ObjectNode container, 
         final String id, 
         final String size, 
         final String format, 
@@ -360,7 +361,7 @@ public abstract class ProfileHttpClientBase
      *            
      */
     public void setAvatar(
-        final JObject container, 
+        final ObjectNode container, 
         final String id) { 
 
         final UUID locationId = UUID.fromString("67436615-b382-462a-b659-5367a492fb3c"); //$NON-NLS-1$
@@ -409,18 +410,26 @@ public abstract class ProfileHttpClientBase
      * 
      * @param createProfileContext 
      *            Context for profile creation
+     * @param autoCreate 
+     *            Create profile automatically
      * @return Profile
      */
-    public Profile createProfile(final CreateProfileContext createProfileContext) { 
+    public Profile createProfile(
+        final CreateProfileContext createProfileContext, 
+        final Boolean autoCreate) { 
 
         final UUID locationId = UUID.fromString("f83735dc-483f-4238-a291-d45f6080a9af"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("autoCreate", autoCreate); //$NON-NLS-1$
 
         final Object httpRequest = super.createRequest(HttpMethod.POST,
                                                        locationId,
                                                        apiVersion,
                                                        createProfileContext,
                                                        APPLICATION_JSON_TYPE,
+                                                       queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, Profile.class);
@@ -524,9 +533,9 @@ public abstract class ProfileHttpClientBase
     /** 
      * [Preview API 3.0-preview.1]
      * 
-     * @return Set&lt;String&gt;
+     * @return HashSet&lt;String&gt;
      */
-    public Set<String> getSupportedLcids() { 
+    public HashSet<String> getSupportedLcids() { 
 
         final UUID locationId = UUID.fromString("d5bd1aa6-c269-4bcd-ad32-75fa17475584"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -536,7 +545,7 @@ public abstract class ProfileHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<Set<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<HashSet<String>>() {});
     }
 
     /** 

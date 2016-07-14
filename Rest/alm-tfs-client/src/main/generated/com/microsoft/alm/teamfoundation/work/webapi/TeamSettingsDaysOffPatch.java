@@ -15,19 +15,19 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class TeamSettingsDaysOffPatch {
 
-    private List<DateRange> daysOff;
+    private ArrayList<DateRange> daysOff;
 
-    public List<DateRange> getDaysOff() {
+    public ArrayList<DateRange> getDaysOff() {
         return daysOff;
     }
 
-    public void setDaysOff(final List<DateRange> daysOff) {
+    public void setDaysOff(final ArrayList<DateRange> daysOff) {
         this.daysOff = daysOff;
     }
 }

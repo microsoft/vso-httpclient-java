@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
@@ -26,13 +26,13 @@ public class Board
     extends ShallowReference {
 
     private ReferenceLinks _links;
-    private Map<String, Map<String, String[]>> allowedMappings;
+    private HashMap<String, HashMap<String, String[]>> allowedMappings;
     private boolean canEdit;
-    private List<BoardColumn> columns;
+    private ArrayList<BoardColumn> columns;
     private BoardFields fields;
     private boolean isValid;
     private int revision;
-    private List<BoardRow> rows;
+    private ArrayList<BoardRow> rows;
 
     @JsonProperty("_links")
     public ReferenceLinks getLinks() {
@@ -44,11 +44,11 @@ public class Board
         this._links = _links;
     }
 
-    public Map<String, Map<String, String[]>> getAllowedMappings() {
+    public HashMap<String, HashMap<String, String[]>> getAllowedMappings() {
         return allowedMappings;
     }
 
-    public void setAllowedMappings(final Map<String, Map<String, String[]>> allowedMappings) {
+    public void setAllowedMappings(final HashMap<String, HashMap<String, String[]>> allowedMappings) {
         this.allowedMappings = allowedMappings;
     }
 
@@ -60,11 +60,11 @@ public class Board
         this.canEdit = canEdit;
     }
 
-    public List<BoardColumn> getColumns() {
+    public ArrayList<BoardColumn> getColumns() {
         return columns;
     }
 
-    public void setColumns(final List<BoardColumn> columns) {
+    public void setColumns(final ArrayList<BoardColumn> columns) {
         this.columns = columns;
     }
 
@@ -94,11 +94,11 @@ public class Board
         this.revision = revision;
     }
 
-    public List<BoardRow> getRows() {
+    public ArrayList<BoardRow> getRows() {
         return rows;
     }
 
-    public void setRows(final List<BoardRow> rows) {
+    public void setRows(final ArrayList<BoardRow> rows) {
         this.rows = rows;
     }
 }

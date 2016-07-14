@@ -17,6 +17,7 @@ package com.microsoft.alm.visualstudio.services.gallery.webapi;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -460,9 +461,9 @@ public abstract class GalleryHttpClientBase
      * 
      * @param languages 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> getCategories(final String languages) { 
+    public ArrayList<String> getCategories(final String languages) { 
 
         final UUID locationId = UUID.fromString("e0a5a71e-3ac3-43a0-ae7d-0bb5c3046a2a"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -476,7 +477,7 @@ public abstract class GalleryHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -1072,8 +1073,8 @@ public abstract class GalleryHttpClientBase
         final String extensionName, 
         final Integer count, 
         final ReviewFilterOptions filterOptions, 
-        final java.util.Date beforeDate, 
-        final java.util.Date afterDate) { 
+        final Date beforeDate, 
+        final Date afterDate) { 
 
         final UUID locationId = UUID.fromString("5b3f819f-f247-42ad-8c00-dd9ab9ab246d"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$

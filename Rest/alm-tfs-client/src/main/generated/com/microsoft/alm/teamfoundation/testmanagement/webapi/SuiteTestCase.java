@@ -15,31 +15,28 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
 
 /** 
  */
 public class SuiteTestCase {
 
-    private List<PointAssignment> pointAssignments;
+    private ArrayList<PointAssignment> pointAssignments;
     private WorkItemReference testCase;
 
-    public List<PointAssignment> getPointAssignments() {
+    public ArrayList<PointAssignment> getPointAssignments() {
         return pointAssignments;
     }
 
-    public void setPointAssignments(final List<PointAssignment> pointAssignments) {
+    public void setPointAssignments(final ArrayList<PointAssignment> pointAssignments) {
         this.pointAssignments = pointAssignments;
     }
 
-    @JsonProperty("testCase")
-    public WorkItemReference getWorkitem() {
+    public WorkItemReference getTestCase() {
         return testCase;
     }
 
-    @JsonProperty("testCase")
-    public void setWorkitem(final WorkItemReference testCase) {
+    public void setTestCase(final WorkItemReference testCase) {
         this.testCase = testCase;
     }
 }

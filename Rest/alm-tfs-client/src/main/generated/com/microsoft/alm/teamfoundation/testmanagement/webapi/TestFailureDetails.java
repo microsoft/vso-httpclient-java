@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class TestFailureDetails {
 
     private int count;
-    private List<ShallowReference> testResults;
+    private ArrayList<ShallowReference> testResults;
 
     public int getCount() {
         return count;
@@ -32,11 +32,11 @@ public class TestFailureDetails {
         this.count = count;
     }
 
-    public List<ShallowReference> getTestResults() {
+    public ArrayList<ShallowReference> getTestResults() {
         return testResults;
     }
 
-    public void setTestResults(final List<ShallowReference> testResults) {
+    public void setTestResults(final ArrayList<ShallowReference> testResults) {
         this.testResults = testResults;
     }
 }

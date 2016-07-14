@@ -15,9 +15,9 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.HashMap;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.conditions.Condition;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.Demand;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.ReleaseDefinitionApprovals;
@@ -29,11 +29,11 @@ import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
  */
 public class ReleaseEnvironment {
 
-    private List<Condition> conditions;
+    private ArrayList<Condition> conditions;
     private Date createdOn;
     private int definitionEnvironmentId;
-    private List<Demand> demands;
-    private List<DeploymentAttempt> deploySteps;
+    private ArrayList<Demand> demands;
+    private ArrayList<DeploymentAttempt> deploySteps;
     private EnvironmentOptions environmentOptions;
     private int id;
     private Date modifiedOn;
@@ -41,9 +41,9 @@ public class ReleaseEnvironment {
     private Date nextScheduledUtcTime;
     private IdentityRef owner;
     private ReleaseDefinitionApprovals postApprovalsSnapshot;
-    private List<ReleaseApproval> postDeployApprovals;
+    private ArrayList<ReleaseApproval> postDeployApprovals;
     private ReleaseDefinitionApprovals preApprovalsSnapshot;
-    private List<ReleaseApproval> preDeployApprovals;
+    private ArrayList<ReleaseApproval> preDeployApprovals;
     private int queueId;
     private int rank;
     private ShallowReference release;
@@ -51,20 +51,20 @@ public class ReleaseEnvironment {
     private ShallowReference releaseDefinition;
     private String releaseDescription;
     private int releaseId;
-    private Map<String, String> runOptions;
+    private HashMap<String, String> runOptions;
     private Date scheduledDeploymentTime;
-    private List<ReleaseSchedule> schedules;
+    private ArrayList<ReleaseSchedule> schedules;
     private EnvironmentStatus status;
     private double timeToDeploy;
     private String triggerReason;
-    private Map<String, ConfigurationVariableValue> variables;
-    private List<WorkflowTask> workflowTasks;
+    private HashMap<String, ConfigurationVariableValue> variables;
+    private ArrayList<WorkflowTask> workflowTasks;
 
-    public List<Condition> getConditions() {
+    public ArrayList<Condition> getConditions() {
         return conditions;
     }
 
-    public void setConditions(final List<Condition> conditions) {
+    public void setConditions(final ArrayList<Condition> conditions) {
         this.conditions = conditions;
     }
 
@@ -84,19 +84,19 @@ public class ReleaseEnvironment {
         this.definitionEnvironmentId = definitionEnvironmentId;
     }
 
-    public List<Demand> getDemands() {
+    public ArrayList<Demand> getDemands() {
         return demands;
     }
 
-    public void setDemands(final List<Demand> demands) {
+    public void setDemands(final ArrayList<Demand> demands) {
         this.demands = demands;
     }
 
-    public List<DeploymentAttempt> getDeploySteps() {
+    public ArrayList<DeploymentAttempt> getDeploySteps() {
         return deploySteps;
     }
 
-    public void setDeploySteps(final List<DeploymentAttempt> deploySteps) {
+    public void setDeploySteps(final ArrayList<DeploymentAttempt> deploySteps) {
         this.deploySteps = deploySteps;
     }
 
@@ -156,11 +156,11 @@ public class ReleaseEnvironment {
         this.postApprovalsSnapshot = postApprovalsSnapshot;
     }
 
-    public List<ReleaseApproval> getPostDeployApprovals() {
+    public ArrayList<ReleaseApproval> getPostDeployApprovals() {
         return postDeployApprovals;
     }
 
-    public void setPostDeployApprovals(final List<ReleaseApproval> postDeployApprovals) {
+    public void setPostDeployApprovals(final ArrayList<ReleaseApproval> postDeployApprovals) {
         this.postDeployApprovals = postDeployApprovals;
     }
 
@@ -172,11 +172,11 @@ public class ReleaseEnvironment {
         this.preApprovalsSnapshot = preApprovalsSnapshot;
     }
 
-    public List<ReleaseApproval> getPreDeployApprovals() {
+    public ArrayList<ReleaseApproval> getPreDeployApprovals() {
         return preDeployApprovals;
     }
 
-    public void setPreDeployApprovals(final List<ReleaseApproval> preDeployApprovals) {
+    public void setPreDeployApprovals(final ArrayList<ReleaseApproval> preDeployApprovals) {
         this.preDeployApprovals = preDeployApprovals;
     }
 
@@ -236,11 +236,11 @@ public class ReleaseEnvironment {
         this.releaseId = releaseId;
     }
 
-    public Map<String, String> getRunOptions() {
+    public HashMap<String, String> getRunOptions() {
         return runOptions;
     }
 
-    public void setRunOptions(final Map<String, String> runOptions) {
+    public void setRunOptions(final HashMap<String, String> runOptions) {
         this.runOptions = runOptions;
     }
 
@@ -252,11 +252,11 @@ public class ReleaseEnvironment {
         this.scheduledDeploymentTime = scheduledDeploymentTime;
     }
 
-    public List<ReleaseSchedule> getSchedules() {
+    public ArrayList<ReleaseSchedule> getSchedules() {
         return schedules;
     }
 
-    public void setSchedules(final List<ReleaseSchedule> schedules) {
+    public void setSchedules(final ArrayList<ReleaseSchedule> schedules) {
         this.schedules = schedules;
     }
 
@@ -284,19 +284,19 @@ public class ReleaseEnvironment {
         this.triggerReason = triggerReason;
     }
 
-    public Map<String, ConfigurationVariableValue> getVariables() {
+    public HashMap<String, ConfigurationVariableValue> getVariables() {
         return variables;
     }
 
-    public void setVariables(final Map<String, ConfigurationVariableValue> variables) {
+    public void setVariables(final HashMap<String, ConfigurationVariableValue> variables) {
         this.variables = variables;
     }
 
-    public List<WorkflowTask> getWorkflowTasks() {
+    public ArrayList<WorkflowTask> getWorkflowTasks() {
         return workflowTasks;
     }
 
-    public void setWorkflowTasks(final List<WorkflowTask> workflowTasks) {
+    public void setWorkflowTasks(final ArrayList<WorkflowTask> workflowTasks) {
         this.workflowTasks = workflowTasks;
     }
 }

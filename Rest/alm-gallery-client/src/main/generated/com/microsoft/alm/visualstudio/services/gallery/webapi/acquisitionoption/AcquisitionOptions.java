@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi.acquisitionoption;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.acquisitionrequest.AcquisitionOperation;
 
 /** 
@@ -35,7 +35,7 @@ public class AcquisitionOptions {
     /**
     * Operations allowed for the ItemId in this target
     */
-    private List<AcquisitionOperation> operations;
+    private ArrayList<AcquisitionOperation> operations;
     /**
     * The target that this options refer to
     */
@@ -72,14 +72,14 @@ public class AcquisitionOptions {
     /**
     * Operations allowed for the ItemId in this target
     */
-    public List<AcquisitionOperation> getOperations() {
+    public ArrayList<AcquisitionOperation> getOperations() {
         return operations;
     }
 
     /**
     * Operations allowed for the ItemId in this target
     */
-    public void setOperations(final List<AcquisitionOperation> operations) {
+    public void setOperations(final ArrayList<AcquisitionOperation> operations) {
         this.operations = operations;
     }
 

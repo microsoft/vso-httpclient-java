@@ -15,10 +15,9 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
  * Represents the context of variables and vectors for a job request.
@@ -26,38 +25,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class JobEnvironment {
 
-    private List<ServiceEndpoint> endpoints;
-    private List<MaskHint> mask;
-    private Map<UUID, JobOption> options;
+    private ArrayList<ServiceEndpoint> endpoints;
+    private ArrayList<MaskHint> mask;
+    private HashMap<UUID, JobOption> options;
     /**
     * Gets or sets the endpoint used for communicating back to the calling service.
     */
     private ServiceEndpoint systemConnection;
-    private Map<String, String> variables;
+    private HashMap<String, String> variables;
 
-    public List<ServiceEndpoint> getEndpoints() {
+    public ArrayList<ServiceEndpoint> getEndpoints() {
         return endpoints;
     }
 
-    public void setEndpoints(final List<ServiceEndpoint> endpoints) {
+    public void setEndpoints(final ArrayList<ServiceEndpoint> endpoints) {
         this.endpoints = endpoints;
     }
 
-    @JsonProperty("mask")
-    public List<MaskHint> getMaskHints() {
+    public ArrayList<MaskHint> getMask() {
         return mask;
     }
 
-    @JsonProperty("mask")
-    public void setMaskHints(final List<MaskHint> mask) {
+    public void setMask(final ArrayList<MaskHint> mask) {
         this.mask = mask;
     }
 
-    public Map<UUID, JobOption> getOptions() {
+    public HashMap<UUID, JobOption> getOptions() {
         return options;
     }
 
-    public void setOptions(final Map<UUID, JobOption> options) {
+    public void setOptions(final HashMap<UUID, JobOption> options) {
         this.options = options;
     }
 
@@ -75,11 +72,11 @@ public class JobEnvironment {
         this.systemConnection = systemConnection;
     }
 
-    public Map<String, String> getVariables() {
+    public HashMap<String, String> getVariables() {
         return variables;
     }
 
-    public void setVariables(final Map<String, String> variables) {
+    public void setVariables(final HashMap<String, String> variables) {
         this.variables = variables;
     }
 }

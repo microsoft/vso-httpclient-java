@@ -16,12 +16,13 @@
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.microsoft.alm.client.json.JObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.VssHttpClientBase;
 import com.microsoft.alm.visualstudio.services.extensionmanagement.webapi.AcquisitionOptions;
@@ -176,10 +177,10 @@ public abstract class ExtensionManagementHttpClientBase
      *            
      * @param collectionName 
      *            
-     * @return JObject
+     * @return ObjectNode
      */
-    public JObject createDocumentByName(
-        final JObject doc, 
+    public ObjectNode createDocumentByName(
+        final ObjectNode doc, 
         final String publisherName, 
         final String extensionName, 
         final String scopeType, 
@@ -204,7 +205,7 @@ public abstract class ExtensionManagementHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, JObject.class);
+        return super.sendRequest(httpRequest, ObjectNode.class);
     }
 
     /** 
@@ -266,9 +267,9 @@ public abstract class ExtensionManagementHttpClientBase
      *            
      * @param documentId 
      *            
-     * @return JObject
+     * @return ObjectNode
      */
-    public JObject getDocumentByName(
+    public ObjectNode getDocumentByName(
         final String publisherName, 
         final String extensionName, 
         final String scopeType, 
@@ -293,7 +294,7 @@ public abstract class ExtensionManagementHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, JObject.class);
+        return super.sendRequest(httpRequest, ObjectNode.class);
     }
 
     /** 
@@ -309,9 +310,9 @@ public abstract class ExtensionManagementHttpClientBase
      *            
      * @param collectionName 
      *            
-     * @return List&lt;JObject&gt;
+     * @return ArrayList&lt;ObjectNode&gt;
      */
-    public List<JObject> getDocumentsByName(
+    public ArrayList<ObjectNode> getDocumentsByName(
         final String publisherName, 
         final String extensionName, 
         final String scopeType, 
@@ -334,7 +335,7 @@ public abstract class ExtensionManagementHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<JObject>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ObjectNode>>() {});
     }
 
     /** 
@@ -352,10 +353,10 @@ public abstract class ExtensionManagementHttpClientBase
      *            
      * @param collectionName 
      *            
-     * @return JObject
+     * @return ObjectNode
      */
-    public JObject setDocumentByName(
-        final JObject doc, 
+    public ObjectNode setDocumentByName(
+        final ObjectNode doc, 
         final String publisherName, 
         final String extensionName, 
         final String scopeType, 
@@ -380,7 +381,7 @@ public abstract class ExtensionManagementHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, JObject.class);
+        return super.sendRequest(httpRequest, ObjectNode.class);
     }
 
     /** 
@@ -398,10 +399,10 @@ public abstract class ExtensionManagementHttpClientBase
      *            
      * @param collectionName 
      *            
-     * @return JObject
+     * @return ObjectNode
      */
-    public JObject updateDocumentByName(
-        final JObject doc, 
+    public ObjectNode updateDocumentByName(
+        final ObjectNode doc, 
         final String publisherName, 
         final String extensionName, 
         final String scopeType, 
@@ -426,7 +427,7 @@ public abstract class ExtensionManagementHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, JObject.class);
+        return super.sendRequest(httpRequest, ObjectNode.class);
     }
 
     /** 
@@ -438,9 +439,9 @@ public abstract class ExtensionManagementHttpClientBase
      *            
      * @param extensionName 
      *            
-     * @return List&lt;ExtensionDataCollection&gt;
+     * @return ArrayList&lt;ExtensionDataCollection&gt;
      */
-    public List<ExtensionDataCollection> queryCollectionsByName(
+    public ArrayList<ExtensionDataCollection> queryCollectionsByName(
         final ExtensionDataCollectionQuery collectionQuery, 
         final String publisherName, 
         final String extensionName) { 
@@ -460,7 +461,7 @@ public abstract class ExtensionManagementHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ExtensionDataCollection>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ExtensionDataCollection>>() {});
     }
 
     /** 
@@ -472,9 +473,9 @@ public abstract class ExtensionManagementHttpClientBase
      *            
      * @param includeInstallationIssues 
      *            
-     * @return List&lt;ExtensionState&gt;
+     * @return ArrayList&lt;ExtensionState&gt;
      */
-    public List<ExtensionState> getStates(
+    public ArrayList<ExtensionState> getStates(
         final Boolean includeDisabled, 
         final Boolean includeErrors, 
         final Boolean includeInstallationIssues) { 
@@ -493,7 +494,7 @@ public abstract class ExtensionManagementHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ExtensionState>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ExtensionState>>() {});
     }
 
     /** 
@@ -501,9 +502,9 @@ public abstract class ExtensionManagementHttpClientBase
      * 
      * @param query 
      *            
-     * @return List&lt;InstalledExtension&gt;
+     * @return ArrayList&lt;InstalledExtension&gt;
      */
-    public List<InstalledExtension> queryExtensions(final InstalledExtensionQuery query) { 
+    public ArrayList<InstalledExtension> queryExtensions(final InstalledExtensionQuery query) { 
 
         final UUID locationId = UUID.fromString("046c980f-1345-4ce2-bf85-b46d10ff4cfd"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -515,7 +516,7 @@ public abstract class ExtensionManagementHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<InstalledExtension>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<InstalledExtension>>() {});
     }
 
     /** 
@@ -529,9 +530,9 @@ public abstract class ExtensionManagementHttpClientBase
      *            
      * @param includeInstallationIssues 
      *            
-     * @return List&lt;InstalledExtension&gt;
+     * @return ArrayList&lt;InstalledExtension&gt;
      */
-    public List<InstalledExtension> getInstalledExtensions(
+    public ArrayList<InstalledExtension> getInstalledExtensions(
         final Boolean includeDisabledExtensions, 
         final Boolean includeErrors, 
         final List<String> assetTypes, 
@@ -552,7 +553,7 @@ public abstract class ExtensionManagementHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<InstalledExtension>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<InstalledExtension>>() {});
     }
 
     /** 
@@ -757,9 +758,9 @@ public abstract class ExtensionManagementHttpClientBase
     /** 
      * [Preview API 3.0-preview.1]
      * 
-     * @return List&lt;RequestedExtension&gt;
+     * @return ArrayList&lt;RequestedExtension&gt;
      */
-    public List<RequestedExtension> getRequests() { 
+    public ArrayList<RequestedExtension> getRequests() { 
 
         final UUID locationId = UUID.fromString("216b978f-b164-424e-ada2-b77561e842b7"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -769,7 +770,7 @@ public abstract class ExtensionManagementHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<RequestedExtension>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<RequestedExtension>>() {});
     }
 
     /** 

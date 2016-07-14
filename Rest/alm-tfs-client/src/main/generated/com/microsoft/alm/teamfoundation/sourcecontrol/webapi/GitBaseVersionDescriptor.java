@@ -15,7 +15,6 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
  */
@@ -38,48 +37,42 @@ public class GitBaseVersionDescriptor
     /**
     * Version string identifier (name of tag/branch, SHA1 of commit)
     */
-    @JsonProperty("baseVersion")
-    public String getVersion() {
+    public String getBaseVersion() {
         return baseVersion;
     }
 
     /**
     * Version string identifier (name of tag/branch, SHA1 of commit)
     */
-    @JsonProperty("baseVersion")
-    public void setVersion(final String baseVersion) {
+    public void setBaseVersion(final String baseVersion) {
         this.baseVersion = baseVersion;
     }
 
     /**
     * Version options - Specify additional modifiers to version (e.g Previous)
     */
-    @JsonProperty("baseVersionOptions")
-    public GitVersionOptions getVersionOptions() {
+    public GitVersionOptions getBaseVersionOptions() {
         return baseVersionOptions;
     }
 
     /**
     * Version options - Specify additional modifiers to version (e.g Previous)
     */
-    @JsonProperty("baseVersionOptions")
-    public void setVersionOptions(final GitVersionOptions baseVersionOptions) {
+    public void setBaseVersionOptions(final GitVersionOptions baseVersionOptions) {
         this.baseVersionOptions = baseVersionOptions;
     }
 
     /**
     * Version type (branch, tag, or commit). Determines how Id is interpreted
     */
-    @JsonProperty("baseVersionType")
-    public GitVersionType getVersionType() {
+    public GitVersionType getBaseVersionType() {
         return baseVersionType;
     }
 
     /**
     * Version type (branch, tag, or commit). Determines how Id is interpreted
     */
-    @JsonProperty("baseVersionType")
-    public void setVersionType(final GitVersionType baseVersionType) {
+    public void setBaseVersionType(final GitVersionType baseVersionType) {
         this.baseVersionType = baseVersionType;
     }
 }

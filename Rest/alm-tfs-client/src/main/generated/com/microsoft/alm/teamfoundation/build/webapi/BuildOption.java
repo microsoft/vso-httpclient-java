@@ -15,8 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.HashMap;
 
 /** 
  */
@@ -24,15 +23,13 @@ public class BuildOption {
 
     private BuildOptionDefinitionReference definition;
     private boolean enabled;
-    private Map<String, String> inputs;
+    private HashMap<String, String> inputs;
 
-    @JsonProperty("definition")
-    public BuildOptionDefinitionReference getBuildOptionDefinition() {
+    public BuildOptionDefinitionReference getDefinition() {
         return definition;
     }
 
-    @JsonProperty("definition")
-    public void setBuildOptionDefinition(final BuildOptionDefinitionReference definition) {
+    public void setDefinition(final BuildOptionDefinitionReference definition) {
         this.definition = definition;
     }
 
@@ -44,11 +41,11 @@ public class BuildOption {
         this.enabled = enabled;
     }
 
-    public Map<String, String> getInputs() {
+    public HashMap<String, String> getInputs() {
         return inputs;
     }
 
-    public void setInputs(final Map<String, String> inputs) {
+    public void setInputs(final HashMap<String, String> inputs) {
         this.inputs = inputs;
     }
 }

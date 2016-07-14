@@ -15,20 +15,20 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /** 
  */
 public class BoardCardSettings {
 
-    private Map<String, List<FieldSetting>> cards;
+    private HashMap<String, ArrayList<FieldSetting>> cards;
 
-    public Map<String, List<FieldSetting>> getCards() {
+    public HashMap<String, ArrayList<FieldSetting>> getCards() {
         return cards;
     }
 
-    public void setCards(final Map<String, List<FieldSetting>> cards) {
+    public void setCards(final HashMap<String, ArrayList<FieldSetting>> cards) {
         this.cards = cards;
     }
 }

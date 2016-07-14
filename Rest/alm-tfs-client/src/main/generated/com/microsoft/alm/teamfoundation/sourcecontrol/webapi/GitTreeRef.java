@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
@@ -35,7 +35,7 @@ public class GitTreeRef {
     /**
     * Blobs and trees under this tree
     */
-    private List<GitTreeEntryRef> treeEntries;
+    private ArrayList<GitTreeEntryRef> treeEntries;
     /**
     * Url to tree
     */
@@ -82,14 +82,14 @@ public class GitTreeRef {
     /**
     * Blobs and trees under this tree
     */
-    public List<GitTreeEntryRef> getTreeEntries() {
+    public ArrayList<GitTreeEntryRef> getTreeEntries() {
         return treeEntries;
     }
 
     /**
     * Blobs and trees under this tree
     */
-    public void setTreeEntries(final List<GitTreeEntryRef> treeEntries) {
+    public void setTreeEntries(final ArrayList<GitTreeEntryRef> treeEntries) {
         this.treeEntries = treeEntries;
     }
 

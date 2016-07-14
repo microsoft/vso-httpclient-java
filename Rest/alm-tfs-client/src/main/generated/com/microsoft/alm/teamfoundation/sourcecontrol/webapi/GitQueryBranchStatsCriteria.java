@@ -15,7 +15,6 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
  */
@@ -24,23 +23,19 @@ public class GitQueryBranchStatsCriteria {
     private GitVersionDescriptor baseCommit;
     private GitVersionDescriptor[] targetCommits;
 
-    @JsonProperty("baseCommit")
-    public GitVersionDescriptor getBaseVersionDescriptor() {
+    public GitVersionDescriptor getBaseCommit() {
         return baseCommit;
     }
 
-    @JsonProperty("baseCommit")
-    public void setBaseVersionDescriptor(final GitVersionDescriptor baseCommit) {
+    public void setBaseCommit(final GitVersionDescriptor baseCommit) {
         this.baseCommit = baseCommit;
     }
 
-    @JsonProperty("targetCommits")
-    public GitVersionDescriptor[] getTargetVersionDescriptors() {
+    public GitVersionDescriptor[] getTargetCommits() {
         return targetCommits;
     }
 
-    @JsonProperty("targetCommits")
-    public void setTargetVersionDescriptors(final GitVersionDescriptor[] targetCommits) {
+    public void setTargetCommits(final GitVersionDescriptor[] targetCommits) {
         this.targetCommits = targetCommits;
     }
 }

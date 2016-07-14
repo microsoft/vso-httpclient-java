@@ -15,15 +15,15 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
  */
 public class BuildServer {
 
-    private List<ShallowReference> agents;
+    private ArrayList<ShallowReference> agents;
     private ShallowReference controller;
     private int id;
     private boolean isVirtual;
@@ -36,11 +36,11 @@ public class BuildServer {
     private String url;
     private int version;
 
-    public List<ShallowReference> getAgents() {
+    public ArrayList<ShallowReference> getAgents() {
         return agents;
     }
 
-    public void setAgents(final List<ShallowReference> agents) {
+    public void setAgents(final ArrayList<ShallowReference> agents) {
         this.agents = agents;
     }
 

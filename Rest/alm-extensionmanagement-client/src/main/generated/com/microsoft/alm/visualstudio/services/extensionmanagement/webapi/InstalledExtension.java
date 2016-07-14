@@ -15,10 +15,9 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.ExtensionFile;
 
 /** 
@@ -39,7 +38,7 @@ public class InstalledExtension
     /**
     * This is the set of files available from the extension.
     */
-    private List<ExtensionFile> files;
+    private ArrayList<ExtensionFile> files;
     /**
     * Extension flags relevant to contribution consumers
     */
@@ -72,46 +71,42 @@ public class InstalledExtension
     /**
     * The friendly extension id for this extension - unique for a given publisher.
     */
-    @JsonProperty("extensionId")
-    public String getExtensionName() {
+    public String getExtensionId() {
         return extensionId;
     }
 
     /**
     * The friendly extension id for this extension - unique for a given publisher.
     */
-    @JsonProperty("extensionId")
-    public void setExtensionName(final String extensionId) {
+    public void setExtensionId(final String extensionId) {
         this.extensionId = extensionId;
     }
 
     /**
     * The display name of the extension.
     */
-    @JsonProperty("extensionName")
-    public String getExtensionDisplayName() {
+    public String getExtensionName() {
         return extensionName;
     }
 
     /**
     * The display name of the extension.
     */
-    @JsonProperty("extensionName")
-    public void setExtensionDisplayName(final String extensionName) {
+    public void setExtensionName(final String extensionName) {
         this.extensionName = extensionName;
     }
 
     /**
     * This is the set of files available from the extension.
     */
-    public List<ExtensionFile> getFiles() {
+    public ArrayList<ExtensionFile> getFiles() {
         return files;
     }
 
     /**
     * This is the set of files available from the extension.
     */
-    public void setFiles(final List<ExtensionFile> files) {
+    public void setFiles(final ArrayList<ExtensionFile> files) {
         this.files = files;
     }
 
@@ -160,32 +155,28 @@ public class InstalledExtension
     /**
     * Unique id of the publisher of this extension
     */
-    @JsonProperty("publisherId")
-    public String getPublisherName() {
+    public String getPublisherId() {
         return publisherId;
     }
 
     /**
     * Unique id of the publisher of this extension
     */
-    @JsonProperty("publisherId")
-    public void setPublisherName(final String publisherId) {
+    public void setPublisherId(final String publisherId) {
         this.publisherId = publisherId;
     }
 
     /**
     * The display name of the publisher
     */
-    @JsonProperty("publisherName")
-    public String getPublisherDisplayName() {
+    public String getPublisherName() {
         return publisherName;
     }
 
     /**
     * The display name of the publisher
     */
-    @JsonProperty("publisherName")
-    public void setPublisherDisplayName(final String publisherName) {
+    public void setPublisherName(final String publisherName) {
         this.publisherName = publisherName;
     }
 

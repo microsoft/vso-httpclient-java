@@ -58,12 +58,12 @@ public class ItemModel {
     }
 
     @JsonProperty("isSymLink")
-    public boolean isSymbolicLink() {
+    public boolean isSymLink() {
         return isSymLink;
     }
 
     @JsonProperty("isSymLink")
-    public void setSymbolicLink(final boolean isSymLink) {
+    public void setSymLink(final boolean isSymLink) {
         this.isSymLink = isSymLink;
     }
 

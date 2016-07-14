@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
 /** 
@@ -27,7 +27,7 @@ public class TestCaseResultUpdateModel {
     private String comment;
     private String completedDate;
     private String computerName;
-    private List<CustomTestField> customFields;
+    private ArrayList<CustomTestField> customFields;
     private String durationInMs;
     private String errorMessage;
     private String failureType;
@@ -81,11 +81,11 @@ public class TestCaseResultUpdateModel {
         this.computerName = computerName;
     }
 
-    public List<CustomTestField> getCustomFields() {
+    public ArrayList<CustomTestField> getCustomFields() {
         return customFields;
     }
 
-    public void setCustomFields(final List<CustomTestField> customFields) {
+    public void setCustomFields(final ArrayList<CustomTestField> customFields) {
         this.customFields = customFields;
     }
 

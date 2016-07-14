@@ -42,6 +42,7 @@ public abstract class VssHttpClientBase {
     protected final static MediaType APPLICATION_OCTET_STREAM_TYPE = MediaType.APPLICATION_OCTET_STREAM_TYPE;
     protected final static MediaType APPLICATION_ZIP_TYPE = new MediaType("application", "zip"); //$NON-NLS-1$ //$NON-NLS-2$
     protected final static MediaType TEXT_PLAIN_TYPE = MediaType.TEXT_PLAIN_TYPE;
+    protected final static MediaType TEXT_HTML_TYPE = MediaType.TEXT_HTML_TYPE;
     protected final static MediaType APPLICATION_JSON_PATCH_TYPE = new MediaType("application", "json-patch+json"); //$NON-NLS-1$ //$NON-NLS-2$
     protected final static MediaType APPLICATION_GIT_MEDIA_TYPE = new MediaType("application", "vnd.git-media"); //$NON-NLS-1$ //$NON-NLS-2$
     protected final static MediaType IMAGE_SVG_XML_MEDIA_TYPE = new MediaType("image", "svg+xml"); //$NON-NLS-1$ //$NON-NLS-2$

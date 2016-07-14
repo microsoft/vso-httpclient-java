@@ -15,44 +15,41 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.List;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
 
 /** 
  */
 public class RetentionPolicy {
 
-    private List<String> artifacts;
-    private List<String> artifactTypesToDelete;
-    private List<String> branches;
+    private ArrayList<String> artifacts;
+    private ArrayList<String> artifactTypesToDelete;
+    private ArrayList<String> branches;
     private int daysToKeep;
     private boolean deleteBuildRecord;
     private boolean deleteTestResults;
     private int minimumToKeep;
 
-    @JsonProperty("artifacts")
-    public List<String> getArtifactsToDelete() {
+    public ArrayList<String> getArtifacts() {
         return artifacts;
     }
 
-    @JsonProperty("artifacts")
-    public void setArtifactsToDelete(final List<String> artifacts) {
+    public void setArtifacts(final ArrayList<String> artifacts) {
         this.artifacts = artifacts;
     }
 
-    public List<String> getArtifactTypesToDelete() {
+    public ArrayList<String> getArtifactTypesToDelete() {
         return artifactTypesToDelete;
     }
 
-    public void setArtifactTypesToDelete(final List<String> artifactTypesToDelete) {
+    public void setArtifactTypesToDelete(final ArrayList<String> artifactTypesToDelete) {
         this.artifactTypesToDelete = artifactTypesToDelete;
     }
 
-    public List<String> getBranches() {
+    public ArrayList<String> getBranches() {
         return branches;
     }
 
-    public void setBranches(final List<String> branches) {
+    public void setBranches(final ArrayList<String> branches) {
         this.branches = branches;
     }
 

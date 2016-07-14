@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.events;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.ReleaseApproval;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.ReleaseEnvironment;
 
@@ -27,7 +27,7 @@ public class ReleaseApprovalPendingEvent {
     private String definitionName;
     private int environmentId;
     private String environmentName;
-    private List<ReleaseEnvironment> environments;
+    private ArrayList<ReleaseEnvironment> environments;
     private String releaseCreator;
     private String releaseName;
     private String title;
@@ -65,11 +65,11 @@ public class ReleaseApprovalPendingEvent {
         this.environmentName = environmentName;
     }
 
-    public List<ReleaseEnvironment> getEnvironments() {
+    public ArrayList<ReleaseEnvironment> getEnvironments() {
         return environments;
     }
 
-    public void setEnvironments(final List<ReleaseEnvironment> environments) {
+    public void setEnvironments(final ArrayList<ReleaseEnvironment> environments) {
         this.environments = environments;
     }
 

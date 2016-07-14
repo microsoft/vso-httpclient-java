@@ -15,37 +15,37 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class GitPullRequestIterationChanges {
 
-    private List<GitPullRequestChange> changeEntries;
-    private List<String> nextSkip;
-    private List<String> nextTop;
+    private ArrayList<GitPullRequestChange> changeEntries;
+    private ArrayList<String> nextSkip;
+    private ArrayList<String> nextTop;
 
-    public List<GitPullRequestChange> getChangeEntries() {
+    public ArrayList<GitPullRequestChange> getChangeEntries() {
         return changeEntries;
     }
 
-    public void setChangeEntries(final List<GitPullRequestChange> changeEntries) {
+    public void setChangeEntries(final ArrayList<GitPullRequestChange> changeEntries) {
         this.changeEntries = changeEntries;
     }
 
-    public List<String> getNextSkip() {
+    public ArrayList<String> getNextSkip() {
         return nextSkip;
     }
 
-    public void setNextSkip(final List<String> nextSkip) {
+    public void setNextSkip(final ArrayList<String> nextSkip) {
         this.nextSkip = nextSkip;
     }
 
-    public List<String> getNextTop() {
+    public ArrayList<String> getNextTop() {
         return nextTop;
     }
 
-    public void setNextTop(final List<String> nextTop) {
+    public void setNextTop(final ArrayList<String> nextTop) {
         this.nextTop = nextTop;
     }
 }

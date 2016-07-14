@@ -17,6 +17,7 @@ package com.microsoft.alm.teamfoundation.workitemtracking.webapi;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -56,6 +57,7 @@ import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemT
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemTypeTemplateUpdateModel;
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemUpdate;
 import com.microsoft.alm.visualstudio.services.webapi.ApiResourceVersion;
+import com.microsoft.alm.visualstudio.services.webapi.patch.json.JsonPatchDocument;
 
 public abstract class WorkItemTrackingHttpClientBase
     extends VssHttpClientBase {
@@ -198,9 +200,9 @@ public abstract class WorkItemTrackingHttpClientBase
      *            Project ID or project name
      * @param depth 
      *            
-     * @return List&lt;WorkItemClassificationNode&gt;
+     * @return ArrayList&lt;WorkItemClassificationNode&gt;
      */
-    public List<WorkItemClassificationNode> getRootNodes(
+    public ArrayList<WorkItemClassificationNode> getRootNodes(
         final String project, 
         final Integer depth) { 
 
@@ -220,7 +222,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemClassificationNode>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemClassificationNode>>() {});
     }
 
     /** 
@@ -230,9 +232,9 @@ public abstract class WorkItemTrackingHttpClientBase
      *            Project ID
      * @param depth 
      *            
-     * @return List&lt;WorkItemClassificationNode&gt;
+     * @return ArrayList&lt;WorkItemClassificationNode&gt;
      */
-    public List<WorkItemClassificationNode> getRootNodes(
+    public ArrayList<WorkItemClassificationNode> getRootNodes(
         final UUID project, 
         final Integer depth) { 
 
@@ -252,7 +254,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemClassificationNode>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemClassificationNode>>() {});
     }
 
     /** 
@@ -661,9 +663,9 @@ public abstract class WorkItemTrackingHttpClientBase
     /** 
      * [Preview API 3.0-preview.2]
      * 
-     * @return List&lt;WorkItemField&gt;
+     * @return ArrayList&lt;WorkItemField&gt;
      */
-    public List<WorkItemField> getFields() { 
+    public ArrayList<WorkItemField> getFields() { 
 
         final UUID locationId = UUID.fromString("b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -673,7 +675,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemField>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemField>>() {});
     }
 
     /** 
@@ -685,9 +687,9 @@ public abstract class WorkItemTrackingHttpClientBase
      *            
      * @param skip 
      *            
-     * @return List&lt;WorkItemHistory&gt;
+     * @return ArrayList&lt;WorkItemHistory&gt;
      */
-    public List<WorkItemHistory> getHistory(
+    public ArrayList<WorkItemHistory> getHistory(
         final int id, 
         final Integer top, 
         final Integer skip) { 
@@ -709,7 +711,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemHistory>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemHistory>>() {});
     }
 
     /** 
@@ -876,9 +878,9 @@ public abstract class WorkItemTrackingHttpClientBase
      *            
      * @param includeDeleted 
      *            
-     * @return List&lt;QueryHierarchyItem&gt;
+     * @return ArrayList&lt;QueryHierarchyItem&gt;
      */
-    public List<QueryHierarchyItem> getQueries(
+    public ArrayList<QueryHierarchyItem> getQueries(
         final String project, 
         final QueryExpand expand, 
         final Integer depth, 
@@ -902,7 +904,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<QueryHierarchyItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<QueryHierarchyItem>>() {});
     }
 
     /** 
@@ -916,9 +918,9 @@ public abstract class WorkItemTrackingHttpClientBase
      *            
      * @param includeDeleted 
      *            
-     * @return List&lt;QueryHierarchyItem&gt;
+     * @return ArrayList&lt;QueryHierarchyItem&gt;
      */
-    public List<QueryHierarchyItem> getQueries(
+    public ArrayList<QueryHierarchyItem> getQueries(
         final UUID project, 
         final QueryExpand expand, 
         final Integer depth, 
@@ -942,7 +944,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<QueryHierarchyItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<QueryHierarchyItem>>() {});
     }
 
     /** 
@@ -1279,9 +1281,9 @@ public abstract class WorkItemTrackingHttpClientBase
     /** 
      * [Preview API 3.0-preview.1]
      * 
-     * @return List&lt;WorkItemDeleteReference&gt;
+     * @return ArrayList&lt;WorkItemDeleteReference&gt;
      */
-    public List<WorkItemDeleteReference> getDeletedWorkItems() { 
+    public ArrayList<WorkItemDeleteReference> getDeletedWorkItems() { 
 
         final UUID locationId = UUID.fromString("b70d8d39-926c-465e-b927-b1bf0e5ca0e0"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -1291,7 +1293,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemDeleteReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemDeleteReference>>() {});
     }
 
     /** 
@@ -1299,9 +1301,9 @@ public abstract class WorkItemTrackingHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;WorkItemDeleteReference&gt;
+     * @return ArrayList&lt;WorkItemDeleteReference&gt;
      */
-    public List<WorkItemDeleteReference> getDeletedWorkItems(final String project) { 
+    public ArrayList<WorkItemDeleteReference> getDeletedWorkItems(final String project) { 
 
         final UUID locationId = UUID.fromString("b70d8d39-926c-465e-b927-b1bf0e5ca0e0"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -1315,7 +1317,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemDeleteReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemDeleteReference>>() {});
     }
 
     /** 
@@ -1323,9 +1325,9 @@ public abstract class WorkItemTrackingHttpClientBase
      * 
      * @param project 
      *            Project ID
-     * @return List&lt;WorkItemDeleteReference&gt;
+     * @return ArrayList&lt;WorkItemDeleteReference&gt;
      */
-    public List<WorkItemDeleteReference> getDeletedWorkItems(final UUID project) { 
+    public ArrayList<WorkItemDeleteReference> getDeletedWorkItems(final UUID project) { 
 
         final UUID locationId = UUID.fromString("b70d8d39-926c-465e-b927-b1bf0e5ca0e0"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -1339,7 +1341,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemDeleteReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemDeleteReference>>() {});
     }
 
     /** 
@@ -1349,9 +1351,9 @@ public abstract class WorkItemTrackingHttpClientBase
      *            Project ID or project name
      * @param ids 
      *            
-     * @return List&lt;WorkItemDeleteReference&gt;
+     * @return ArrayList&lt;WorkItemDeleteReference&gt;
      */
-    public List<WorkItemDeleteReference> getDeletedWorkItems(
+    public ArrayList<WorkItemDeleteReference> getDeletedWorkItems(
         final String project, 
         final List<Integer> ids) { 
 
@@ -1371,7 +1373,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemDeleteReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemDeleteReference>>() {});
     }
 
     /** 
@@ -1381,9 +1383,9 @@ public abstract class WorkItemTrackingHttpClientBase
      *            Project ID
      * @param ids 
      *            
-     * @return List&lt;WorkItemDeleteReference&gt;
+     * @return ArrayList&lt;WorkItemDeleteReference&gt;
      */
-    public List<WorkItemDeleteReference> getDeletedWorkItems(
+    public ArrayList<WorkItemDeleteReference> getDeletedWorkItems(
         final UUID project, 
         final List<Integer> ids) { 
 
@@ -1403,7 +1405,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemDeleteReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemDeleteReference>>() {});
     }
 
     /** 
@@ -1411,9 +1413,9 @@ public abstract class WorkItemTrackingHttpClientBase
      * 
      * @param ids 
      *            
-     * @return List&lt;WorkItemDeleteReference&gt;
+     * @return ArrayList&lt;WorkItemDeleteReference&gt;
      */
-    public List<WorkItemDeleteReference> getDeletedWorkItems(final List<Integer> ids) { 
+    public ArrayList<WorkItemDeleteReference> getDeletedWorkItems(final List<Integer> ids) { 
 
         final UUID locationId = UUID.fromString("b70d8d39-926c-465e-b927-b1bf0e5ca0e0"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -1427,7 +1429,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemDeleteReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemDeleteReference>>() {});
     }
 
     /** 
@@ -1575,9 +1577,9 @@ public abstract class WorkItemTrackingHttpClientBase
      *            
      * @param expand 
      *            
-     * @return List&lt;WorkItem&gt;
+     * @return ArrayList&lt;WorkItem&gt;
      */
-    public List<WorkItem> getRevisions(
+    public ArrayList<WorkItem> getRevisions(
         final int id, 
         final Integer top, 
         final Integer skip, 
@@ -1601,7 +1603,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItem>>() {});
     }
 
     /** 
@@ -1663,9 +1665,9 @@ public abstract class WorkItemTrackingHttpClientBase
      *            
      * @param skip 
      *            
-     * @return List&lt;WorkItemUpdate&gt;
+     * @return ArrayList&lt;WorkItemUpdate&gt;
      */
-    public List<WorkItemUpdate> getUpdates(
+    public ArrayList<WorkItemUpdate> getUpdates(
         final int id, 
         final Integer top, 
         final Integer skip) { 
@@ -1687,7 +1689,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemUpdate>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemUpdate>>() {});
     }
 
     /** 
@@ -2097,7 +2099,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String project, 
         final List<String> types, 
         final String continuationToken, 
-        final java.util.Date startDateTime) { 
+        final Date startDateTime) { 
 
         final UUID locationId = UUID.fromString("b5b5b6d0-0308-40a1-b3f4-b9bb3c66878f"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -2137,7 +2139,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final UUID project, 
         final List<String> types, 
         final String continuationToken, 
-        final java.util.Date startDateTime) { 
+        final Date startDateTime) { 
 
         final UUID locationId = UUID.fromString("b5b5b6d0-0308-40a1-b3f4-b9bb3c66878f"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -2174,7 +2176,7 @@ public abstract class WorkItemTrackingHttpClientBase
     public ReportingWorkItemLinksBatch getReportingLinks(
         final List<String> types, 
         final String continuationToken, 
-        final java.util.Date startDateTime) { 
+        final Date startDateTime) { 
 
         final UUID locationId = UUID.fromString("b5b5b6d0-0308-40a1-b3f4-b9bb3c66878f"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -2220,9 +2222,9 @@ public abstract class WorkItemTrackingHttpClientBase
     /** 
      * [Preview API 3.0-preview.2]
      * 
-     * @return List&lt;WorkItemRelationType&gt;
+     * @return ArrayList&lt;WorkItemRelationType&gt;
      */
-    public List<WorkItemRelationType> getRelationTypes() { 
+    public ArrayList<WorkItemRelationType> getRelationTypes() { 
 
         final UUID locationId = UUID.fromString("f5d33bc9-5b49-4a3c-a9bd-f3cd46dd2165"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -2232,7 +2234,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemRelationType>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemRelationType>>() {});
     }
 
     /** 
@@ -2254,6 +2256,8 @@ public abstract class WorkItemTrackingHttpClientBase
      *            Specify if the deleted item should be returned.
      * @param includeTagRef 
      *            Specify if the tag objects should be returned for System.Tags field.
+     * @param includeLatestOnly 
+     *            Return only the latest revisions of work items, skipping all historical revisions
      * @param expand 
      *            
      * @return ReportingWorkItemRevisionsBatch
@@ -2263,10 +2267,11 @@ public abstract class WorkItemTrackingHttpClientBase
         final List<String> fields, 
         final List<String> types, 
         final String continuationToken, 
-        final java.util.Date startDateTime, 
+        final Date startDateTime, 
         final Boolean includeIdentityRef, 
         final Boolean includeDeleted, 
         final Boolean includeTagRef, 
+        final Boolean includeLatestOnly, 
         final ReportingRevisionsExpand expand) { 
 
         final UUID locationId = UUID.fromString("f828fe59-dd87-495d-a17c-7a8d6211ca6c"); //$NON-NLS-1$
@@ -2283,6 +2288,7 @@ public abstract class WorkItemTrackingHttpClientBase
         queryParameters.addIfNotNull("includeIdentityRef", includeIdentityRef); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeDeleted", includeDeleted); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeTagRef", includeTagRef); //$NON-NLS-1$
+        queryParameters.addIfNotNull("includeLatestOnly", includeLatestOnly); //$NON-NLS-1$
         queryParameters.addIfNotNull("$expand", expand); //$NON-NLS-1$
 
         final Object httpRequest = super.createRequest(HttpMethod.GET,
@@ -2314,6 +2320,8 @@ public abstract class WorkItemTrackingHttpClientBase
      *            Specify if the deleted item should be returned.
      * @param includeTagRef 
      *            Specify if the tag objects should be returned for System.Tags field.
+     * @param includeLatestOnly 
+     *            Return only the latest revisions of work items, skipping all historical revisions
      * @param expand 
      *            
      * @return ReportingWorkItemRevisionsBatch
@@ -2323,10 +2331,11 @@ public abstract class WorkItemTrackingHttpClientBase
         final List<String> fields, 
         final List<String> types, 
         final String continuationToken, 
-        final java.util.Date startDateTime, 
+        final Date startDateTime, 
         final Boolean includeIdentityRef, 
         final Boolean includeDeleted, 
         final Boolean includeTagRef, 
+        final Boolean includeLatestOnly, 
         final ReportingRevisionsExpand expand) { 
 
         final UUID locationId = UUID.fromString("f828fe59-dd87-495d-a17c-7a8d6211ca6c"); //$NON-NLS-1$
@@ -2343,6 +2352,7 @@ public abstract class WorkItemTrackingHttpClientBase
         queryParameters.addIfNotNull("includeIdentityRef", includeIdentityRef); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeDeleted", includeDeleted); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeTagRef", includeTagRef); //$NON-NLS-1$
+        queryParameters.addIfNotNull("includeLatestOnly", includeLatestOnly); //$NON-NLS-1$
         queryParameters.addIfNotNull("$expand", expand); //$NON-NLS-1$
 
         final Object httpRequest = super.createRequest(HttpMethod.GET,
@@ -2372,6 +2382,8 @@ public abstract class WorkItemTrackingHttpClientBase
      *            Specify if the deleted item should be returned.
      * @param includeTagRef 
      *            Specify if the tag objects should be returned for System.Tags field.
+     * @param includeLatestOnly 
+     *            Return only the latest revisions of work items, skipping all historical revisions
      * @param expand 
      *            
      * @return ReportingWorkItemRevisionsBatch
@@ -2380,10 +2392,11 @@ public abstract class WorkItemTrackingHttpClientBase
         final List<String> fields, 
         final List<String> types, 
         final String continuationToken, 
-        final java.util.Date startDateTime, 
+        final Date startDateTime, 
         final Boolean includeIdentityRef, 
         final Boolean includeDeleted, 
         final Boolean includeTagRef, 
+        final Boolean includeLatestOnly, 
         final ReportingRevisionsExpand expand) { 
 
         final UUID locationId = UUID.fromString("f828fe59-dd87-495d-a17c-7a8d6211ca6c"); //$NON-NLS-1$
@@ -2397,6 +2410,7 @@ public abstract class WorkItemTrackingHttpClientBase
         queryParameters.addIfNotNull("includeIdentityRef", includeIdentityRef); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeDeleted", includeDeleted); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeTagRef", includeTagRef); //$NON-NLS-1$
+        queryParameters.addIfNotNull("includeLatestOnly", includeLatestOnly); //$NON-NLS-1$
         queryParameters.addIfNotNull("$expand", expand); //$NON-NLS-1$
 
         final Object httpRequest = super.createRequest(HttpMethod.GET,
@@ -2424,7 +2438,7 @@ public abstract class WorkItemTrackingHttpClientBase
     public ReportingWorkItemRevisionsBatch readReportingRevisionsPost(
         final ReportingWorkItemRevisionsFilter filter, 
         final String continuationToken, 
-        final java.util.Date startDateTime, 
+        final Date startDateTime, 
         final ReportingRevisionsExpand expand) { 
 
         final UUID locationId = UUID.fromString("f828fe59-dd87-495d-a17c-7a8d6211ca6c"); //$NON-NLS-1$
@@ -2465,7 +2479,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final ReportingWorkItemRevisionsFilter filter, 
         final String project, 
         final String continuationToken, 
-        final java.util.Date startDateTime, 
+        final Date startDateTime, 
         final ReportingRevisionsExpand expand) { 
 
         final UUID locationId = UUID.fromString("f828fe59-dd87-495d-a17c-7a8d6211ca6c"); //$NON-NLS-1$
@@ -2510,7 +2524,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final ReportingWorkItemRevisionsFilter filter, 
         final UUID project, 
         final String continuationToken, 
-        final java.util.Date startDateTime, 
+        final Date startDateTime, 
         final ReportingRevisionsExpand expand) { 
 
         final UUID locationId = UUID.fromString("f828fe59-dd87-495d-a17c-7a8d6211ca6c"); //$NON-NLS-1$
@@ -2584,7 +2598,7 @@ public abstract class WorkItemTrackingHttpClientBase
     public WorkItem getWorkItem(
         final int id, 
         final List<String> fields, 
-        final java.util.Date asOf, 
+        final Date asOf, 
         final WorkItemExpand expand) { 
 
         final UUID locationId = UUID.fromString("72c7ddf8-2cdc-4f60-90cd-ab71c14a399b"); //$NON-NLS-1$
@@ -2619,12 +2633,12 @@ public abstract class WorkItemTrackingHttpClientBase
      *            
      * @param expand 
      *            
-     * @return List&lt;WorkItem&gt;
+     * @return ArrayList&lt;WorkItem&gt;
      */
-    public List<WorkItem> getWorkItems(
+    public ArrayList<WorkItem> getWorkItems(
         final List<Integer> ids, 
         final List<String> fields, 
-        final java.util.Date asOf, 
+        final Date asOf, 
         final WorkItemExpand expand) { 
 
         final UUID locationId = UUID.fromString("72c7ddf8-2cdc-4f60-90cd-ab71c14a399b"); //$NON-NLS-1$
@@ -2642,7 +2656,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItem>>() {});
     }
 
     /** 
@@ -2659,7 +2673,7 @@ public abstract class WorkItemTrackingHttpClientBase
      * @return WorkItem
      */
     public WorkItem updateWorkItem(
-        final List<JsonPatchOperation> document, 
+        final JsonPatchDocument document, 
         final int id, 
         final Boolean validateOnly, 
         final Boolean bypassRules) { 
@@ -2702,7 +2716,7 @@ public abstract class WorkItemTrackingHttpClientBase
      * @return WorkItem
      */
     public WorkItem createWorkItem(
-        final List<JsonPatchOperation> document, 
+        final JsonPatchDocument document, 
         final String project, 
         final String type, 
         final Boolean validateOnly, 
@@ -2747,7 +2761,7 @@ public abstract class WorkItemTrackingHttpClientBase
      * @return WorkItem
      */
     public WorkItem createWorkItem(
-        final List<JsonPatchOperation> document, 
+        final JsonPatchDocument document, 
         final UUID project, 
         final String type, 
         final Boolean validateOnly, 
@@ -2795,7 +2809,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String project, 
         final String type, 
         final String fields, 
-        final java.util.Date asOf, 
+        final Date asOf, 
         final WorkItemExpand expand) { 
 
         final UUID locationId = UUID.fromString("62d3d110-0047-428c-ad3c-4fe872c91c74"); //$NON-NLS-1$
@@ -2839,7 +2853,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final UUID project, 
         final String type, 
         final String fields, 
-        final java.util.Date asOf, 
+        final Date asOf, 
         final WorkItemExpand expand) { 
 
         final UUID locationId = UUID.fromString("62d3d110-0047-428c-ad3c-4fe872c91c74"); //$NON-NLS-1$
@@ -2869,9 +2883,9 @@ public abstract class WorkItemTrackingHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;WorkItemTypeCategory&gt;
+     * @return ArrayList&lt;WorkItemTypeCategory&gt;
      */
-    public List<WorkItemTypeCategory> getWorkItemTypeCategories(final String project) { 
+    public ArrayList<WorkItemTypeCategory> getWorkItemTypeCategories(final String project) { 
 
         final UUID locationId = UUID.fromString("9b9f5734-36c8-415e-ba67-f83b45c31408"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -2885,7 +2899,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemTypeCategory>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemTypeCategory>>() {});
     }
 
     /** 
@@ -2893,9 +2907,9 @@ public abstract class WorkItemTrackingHttpClientBase
      * 
      * @param project 
      *            Project ID
-     * @return List&lt;WorkItemTypeCategory&gt;
+     * @return ArrayList&lt;WorkItemTypeCategory&gt;
      */
-    public List<WorkItemTypeCategory> getWorkItemTypeCategories(final UUID project) { 
+    public ArrayList<WorkItemTypeCategory> getWorkItemTypeCategories(final UUID project) { 
 
         final UUID locationId = UUID.fromString("9b9f5734-36c8-415e-ba67-f83b45c31408"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -2909,7 +2923,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemTypeCategory>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemTypeCategory>>() {});
     }
 
     /** 
@@ -3033,9 +3047,9 @@ public abstract class WorkItemTrackingHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;WorkItemType&gt;
+     * @return ArrayList&lt;WorkItemType&gt;
      */
-    public List<WorkItemType> getWorkItemTypes(final String project) { 
+    public ArrayList<WorkItemType> getWorkItemTypes(final String project) { 
 
         final UUID locationId = UUID.fromString("7c8d7a76-4a09-43e8-b5df-bd792f4ac6aa"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -3049,7 +3063,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemType>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemType>>() {});
     }
 
     /** 
@@ -3057,9 +3071,9 @@ public abstract class WorkItemTrackingHttpClientBase
      * 
      * @param project 
      *            Project ID
-     * @return List&lt;WorkItemType&gt;
+     * @return ArrayList&lt;WorkItemType&gt;
      */
-    public List<WorkItemType> getWorkItemTypes(final UUID project) { 
+    public ArrayList<WorkItemType> getWorkItemTypes(final UUID project) { 
 
         final UUID locationId = UUID.fromString("7c8d7a76-4a09-43e8-b5df-bd792f4ac6aa"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -3073,7 +3087,7 @@ public abstract class WorkItemTrackingHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WorkItemType>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemType>>() {});
     }
 
     /** 

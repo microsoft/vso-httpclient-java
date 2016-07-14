@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
@@ -71,7 +71,7 @@ public class TestConfiguration {
     /**
     * Dictionary of Test Variable, Selected Value
     */
-    private List<NameValuePair> values;
+    private ArrayList<NameValuePair> values;
 
     /**
     * Area of the configuration
@@ -232,14 +232,14 @@ public class TestConfiguration {
     /**
     * Dictionary of Test Variable, Selected Value
     */
-    public List<NameValuePair> getValues() {
+    public ArrayList<NameValuePair> getValues() {
         return values;
     }
 
     /**
     * Dictionary of Test Variable, Selected Value
     */
-    public void setValues(final List<NameValuePair> values) {
+    public void setValues(final ArrayList<NameValuePair> values) {
         this.values = values;
     }
 }

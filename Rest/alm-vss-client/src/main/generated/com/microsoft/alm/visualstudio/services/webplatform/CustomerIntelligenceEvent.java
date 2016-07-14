@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.webplatform;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
@@ -23,7 +23,7 @@ public class CustomerIntelligenceEvent {
 
     private String area;
     private String feature;
-    private Map<String, Object> properties;
+    private HashMap<String, Object> properties;
 
     public String getArea() {
         return area;
@@ -41,11 +41,11 @@ public class CustomerIntelligenceEvent {
         this.feature = feature;
     }
 
-    public Map<String, Object> getProperties() {
+    public HashMap<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(final Map<String, Object> properties) {
+    public void setProperties(final HashMap<String, Object> properties) {
         this.properties = properties;
     }
 }

@@ -18,7 +18,7 @@ package com.microsoft.alm.teamfoundation.policy.webapi;
 import java.util.Date;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.microsoft.alm.client.json.JObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
 /** 
@@ -29,7 +29,7 @@ public class PolicyEvaluationRecord {
     private String artifactId;
     private Date completedDate;
     private PolicyConfiguration configuration;
-    private JObject context;
+    private ObjectNode context;
     private UUID evaluationId;
     private Date startedDate;
     private PolicyEvaluationStatus status;
@@ -68,11 +68,11 @@ public class PolicyEvaluationRecord {
         this.configuration = configuration;
     }
 
-    public JObject getContext() {
+    public ObjectNode getContext() {
         return context;
     }
 
-    public void setContext(final JObject context) {
+    public void setContext(final ObjectNode context) {
         this.context = context;
     }
 

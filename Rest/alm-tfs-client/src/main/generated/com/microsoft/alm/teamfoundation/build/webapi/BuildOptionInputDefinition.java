@@ -15,8 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.HashMap;
 
 /** 
  */
@@ -24,10 +23,10 @@ public class BuildOptionInputDefinition {
 
     private String defaultValue;
     private String groupName;
-    private Map<String, String> help;
+    private HashMap<String, String> help;
     private String label;
     private String name;
-    private Map<String, String> options;
+    private HashMap<String, String> options;
     private boolean required;
     private BuildOptionInputType type;
     private String visibleRule;
@@ -48,13 +47,11 @@ public class BuildOptionInputDefinition {
         this.groupName = groupName;
     }
 
-    @JsonProperty("help")
-    public Map<String, String> getHelpDocuments() {
+    public HashMap<String, String> getHelp() {
         return help;
     }
 
-    @JsonProperty("help")
-    public void setHelpDocuments(final Map<String, String> help) {
+    public void setHelp(final HashMap<String, String> help) {
         this.help = help;
     }
 
@@ -74,11 +71,11 @@ public class BuildOptionInputDefinition {
         this.name = name;
     }
 
-    public Map<String, String> getOptions() {
+    public HashMap<String, String> getOptions() {
         return options;
     }
 
-    public void setOptions(final Map<String, String> options) {
+    public void setOptions(final HashMap<String, String> options) {
         this.options = options;
     }
 
@@ -90,13 +87,11 @@ public class BuildOptionInputDefinition {
         this.required = required;
     }
 
-    @JsonProperty("type")
-    public BuildOptionInputType getInputType() {
+    public BuildOptionInputType getType() {
         return type;
     }
 
-    @JsonProperty("type")
-    public void setInputType(final BuildOptionInputType type) {
+    public void setType(final BuildOptionInputType type) {
         this.type = type;
     }
 

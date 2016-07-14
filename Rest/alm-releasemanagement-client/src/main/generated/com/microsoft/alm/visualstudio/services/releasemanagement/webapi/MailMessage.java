@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.MailSectionType;
 
 /** 
@@ -29,7 +29,7 @@ public class MailMessage {
     private String messageId;
     private Date replyBy;
     private EmailRecipients replyTo;
-    private List<MailSectionType> sections;
+    private ArrayList<MailSectionType> sections;
     private SenderType senderType;
     private String subject;
     private EmailRecipients to;
@@ -82,11 +82,11 @@ public class MailMessage {
         this.replyTo = replyTo;
     }
 
-    public List<MailSectionType> getSections() {
+    public ArrayList<MailSectionType> getSections() {
         return sections;
     }
 
-    public void setSections(final List<MailSectionType> sections) {
+    public void setSections(final ArrayList<MailSectionType> sections) {
         this.sections = sections;
     }
 

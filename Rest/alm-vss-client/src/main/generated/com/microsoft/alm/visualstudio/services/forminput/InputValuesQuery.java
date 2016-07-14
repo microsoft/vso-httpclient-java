@@ -15,42 +15,42 @@
 
 package com.microsoft.alm.visualstudio.services.forminput;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /** 
  */
 public class InputValuesQuery {
 
-    private Map<String, String> currentValues;
+    private HashMap<String, String> currentValues;
     /**
     * The input values to return on input, and the result from the consumer on output.
     */
-    private List<InputValues> inputValues;
+    private ArrayList<InputValues> inputValues;
     /**
     * Subscription containing information about the publisher/consumer and the current input values
     */
     private Object resource;
 
-    public Map<String, String> getCurrentValues() {
+    public HashMap<String, String> getCurrentValues() {
         return currentValues;
     }
 
-    public void setCurrentValues(final Map<String, String> currentValues) {
+    public void setCurrentValues(final HashMap<String, String> currentValues) {
         this.currentValues = currentValues;
     }
 
     /**
     * The input values to return on input, and the result from the consumer on output.
     */
-    public List<InputValues> getInputValues() {
+    public ArrayList<InputValues> getInputValues() {
         return inputValues;
     }
 
     /**
     * The input values to return on input, and the result from the consumer on output.
     */
-    public void setInputValues(final List<InputValues> inputValues) {
+    public void setInputValues(final ArrayList<InputValues> inputValues) {
         this.inputValues = inputValues;
     }
 

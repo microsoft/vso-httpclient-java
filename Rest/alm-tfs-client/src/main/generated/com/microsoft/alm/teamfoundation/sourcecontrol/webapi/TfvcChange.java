@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -25,7 +25,7 @@ public class TfvcChange
     /**
     * List of merge sources in case of rename or branch creation.
     */
-    private List<TfvcMergeSource> mergeSources;
+    private ArrayList<TfvcMergeSource> mergeSources;
     /**
     * Version at which a (shelved) change was pended against
     */
@@ -34,14 +34,14 @@ public class TfvcChange
     /**
     * List of merge sources in case of rename or branch creation.
     */
-    public List<TfvcMergeSource> getMergeSources() {
+    public ArrayList<TfvcMergeSource> getMergeSources() {
         return mergeSources;
     }
 
     /**
     * List of merge sources in case of rename or branch creation.
     */
-    public void setMergeSources(final List<TfvcMergeSource> mergeSources) {
+    public void setMergeSources(final ArrayList<TfvcMergeSource> mergeSources) {
         this.mergeSources = mergeSources;
     }
 

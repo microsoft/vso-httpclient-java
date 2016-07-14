@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
@@ -25,7 +25,7 @@ import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 public class BoardCardRuleSettings {
 
     private ReferenceLinks _links;
-    private Map<String, List<Rule>> rules;
+    private HashMap<String, ArrayList<Rule>> rules;
     private String url;
 
     @JsonProperty("_links")
@@ -38,11 +38,11 @@ public class BoardCardRuleSettings {
         this._links = _links;
     }
 
-    public Map<String, List<Rule>> getRules() {
+    public HashMap<String, ArrayList<Rule>> getRules() {
         return rules;
     }
 
-    public void setRules(final Map<String, List<Rule>> rules) {
+    public void setRules(final HashMap<String, ArrayList<Rule>> rules) {
         this.rules = rules;
     }
 

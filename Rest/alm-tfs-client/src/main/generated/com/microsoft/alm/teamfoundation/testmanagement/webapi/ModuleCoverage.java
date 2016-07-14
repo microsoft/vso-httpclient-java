@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
@@ -24,7 +24,7 @@ public class ModuleCoverage {
 
     private int blockCount;
     private Byte[] blockData;
-    private List<FunctionCoverage> functions;
+    private ArrayList<FunctionCoverage> functions;
     private String name;
     private UUID signature;
     private int signatureAge;
@@ -46,11 +46,11 @@ public class ModuleCoverage {
         this.blockData = blockData;
     }
 
-    public List<FunctionCoverage> getFunctions() {
+    public ArrayList<FunctionCoverage> getFunctions() {
         return functions;
     }
 
-    public void setFunctions(final List<FunctionCoverage> functions) {
+    public void setFunctions(final ArrayList<FunctionCoverage> functions) {
         this.functions = functions;
     }
 

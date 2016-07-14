@@ -15,19 +15,19 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class ArtifactSourceIdsQueryResult {
 
-    private List<ArtifactSourceId> artifactSourceIds;
+    private ArrayList<ArtifactSourceId> artifactSourceIds;
 
-    public List<ArtifactSourceId> getArtifactSourceIds() {
+    public ArrayList<ArtifactSourceId> getArtifactSourceIds() {
         return artifactSourceIds;
     }
 
-    public void setArtifactSourceIds(final List<ArtifactSourceId> artifactSourceIds) {
+    public void setArtifactSourceIds(final ArrayList<ArtifactSourceId> artifactSourceIds) {
         this.artifactSourceIds = artifactSourceIds;
     }
 }

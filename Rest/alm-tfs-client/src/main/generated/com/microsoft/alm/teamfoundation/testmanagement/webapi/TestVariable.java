@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -48,7 +48,7 @@ public class TestVariable {
     /**
     * List of allowed values
     */
-    private List<String> values;
+    private ArrayList<String> values;
 
     /**
     * Description of the test variable
@@ -137,14 +137,14 @@ public class TestVariable {
     /**
     * List of allowed values
     */
-    public List<String> getValues() {
+    public ArrayList<String> getValues() {
         return values;
     }
 
     /**
     * List of allowed values
     */
-    public void setValues(final List<String> values) {
+    public void setValues(final ArrayList<String> values) {
         this.values = values;
     }
 }

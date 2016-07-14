@@ -15,19 +15,19 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class ProvisioningResult {
 
-    private List<String> provisioningImportEvents;
+    private ArrayList<String> provisioningImportEvents;
 
-    public List<String> getProvisioningImportEvents() {
+    public ArrayList<String> getProvisioningImportEvents() {
         return provisioningImportEvents;
     }
 
-    public void setProvisioningImportEvents(final List<String> provisioningImportEvents) {
+    public void setProvisioningImportEvents(final ArrayList<String> provisioningImportEvents) {
         this.provisioningImportEvents = provisioningImportEvents;
     }
 }

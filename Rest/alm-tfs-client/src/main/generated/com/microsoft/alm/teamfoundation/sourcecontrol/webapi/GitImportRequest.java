@@ -25,7 +25,6 @@ public class GitImportRequest {
     private int importRequestId;
     private GitRepository repository;
     private String sourceUrl;
-    private SourceVersionControlType sourceVCType;
     private GitAsyncOperationStatus status;
 
     public boolean getCreatedNewRepo() {
@@ -66,14 +65,6 @@ public class GitImportRequest {
 
     public void setSourceUrl(final String sourceUrl) {
         this.sourceUrl = sourceUrl;
-    }
-
-    public SourceVersionControlType getSourceVCType() {
-        return sourceVCType;
-    }
-
-    public void setSourceVCType(final SourceVersionControlType sourceVCType) {
-        this.sourceVCType = sourceVCType;
     }
 
     public GitAsyncOperationStatus getStatus() {

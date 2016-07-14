@@ -15,19 +15,19 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class ArtifactVersionQueryResult {
 
-    private List<ArtifactVersion> artifactVersions;
+    private ArrayList<ArtifactVersion> artifactVersions;
 
-    public List<ArtifactVersion> getArtifactVersions() {
+    public ArrayList<ArtifactVersion> getArtifactVersions() {
         return artifactVersions;
     }
 
-    public void setArtifactVersions(final List<ArtifactVersion> artifactVersions) {
+    public void setArtifactVersions(final ArrayList<ArtifactVersion> artifactVersions) {
         this.artifactVersions = artifactVersions;
     }
 }

@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.security;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
@@ -27,7 +27,7 @@ public class SecurityNamespaceData {
     /**
     * The access control entries in this snapshot of the security namespace data.
     */
-    private List<RemoteBackingStoreAccessControlEntry> accessControlEntries;
+    private ArrayList<RemoteBackingStoreAccessControlEntry> accessControlEntries;
     /**
     * Indicates the ACL store whose data is persisted in this SecurityNamespaceData object.
     */
@@ -43,7 +43,7 @@ public class SecurityNamespaceData {
     /**
     * The list of tokens in the security namespace which have inheritance disabled.
     */
-    private List<String> noInheritTokens;
+    private ArrayList<String> noInheritTokens;
     /**
     * If this is a full snapshot of the security namespace data, this value is -1. Otherwise, this instance represents the delta from OldSequenceId to NewSequenceId.
     */
@@ -52,14 +52,14 @@ public class SecurityNamespaceData {
     /**
     * The access control entries in this snapshot of the security namespace data.
     */
-    public List<RemoteBackingStoreAccessControlEntry> getAccessControlEntries() {
+    public ArrayList<RemoteBackingStoreAccessControlEntry> getAccessControlEntries() {
         return accessControlEntries;
     }
 
     /**
     * The access control entries in this snapshot of the security namespace data.
     */
-    public void setAccessControlEntries(final List<RemoteBackingStoreAccessControlEntry> accessControlEntries) {
+    public void setAccessControlEntries(final ArrayList<RemoteBackingStoreAccessControlEntry> accessControlEntries) {
         this.accessControlEntries = accessControlEntries;
     }
 
@@ -108,14 +108,14 @@ public class SecurityNamespaceData {
     /**
     * The list of tokens in the security namespace which have inheritance disabled.
     */
-    public List<String> getNoInheritTokens() {
+    public ArrayList<String> getNoInheritTokens() {
         return noInheritTokens;
     }
 
     /**
     * The list of tokens in the security namespace which have inheritance disabled.
     */
-    public void setNoInheritTokens(final List<String> noInheritTokens) {
+    public void setNoInheritTokens(final ArrayList<String> noInheritTokens) {
         this.noInheritTokens = noInheritTokens;
     }
 

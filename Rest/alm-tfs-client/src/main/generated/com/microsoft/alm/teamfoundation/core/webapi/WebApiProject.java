@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.core.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
@@ -25,7 +25,7 @@ public class WebApiProject
     /**
     * Set of capabilities this project has
     */
-    private Map<String, Map<String, String>> capabilities;
+    private HashMap<String, HashMap<String, String>> capabilities;
     /**
     * Reference to collection which contains this project
     */
@@ -38,14 +38,14 @@ public class WebApiProject
     /**
     * Set of capabilities this project has
     */
-    public Map<String, Map<String, String>> getCapabilities() {
+    public HashMap<String, HashMap<String, String>> getCapabilities() {
         return capabilities;
     }
 
     /**
     * Set of capabilities this project has
     */
-    public void setCapabilities(final Map<String, Map<String, String>> capabilities) {
+    public void setCapabilities(final HashMap<String, HashMap<String, String>> capabilities) {
         this.capabilities = capabilities;
     }
 

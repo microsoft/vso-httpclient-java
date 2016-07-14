@@ -15,20 +15,20 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class PropertySelector {
 
-    private List<String> properties;
+    private ArrayList<String> properties;
     private PropertySelectorType selectorType;
 
-    public List<String> getProperties() {
+    public ArrayList<String> getProperties() {
         return properties;
     }
 
-    public void setProperties(final List<String> properties) {
+    public void setProperties(final ArrayList<String> properties) {
         this.properties = properties;
     }
 

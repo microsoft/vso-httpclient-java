@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
 public class Issue {
 
     private String category;
-    private Map<String, String> data;
+    private HashMap<String, String> data;
     private String message;
     private IssueType type;
 
@@ -34,11 +34,11 @@ public class Issue {
         this.category = category;
     }
 
-    public Map<String, String> getData() {
+    public HashMap<String, String> getData() {
         return data;
     }
 
-    public void setData(final Map<String, String> data) {
+    public void setData(final HashMap<String, String> data) {
         this.data = data;
     }
 

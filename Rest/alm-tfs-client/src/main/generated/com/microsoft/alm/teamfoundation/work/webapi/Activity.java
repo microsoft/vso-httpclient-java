@@ -20,14 +20,14 @@ package com.microsoft.alm.teamfoundation.work.webapi;
  */
 public class Activity {
 
-    private Single capacityPerDay;
+    private float capacityPerDay;
     private String name;
 
-    public Single getCapacityPerDay() {
+    public float getCapacityPerDay() {
         return capacityPerDay;
     }
 
-    public void setCapacityPerDay(final Single capacityPerDay) {
+    public void setCapacityPerDay(final float capacityPerDay) {
         this.capacityPerDay = capacityPerDay;
     }
 

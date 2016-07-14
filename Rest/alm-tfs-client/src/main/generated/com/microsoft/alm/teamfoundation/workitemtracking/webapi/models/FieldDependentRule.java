@@ -15,20 +15,20 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class FieldDependentRule
     extends WorkItemTrackingResource {
 
-    private List<WorkItemFieldReference> dependentFields;
+    private ArrayList<WorkItemFieldReference> dependentFields;
 
-    public List<WorkItemFieldReference> getDependentFields() {
+    public ArrayList<WorkItemFieldReference> getDependentFields() {
         return dependentFields;
     }
 
-    public void setDependentFields(final List<WorkItemFieldReference> dependentFields) {
+    public void setDependentFields(final ArrayList<WorkItemFieldReference> dependentFields) {
         this.dependentFields = dependentFields;
     }
 }

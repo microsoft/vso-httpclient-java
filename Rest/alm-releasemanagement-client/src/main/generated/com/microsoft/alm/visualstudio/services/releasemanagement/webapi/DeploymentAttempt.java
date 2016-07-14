@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
@@ -34,7 +34,7 @@ public class DeploymentAttempt {
     private int id;
     private ReleaseTask job;
     private UUID runPlanId;
-    private List<ReleaseTask> tasks;
+    private ArrayList<ReleaseTask> tasks;
 
     public int getAttempt() {
         return attempt;
@@ -96,11 +96,11 @@ public class DeploymentAttempt {
         this.runPlanId = runPlanId;
     }
 
-    public List<ReleaseTask> getTasks() {
+    public ArrayList<ReleaseTask> getTasks() {
         return tasks;
     }
 
-    public void setTasks(final List<ReleaseTask> tasks) {
+    public void setTasks(final ArrayList<ReleaseTask> tasks) {
         this.tasks = tasks;
     }
 }

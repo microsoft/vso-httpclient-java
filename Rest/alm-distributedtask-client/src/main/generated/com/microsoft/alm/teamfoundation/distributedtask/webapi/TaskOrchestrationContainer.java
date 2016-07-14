@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.JsonDeserializer;
@@ -29,17 +29,17 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 public class TaskOrchestrationContainer
     extends TaskOrchestrationItem {
 
-    private List<TaskOrchestrationItem> children;
+    private ArrayList<TaskOrchestrationItem> children;
     private boolean continueOnError;
-    private Map<String, String> data;
+    private HashMap<String, String> data;
     private boolean parallel;
     private TaskOrchestrationContainer rollback;
 
-    public List<TaskOrchestrationItem> getChildren() {
+    public ArrayList<TaskOrchestrationItem> getChildren() {
         return children;
     }
 
-    public void setChildren(final List<TaskOrchestrationItem> children) {
+    public void setChildren(final ArrayList<TaskOrchestrationItem> children) {
         this.children = children;
     }
 
@@ -51,11 +51,11 @@ public class TaskOrchestrationContainer
         this.continueOnError = continueOnError;
     }
 
-    public Map<String, String> getData() {
+    public HashMap<String, String> getData() {
         return data;
     }
 
-    public void setData(final Map<String, String> data) {
+    public void setData(final HashMap<String, String> data) {
         this.data = data;
     }
 

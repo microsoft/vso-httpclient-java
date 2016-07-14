@@ -15,7 +15,6 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
  */
@@ -23,13 +22,11 @@ public class ServerExecutionDefinition {
 
     private JobEventsConfig events;
 
-    @JsonProperty("events")
-    public JobEventsConfig getEventsConfig() {
+    public JobEventsConfig getEvents() {
         return events;
     }
 
-    @JsonProperty("events")
-    public void setEventsConfig(final JobEventsConfig events) {
+    public void setEvents(final JobEventsConfig events) {
         this.events = events;
     }
 }

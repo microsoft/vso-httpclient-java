@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -29,7 +29,7 @@ public class BoardColumn {
     private boolean isSplit;
     private int itemLimit;
     private String name;
-    private Map<String, String> stateMappings;
+    private HashMap<String, String> stateMappings;
 
     public BoardColumnType getColumnType() {
         return columnType;
@@ -81,11 +81,11 @@ public class BoardColumn {
         this.name = name;
     }
 
-    public Map<String, String> getStateMappings() {
+    public HashMap<String, String> getStateMappings() {
         return stateMappings;
     }
 
-    public void setStateMappings(final Map<String, String> stateMappings) {
+    public void setStateMappings(final HashMap<String, String> stateMappings) {
         this.stateMappings = stateMappings;
     }
 }

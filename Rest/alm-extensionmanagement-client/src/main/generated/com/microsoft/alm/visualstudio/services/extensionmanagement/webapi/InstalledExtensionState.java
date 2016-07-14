@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /** 
  * The state of an installed extension
@@ -31,7 +31,7 @@ public class InstalledExtensionState {
     /**
     * List of installation issues
     */
-    private List<InstalledExtensionStateIssue> installationIssues;
+    private ArrayList<InstalledExtensionStateIssue> installationIssues;
     /**
     * The time at which this installation was last updated
     */
@@ -54,14 +54,14 @@ public class InstalledExtensionState {
     /**
     * List of installation issues
     */
-    public List<InstalledExtensionStateIssue> getInstallationIssues() {
+    public ArrayList<InstalledExtensionStateIssue> getInstallationIssues() {
         return installationIssues;
     }
 
     /**
     * List of installation issues
     */
-    public void setInstallationIssues(final List<InstalledExtensionStateIssue> installationIssues) {
+    public void setInstallationIssues(final ArrayList<InstalledExtensionStateIssue> installationIssues) {
         this.installationIssues = installationIssues;
     }
 

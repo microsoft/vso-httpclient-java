@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.List;
-import com.microsoft.alm.client.json.JObject;
+import java.util.ArrayList;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /** 
  * Specifies a constraint that can be used to dynamically include/exclude a given contribution
@@ -39,11 +39,11 @@ public class ContributionConstraint {
     /**
     * Properties that are fed to the contribution filter class
     */
-    private JObject properties;
+    private ObjectNode properties;
     /**
     * Constraints can be optionally be applied to one or more of the relationships defined in the contribution. If no relationships are defined then all relationships are associated with the constraint. This means the default behaviour will elimiate the contribution from the tree completely if the constraint is applied.
     */
-    private List<String> relationships;
+    private ArrayList<String> relationships;
 
     /**
     * An optional property that can be specified to group constraints together. All constraints within a group are AND&amp;#039;d together (all must be evaluate to True in order for the contribution to be included). Different groups of constraints are OR&amp;#039;d (only one group needs to evaluate to True for the contribution to be included).
@@ -90,28 +90,28 @@ public class ContributionConstraint {
     /**
     * Properties that are fed to the contribution filter class
     */
-    public JObject getProperties() {
+    public ObjectNode getProperties() {
         return properties;
     }
 
     /**
     * Properties that are fed to the contribution filter class
     */
-    public void setProperties(final JObject properties) {
+    public void setProperties(final ObjectNode properties) {
         this.properties = properties;
     }
 
     /**
     * Constraints can be optionally be applied to one or more of the relationships defined in the contribution. If no relationships are defined then all relationships are associated with the constraint. This means the default behaviour will elimiate the contribution from the tree completely if the constraint is applied.
     */
-    public List<String> getRelationships() {
+    public ArrayList<String> getRelationships() {
         return relationships;
     }
 
     /**
     * Constraints can be optionally be applied to one or more of the relationships defined in the contribution. If no relationships are defined then all relationships are associated with the constraint. This means the default behaviour will elimiate the contribution from the tree completely if the constraint is applied.
     */
-    public void setRelationships(final List<String> relationships) {
+    public void setRelationships(final ArrayList<String> relationships) {
         this.relationships = relationships;
     }
 }

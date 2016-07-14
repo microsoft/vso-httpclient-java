@@ -16,7 +16,7 @@
 package com.microsoft.alm.teamfoundation.build.webapi;
 
 import java.util.Date;
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  * Data representation of an information node associated with a build
@@ -27,7 +27,7 @@ public class InformationNode {
     /**
     * Fields of the information node
     */
-    private Map<String, String> fields;
+    private HashMap<String, String> fields;
     /**
     * Process or person that last modified this node
     */
@@ -52,14 +52,14 @@ public class InformationNode {
     /**
     * Fields of the information node
     */
-    public Map<String, String> getFields() {
+    public HashMap<String, String> getFields() {
         return fields;
     }
 
     /**
     * Fields of the information node
     */
-    public void setFields(final Map<String, String> fields) {
+    public void setFields(final HashMap<String, String> fields) {
         this.fields = fields;
     }
 

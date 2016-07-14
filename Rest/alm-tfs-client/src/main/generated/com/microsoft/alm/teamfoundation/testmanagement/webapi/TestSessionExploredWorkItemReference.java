@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /** 
  */
@@ -26,7 +26,7 @@ public class TestSessionExploredWorkItemReference
     /**
     * Workitem references of workitems filed as a part of the current workitem exploration.
     */
-    private List<TestSessionWorkItemReference> associatedWorkItems;
+    private ArrayList<TestSessionWorkItemReference> associatedWorkItems;
     /**
     * Time when exploration of workitem ended.
     */
@@ -39,14 +39,14 @@ public class TestSessionExploredWorkItemReference
     /**
     * Workitem references of workitems filed as a part of the current workitem exploration.
     */
-    public List<TestSessionWorkItemReference> getAssociatedWorkItems() {
+    public ArrayList<TestSessionWorkItemReference> getAssociatedWorkItems() {
         return associatedWorkItems;
     }
 
     /**
     * Workitem references of workitems filed as a part of the current workitem exploration.
     */
-    public void setAssociatedWorkItems(final List<TestSessionWorkItemReference> associatedWorkItems) {
+    public void setAssociatedWorkItems(final ArrayList<TestSessionWorkItemReference> associatedWorkItems) {
         this.associatedWorkItems = associatedWorkItems;
     }
 

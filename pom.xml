@@ -94,6 +94,18 @@
         <buildNumber>${version.major}.${version.minor}.${version.service}.${maven.build.timestamp}</buildNumber>
     </properties>
 
+    <profiles>
+      <profile>
+        <id>doclint-java8-disable</id>
+        <activation>
+          <jdk>[1.8,)</jdk>
+        </activation>
+        <properties>
+          <javadoc.opts>-Xdoclint:none</javadoc.opts>
+        </properties>
+      </profile>
+    </profiles>
+    
     <build>
         <pluginManagement>
             <plugins>
@@ -134,6 +146,7 @@
                 <version>2.10.3</version> 
                 <configuration>
                     <skip>${skip.javadoc}</skip>
+                    <additionalparam>${javadoc.opts}</additionalparam>
                 </configuration>
                 <executions> 
                     <execution> 

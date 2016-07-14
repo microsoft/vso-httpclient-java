@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * Audit log for an extension
@@ -26,7 +26,7 @@ public class ExtensionAuditLog {
     /**
     * Collection of audit log entries
     */
-    private List<ExtensionAuditLogEntry> entries;
+    private ArrayList<ExtensionAuditLogEntry> entries;
     /**
     * Extension that the change was made for
     */
@@ -39,14 +39,14 @@ public class ExtensionAuditLog {
     /**
     * Collection of audit log entries
     */
-    public List<ExtensionAuditLogEntry> getEntries() {
+    public ArrayList<ExtensionAuditLogEntry> getEntries() {
         return entries;
     }
 
     /**
     * Collection of audit log entries
     */
-    public void setEntries(final List<ExtensionAuditLogEntry> entries) {
+    public void setEntries(final ArrayList<ExtensionAuditLogEntry> entries) {
         this.entries = entries;
     }
 

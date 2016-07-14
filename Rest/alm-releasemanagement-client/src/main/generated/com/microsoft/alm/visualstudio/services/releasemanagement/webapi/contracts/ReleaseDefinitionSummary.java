@@ -15,22 +15,22 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.Release;
 
 /** 
  */
 public class ReleaseDefinitionSummary {
 
-    private List<ReleaseDefinitionEnvironmentSummary> environments;
+    private ArrayList<ReleaseDefinitionEnvironmentSummary> environments;
     private ShallowReference releaseDefinition;
-    private List<Release> releases;
+    private ArrayList<Release> releases;
 
-    public List<ReleaseDefinitionEnvironmentSummary> getEnvironments() {
+    public ArrayList<ReleaseDefinitionEnvironmentSummary> getEnvironments() {
         return environments;
     }
 
-    public void setEnvironments(final List<ReleaseDefinitionEnvironmentSummary> environments) {
+    public void setEnvironments(final ArrayList<ReleaseDefinitionEnvironmentSummary> environments) {
         this.environments = environments;
     }
 
@@ -42,11 +42,11 @@ public class ReleaseDefinitionSummary {
         this.releaseDefinition = releaseDefinition;
     }
 
-    public List<Release> getReleases() {
+    public ArrayList<Release> getReleases() {
         return releases;
     }
 
-    public void setReleases(final List<Release> releases) {
+    public void setReleases(final ArrayList<Release> releases) {
         this.releases = releases;
     }
 }

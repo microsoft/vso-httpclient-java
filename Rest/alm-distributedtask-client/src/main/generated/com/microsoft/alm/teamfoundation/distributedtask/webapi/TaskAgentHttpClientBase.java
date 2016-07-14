@@ -17,12 +17,13 @@ package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.microsoft.alm.client.json.JToken;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.VssHttpClientBase;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.DataSourceBinding;
@@ -195,9 +196,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param demands 
      *            
-     * @return List&lt;TaskAgent&gt;
+     * @return ArrayList&lt;TaskAgent&gt;
      */
-    public List<TaskAgent> getAgents(
+    public ArrayList<TaskAgent> getAgents(
         final int poolId, 
         final String agentName, 
         final Boolean includeCapabilities, 
@@ -225,7 +226,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TaskAgent>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskAgent>>() {});
     }
 
     /** 
@@ -301,9 +302,9 @@ public abstract class TaskAgentHttpClientBase
      * 
      * @param endpoint 
      *            Describes the URL to fetch.
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> queryEndpoint(final TaskDefinitionEndpoint endpoint) { 
+    public ArrayList<String> queryEndpoint(final TaskDefinitionEndpoint endpoint) { 
 
         final UUID locationId = UUID.fromString("f223b809-8c33-4b7d-b53f-07232569b5d6"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -315,7 +316,7 @@ public abstract class TaskAgentHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -420,9 +421,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param completedRequestCount 
      *            
-     * @return List&lt;TaskAgentJobRequest&gt;
+     * @return ArrayList&lt;TaskAgentJobRequest&gt;
      */
-    public List<TaskAgentJobRequest> getAgentRequestsForAgent(
+    public ArrayList<TaskAgentJobRequest> getAgentRequestsForAgent(
         final int poolId, 
         final int agentId, 
         final Integer completedRequestCount) { 
@@ -444,7 +445,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TaskAgentJobRequest>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskAgentJobRequest>>() {});
     }
 
     /** 
@@ -456,9 +457,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param completedRequestCount 
      *            
-     * @return List&lt;TaskAgentJobRequest&gt;
+     * @return ArrayList&lt;TaskAgentJobRequest&gt;
      */
-    public List<TaskAgentJobRequest> getAgentRequestsForAgents(
+    public ArrayList<TaskAgentJobRequest> getAgentRequestsForAgents(
         final int poolId, 
         final List<Integer> agentIds, 
         final Integer completedRequestCount) { 
@@ -480,7 +481,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TaskAgentJobRequest>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskAgentJobRequest>>() {});
     }
 
     /** 
@@ -492,9 +493,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param jobId 
      *            
-     * @return List&lt;TaskAgentJobRequest&gt;
+     * @return ArrayList&lt;TaskAgentJobRequest&gt;
      */
-    public List<TaskAgentJobRequest> getAgentRequestsForPlan(
+    public ArrayList<TaskAgentJobRequest> getAgentRequestsForPlan(
         final int poolId, 
         final UUID planId, 
         final UUID jobId) { 
@@ -516,7 +517,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TaskAgentJobRequest>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskAgentJobRequest>>() {});
     }
 
     /** 
@@ -876,9 +877,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param expanded 
      *            
-     * @return List&lt;MetaTaskDefinition&gt;
+     * @return ArrayList&lt;MetaTaskDefinition&gt;
      */
-    public List<MetaTaskDefinition> getMetaTaskDefinitions(
+    public ArrayList<MetaTaskDefinition> getMetaTaskDefinitions(
         final String project, 
         final UUID metaTaskDefinitionId, 
         final Boolean expanded) { 
@@ -900,7 +901,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<MetaTaskDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<MetaTaskDefinition>>() {});
     }
 
     /** 
@@ -912,9 +913,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param expanded 
      *            
-     * @return List&lt;MetaTaskDefinition&gt;
+     * @return ArrayList&lt;MetaTaskDefinition&gt;
      */
-    public List<MetaTaskDefinition> getMetaTaskDefinitions(
+    public ArrayList<MetaTaskDefinition> getMetaTaskDefinitions(
         final UUID project, 
         final UUID metaTaskDefinitionId, 
         final Boolean expanded) { 
@@ -936,7 +937,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<MetaTaskDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<MetaTaskDefinition>>() {});
     }
 
     /** 
@@ -1041,9 +1042,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;PackageMetadata&gt;
+     * @return ArrayList&lt;PackageMetadata&gt;
      */
-    public List<PackageMetadata> getPackages(
+    public ArrayList<PackageMetadata> getPackages(
         final String packageType, 
         final String platform, 
         final Integer top) { 
@@ -1065,7 +1066,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<PackageMetadata>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<PackageMetadata>>() {});
     }
 
     /** 
@@ -1073,9 +1074,9 @@ public abstract class TaskAgentHttpClientBase
      * 
      * @param poolId 
      *            
-     * @return List&lt;IdentityRef&gt;
+     * @return ArrayList&lt;IdentityRef&gt;
      */
-    public List<IdentityRef> getAgentPoolRoles(final Integer poolId) { 
+    public ArrayList<IdentityRef> getAgentPoolRoles(final Integer poolId) { 
 
         final UUID locationId = UUID.fromString("381dd2bb-35cf-4103-ae8c-3c815b25763c"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -1089,7 +1090,7 @@ public abstract class TaskAgentHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<IdentityRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRef>>() {});
     }
 
     /** 
@@ -1176,9 +1177,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param properties 
      *            
-     * @return List&lt;TaskAgentPool&gt;
+     * @return ArrayList&lt;TaskAgentPool&gt;
      */
-    public List<TaskAgentPool> getAgentPools(
+    public ArrayList<TaskAgentPool> getAgentPools(
         final String poolName, 
         final List<String> properties) { 
 
@@ -1195,7 +1196,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TaskAgentPool>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskAgentPool>>() {});
     }
 
     /** 
@@ -1233,9 +1234,9 @@ public abstract class TaskAgentHttpClientBase
      * 
      * @param queueId 
      *            
-     * @return List&lt;IdentityRef&gt;
+     * @return ArrayList&lt;IdentityRef&gt;
      */
-    public List<IdentityRef> getAgentQueueRoles(final Integer queueId) { 
+    public ArrayList<IdentityRef> getAgentQueueRoles(final Integer queueId) { 
 
         final UUID locationId = UUID.fromString("b0c6d64d-c9fa-4946-b8de-77de623ee585"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -1249,7 +1250,7 @@ public abstract class TaskAgentHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<IdentityRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRef>>() {});
     }
 
     /** 
@@ -1589,9 +1590,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param actionFilter 
      *            
-     * @return List&lt;TaskAgentQueue&gt;
+     * @return ArrayList&lt;TaskAgentQueue&gt;
      */
-    public List<TaskAgentQueue> getAgentQueues(
+    public ArrayList<TaskAgentQueue> getAgentQueues(
         final String project, 
         final String queueName, 
         final TaskAgentQueueActionFilter actionFilter) { 
@@ -1613,7 +1614,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TaskAgentQueue>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskAgentQueue>>() {});
     }
 
     /** 
@@ -1625,9 +1626,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param actionFilter 
      *            
-     * @return List&lt;TaskAgentQueue&gt;
+     * @return ArrayList&lt;TaskAgentQueue&gt;
      */
-    public List<TaskAgentQueue> getAgentQueues(
+    public ArrayList<TaskAgentQueue> getAgentQueues(
         final UUID project, 
         final String queueName, 
         final TaskAgentQueueActionFilter actionFilter) { 
@@ -1649,7 +1650,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TaskAgentQueue>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskAgentQueue>>() {});
     }
 
     /** 
@@ -1659,9 +1660,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param actionFilter 
      *            
-     * @return List&lt;TaskAgentQueue&gt;
+     * @return ArrayList&lt;TaskAgentQueue&gt;
      */
-    public List<TaskAgentQueue> getAgentQueues(
+    public ArrayList<TaskAgentQueue> getAgentQueues(
         final String queueName, 
         final TaskAgentQueueActionFilter actionFilter) { 
 
@@ -1678,7 +1679,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TaskAgentQueue>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskAgentQueue>>() {});
     }
 
     /** 
@@ -1690,9 +1691,9 @@ public abstract class TaskAgentHttpClientBase
      *            The project GUID to scope the request
      * @param endpointId 
      *            
-     * @return JToken
+     * @return JsonNode
      */
-    public JToken queryDataProvider(
+    public JsonNode queryDataProvider(
         final DataSourceBinding binding, 
         final UUID scopeIdentifier, 
         final String endpointId) { 
@@ -1715,7 +1716,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, JToken.class);
+        return super.sendRequest(httpRequest, JsonNode.class);
     }
 
     /** 
@@ -1725,9 +1726,9 @@ public abstract class TaskAgentHttpClientBase
      *            Describes the data source to fetch.
      * @param scopeIdentifier 
      *            The project GUID to scope the request
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> queryServiceEndpoint(
+    public ArrayList<String> queryServiceEndpoint(
         final DataSourceBinding binding, 
         final UUID scopeIdentifier) { 
 
@@ -1745,7 +1746,7 @@ public abstract class TaskAgentHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -1846,9 +1847,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param endpointIds 
      *            
-     * @return List&lt;ServiceEndpoint&gt;
+     * @return ArrayList&lt;ServiceEndpoint&gt;
      */
-    public List<ServiceEndpoint> getServiceEndpoints(
+    public ArrayList<ServiceEndpoint> getServiceEndpoints(
         final UUID scopeIdentifier, 
         final String type, 
         final List<String> authSchemes, 
@@ -1872,7 +1873,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ServiceEndpoint>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ServiceEndpoint>>() {});
     }
 
     /** 
@@ -1918,9 +1919,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param scheme 
      *            
-     * @return List&lt;ServiceEndpointType&gt;
+     * @return ArrayList&lt;ServiceEndpointType&gt;
      */
-    public List<ServiceEndpointType> getServiceEndpointTypes(
+    public ArrayList<ServiceEndpointType> getServiceEndpointTypes(
         final UUID scopeIdentifier, 
         final String type, 
         final String scheme) { 
@@ -1942,7 +1943,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ServiceEndpointType>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ServiceEndpointType>>() {});
     }
 
     /** 
@@ -2115,9 +2116,9 @@ public abstract class TaskAgentHttpClientBase
      *            
      * @param scopeLocal 
      *            
-     * @return List&lt;TaskDefinition&gt;
+     * @return ArrayList&lt;TaskDefinition&gt;
      */
-    public List<TaskDefinition> getTaskDefinitions(
+    public ArrayList<TaskDefinition> getTaskDefinitions(
         final UUID taskId, 
         final List<String> visibility, 
         final Boolean scopeLocal) { 
@@ -2139,7 +2140,7 @@ public abstract class TaskAgentHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TaskDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskDefinition>>() {});
     }
 
     /** 

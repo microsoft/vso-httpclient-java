@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /** 
  */
@@ -26,8 +26,8 @@ public class GitCommitDiffs {
     private boolean allChangesIncluded;
     private String baseCommit;
     private int behindCount;
-    private Map<VersionControlChangeType, Integer> changeCounts;
-    private List<GitChange> changes;
+    private HashMap<VersionControlChangeType, Integer> changeCounts;
+    private ArrayList<GitChange> changes;
     private String commonCommit;
     private String targetCommit;
 
@@ -63,19 +63,19 @@ public class GitCommitDiffs {
         this.behindCount = behindCount;
     }
 
-    public Map<VersionControlChangeType, Integer> getChangeCounts() {
+    public HashMap<VersionControlChangeType, Integer> getChangeCounts() {
         return changeCounts;
     }
 
-    public void setChangeCounts(final Map<VersionControlChangeType, Integer> changeCounts) {
+    public void setChangeCounts(final HashMap<VersionControlChangeType, Integer> changeCounts) {
         this.changeCounts = changeCounts;
     }
 
-    public List<GitChange> getChanges() {
+    public ArrayList<GitChange> getChanges() {
         return changes;
     }
 
-    public void setChanges(final List<GitChange> changes) {
+    public void setChanges(final ArrayList<GitChange> changes) {
         this.changes = changes;
     }
 

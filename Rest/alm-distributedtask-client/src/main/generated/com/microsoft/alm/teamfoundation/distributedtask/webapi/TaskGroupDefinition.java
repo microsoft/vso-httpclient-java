@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
@@ -25,7 +25,7 @@ public class TaskGroupDefinition {
     private String displayName;
     private boolean isExpanded;
     private String name;
-    private List<String> tags;
+    private ArrayList<String> tags;
 
     public String getDisplayName() {
         return displayName;
@@ -53,11 +53,11 @@ public class TaskGroupDefinition {
         this.name = name;
     }
 
-    public List<String> getTags() {
+    public ArrayList<String> getTags() {
         return tags;
     }
 
-    public void setTags(final List<String> tags) {
+    public void setTags(final ArrayList<String> tags) {
         this.tags = tags;
     }
 }

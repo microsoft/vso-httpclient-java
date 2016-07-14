@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class TfvcPolicyOverrideInfo {
 
     private String comment;
-    private List<TfvcPolicyFailureInfo> policyFailures;
+    private ArrayList<TfvcPolicyFailureInfo> policyFailures;
 
     public String getComment() {
         return comment;
@@ -32,11 +32,11 @@ public class TfvcPolicyOverrideInfo {
         this.comment = comment;
     }
 
-    public List<TfvcPolicyFailureInfo> getPolicyFailures() {
+    public ArrayList<TfvcPolicyFailureInfo> getPolicyFailures() {
         return policyFailures;
     }
 
-    public void setPolicyFailures(final List<TfvcPolicyFailureInfo> policyFailures) {
+    public void setPolicyFailures(final ArrayList<TfvcPolicyFailureInfo> policyFailures) {
         this.policyFailures = policyFailures;
     }
 }

@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * A request for an extension (to be installed or have a license assigned)
@@ -30,7 +30,7 @@ public class RequestedExtension {
     /**
     * A list of each request for the extension
     */
-    private List<ExtensionRequest> extensionRequests;
+    private ArrayList<ExtensionRequest> extensionRequests;
     /**
     * DisplayName of the publisher that owns the extension being published.
     */
@@ -61,14 +61,14 @@ public class RequestedExtension {
     /**
     * A list of each request for the extension
     */
-    public List<ExtensionRequest> getExtensionRequests() {
+    public ArrayList<ExtensionRequest> getExtensionRequests() {
         return extensionRequests;
     }
 
     /**
     * A list of each request for the extension
     */
-    public void setExtensionRequests(final List<ExtensionRequest> extensionRequests) {
+    public void setExtensionRequests(final ArrayList<ExtensionRequest> extensionRequests) {
         this.extensionRequests = extensionRequests;
     }
 

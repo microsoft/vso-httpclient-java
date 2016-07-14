@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 /** 
@@ -25,7 +25,7 @@ public class IncludedGitCommit {
 
     private String commitId;
     private Date commitTime;
-    private List<String> parentCommitIds;
+    private ArrayList<String> parentCommitIds;
     private UUID repositoryId;
 
     public String getCommitId() {
@@ -44,11 +44,11 @@ public class IncludedGitCommit {
         this.commitTime = commitTime;
     }
 
-    public List<String> getParentCommitIds() {
+    public ArrayList<String> getParentCommitIds() {
         return parentCommitIds;
     }
 
-    public void setParentCommitIds(final List<String> parentCommitIds) {
+    public void setParentCommitIds(final ArrayList<String> parentCommitIds) {
         this.parentCommitIds = parentCommitIds;
     }
 

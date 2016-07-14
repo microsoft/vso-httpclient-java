@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.List;
-import com.microsoft.alm.client.json.JObject;
+import java.util.ArrayList;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /** 
  * Represents a single collection for extension data documents
@@ -31,7 +31,7 @@ public class ExtensionDataCollection {
     /**
     * A list of documents belonging to the collection
     */
-    private List<JObject> documents;
+    private ArrayList<ObjectNode> documents;
     /**
     * The type of the collection&#039;s scope, such as Default or User
     */
@@ -58,14 +58,14 @@ public class ExtensionDataCollection {
     /**
     * A list of documents belonging to the collection
     */
-    public List<JObject> getDocuments() {
+    public ArrayList<ObjectNode> getDocuments() {
         return documents;
     }
 
     /**
     * A list of documents belonging to the collection
     */
-    public void setDocuments(final List<JObject> documents) {
+    public void setDocuments(final ArrayList<ObjectNode> documents) {
         this.documents = documents;
     }
 

@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi.events;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
@@ -23,15 +23,15 @@ import java.util.UUID;
 public class ConsoleLogEvent
     extends RealtimeBuildEvent {
 
-    private List<String> lines;
+    private ArrayList<String> lines;
     private UUID timelineId;
     private UUID timelineRecordId;
 
-    public List<String> getLines() {
+    public ArrayList<String> getLines() {
         return lines;
     }
 
-    public void setLines(final List<String> lines) {
+    public void setLines(final ArrayList<String> lines) {
         this.lines = lines;
     }
 

@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.ConfigurationVariableValue;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.conditions.Condition;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.EnvironmentOptions;
@@ -27,8 +27,8 @@ import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
  */
 public class ReleaseDefinitionEnvironment {
 
-    private List<Condition> conditions;
-    private List<Demand> demands;
+    private ArrayList<Condition> conditions;
+    private ArrayList<Demand> demands;
     private ReleaseDefinitionDeployStep deployStep;
     private EnvironmentOptions environmentOptions;
     private EnvironmentExecutionPolicy executionPolicy;
@@ -40,23 +40,23 @@ public class ReleaseDefinitionEnvironment {
     private int queueId;
     private int rank;
     private EnvironmentRetentionPolicy retentionPolicy;
-    private Map<String, String> runOptions;
-    private List<ReleaseSchedule> schedules;
-    private Map<String, ConfigurationVariableValue> variables;
+    private HashMap<String, String> runOptions;
+    private ArrayList<ReleaseSchedule> schedules;
+    private HashMap<String, ConfigurationVariableValue> variables;
 
-    public List<Condition> getConditions() {
+    public ArrayList<Condition> getConditions() {
         return conditions;
     }
 
-    public void setConditions(final List<Condition> conditions) {
+    public void setConditions(final ArrayList<Condition> conditions) {
         this.conditions = conditions;
     }
 
-    public List<Demand> getDemands() {
+    public ArrayList<Demand> getDemands() {
         return demands;
     }
 
-    public void setDemands(final List<Demand> demands) {
+    public void setDemands(final ArrayList<Demand> demands) {
         this.demands = demands;
     }
 
@@ -148,27 +148,27 @@ public class ReleaseDefinitionEnvironment {
         this.retentionPolicy = retentionPolicy;
     }
 
-    public Map<String, String> getRunOptions() {
+    public HashMap<String, String> getRunOptions() {
         return runOptions;
     }
 
-    public void setRunOptions(final Map<String, String> runOptions) {
+    public void setRunOptions(final HashMap<String, String> runOptions) {
         this.runOptions = runOptions;
     }
 
-    public List<ReleaseSchedule> getSchedules() {
+    public ArrayList<ReleaseSchedule> getSchedules() {
         return schedules;
     }
 
-    public void setSchedules(final List<ReleaseSchedule> schedules) {
+    public void setSchedules(final ArrayList<ReleaseSchedule> schedules) {
         this.schedules = schedules;
     }
 
-    public Map<String, ConfigurationVariableValue> getVariables() {
+    public HashMap<String, ConfigurationVariableValue> getVariables() {
         return variables;
     }
 
-    public void setVariables(final Map<String, ConfigurationVariableValue> variables) {
+    public void setVariables(final HashMap<String, ConfigurationVariableValue> variables) {
         this.variables = variables;
     }
 }

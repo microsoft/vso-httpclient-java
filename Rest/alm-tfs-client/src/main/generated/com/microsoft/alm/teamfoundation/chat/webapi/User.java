@@ -105,16 +105,14 @@ public class User {
     /**
     * The shallow reference for the user
     */
-    @JsonProperty("user")
-    public IdentityRef getUserRef() {
+    public IdentityRef getUser() {
         return user;
     }
 
     /**
     * The shallow reference for the user
     */
-    @JsonProperty("user")
-    public void setUserRef(final IdentityRef user) {
+    public void setUser(final IdentityRef user) {
         this.user = user;
     }
 }

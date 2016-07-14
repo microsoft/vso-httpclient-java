@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 /** 
@@ -24,8 +24,8 @@ import java.util.UUID;
 public class Publisher {
 
     private String displayName;
-    private List<String> emailAddress;
-    private List<PublishedExtension> extensions;
+    private ArrayList<String> emailAddress;
+    private ArrayList<PublishedExtension> extensions;
     private PublisherFlags flags;
     private Date lastUpdated;
     private String longDescription;
@@ -41,19 +41,19 @@ public class Publisher {
         this.displayName = displayName;
     }
 
-    public List<String> getEmailAddress() {
+    public ArrayList<String> getEmailAddress() {
         return emailAddress;
     }
 
-    public void setEmailAddress(final List<String> emailAddress) {
+    public void setEmailAddress(final ArrayList<String> emailAddress) {
         this.emailAddress = emailAddress;
     }
 
-    public List<PublishedExtension> getExtensions() {
+    public ArrayList<PublishedExtension> getExtensions() {
         return extensions;
     }
 
-    public void setExtensions(final List<PublishedExtension> extensions) {
+    public void setExtensions(final ArrayList<PublishedExtension> extensions) {
         this.extensions = extensions;
     }
 

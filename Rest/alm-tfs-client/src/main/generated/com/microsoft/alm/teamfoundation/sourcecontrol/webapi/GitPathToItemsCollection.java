@@ -15,20 +15,20 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /** 
  */
 public class GitPathToItemsCollection {
 
-    private Map<String, List<GitItem>> items;
+    private HashMap<String, ArrayList<GitItem>> items;
 
-    public Map<String, List<GitItem>> getItems() {
+    public HashMap<String, ArrayList<GitItem>> getItems() {
         return items;
     }
 
-    public void setItems(final Map<String, List<GitItem>> items) {
+    public void setItems(final HashMap<String, ArrayList<GitItem>> items) {
         this.items = items;
     }
 }

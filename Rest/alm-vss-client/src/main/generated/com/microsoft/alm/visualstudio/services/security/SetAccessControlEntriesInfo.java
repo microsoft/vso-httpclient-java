@@ -15,21 +15,21 @@
 
 package com.microsoft.alm.visualstudio.services.security;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class SetAccessControlEntriesInfo {
 
-    private List<AccessControlEntry> accessControlEntries;
+    private ArrayList<AccessControlEntry> accessControlEntries;
     private boolean merge;
     private String token;
 
-    public List<AccessControlEntry> getAccessControlEntries() {
+    public ArrayList<AccessControlEntry> getAccessControlEntries() {
         return accessControlEntries;
     }
 
-    public void setAccessControlEntries(final List<AccessControlEntry> accessControlEntries) {
+    public void setAccessControlEntries(final ArrayList<AccessControlEntry> accessControlEntries) {
         this.accessControlEntries = accessControlEntries;
     }
 

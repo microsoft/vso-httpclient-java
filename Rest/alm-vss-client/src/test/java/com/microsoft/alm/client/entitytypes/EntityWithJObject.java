@@ -3,11 +3,11 @@
 
 package com.microsoft.alm.client.entitytypes;
 
-import com.microsoft.alm.client.json.JObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class EntityWithJObject {
     private int fieldA;
-    private JObject fieldB;
+    private ObjectNode fieldB;
     private String fieldC;
 
     public int getFieldA() {
@@ -18,11 +18,11 @@ public class EntityWithJObject {
         this.fieldA = fieldA;
     }
 
-    public JObject getFieldB() {
+    public ObjectNode getFieldB() {
         return fieldB;
     }
 
-    public void setFieldB(final JObject fieldB) {
+    public void setFieldB(final ObjectNode fieldB) {
         this.fieldB = fieldB;
     }
 

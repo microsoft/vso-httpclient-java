@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -33,7 +33,7 @@ public class AgentJobRequestMessage
     private Date lockedUntil;
     private UUID lockToken;
     private long requestId;
-    private List<TaskInstance> tasks;
+    private ArrayList<TaskInstance> tasks;
 
     public Date getLockedUntil() {
         return lockedUntil;
@@ -59,11 +59,11 @@ public class AgentJobRequestMessage
         this.requestId = requestId;
     }
 
-    public List<TaskInstance> getTasks() {
+    public ArrayList<TaskInstance> getTasks() {
         return tasks;
     }
 
-    public void setTasks(final List<TaskInstance> tasks) {
+    public void setTasks(final ArrayList<TaskInstance> tasks) {
         this.tasks = tasks;
     }
 }

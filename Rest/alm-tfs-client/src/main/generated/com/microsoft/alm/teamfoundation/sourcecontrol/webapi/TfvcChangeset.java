@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
@@ -24,13 +24,13 @@ public class TfvcChangeset
     extends TfvcChangesetRef {
 
     private UUID accountId;
-    private List<TfvcChange> changes;
+    private ArrayList<TfvcChange> changes;
     private CheckinNote[] checkinNotes;
     private UUID collectionId;
     private boolean hasMoreChanges;
     private TfvcPolicyOverrideInfo policyOverride;
-    private List<UUID> teamProjectIds;
-    private List<AssociatedWorkItem> workItems;
+    private ArrayList<UUID> teamProjectIds;
+    private ArrayList<AssociatedWorkItem> workItems;
 
     public UUID getAccountId() {
         return accountId;
@@ -40,11 +40,11 @@ public class TfvcChangeset
         this.accountId = accountId;
     }
 
-    public List<TfvcChange> getChanges() {
+    public ArrayList<TfvcChange> getChanges() {
         return changes;
     }
 
-    public void setChanges(final List<TfvcChange> changes) {
+    public void setChanges(final ArrayList<TfvcChange> changes) {
         this.changes = changes;
     }
 
@@ -80,19 +80,19 @@ public class TfvcChangeset
         this.policyOverride = policyOverride;
     }
 
-    public List<UUID> getTeamProjectIds() {
+    public ArrayList<UUID> getTeamProjectIds() {
         return teamProjectIds;
     }
 
-    public void setTeamProjectIds(final List<UUID> teamProjectIds) {
+    public void setTeamProjectIds(final ArrayList<UUID> teamProjectIds) {
         this.teamProjectIds = teamProjectIds;
     }
 
-    public List<AssociatedWorkItem> getWorkItems() {
+    public ArrayList<AssociatedWorkItem> getWorkItems() {
         return workItems;
     }
 
-    public void setWorkItems(final List<AssociatedWorkItem> workItems) {
+    public void setWorkItems(final ArrayList<AssociatedWorkItem> workItems) {
         this.workItems = workItems;
     }
 }

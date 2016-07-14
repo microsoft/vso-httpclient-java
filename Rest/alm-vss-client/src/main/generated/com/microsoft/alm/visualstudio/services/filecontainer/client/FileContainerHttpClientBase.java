@@ -17,6 +17,7 @@ package com.microsoft.alm.visualstudio.services.filecontainer.client;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -150,9 +151,9 @@ public abstract class FileContainerHttpClientBase
      *            
      * @param containerId 
      *            
-     * @return List&lt;FileContainerItem&gt;
+     * @return ArrayList&lt;FileContainerItem&gt;
      */
-    public List<FileContainerItem> createItems(
+    public ArrayList<FileContainerItem> createItems(
         final VssJsonCollectionWrapper<List<FileContainerItem>> items, 
         final int containerId) { 
 
@@ -170,7 +171,7 @@ public abstract class FileContainerHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<FileContainerItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainerItem>>() {});
     }
 
     /** 
@@ -182,9 +183,9 @@ public abstract class FileContainerHttpClientBase
      *            
      * @param scope 
      *            A guid representing the scope of the container. This is often the project id.
-     * @return List&lt;FileContainerItem&gt;
+     * @return ArrayList&lt;FileContainerItem&gt;
      */
-    public List<FileContainerItem> createItems(
+    public ArrayList<FileContainerItem> createItems(
         final VssJsonCollectionWrapper<List<FileContainerItem>> items, 
         final int containerId, 
         final UUID scope) { 
@@ -207,7 +208,7 @@ public abstract class FileContainerHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<FileContainerItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainerItem>>() {});
     }
 
     /** 
@@ -281,9 +282,9 @@ public abstract class FileContainerHttpClientBase
      * 
      * @param artifactUris 
      *            
-     * @return List&lt;FileContainer&gt;
+     * @return ArrayList&lt;FileContainer&gt;
      */
-    public List<FileContainer> getContainers(final String artifactUris) { 
+    public ArrayList<FileContainer> getContainers(final String artifactUris) { 
 
         final UUID locationId = UUID.fromString("e4f5c81e-e250-447b-9fef-bd48471bea5e"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
@@ -297,7 +298,7 @@ public abstract class FileContainerHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<FileContainer>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainer>>() {});
     }
 
     /** 
@@ -307,9 +308,9 @@ public abstract class FileContainerHttpClientBase
      *            A guid representing the scope of the container. This is often the project id.
      * @param artifactUris 
      *            
-     * @return List&lt;FileContainer&gt;
+     * @return ArrayList&lt;FileContainer&gt;
      */
-    public List<FileContainer> getContainers(
+    public ArrayList<FileContainer> getContainers(
         final UUID scope, 
         final String artifactUris) { 
 
@@ -326,7 +327,7 @@ public abstract class FileContainerHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<FileContainer>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainer>>() {});
     }
 
     /** 
@@ -346,9 +347,9 @@ public abstract class FileContainerHttpClientBase
      *            
      * @param isShallow 
      *            
-     * @return List&lt;FileContainerItem&gt;
+     * @return ArrayList&lt;FileContainerItem&gt;
      */
-    public List<FileContainerItem> getItems(
+    public ArrayList<FileContainerItem> getItems(
         final long containerId, 
         final String itemPath, 
         final Boolean metadata, 
@@ -378,7 +379,7 @@ public abstract class FileContainerHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<FileContainerItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainerItem>>() {});
     }
 
     /** 
@@ -400,9 +401,9 @@ public abstract class FileContainerHttpClientBase
      *            
      * @param isShallow 
      *            
-     * @return List&lt;FileContainerItem&gt;
+     * @return ArrayList&lt;FileContainerItem&gt;
      */
-    public List<FileContainerItem> getItems(
+    public ArrayList<FileContainerItem> getItems(
         final long containerId, 
         final UUID scope, 
         final String itemPath, 
@@ -434,7 +435,7 @@ public abstract class FileContainerHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<FileContainerItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainerItem>>() {});
     }
 
     /** 
@@ -444,9 +445,9 @@ public abstract class FileContainerHttpClientBase
      *            
      * @param itemPath 
      *            The path to the item of interest
-     * @return List&lt;FileContainerItem&gt;
+     * @return ArrayList&lt;FileContainerItem&gt;
      */
-    public List<FileContainerItem> browseItems(
+    public ArrayList<FileContainerItem> browseItems(
         final long container, 
         final String itemPath) { 
 
@@ -466,6 +467,6 @@ public abstract class FileContainerHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<FileContainerItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainerItem>>() {});
     }
 }

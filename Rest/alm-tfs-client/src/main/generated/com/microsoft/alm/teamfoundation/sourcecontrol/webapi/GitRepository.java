@@ -66,13 +66,11 @@ public class GitRepository {
         this.name = name;
     }
 
-    @JsonProperty("project")
-    public TeamProjectReference getProjectReference() {
+    public TeamProjectReference getProject() {
         return project;
     }
 
-    @JsonProperty("project")
-    public void setProjectReference(final TeamProjectReference project) {
+    public void setProject(final TeamProjectReference project) {
         this.project = project;
     }
 

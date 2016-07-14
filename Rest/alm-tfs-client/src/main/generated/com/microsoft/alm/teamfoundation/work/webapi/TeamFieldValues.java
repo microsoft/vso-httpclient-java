@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * Essentially a collection of team field values
@@ -35,7 +35,7 @@ public class TeamFieldValues
     /**
     * Collection of all valid team field values
     */
-    private List<TeamFieldValue> values;
+    private ArrayList<TeamFieldValue> values;
 
     /**
     * The default team field value
@@ -68,14 +68,14 @@ public class TeamFieldValues
     /**
     * Collection of all valid team field values
     */
-    public List<TeamFieldValue> getValues() {
+    public ArrayList<TeamFieldValue> getValues() {
         return values;
     }
 
     /**
     * Collection of all valid team field values
     */
-    public void setValues(final List<TeamFieldValue> values) {
+    public void setValues(final ArrayList<TeamFieldValue> values) {
         this.values = values;
     }
 }

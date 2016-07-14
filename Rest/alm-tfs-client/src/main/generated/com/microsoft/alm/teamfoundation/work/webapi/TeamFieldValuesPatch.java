@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * Expected data from PATCH
@@ -24,7 +24,7 @@ import java.util.List;
 public class TeamFieldValuesPatch {
 
     private String defaultValue;
-    private List<TeamFieldValue> values;
+    private ArrayList<TeamFieldValue> values;
 
     public String getDefaultValue() {
         return defaultValue;
@@ -34,11 +34,11 @@ public class TeamFieldValuesPatch {
         this.defaultValue = defaultValue;
     }
 
-    public List<TeamFieldValue> getValues() {
+    public ArrayList<TeamFieldValue> getValues() {
         return values;
     }
 
-    public void setValues(final List<TeamFieldValue> values) {
+    public void setValues(final ArrayList<TeamFieldValue> values) {
         this.values = values;
     }
 }

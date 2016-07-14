@@ -17,6 +17,7 @@ package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -79,9 +80,9 @@ public abstract class TaskHttpClientBase
      *            
      * @param type 
      *            
-     * @return List&lt;TaskAttachment&gt;
+     * @return ArrayList&lt;TaskAttachment&gt;
      */
-    public List<TaskAttachment> getPlanAttachments(
+    public ArrayList<TaskAttachment> getPlanAttachments(
         final UUID scopeIdentifier, 
         final String hubName, 
         final UUID planId, 
@@ -102,7 +103,7 @@ public abstract class TaskHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TaskAttachment>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskAttachment>>() {});
     }
 
     /** 
@@ -272,9 +273,9 @@ public abstract class TaskHttpClientBase
      *            
      * @param type 
      *            
-     * @return List&lt;TaskAttachment&gt;
+     * @return ArrayList&lt;TaskAttachment&gt;
      */
-    public List<TaskAttachment> getAttachments(
+    public ArrayList<TaskAttachment> getAttachments(
         final UUID scopeIdentifier, 
         final String hubName, 
         final UUID planId, 
@@ -299,7 +300,7 @@ public abstract class TaskHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TaskAttachment>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskAttachment>>() {});
     }
 
     /** 
@@ -442,9 +443,9 @@ public abstract class TaskHttpClientBase
      *            
      * @param endLine 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> getLog(
+    public ArrayList<String> getLog(
         final UUID scopeIdentifier, 
         final String hubName, 
         final UUID planId, 
@@ -472,7 +473,7 @@ public abstract class TaskHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -484,9 +485,9 @@ public abstract class TaskHttpClientBase
      *            The name of the server hub: &quot;build&quot; for the Build server or &quot;rm&quot; for the Release Management server
      * @param planId 
      *            
-     * @return List&lt;TaskLog&gt;
+     * @return ArrayList&lt;TaskLog&gt;
      */
-    public List<TaskLog> getLogs(
+    public ArrayList<TaskLog> getLogs(
         final UUID scopeIdentifier, 
         final String hubName, 
         final UUID planId) { 
@@ -505,7 +506,7 @@ public abstract class TaskHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TaskLog>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskLog>>() {});
     }
 
     /** 
@@ -554,9 +555,9 @@ public abstract class TaskHttpClientBase
      *            
      * @param changeId 
      *            
-     * @return List&lt;TimelineRecord&gt;
+     * @return ArrayList&lt;TimelineRecord&gt;
      */
-    public List<TimelineRecord> getRecords(
+    public ArrayList<TimelineRecord> getRecords(
         final UUID scopeIdentifier, 
         final String hubName, 
         final UUID planId, 
@@ -582,7 +583,7 @@ public abstract class TaskHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TimelineRecord>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TimelineRecord>>() {});
     }
 
     /** 
@@ -598,9 +599,9 @@ public abstract class TaskHttpClientBase
      *            
      * @param timelineId 
      *            
-     * @return List&lt;TimelineRecord&gt;
+     * @return ArrayList&lt;TimelineRecord&gt;
      */
-    public List<TimelineRecord> updateRecords(
+    public ArrayList<TimelineRecord> updateRecords(
         final VssJsonCollectionWrapper<List<TimelineRecord>> records, 
         final UUID scopeIdentifier, 
         final String hubName, 
@@ -624,7 +625,7 @@ public abstract class TaskHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TimelineRecord>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TimelineRecord>>() {});
     }
 
     /** 
@@ -758,9 +759,9 @@ public abstract class TaskHttpClientBase
      *            The name of the server hub: &quot;build&quot; for the Build server or &quot;rm&quot; for the Release Management server
      * @param planId 
      *            
-     * @return List&lt;Timeline&gt;
+     * @return ArrayList&lt;Timeline&gt;
      */
-    public List<Timeline> getTimelines(
+    public ArrayList<Timeline> getTimelines(
         final UUID scopeIdentifier, 
         final String hubName, 
         final UUID planId) { 
@@ -779,6 +780,6 @@ public abstract class TaskHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Timeline>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Timeline>>() {});
     }
 }

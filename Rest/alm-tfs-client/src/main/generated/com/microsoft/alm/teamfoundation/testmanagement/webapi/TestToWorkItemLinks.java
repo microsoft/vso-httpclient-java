@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class TestToWorkItemLinks {
 
     private TestMethod test;
-    private List<WorkItemReference> workItems;
+    private ArrayList<WorkItemReference> workItems;
 
     public TestMethod getTest() {
         return test;
@@ -32,11 +32,11 @@ public class TestToWorkItemLinks {
         this.test = test;
     }
 
-    public List<WorkItemReference> getWorkItems() {
+    public ArrayList<WorkItemReference> getWorkItems() {
         return workItems;
     }
 
-    public void setWorkItems(final List<WorkItemReference> workItems) {
+    public void setWorkItems(final ArrayList<WorkItemReference> workItems) {
         this.workItems = workItems;
     }
 }

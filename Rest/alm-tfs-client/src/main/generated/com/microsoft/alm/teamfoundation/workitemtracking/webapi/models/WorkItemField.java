@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -25,7 +25,7 @@ public class WorkItemField
     private String name;
     private boolean readOnly;
     private String referenceName;
-    private List<WorkItemFieldOperation> supportedOperations;
+    private ArrayList<WorkItemFieldOperation> supportedOperations;
     private FieldType type;
 
     public String getName() {
@@ -52,11 +52,11 @@ public class WorkItemField
         this.referenceName = referenceName;
     }
 
-    public List<WorkItemFieldOperation> getSupportedOperations() {
+    public ArrayList<WorkItemFieldOperation> getSupportedOperations() {
         return supportedOperations;
     }
 
-    public void setSupportedOperations(final List<WorkItemFieldOperation> supportedOperations) {
+    public void setSupportedOperations(final ArrayList<WorkItemFieldOperation> supportedOperations) {
         this.supportedOperations = supportedOperations;
     }
 

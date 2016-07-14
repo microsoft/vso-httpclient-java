@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
@@ -31,7 +31,7 @@ public class BoardChart
     /**
     * The settings for the resource
     */
-    private Map<String, Object> settings;
+    private HashMap<String, Object> settings;
 
     /**
     * The links for the resource
@@ -52,14 +52,14 @@ public class BoardChart
     /**
     * The settings for the resource
     */
-    public Map<String, Object> getSettings() {
+    public HashMap<String, Object> getSettings() {
         return settings;
     }
 
     /**
     * The settings for the resource
     */
-    public void setSettings(final Map<String, Object> settings) {
+    public void setSettings(final HashMap<String, Object> settings) {
         this.settings = settings;
     }
 }

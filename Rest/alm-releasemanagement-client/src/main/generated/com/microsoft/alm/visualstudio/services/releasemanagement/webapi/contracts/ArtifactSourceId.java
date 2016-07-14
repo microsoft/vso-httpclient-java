@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class ArtifactSourceId {
 
     private String artifactTypeId;
-    private List<SourceIdInput> sourceIdInputs;
+    private ArrayList<SourceIdInput> sourceIdInputs;
 
     public String getArtifactTypeId() {
         return artifactTypeId;
@@ -32,11 +32,11 @@ public class ArtifactSourceId {
         this.artifactTypeId = artifactTypeId;
     }
 
-    public List<SourceIdInput> getSourceIdInputs() {
+    public ArrayList<SourceIdInput> getSourceIdInputs() {
         return sourceIdInputs;
     }
 
-    public void setSourceIdInputs(final List<SourceIdInput> sourceIdInputs) {
+    public void setSourceIdInputs(final ArrayList<SourceIdInput> sourceIdInputs) {
         this.sourceIdInputs = sourceIdInputs;
     }
 }

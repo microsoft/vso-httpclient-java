@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -28,7 +28,7 @@ public class ReviewsResult {
     /**
     * List of reviews
     */
-    private List<Review> reviews;
+    private ArrayList<Review> reviews;
     /**
     * Count of total review items
     */
@@ -51,14 +51,14 @@ public class ReviewsResult {
     /**
     * List of reviews
     */
-    public List<Review> getReviews() {
+    public ArrayList<Review> getReviews() {
         return reviews;
     }
 
     /**
     * List of reviews
     */
-    public void setReviews(final List<Review> reviews) {
+    public void setReviews(final ArrayList<Review> reviews) {
         this.reviews = reviews;
     }
 

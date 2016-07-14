@@ -15,31 +15,31 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class TfvcBranch
     extends TfvcBranchRef {
 
-    private List<TfvcBranch> children;
-    private List<TfvcBranchMapping> mappings;
+    private ArrayList<TfvcBranch> children;
+    private ArrayList<TfvcBranchMapping> mappings;
     private TfvcShallowBranchRef parent;
-    private List<TfvcShallowBranchRef> relatedBranches;
+    private ArrayList<TfvcShallowBranchRef> relatedBranches;
 
-    public List<TfvcBranch> getChildren() {
+    public ArrayList<TfvcBranch> getChildren() {
         return children;
     }
 
-    public void setChildren(final List<TfvcBranch> children) {
+    public void setChildren(final ArrayList<TfvcBranch> children) {
         this.children = children;
     }
 
-    public List<TfvcBranchMapping> getMappings() {
+    public ArrayList<TfvcBranchMapping> getMappings() {
         return mappings;
     }
 
-    public void setMappings(final List<TfvcBranchMapping> mappings) {
+    public void setMappings(final ArrayList<TfvcBranchMapping> mappings) {
         this.mappings = mappings;
     }
 
@@ -51,11 +51,11 @@ public class TfvcBranch
         this.parent = parent;
     }
 
-    public List<TfvcShallowBranchRef> getRelatedBranches() {
+    public ArrayList<TfvcShallowBranchRef> getRelatedBranches() {
         return relatedBranches;
     }
 
-    public void setRelatedBranches(final List<TfvcShallowBranchRef> relatedBranches) {
+    public void setRelatedBranches(final ArrayList<TfvcShallowBranchRef> relatedBranches) {
         this.relatedBranches = relatedBranches;
     }
 }

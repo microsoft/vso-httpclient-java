@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi.contracts;
 
-import java.util.Map;
+import java.util.HashMap;
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemFieldReference;
 
 /** 
@@ -43,7 +43,7 @@ public class ProcessConfiguration {
     /**
     * Type fields for the process configuration
     */
-    private Map<String, WorkItemFieldReference> typeFields;
+    private HashMap<String, WorkItemFieldReference> typeFields;
     private String url;
 
     /**
@@ -105,14 +105,14 @@ public class ProcessConfiguration {
     /**
     * Type fields for the process configuration
     */
-    public Map<String, WorkItemFieldReference> getTypeFields() {
+    public HashMap<String, WorkItemFieldReference> getTypeFields() {
         return typeFields;
     }
 
     /**
     * Type fields for the process configuration
     */
-    public void setTypeFields(final Map<String, WorkItemFieldReference> typeFields) {
+    public void setTypeFields(final HashMap<String, WorkItemFieldReference> typeFields) {
         this.typeFields = typeFields;
     }
 

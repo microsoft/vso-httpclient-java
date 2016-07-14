@@ -16,8 +16,8 @@
 package com.microsoft.alm.teamfoundation.build.webapi;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
@@ -33,7 +33,7 @@ public class TimelineRecord {
     private int errorCount;
     private Date finishTime;
     private UUID id;
-    private List<Issue> issues;
+    private ArrayList<Issue> issues;
     private Date lastModified;
     private BuildLogReference log;
     private String name;
@@ -107,11 +107,11 @@ public class TimelineRecord {
         this.id = id;
     }
 
-    public List<Issue> getIssues() {
+    public ArrayList<Issue> getIssues() {
         return issues;
     }
 
-    public void setIssues(final List<Issue> issues) {
+    public void setIssues(final ArrayList<Issue> issues) {
         this.issues = issues;
     }
 
@@ -195,13 +195,11 @@ public class TimelineRecord {
         this.state = state;
     }
 
-    @JsonProperty("type")
-    public String getRecordType() {
+    public String getType() {
         return type;
     }
 
-    @JsonProperty("type")
-    public void setRecordType(final String type) {
+    public void setType(final String type) {
         this.type = type;
     }
 

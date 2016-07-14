@@ -15,37 +15,37 @@
 
 package com.microsoft.alm.visualstudio.services.account.client;
 
-import com.microsoft.alm.client.json.JObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /** 
  */
 public class AccountPreferencesInternal {
 
-    private JObject culture;
-    private JObject language;
-    private JObject timeZone;
+    private ObjectNode culture;
+    private ObjectNode language;
+    private ObjectNode timeZone;
 
-    public JObject getCulture() {
+    public ObjectNode getCulture() {
         return culture;
     }
 
-    public void setCulture(final JObject culture) {
+    public void setCulture(final ObjectNode culture) {
         this.culture = culture;
     }
 
-    public JObject getLanguage() {
+    public ObjectNode getLanguage() {
         return language;
     }
 
-    public void setLanguage(final JObject language) {
+    public void setLanguage(final ObjectNode language) {
         this.language = language;
     }
 
-    public JObject getTimeZone() {
+    public ObjectNode getTimeZone() {
         return timeZone;
     }
 
-    public void setTimeZone(final JObject timeZone) {
+    public void setTimeZone(final ObjectNode timeZone) {
         this.timeZone = timeZone;
     }
 }

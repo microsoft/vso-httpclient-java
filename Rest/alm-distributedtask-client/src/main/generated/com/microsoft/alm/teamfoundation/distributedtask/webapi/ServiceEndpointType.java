@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class ServiceEndpointType {
 
-    private List<ServiceEndpointAuthenticationScheme> authenticationSchemes;
-    private List<DataSource> dataSources;
+    private ArrayList<ServiceEndpointAuthenticationScheme> authenticationSchemes;
+    private ArrayList<DataSource> dataSources;
     private String description;
     private String displayName;
     private EndpointUrl endpointUrl;
@@ -30,19 +30,19 @@ public class ServiceEndpointType {
     private String helpMarkDown;
     private String name;
 
-    public List<ServiceEndpointAuthenticationScheme> getAuthenticationSchemes() {
+    public ArrayList<ServiceEndpointAuthenticationScheme> getAuthenticationSchemes() {
         return authenticationSchemes;
     }
 
-    public void setAuthenticationSchemes(final List<ServiceEndpointAuthenticationScheme> authenticationSchemes) {
+    public void setAuthenticationSchemes(final ArrayList<ServiceEndpointAuthenticationScheme> authenticationSchemes) {
         this.authenticationSchemes = authenticationSchemes;
     }
 
-    public List<DataSource> getDataSources() {
+    public ArrayList<DataSource> getDataSources() {
         return dataSources;
     }
 
-    public void setDataSources(final List<DataSource> dataSources) {
+    public void setDataSources(final ArrayList<DataSource> dataSources) {
         this.dataSources = dataSources;
     }
 

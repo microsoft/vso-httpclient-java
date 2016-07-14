@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -23,8 +23,8 @@ public class BuildOptionDefinition
     extends BuildOptionDefinitionReference {
 
     private String description;
-    private List<BuildOptionGroupDefinition> groups;
-    private List<BuildOptionInputDefinition> inputs;
+    private ArrayList<BuildOptionGroupDefinition> groups;
+    private ArrayList<BuildOptionInputDefinition> inputs;
     private String name;
     private int ordinal;
 
@@ -36,19 +36,19 @@ public class BuildOptionDefinition
         this.description = description;
     }
 
-    public List<BuildOptionGroupDefinition> getGroups() {
+    public ArrayList<BuildOptionGroupDefinition> getGroups() {
         return groups;
     }
 
-    public void setGroups(final List<BuildOptionGroupDefinition> groups) {
+    public void setGroups(final ArrayList<BuildOptionGroupDefinition> groups) {
         this.groups = groups;
     }
 
-    public List<BuildOptionInputDefinition> getInputs() {
+    public ArrayList<BuildOptionInputDefinition> getInputs() {
         return inputs;
     }
 
-    public void setInputs(final List<BuildOptionInputDefinition> inputs) {
+    public void setInputs(final ArrayList<BuildOptionInputDefinition> inputs) {
         this.inputs = inputs;
     }
 

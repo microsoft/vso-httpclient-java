@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -24,7 +24,7 @@ public class ArtifactVersion {
     private String alias;
     private String errorMessage;
     private String sourceId;
-    private List<BuildVersion> versions;
+    private ArrayList<BuildVersion> versions;
 
     public String getAlias() {
         return alias;
@@ -50,11 +50,11 @@ public class ArtifactVersion {
         this.sourceId = sourceId;
     }
 
-    public List<BuildVersion> getVersions() {
+    public ArrayList<BuildVersion> getVersions() {
         return versions;
     }
 
-    public void setVersions(final List<BuildVersion> versions) {
+    public void setVersions(final ArrayList<BuildVersion> versions) {
         this.versions = versions;
     }
 }

@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
 public class WitBatchRequest {
 
     private String body;
-    private Map<String, String> headers;
+    private HashMap<String, String> headers;
     private String method;
     private String uri;
 
@@ -34,11 +34,11 @@ public class WitBatchRequest {
         this.body = body;
     }
 
-    public Map<String, String> getHeaders() {
+    public HashMap<String, String> getHeaders() {
         return headers;
     }
 
-    public void setHeaders(final Map<String, String> headers) {
+    public void setHeaders(final HashMap<String, String> headers) {
         this.headers = headers;
     }
 

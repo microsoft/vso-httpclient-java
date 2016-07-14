@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * This is the set of extensions that matched a supplied query through the filters given.
@@ -26,19 +26,19 @@ public class ExtensionQueryResult {
     /**
     * For each filter supplied in the query, a filter result will be returned in the query result.
     */
-    private List<ExtensionFilterResult> results;
+    private ArrayList<ExtensionFilterResult> results;
 
     /**
     * For each filter supplied in the query, a filter result will be returned in the query result.
     */
-    public List<ExtensionFilterResult> getResults() {
+    public ArrayList<ExtensionFilterResult> getResults() {
         return results;
     }
 
     /**
     * For each filter supplied in the query, a filter result will be returned in the query result.
     */
-    public void setResults(final List<ExtensionFilterResult> results) {
+    public void setResults(final ArrayList<ExtensionFilterResult> results) {
         this.results = results;
     }
 }

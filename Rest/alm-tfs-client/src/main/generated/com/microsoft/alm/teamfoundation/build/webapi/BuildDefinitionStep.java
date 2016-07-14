@@ -15,8 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.HashMap;
 
 /** 
  */
@@ -26,7 +25,7 @@ public class BuildDefinitionStep {
     private boolean continueOnError;
     private String displayName;
     private boolean enabled;
-    private Map<String, String> inputs;
+    private HashMap<String, String> inputs;
     private TaskDefinitionReference task;
     private int timeoutInMinutes;
 
@@ -62,21 +61,19 @@ public class BuildDefinitionStep {
         this.enabled = enabled;
     }
 
-    public Map<String, String> getInputs() {
+    public HashMap<String, String> getInputs() {
         return inputs;
     }
 
-    public void setInputs(final Map<String, String> inputs) {
+    public void setInputs(final HashMap<String, String> inputs) {
         this.inputs = inputs;
     }
 
-    @JsonProperty("task")
-    public TaskDefinitionReference getTaskDefinition() {
+    public TaskDefinitionReference getTask() {
         return task;
     }
 
-    @JsonProperty("task")
-    public void setTaskDefinition(final TaskDefinitionReference task) {
+    public void setTask(final TaskDefinitionReference task) {
         this.task = task;
     }
 

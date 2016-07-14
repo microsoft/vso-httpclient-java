@@ -15,9 +15,9 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.HashMap;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.Artifact;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.ReleaseDefinitionEnvironment;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.RetentionPolicy;
@@ -27,11 +27,11 @@ import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
  */
 public class ReleaseDefinition {
 
-    private List<Artifact> artifacts;
+    private ArrayList<Artifact> artifacts;
     private String comment;
     private IdentityRef createdBy;
     private Date createdOn;
-    private List<ReleaseDefinitionEnvironment> environments;
+    private ArrayList<ReleaseDefinitionEnvironment> environments;
     private int id;
     private IdentityRef modifiedBy;
     private Date modifiedOn;
@@ -39,15 +39,15 @@ public class ReleaseDefinition {
     private String releaseNameFormat;
     private RetentionPolicy retentionPolicy;
     private int revision;
-    private List<ReleaseTriggerBase> triggers;
+    private ArrayList<ReleaseTriggerBase> triggers;
     private String url;
-    private Map<String, ConfigurationVariableValue> variables;
+    private HashMap<String, ConfigurationVariableValue> variables;
 
-    public List<Artifact> getArtifacts() {
+    public ArrayList<Artifact> getArtifacts() {
         return artifacts;
     }
 
-    public void setArtifacts(final List<Artifact> artifacts) {
+    public void setArtifacts(final ArrayList<Artifact> artifacts) {
         this.artifacts = artifacts;
     }
 
@@ -75,11 +75,11 @@ public class ReleaseDefinition {
         this.createdOn = createdOn;
     }
 
-    public List<ReleaseDefinitionEnvironment> getEnvironments() {
+    public ArrayList<ReleaseDefinitionEnvironment> getEnvironments() {
         return environments;
     }
 
-    public void setEnvironments(final List<ReleaseDefinitionEnvironment> environments) {
+    public void setEnvironments(final ArrayList<ReleaseDefinitionEnvironment> environments) {
         this.environments = environments;
     }
 
@@ -139,11 +139,11 @@ public class ReleaseDefinition {
         this.revision = revision;
     }
 
-    public List<ReleaseTriggerBase> getTriggers() {
+    public ArrayList<ReleaseTriggerBase> getTriggers() {
         return triggers;
     }
 
-    public void setTriggers(final List<ReleaseTriggerBase> triggers) {
+    public void setTriggers(final ArrayList<ReleaseTriggerBase> triggers) {
         this.triggers = triggers;
     }
 
@@ -155,11 +155,11 @@ public class ReleaseDefinition {
         this.url = url;
     }
 
-    public Map<String, ConfigurationVariableValue> getVariables() {
+    public HashMap<String, ConfigurationVariableValue> getVariables() {
         return variables;
     }
 
-    public void setVariables(final Map<String, ConfigurationVariableValue> variables) {
+    public void setVariables(final HashMap<String, ConfigurationVariableValue> variables) {
         this.variables = variables;
     }
 }

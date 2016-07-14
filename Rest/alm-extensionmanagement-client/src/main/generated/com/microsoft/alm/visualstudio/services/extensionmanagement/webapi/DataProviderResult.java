@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /** 
  * Result structure from calls to GetDataProviderData
@@ -27,37 +27,37 @@ public class DataProviderResult {
     /**
     * Property bag of data keyed off of the data provider contribution id
     */
-    private Map<String, Object> data;
+    private HashMap<String, Object> data;
     /**
     * List of data providers resolved in the data-provider query
     */
-    private List<ResolvedDataProvider> resolvedProviders;
+    private ArrayList<ResolvedDataProvider> resolvedProviders;
 
     /**
     * Property bag of data keyed off of the data provider contribution id
     */
-    public Map<String, Object> getData() {
+    public HashMap<String, Object> getData() {
         return data;
     }
 
     /**
     * Property bag of data keyed off of the data provider contribution id
     */
-    public void setData(final Map<String, Object> data) {
+    public void setData(final HashMap<String, Object> data) {
         this.data = data;
     }
 
     /**
     * List of data providers resolved in the data-provider query
     */
-    public List<ResolvedDataProvider> getResolvedProviders() {
+    public ArrayList<ResolvedDataProvider> getResolvedProviders() {
         return resolvedProviders;
     }
 
     /**
     * List of data providers resolved in the data-provider query
     */
-    public void setResolvedProviders(final List<ResolvedDataProvider> resolvedProviders) {
+    public void setResolvedProviders(final ArrayList<ResolvedDataProvider> resolvedProviders) {
         this.resolvedProviders = resolvedProviders;
     }
 }

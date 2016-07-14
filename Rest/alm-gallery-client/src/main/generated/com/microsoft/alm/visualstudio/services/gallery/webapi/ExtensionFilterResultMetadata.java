@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * ExtensionFilterResultMetadata is one set of metadata for the result e.g. Total count. There can be multiple metadata items for one metadata.
@@ -26,7 +26,7 @@ public class ExtensionFilterResultMetadata {
     /**
     * The metadata items for the category
     */
-    private List<MetadataItem> metadataItems;
+    private ArrayList<MetadataItem> metadataItems;
     /**
     * Defines the category of metadata items
     */
@@ -35,14 +35,14 @@ public class ExtensionFilterResultMetadata {
     /**
     * The metadata items for the category
     */
-    public List<MetadataItem> getMetadataItems() {
+    public ArrayList<MetadataItem> getMetadataItems() {
         return metadataItems;
     }
 
     /**
     * The metadata items for the category
     */
-    public void setMetadataItems(final List<MetadataItem> metadataItems) {
+    public void setMetadataItems(final ArrayList<MetadataItem> metadataItems) {
         this.metadataItems = metadataItems;
     }
 

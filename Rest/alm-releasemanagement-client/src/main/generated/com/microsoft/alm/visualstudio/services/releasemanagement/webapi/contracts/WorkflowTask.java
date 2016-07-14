@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.Map;
+import java.util.HashMap;
 import java.util.UUID;
 
 /** 
@@ -26,7 +26,7 @@ public class WorkflowTask {
     private boolean continueOnError;
     private String definitionType;
     private boolean enabled;
-    private Map<String, String> inputs;
+    private HashMap<String, String> inputs;
     private String name;
     private UUID taskId;
     private int timeoutInMinutes;
@@ -64,11 +64,11 @@ public class WorkflowTask {
         this.enabled = enabled;
     }
 
-    public Map<String, String> getInputs() {
+    public HashMap<String, String> getInputs() {
         return inputs;
     }
 
-    public void setInputs(final Map<String, String> inputs) {
+    public void setInputs(final HashMap<String, String> inputs) {
         this.inputs = inputs;
     }
 

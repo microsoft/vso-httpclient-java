@@ -15,8 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
 
 /** 
  */
@@ -53,7 +52,7 @@ public class GitQueryCommitsCriteria {
     /**
     * If provided, specifies the exact commit ids of the commits to fetch. May not be combined with other parameters.
     */
-    private List<String> ids;
+    private ArrayList<String> ids;
     /**
     * Whether to include the _links field on the shallow references
     */
@@ -82,32 +81,28 @@ public class GitQueryCommitsCriteria {
     /**
     * Number of entries to skip
     */
-    @JsonProperty("$skip")
-    public int getSkip() {
+    public int get$skip() {
         return $skip;
     }
 
     /**
     * Number of entries to skip
     */
-    @JsonProperty("$skip")
-    public void setSkip(final int $skip) {
+    public void set$skip(final int $skip) {
         this.$skip = $skip;
     }
 
     /**
     * Maximum number of entries to retrieve
     */
-    @JsonProperty("$top")
-    public int getTop() {
+    public int get$top() {
         return $top;
     }
 
     /**
     * Maximum number of entries to retrieve
     */
-    @JsonProperty("$top")
-    public void setTop(final int $top) {
+    public void set$top(final int $top) {
         this.$top = $top;
     }
 
@@ -184,14 +179,14 @@ public class GitQueryCommitsCriteria {
     /**
     * If provided, specifies the exact commit ids of the commits to fetch. May not be combined with other parameters.
     */
-    public List<String> getIds() {
+    public ArrayList<String> getIds() {
         return ids;
     }
 
     /**
     * If provided, specifies the exact commit ids of the commits to fetch. May not be combined with other parameters.
     */
-    public void setIds(final List<String> ids) {
+    public void setIds(final ArrayList<String> ids) {
         this.ids = ids;
     }
 
@@ -268,16 +263,14 @@ public class GitQueryCommitsCriteria {
     /**
     * Alias or display name of the committer
     */
-    @JsonProperty("user")
-    public String getCommitter() {
+    public String getUser() {
         return user;
     }
 
     /**
     * Alias or display name of the committer
     */
-    @JsonProperty("user")
-    public void setCommitter(final String user) {
+    public void setUser(final String user) {
         this.user = user;
     }
 }

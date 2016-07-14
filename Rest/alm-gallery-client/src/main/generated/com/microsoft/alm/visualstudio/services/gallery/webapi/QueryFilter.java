@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * A filter used to define a set of extensions to return during a query.
@@ -26,7 +26,7 @@ public class QueryFilter {
     /**
     * The filter values define the set of values in this query. They are applied based on the QueryFilterType.
     */
-    private List<FilterCriteria> criteria;
+    private ArrayList<FilterCriteria> criteria;
     /**
     * The PagingDirection is applied to a paging token if one exists. If not the direction is ignored, and Forward from the start of the resultset is used. Direction should be left out of the request unless a paging token is used to help prevent future issues.
     */
@@ -55,14 +55,14 @@ public class QueryFilter {
     /**
     * The filter values define the set of values in this query. They are applied based on the QueryFilterType.
     */
-    public List<FilterCriteria> getCriteria() {
+    public ArrayList<FilterCriteria> getCriteria() {
         return criteria;
     }
 
     /**
     * The filter values define the set of values in this query. They are applied based on the QueryFilterType.
     */
-    public void setCriteria(final List<FilterCriteria> criteria) {
+    public void setCriteria(final ArrayList<FilterCriteria> criteria) {
         this.criteria = criteria;
     }
 

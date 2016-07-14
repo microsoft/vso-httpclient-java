@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -23,7 +23,7 @@ public class MetaTaskDefinition
     extends TaskDefinition {
 
     private String owner;
-    private List<MetaTaskStep> tasks;
+    private ArrayList<MetaTaskStep> tasks;
 
     public String getOwner() {
         return owner;
@@ -33,11 +33,11 @@ public class MetaTaskDefinition
         this.owner = owner;
     }
 
-    public List<MetaTaskStep> getTasks() {
+    public ArrayList<MetaTaskStep> getTasks() {
         return tasks;
     }
 
-    public void setTasks(final List<MetaTaskStep> tasks) {
+    public void setTasks(final ArrayList<MetaTaskStep> tasks) {
         this.tasks = tasks;
     }
 }

@@ -16,12 +16,13 @@
 package com.microsoft.alm.visualstudio.services.security.client;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.microsoft.alm.client.json.JObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.VssHttpClientBase;
 import com.microsoft.alm.visualstudio.services.security.AccessControlEntry;
@@ -110,10 +111,10 @@ public abstract class SecurityHttpClientBase
      *            
      * @param securityNamespaceId 
      *            
-     * @return List&lt;AccessControlEntry&gt;
+     * @return ArrayList&lt;AccessControlEntry&gt;
      */
-    public List<AccessControlEntry> setAccessControlEntries(
-        final JObject container, 
+    public ArrayList<AccessControlEntry> setAccessControlEntries(
+        final ObjectNode container, 
         final UUID securityNamespaceId) { 
 
         final UUID locationId = UUID.fromString("ac08c8ff-4323-4b08-af90-bcd018d380ce"); //$NON-NLS-1$
@@ -130,7 +131,7 @@ public abstract class SecurityHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<AccessControlEntry>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<AccessControlEntry>>() {});
     }
 
     /** 
@@ -146,9 +147,9 @@ public abstract class SecurityHttpClientBase
      *            
      * @param recurse 
      *            
-     * @return List&lt;AccessControlList&gt;
+     * @return ArrayList&lt;AccessControlList&gt;
      */
-    public List<AccessControlList> queryAccessControlLists(
+    public ArrayList<AccessControlList> queryAccessControlLists(
         final UUID securityNamespaceId, 
         final String token, 
         final String descriptors, 
@@ -174,7 +175,7 @@ public abstract class SecurityHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<AccessControlList>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<AccessControlList>>() {});
     }
 
     /** 
@@ -277,9 +278,9 @@ public abstract class SecurityHttpClientBase
      *            
      * @param delimiter 
      *            
-     * @return List&lt;Boolean&gt;
+     * @return ArrayList&lt;Boolean&gt;
      */
-    public List<Boolean> hasPermissions(
+    public ArrayList<Boolean> hasPermissions(
         final UUID securityNamespaceId, 
         final Integer permissions, 
         final String tokens, 
@@ -305,7 +306,7 @@ public abstract class SecurityHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Boolean>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Boolean>>() {});
     }
 
     /** 
@@ -355,9 +356,9 @@ public abstract class SecurityHttpClientBase
      *            
      * @param localOnly 
      *            
-     * @return List&lt;SecurityNamespaceDescription&gt;
+     * @return ArrayList&lt;SecurityNamespaceDescription&gt;
      */
-    public List<SecurityNamespaceDescription> querySecurityNamespaces(
+    public ArrayList<SecurityNamespaceDescription> querySecurityNamespaces(
         final UUID securityNamespaceId, 
         final Boolean localOnly) { 
 
@@ -377,7 +378,7 @@ public abstract class SecurityHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<SecurityNamespaceDescription>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<SecurityNamespaceDescription>>() {});
     }
 
     /** 
@@ -389,7 +390,7 @@ public abstract class SecurityHttpClientBase
      *            
      */
     public void setInheritFlag(
-        final JObject container, 
+        final ObjectNode container, 
         final UUID securityNamespaceId) { 
 
         final UUID locationId = UUID.fromString("ce7b9f95-fde9-4be8-a86d-83b366f0b87a"); //$NON-NLS-1$

@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -25,9 +25,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class QueryHierarchyItem
     extends WorkItemTrackingResource {
 
-    private List<QueryHierarchyItem> children;
+    private ArrayList<QueryHierarchyItem> children;
     private WorkItemQueryClause clauses;
-    private List<WorkItemFieldReference> columns;
+    private ArrayList<WorkItemFieldReference> columns;
     private IdentityReference createdBy;
     private Date createdDate;
     private LinkQueryMode filterOptions;
@@ -43,16 +43,16 @@ public class QueryHierarchyItem
     private String name;
     private String path;
     private QueryType queryType;
-    private List<WorkItemQuerySortColumn> sortColumns;
+    private ArrayList<WorkItemQuerySortColumn> sortColumns;
     private WorkItemQueryClause sourceClauses;
     private WorkItemQueryClause targetClauses;
     private String wiql;
 
-    public List<QueryHierarchyItem> getChildren() {
+    public ArrayList<QueryHierarchyItem> getChildren() {
         return children;
     }
 
-    public void setChildren(final List<QueryHierarchyItem> children) {
+    public void setChildren(final ArrayList<QueryHierarchyItem> children) {
         this.children = children;
     }
 
@@ -64,11 +64,11 @@ public class QueryHierarchyItem
         this.clauses = clauses;
     }
 
-    public List<WorkItemFieldReference> getColumns() {
+    public ArrayList<WorkItemFieldReference> getColumns() {
         return columns;
     }
 
-    public void setColumns(final List<WorkItemFieldReference> columns) {
+    public void setColumns(final ArrayList<WorkItemFieldReference> columns) {
         this.columns = columns;
     }
 
@@ -200,11 +200,11 @@ public class QueryHierarchyItem
         this.queryType = queryType;
     }
 
-    public List<WorkItemQuerySortColumn> getSortColumns() {
+    public ArrayList<WorkItemQuerySortColumn> getSortColumns() {
         return sortColumns;
     }
 
-    public void setSortColumns(final List<WorkItemQuerySortColumn> sortColumns) {
+    public void setSortColumns(final ArrayList<WorkItemQuerySortColumn> sortColumns) {
         this.sortColumns = sortColumns;
     }
 

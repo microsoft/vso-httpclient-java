@@ -15,16 +15,15 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
-import com.system.net.HttpStatusCode;
+import java.util.ArrayList;
 
 /** 
  */
 public class BatchResponse {
 
     private String error;
-    private List<Response> responses;
-    private HttpStatusCode status;
+    private ArrayList<Response> responses;
+    private String status;
 
     public String getError() {
         return error;
@@ -34,19 +33,19 @@ public class BatchResponse {
         this.error = error;
     }
 
-    public List<Response> getResponses() {
+    public ArrayList<Response> getResponses() {
         return responses;
     }
 
-    public void setResponses(final List<Response> responses) {
+    public void setResponses(final ArrayList<Response> responses) {
         this.responses = responses;
     }
 
-    public HttpStatusCode getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(final HttpStatusCode status) {
+    public void setStatus(final String status) {
         this.status = status;
     }
 }

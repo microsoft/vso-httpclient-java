@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * A query that can be issued for data provider data
@@ -30,7 +30,7 @@ public class DataProviderQuery {
     /**
     * The contribution ids of the data providers to resolve
     */
-    private List<String> contributionIds;
+    private ArrayList<String> contributionIds;
 
     /**
     * Contextual information to pass to the data providers
@@ -49,14 +49,14 @@ public class DataProviderQuery {
     /**
     * The contribution ids of the data providers to resolve
     */
-    public List<String> getContributionIds() {
+    public ArrayList<String> getContributionIds() {
         return contributionIds;
     }
 
     /**
     * The contribution ids of the data providers to resolve
     */
-    public void setContributionIds(final List<String> contributionIds) {
+    public void setContributionIds(final ArrayList<String> contributionIds) {
         this.contributionIds = contributionIds;
     }
 }

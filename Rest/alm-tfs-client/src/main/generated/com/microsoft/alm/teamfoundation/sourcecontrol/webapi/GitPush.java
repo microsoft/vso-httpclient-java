@@ -15,30 +15,30 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class GitPush
     extends GitPushRef {
 
-    private List<GitCommitRef> commits;
-    private List<GitRefUpdate> refUpdates;
+    private ArrayList<GitCommitRef> commits;
+    private ArrayList<GitRefUpdate> refUpdates;
     private GitRepository repository;
 
-    public List<GitCommitRef> getCommits() {
+    public ArrayList<GitCommitRef> getCommits() {
         return commits;
     }
 
-    public void setCommits(final List<GitCommitRef> commits) {
+    public void setCommits(final ArrayList<GitCommitRef> commits) {
         this.commits = commits;
     }
 
-    public List<GitRefUpdate> getRefUpdates() {
+    public ArrayList<GitRefUpdate> getRefUpdates() {
         return refUpdates;
     }
 
-    public void setRefUpdates(final List<GitRefUpdate> refUpdates) {
+    public void setRefUpdates(final ArrayList<GitRefUpdate> refUpdates) {
         this.refUpdates = refUpdates;
     }
 

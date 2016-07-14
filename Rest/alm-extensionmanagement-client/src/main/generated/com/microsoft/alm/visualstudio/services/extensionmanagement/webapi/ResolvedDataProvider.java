@@ -25,21 +25,21 @@ public class ResolvedDataProvider {
     /**
     * The total time the data provider took to resolve its data (in milliseconds)
     */
-    private Single duration;
+    private float duration;
     private String error;
     private String id;
 
     /**
     * The total time the data provider took to resolve its data (in milliseconds)
     */
-    public Single getDuration() {
+    public float getDuration() {
         return duration;
     }
 
     /**
     * The total time the data provider took to resolve its data (in milliseconds)
     */
-    public void setDuration(final Single duration) {
+    public void setDuration(final float duration) {
         this.duration = duration;
     }
 

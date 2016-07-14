@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * Expected data from PATCH
@@ -23,22 +23,22 @@ import java.util.List;
  */
 public class CapacityPatch {
 
-    private List<Activity> activities;
-    private List<DateRange> daysOff;
+    private ArrayList<Activity> activities;
+    private ArrayList<DateRange> daysOff;
 
-    public List<Activity> getActivities() {
+    public ArrayList<Activity> getActivities() {
         return activities;
     }
 
-    public void setActivities(final List<Activity> activities) {
+    public void setActivities(final ArrayList<Activity> activities) {
         this.activities = activities;
     }
 
-    public List<DateRange> getDaysOff() {
+    public ArrayList<DateRange> getDaysOff() {
         return daysOff;
     }
 
-    public void setDaysOff(final List<DateRange> daysOff) {
+    public void setDaysOff(final ArrayList<DateRange> daysOff) {
         this.daysOff = daysOff;
     }
 }

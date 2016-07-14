@@ -15,11 +15,10 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.microsoft.alm.client.json.JObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /** 
  */
@@ -31,29 +30,29 @@ public class TaskDefinition {
     private boolean contentsUploaded;
     private String contributionIdentifier;
     private String contributionVersion;
-    private List<DataSourceBinding> dataSourceBindings;
+    private ArrayList<DataSourceBinding> dataSourceBindings;
     private String definitionType;
-    private List<Demand> demands;
+    private ArrayList<Demand> demands;
     private String description;
     private boolean disabled;
-    private Map<String, JObject> execution;
+    private HashMap<String, ObjectNode> execution;
     private String friendlyName;
-    private List<TaskGroupDefinition> groups;
+    private ArrayList<TaskGroupDefinition> groups;
     private String helpMarkDown;
     private String hostType;
     private String iconUrl;
     private UUID id;
-    private List<TaskInputDefinition> inputs;
+    private ArrayList<TaskInputDefinition> inputs;
     private String instanceNameFormat;
     private String minimumAgentVersion;
     private String name;
     private String packageLocation;
     private String packageType;
     private boolean serverOwned;
-    private List<TaskSourceDefinition> sourceDefinitions;
+    private ArrayList<TaskSourceDefinition> sourceDefinitions;
     private String sourceLocation;
     private TaskVersion version;
-    private List<String> visibility;
+    private ArrayList<String> visibility;
 
     public TaskExecution getAgentExecution() {
         return agentExecution;
@@ -103,11 +102,11 @@ public class TaskDefinition {
         this.contributionVersion = contributionVersion;
     }
 
-    public List<DataSourceBinding> getDataSourceBindings() {
+    public ArrayList<DataSourceBinding> getDataSourceBindings() {
         return dataSourceBindings;
     }
 
-    public void setDataSourceBindings(final List<DataSourceBinding> dataSourceBindings) {
+    public void setDataSourceBindings(final ArrayList<DataSourceBinding> dataSourceBindings) {
         this.dataSourceBindings = dataSourceBindings;
     }
 
@@ -119,11 +118,11 @@ public class TaskDefinition {
         this.definitionType = definitionType;
     }
 
-    public List<Demand> getDemands() {
+    public ArrayList<Demand> getDemands() {
         return demands;
     }
 
-    public void setDemands(final List<Demand> demands) {
+    public void setDemands(final ArrayList<Demand> demands) {
         this.demands = demands;
     }
 
@@ -143,11 +142,11 @@ public class TaskDefinition {
         this.disabled = disabled;
     }
 
-    public Map<String, JObject> getExecution() {
+    public HashMap<String, ObjectNode> getExecution() {
         return execution;
     }
 
-    public void setExecution(final Map<String, JObject> execution) {
+    public void setExecution(final HashMap<String, ObjectNode> execution) {
         this.execution = execution;
     }
 
@@ -159,11 +158,11 @@ public class TaskDefinition {
         this.friendlyName = friendlyName;
     }
 
-    public List<TaskGroupDefinition> getGroups() {
+    public ArrayList<TaskGroupDefinition> getGroups() {
         return groups;
     }
 
-    public void setGroups(final List<TaskGroupDefinition> groups) {
+    public void setGroups(final ArrayList<TaskGroupDefinition> groups) {
         this.groups = groups;
     }
 
@@ -199,11 +198,11 @@ public class TaskDefinition {
         this.id = id;
     }
 
-    public List<TaskInputDefinition> getInputs() {
+    public ArrayList<TaskInputDefinition> getInputs() {
         return inputs;
     }
 
-    public void setInputs(final List<TaskInputDefinition> inputs) {
+    public void setInputs(final ArrayList<TaskInputDefinition> inputs) {
         this.inputs = inputs;
     }
 
@@ -255,11 +254,11 @@ public class TaskDefinition {
         this.serverOwned = serverOwned;
     }
 
-    public List<TaskSourceDefinition> getSourceDefinitions() {
+    public ArrayList<TaskSourceDefinition> getSourceDefinitions() {
         return sourceDefinitions;
     }
 
-    public void setSourceDefinitions(final List<TaskSourceDefinition> sourceDefinitions) {
+    public void setSourceDefinitions(final ArrayList<TaskSourceDefinition> sourceDefinitions) {
         this.sourceDefinitions = sourceDefinitions;
     }
 
@@ -279,13 +278,11 @@ public class TaskDefinition {
         this.version = version;
     }
 
-    @JsonProperty("visibility")
-    public List<String> getVisibilities() {
+    public ArrayList<String> getVisibility() {
         return visibility;
     }
 
-    @JsonProperty("visibility")
-    public void setVisibilities(final List<String> visibility) {
+    public void setVisibility(final ArrayList<String> visibility) {
         this.visibility = visibility;
     }
 }

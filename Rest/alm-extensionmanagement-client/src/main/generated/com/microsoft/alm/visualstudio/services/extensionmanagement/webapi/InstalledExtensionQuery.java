@@ -15,29 +15,29 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.ExtensionIdentifier;
 
 /** 
  */
 public class InstalledExtensionQuery {
 
-    private List<String> assetTypes;
-    private List<ExtensionIdentifier> monikers;
+    private ArrayList<String> assetTypes;
+    private ArrayList<ExtensionIdentifier> monikers;
 
-    public List<String> getAssetTypes() {
+    public ArrayList<String> getAssetTypes() {
         return assetTypes;
     }
 
-    public void setAssetTypes(final List<String> assetTypes) {
+    public void setAssetTypes(final ArrayList<String> assetTypes) {
         this.assetTypes = assetTypes;
     }
 
-    public List<ExtensionIdentifier> getMonikers() {
+    public ArrayList<ExtensionIdentifier> getMonikers() {
         return monikers;
     }
 
-    public void setMonikers(final List<ExtensionIdentifier> monikers) {
+    public void setMonikers(final ArrayList<ExtensionIdentifier> monikers) {
         this.monikers = monikers;
     }
 }

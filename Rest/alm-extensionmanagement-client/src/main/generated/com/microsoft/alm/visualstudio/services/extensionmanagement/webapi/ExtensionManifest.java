@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
@@ -31,15 +31,15 @@ public class ExtensionManifest {
     /**
     * List of contributions made by this extension
     */
-    private List<Contribution> contributions;
+    private ArrayList<Contribution> contributions;
     /**
     * List of contribution types defined by this extension
     */
-    private List<ContributionType> contributionTypes;
+    private ArrayList<ContributionType> contributionTypes;
     /**
     * List of explicit demands required by this extension
     */
-    private List<String> demands;
+    private ArrayList<String> demands;
     /**
     * Collection of endpoints that get called when particular extension events occur
     */
@@ -55,7 +55,7 @@ public class ExtensionManifest {
     /**
     * List of all oauth scopes required by this extension
     */
-    private List<String> scopes;
+    private ArrayList<String> scopes;
     /**
     * The ServiceInstanceType(Guid) of the VSTS service that must be available to an account in order for the extension to be installed
     */
@@ -78,42 +78,42 @@ public class ExtensionManifest {
     /**
     * List of contributions made by this extension
     */
-    public List<Contribution> getContributions() {
+    public ArrayList<Contribution> getContributions() {
         return contributions;
     }
 
     /**
     * List of contributions made by this extension
     */
-    public void setContributions(final List<Contribution> contributions) {
+    public void setContributions(final ArrayList<Contribution> contributions) {
         this.contributions = contributions;
     }
 
     /**
     * List of contribution types defined by this extension
     */
-    public List<ContributionType> getContributionTypes() {
+    public ArrayList<ContributionType> getContributionTypes() {
         return contributionTypes;
     }
 
     /**
     * List of contribution types defined by this extension
     */
-    public void setContributionTypes(final List<ContributionType> contributionTypes) {
+    public void setContributionTypes(final ArrayList<ContributionType> contributionTypes) {
         this.contributionTypes = contributionTypes;
     }
 
     /**
     * List of explicit demands required by this extension
     */
-    public List<String> getDemands() {
+    public ArrayList<String> getDemands() {
         return demands;
     }
 
     /**
     * List of explicit demands required by this extension
     */
-    public void setDemands(final List<String> demands) {
+    public void setDemands(final ArrayList<String> demands) {
         this.demands = demands;
     }
 
@@ -162,14 +162,14 @@ public class ExtensionManifest {
     /**
     * List of all oauth scopes required by this extension
     */
-    public List<String> getScopes() {
+    public ArrayList<String> getScopes() {
         return scopes;
     }
 
     /**
     * List of all oauth scopes required by this extension
     */
-    public void setScopes(final List<String> scopes) {
+    public void setScopes(final ArrayList<String> scopes) {
         this.scopes = scopes;
     }
 

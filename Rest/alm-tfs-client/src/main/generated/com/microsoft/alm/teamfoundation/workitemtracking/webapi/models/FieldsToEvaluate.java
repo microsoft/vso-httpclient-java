@@ -15,47 +15,47 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /** 
  */
 public class FieldsToEvaluate {
 
-    private List<String> fields;
-    private Map<String, Object> fieldUpdates;
-    private Map<String, Object> fieldValues;
-    private List<String> rulesFrom;
+    private ArrayList<String> fields;
+    private HashMap<String, Object> fieldUpdates;
+    private HashMap<String, Object> fieldValues;
+    private ArrayList<String> rulesFrom;
 
-    public List<String> getFields() {
+    public ArrayList<String> getFields() {
         return fields;
     }
 
-    public void setFields(final List<String> fields) {
+    public void setFields(final ArrayList<String> fields) {
         this.fields = fields;
     }
 
-    public Map<String, Object> getFieldUpdates() {
+    public HashMap<String, Object> getFieldUpdates() {
         return fieldUpdates;
     }
 
-    public void setFieldUpdates(final Map<String, Object> fieldUpdates) {
+    public void setFieldUpdates(final HashMap<String, Object> fieldUpdates) {
         this.fieldUpdates = fieldUpdates;
     }
 
-    public Map<String, Object> getFieldValues() {
+    public HashMap<String, Object> getFieldValues() {
         return fieldValues;
     }
 
-    public void setFieldValues(final Map<String, Object> fieldValues) {
+    public void setFieldValues(final HashMap<String, Object> fieldValues) {
         this.fieldValues = fieldValues;
     }
 
-    public List<String> getRulesFrom() {
+    public ArrayList<String> getRulesFrom() {
         return rulesFrom;
     }
 
-    public void setRulesFrom(final List<String> rulesFrom) {
+    public void setRulesFrom(final ArrayList<String> rulesFrom) {
         this.rulesFrom = rulesFrom;
     }
 }

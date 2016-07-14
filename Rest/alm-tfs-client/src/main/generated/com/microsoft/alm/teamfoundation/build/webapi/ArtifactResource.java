@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
@@ -35,7 +35,7 @@ public class ArtifactResource {
     /**
     * Properties of Artifact Resource
     */
-    private Map<String, String> properties;
+    private HashMap<String, String> properties;
     /**
     * The type of the resource: File container, version control folder, UNC path, etc.
     */
@@ -86,14 +86,14 @@ public class ArtifactResource {
     /**
     * Properties of Artifact Resource
     */
-    public Map<String, String> getProperties() {
+    public HashMap<String, String> getProperties() {
         return properties;
     }
 
     /**
     * Properties of Artifact Resource
     */
-    public void setProperties(final Map<String, String> properties) {
+    public void setProperties(final HashMap<String, String> properties) {
         this.properties = properties;
     }
 

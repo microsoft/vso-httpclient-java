@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
 public class SendJobResponse {
 
     private JobEventsConfig events;
-    private Map<String, String> variables;
+    private HashMap<String, String> variables;
 
     public JobEventsConfig getEvents() {
         return events;
@@ -32,11 +32,11 @@ public class SendJobResponse {
         this.events = events;
     }
 
-    public Map<String, String> getVariables() {
+    public HashMap<String, String> getVariables() {
         return variables;
     }
 
-    public void setVariables(final Map<String, String> variables) {
+    public void setVariables(final HashMap<String, String> variables) {
         this.variables = variables;
     }
 }

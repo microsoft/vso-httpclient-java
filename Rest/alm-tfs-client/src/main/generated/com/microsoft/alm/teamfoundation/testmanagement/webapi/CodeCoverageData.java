@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * Represents the build configuration (platform, flavor) and coverage data for the build
@@ -34,7 +34,7 @@ public class CodeCoverageData {
     /**
     * List of coverage data for the build
     */
-    private List<CodeCoverageStatistics> coverageStats;
+    private ArrayList<CodeCoverageStatistics> coverageStats;
 
     /**
     * Flavor of build for which data is retrieved/published
@@ -67,14 +67,14 @@ public class CodeCoverageData {
     /**
     * List of coverage data for the build
     */
-    public List<CodeCoverageStatistics> getCoverageStats() {
+    public ArrayList<CodeCoverageStatistics> getCoverageStats() {
         return coverageStats;
     }
 
     /**
     * List of coverage data for the build
     */
-    public void setCoverageStats(final List<CodeCoverageStatistics> coverageStats) {
+    public void setCoverageStats(final ArrayList<CodeCoverageStatistics> coverageStats) {
         this.coverageStats = coverageStats;
     }
 }

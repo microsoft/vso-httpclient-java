@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */

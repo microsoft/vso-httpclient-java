@@ -17,7 +17,7 @@ package com.microsoft.alm.teamfoundation.policy.webapi;
 
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.microsoft.alm.client.json.JObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
@@ -32,7 +32,7 @@ public class PolicyConfiguration
     private boolean isBlocking;
     private boolean isDeleted;
     private boolean isEnabled;
-    private JObject settings;
+    private ObjectNode settings;
 
     @JsonProperty("_links")
     public ReferenceLinks getLinks() {
@@ -90,11 +90,11 @@ public class PolicyConfiguration
         this.isEnabled = isEnabled;
     }
 
-    public JObject getSettings() {
+    public ObjectNode getSettings() {
         return settings;
     }
 
-    public void setSettings(final JObject settings) {
+    public void setSettings(final ObjectNode settings) {
         this.settings = settings;
     }
 }

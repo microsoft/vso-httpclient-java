@@ -15,32 +15,32 @@
 
 package com.microsoft.alm.visualstudio.services.identity;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
  */
 public class IdentityBatchInfo {
 
-    private List<IdentityDescriptor> descriptors;
-    private List<UUID> identityIds;
+    private ArrayList<IdentityDescriptor> descriptors;
+    private ArrayList<UUID> identityIds;
     private boolean includeRestrictedVisibility;
-    private List<String> propertyNames;
+    private ArrayList<String> propertyNames;
     private QueryMembership queryMembership;
 
-    public List<IdentityDescriptor> getDescriptors() {
+    public ArrayList<IdentityDescriptor> getDescriptors() {
         return descriptors;
     }
 
-    public void setDescriptors(final List<IdentityDescriptor> descriptors) {
+    public void setDescriptors(final ArrayList<IdentityDescriptor> descriptors) {
         this.descriptors = descriptors;
     }
 
-    public List<UUID> getIdentityIds() {
+    public ArrayList<UUID> getIdentityIds() {
         return identityIds;
     }
 
-    public void setIdentityIds(final List<UUID> identityIds) {
+    public void setIdentityIds(final ArrayList<UUID> identityIds) {
         this.identityIds = identityIds;
     }
 
@@ -52,11 +52,11 @@ public class IdentityBatchInfo {
         this.includeRestrictedVisibility = includeRestrictedVisibility;
     }
 
-    public List<String> getPropertyNames() {
+    public ArrayList<String> getPropertyNames() {
         return propertyNames;
     }
 
-    public void setPropertyNames(final List<String> propertyNames) {
+    public void setPropertyNames(final ArrayList<String> propertyNames) {
         this.propertyNames = propertyNames;
     }
 

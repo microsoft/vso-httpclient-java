@@ -15,38 +15,38 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /** 
  */
 public class TestIterationDetailsModel {
 
-    private List<TestActionResultModel> actionResults;
-    private List<TestCaseResultAttachmentModel> attachments;
+    private ArrayList<TestActionResultModel> actionResults;
+    private ArrayList<TestCaseResultAttachmentModel> attachments;
     private String comment;
     private Date completedDate;
     private double durationInMs;
     private String errorMessage;
     private int id;
     private String outcome;
-    private List<TestResultParameterModel> parameters;
+    private ArrayList<TestResultParameterModel> parameters;
     private Date startedDate;
     private String url;
 
-    public List<TestActionResultModel> getActionResults() {
+    public ArrayList<TestActionResultModel> getActionResults() {
         return actionResults;
     }
 
-    public void setActionResults(final List<TestActionResultModel> actionResults) {
+    public void setActionResults(final ArrayList<TestActionResultModel> actionResults) {
         this.actionResults = actionResults;
     }
 
-    public List<TestCaseResultAttachmentModel> getAttachments() {
+    public ArrayList<TestCaseResultAttachmentModel> getAttachments() {
         return attachments;
     }
 
-    public void setAttachments(final List<TestCaseResultAttachmentModel> attachments) {
+    public void setAttachments(final ArrayList<TestCaseResultAttachmentModel> attachments) {
         this.attachments = attachments;
     }
 
@@ -98,11 +98,11 @@ public class TestIterationDetailsModel {
         this.outcome = outcome;
     }
 
-    public List<TestResultParameterModel> getParameters() {
+    public ArrayList<TestResultParameterModel> getParameters() {
         return parameters;
     }
 
-    public void setParameters(final List<TestResultParameterModel> parameters) {
+    public void setParameters(final ArrayList<TestResultParameterModel> parameters) {
         this.parameters = parameters;
     }
 

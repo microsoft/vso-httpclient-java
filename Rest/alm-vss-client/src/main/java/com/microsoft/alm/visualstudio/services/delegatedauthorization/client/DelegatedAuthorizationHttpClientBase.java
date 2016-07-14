@@ -139,8 +139,6 @@ public abstract class DelegatedAuthorizationHttpClientBase
      * @param authorizationId 
      *            
      * @param isPublic 
-     *            
-     * @return void
      */
     public void revokeSessionToken(
         final UUID authorizationId, 

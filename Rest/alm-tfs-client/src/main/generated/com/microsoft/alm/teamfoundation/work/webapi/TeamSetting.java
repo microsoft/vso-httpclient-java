@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.Map;
-import com.system.DayOfWeek;
+import java.util.HashMap;
+import com.microsoft.alm.client.model.DayOfWeek;
 
 /** 
  * Data contract for TeamSettings
@@ -32,7 +32,7 @@ public class TeamSetting
     /**
     * Information about categories that are visible on the backlog.
     */
-    private Map<String, Boolean> backlogVisibilities;
+    private HashMap<String, Boolean> backlogVisibilities;
     /**
     * BugsBehavior (Off, AsTasks, AsRequirements, ...)
     */
@@ -67,14 +67,14 @@ public class TeamSetting
     /**
     * Information about categories that are visible on the backlog.
     */
-    public Map<String, Boolean> getBacklogVisibilities() {
+    public HashMap<String, Boolean> getBacklogVisibilities() {
         return backlogVisibilities;
     }
 
     /**
     * Information about categories that are visible on the backlog.
     */
-    public void setBacklogVisibilities(final Map<String, Boolean> backlogVisibilities) {
+    public void setBacklogVisibilities(final HashMap<String, Boolean> backlogVisibilities) {
         this.backlogVisibilities = backlogVisibilities;
     }
 

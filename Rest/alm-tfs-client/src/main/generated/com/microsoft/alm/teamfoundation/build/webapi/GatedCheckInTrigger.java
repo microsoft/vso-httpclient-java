@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.JsonDeserializer;
@@ -28,15 +28,15 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 public class GatedCheckInTrigger
     extends BuildTrigger {
 
-    private List<String> pathFilters;
+    private ArrayList<String> pathFilters;
     private boolean runContinuousIntegration;
     private boolean useWorkspaceMappings;
 
-    public List<String> getPathFilters() {
+    public ArrayList<String> getPathFilters() {
         return pathFilters;
     }
 
-    public void setPathFilters(final List<String> pathFilters) {
+    public void setPathFilters(final ArrayList<String> pathFilters) {
         this.pathFilters = pathFilters;
     }
 

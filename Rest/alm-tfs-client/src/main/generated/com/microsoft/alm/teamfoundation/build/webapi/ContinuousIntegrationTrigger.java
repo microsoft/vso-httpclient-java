@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -30,9 +30,9 @@ public class ContinuousIntegrationTrigger
     extends BuildTrigger {
 
     private boolean batchChanges;
-    private List<String> branchFilters;
+    private ArrayList<String> branchFilters;
     private int maxConcurrentBuildsPerBranch;
-    private List<String> pathFilters;
+    private ArrayList<String> pathFilters;
     /**
     * The polling interval in seconds.
     */
@@ -50,11 +50,11 @@ public class ContinuousIntegrationTrigger
         this.batchChanges = batchChanges;
     }
 
-    public List<String> getBranchFilters() {
+    public ArrayList<String> getBranchFilters() {
         return branchFilters;
     }
 
-    public void setBranchFilters(final List<String> branchFilters) {
+    public void setBranchFilters(final ArrayList<String> branchFilters) {
         this.branchFilters = branchFilters;
     }
 
@@ -66,11 +66,11 @@ public class ContinuousIntegrationTrigger
         this.maxConcurrentBuildsPerBranch = maxConcurrentBuildsPerBranch;
     }
 
-    public List<String> getPathFilters() {
+    public ArrayList<String> getPathFilters() {
         return pathFilters;
     }
 
-    public void setPathFilters(final List<String> pathFilters) {
+    public void setPathFilters(final ArrayList<String> pathFilters) {
         this.pathFilters = pathFilters;
     }
 

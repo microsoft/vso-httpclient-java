@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.security;
 
-import java.util.Map;
+import java.util.HashMap;
 import com.microsoft.alm.visualstudio.services.identity.IdentityDescriptor;
 
 /** 
@@ -27,7 +27,7 @@ public class AccessControlList {
     /**
     * Storage of permissions keyed on the identity the permission is for.
     */
-    private Map<IdentityDescriptor, AccessControlEntry> acesDictionary;
+    private HashMap<IdentityDescriptor, AccessControlEntry> acesDictionary;
     /**
     * True if this ACL holds ACEs that have extended information.
     */
@@ -44,14 +44,14 @@ public class AccessControlList {
     /**
     * Storage of permissions keyed on the identity the permission is for.
     */
-    public Map<IdentityDescriptor, AccessControlEntry> getAcesDictionary() {
+    public HashMap<IdentityDescriptor, AccessControlEntry> getAcesDictionary() {
         return acesDictionary;
     }
 
     /**
     * Storage of permissions keyed on the identity the permission is for.
     */
-    public void setAcesDictionary(final Map<IdentityDescriptor, AccessControlEntry> acesDictionary) {
+    public void setAcesDictionary(final HashMap<IdentityDescriptor, AccessControlEntry> acesDictionary) {
         this.acesDictionary = acesDictionary;
     }
 

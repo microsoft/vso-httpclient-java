@@ -17,7 +17,6 @@ package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
 import java.util.Date;
 import java.util.UUID;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.teamfoundation.core.webapi.TeamProjectReference;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
@@ -72,13 +71,11 @@ public class GitDeletedRepository {
         this.name = name;
     }
 
-    @JsonProperty("project")
-    public TeamProjectReference getProjectReference() {
+    public TeamProjectReference getProject() {
         return project;
     }
 
-    @JsonProperty("project")
-    public void setProjectReference(final TeamProjectReference project) {
+    public void setProject(final TeamProjectReference project) {
         this.project = project;
     }
 }

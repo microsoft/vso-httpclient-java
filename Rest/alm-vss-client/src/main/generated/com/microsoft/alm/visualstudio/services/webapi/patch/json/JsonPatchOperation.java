@@ -15,7 +15,6 @@
 
 package com.microsoft.alm.visualstudio.services.webapi.patch.json;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.patch.Operation;
 
 /** 
@@ -58,16 +57,14 @@ public class JsonPatchOperation {
     /**
     * The patch operation
     */
-    @JsonProperty("op")
-    public Operation getOperation() {
+    public Operation getOp() {
         return op;
     }
 
     /**
     * The patch operation
     */
-    @JsonProperty("op")
-    public void setOperation(final Operation op) {
+    public void setOp(final Operation op) {
         this.op = op;
     }
 

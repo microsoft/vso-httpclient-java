@@ -15,20 +15,20 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class WorkItemToTestLinks {
 
-    private List<TestMethod> tests;
+    private ArrayList<TestMethod> tests;
     private WorkItemReference workItem;
 
-    public List<TestMethod> getTests() {
+    public ArrayList<TestMethod> getTests() {
         return tests;
     }
 
-    public void setTests(final List<TestMethod> tests) {
+    public void setTests(final ArrayList<TestMethod> tests) {
         this.tests = tests;
     }
 

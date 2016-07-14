@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class GitCommitChanges {
 
     private ChangeCountDictionary changeCounts;
-    private List<GitChange> changes;
+    private ArrayList<GitChange> changes;
 
     public ChangeCountDictionary getChangeCounts() {
         return changeCounts;
@@ -32,11 +32,11 @@ public class GitCommitChanges {
         this.changeCounts = changeCounts;
     }
 
-    public List<GitChange> getChanges() {
+    public ArrayList<GitChange> getChanges() {
         return changes;
     }
 
-    public void setChanges(final List<GitChange> changes) {
+    public void setChanges(final ArrayList<GitChange> changes) {
         this.changes = changes;
     }
 }

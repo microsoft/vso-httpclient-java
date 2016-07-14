@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */

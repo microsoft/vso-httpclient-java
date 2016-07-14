@@ -15,22 +15,22 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
 public class Link {
 
-    private Map<String, Object> attributes;
+    private HashMap<String, Object> attributes;
     private String rel;
     private String title;
     private String url;
 
-    public Map<String, Object> getAttributes() {
+    public HashMap<String, Object> getAttributes() {
         return attributes;
     }
 
-    public void setAttributes(final Map<String, Object> attributes) {
+    public void setAttributes(final HashMap<String, Object> attributes) {
         this.attributes = attributes;
     }
 

@@ -15,20 +15,20 @@
 
 package com.microsoft.alm.visualstudio.services.security.client;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.visualstudio.services.security.TokenRename;
 
 /** 
  */
 public class RenameTokensRequest {
 
-    private List<TokenRename> renames;
+    private ArrayList<TokenRename> renames;
 
-    public List<TokenRename> getRenames() {
+    public ArrayList<TokenRename> getRenames() {
         return renames;
     }
 
-    public void setRenames(final List<TokenRename> renames) {
+    public void setRenames(final ArrayList<TokenRename> renames) {
         this.renames = renames;
     }
 }

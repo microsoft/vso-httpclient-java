@@ -16,7 +16,7 @@
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
 import java.net.URI;
-import java.util.Map;
+import java.util.HashMap;
 import java.util.UUID;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
@@ -35,7 +35,7 @@ public class ServiceEndpoint {
     * The Gets or sets Identity reference for the user who created the Service endpoint
     */
     private IdentityRef createdBy;
-    private Map<String, String> data;
+    private HashMap<String, String> data;
     /**
     * Gets or Sets description of endpoint
     */
@@ -95,11 +95,11 @@ public class ServiceEndpoint {
         this.createdBy = createdBy;
     }
 
-    public Map<String, String> getData() {
+    public HashMap<String, String> getData() {
         return data;
     }
 
-    public void setData(final Map<String, String> data) {
+    public void setData(final HashMap<String, String> data) {
         this.data = data;
     }
 

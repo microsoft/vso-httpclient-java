@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.JsonDeserializer;
@@ -28,13 +28,13 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 public class ScheduleTrigger
     extends BuildTrigger {
 
-    private List<Schedule> schedules;
+    private ArrayList<Schedule> schedules;
 
-    public List<Schedule> getSchedules() {
+    public ArrayList<Schedule> getSchedules() {
         return schedules;
     }
 
-    public void setSchedules(final List<Schedule> schedules) {
+    public void setSchedules(final ArrayList<Schedule> schedules) {
         this.schedules = schedules;
     }
 }

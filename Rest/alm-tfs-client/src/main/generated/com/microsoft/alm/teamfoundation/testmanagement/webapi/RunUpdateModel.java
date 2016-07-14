@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -32,7 +32,7 @@ public class RunUpdateModel {
     private String dueDate;
     private String errorMessage;
     private String iteration;
-    private List<TestMessageLogDetails> logEntries;
+    private ArrayList<TestMessageLogDetails> logEntries;
     private String name;
     private String startedDate;
     private String state;
@@ -128,11 +128,11 @@ public class RunUpdateModel {
         this.iteration = iteration;
     }
 
-    public List<TestMessageLogDetails> getLogEntries() {
+    public ArrayList<TestMessageLogDetails> getLogEntries() {
         return logEntries;
     }
 
-    public void setLogEntries(final List<TestMessageLogDetails> logEntries) {
+    public void setLogEntries(final ArrayList<TestMessageLogDetails> logEntries) {
         this.logEntries = logEntries;
     }
 

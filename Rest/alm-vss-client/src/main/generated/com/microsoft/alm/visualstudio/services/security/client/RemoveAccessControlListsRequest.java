@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.visualstudio.services.security.client;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class RemoveAccessControlListsRequest {
 
     private boolean recurse;
-    private List<String> tokens;
+    private ArrayList<String> tokens;
 
     public boolean getRecurse() {
         return recurse;
@@ -32,11 +32,11 @@ public class RemoveAccessControlListsRequest {
         this.recurse = recurse;
     }
 
-    public List<String> getTokens() {
+    public ArrayList<String> getTokens() {
         return tokens;
     }
 
-    public void setTokens(final List<String> tokens) {
+    public void setTokens(final ArrayList<String> tokens) {
         this.tokens = tokens;
     }
 }

@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 /** 
@@ -26,7 +26,7 @@ public class Timeline
 
     private UUID lastChangedBy;
     private Date lastChangedOn;
-    private List<TimelineRecord> records;
+    private ArrayList<TimelineRecord> records;
 
     public UUID getLastChangedBy() {
         return lastChangedBy;
@@ -44,11 +44,11 @@ public class Timeline
         this.lastChangedOn = lastChangedOn;
     }
 
-    public List<TimelineRecord> getRecords() {
+    public ArrayList<TimelineRecord> getRecords() {
         return records;
     }
 
-    public void setRecords(final List<TimelineRecord> records) {
+    public void setRecords(final ArrayList<TimelineRecord> records) {
         this.records = records;
     }
 }

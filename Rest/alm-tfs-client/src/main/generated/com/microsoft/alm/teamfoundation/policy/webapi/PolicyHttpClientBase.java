@@ -16,6 +16,7 @@
 package com.microsoft.alm.teamfoundation.policy.webapi;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -251,9 +252,9 @@ public abstract class PolicyHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;PolicyConfiguration&gt;
+     * @return ArrayList&lt;PolicyConfiguration&gt;
      */
-    public List<PolicyConfiguration> getPolicyConfigurations(final String project) { 
+    public ArrayList<PolicyConfiguration> getPolicyConfigurations(final String project) { 
 
         final UUID locationId = UUID.fromString("dad91cbe-d183-45f8-9c6e-9c1164472121"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -267,7 +268,7 @@ public abstract class PolicyHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<PolicyConfiguration>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<PolicyConfiguration>>() {});
     }
 
     /** 
@@ -275,9 +276,9 @@ public abstract class PolicyHttpClientBase
      * 
      * @param project 
      *            Project ID
-     * @return List&lt;PolicyConfiguration&gt;
+     * @return ArrayList&lt;PolicyConfiguration&gt;
      */
-    public List<PolicyConfiguration> getPolicyConfigurations(final UUID project) { 
+    public ArrayList<PolicyConfiguration> getPolicyConfigurations(final UUID project) { 
 
         final UUID locationId = UUID.fromString("dad91cbe-d183-45f8-9c6e-9c1164472121"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -291,7 +292,7 @@ public abstract class PolicyHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<PolicyConfiguration>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<PolicyConfiguration>>() {});
     }
 
     /** 
@@ -491,9 +492,9 @@ public abstract class PolicyHttpClientBase
      *            
      * @param skip 
      *            
-     * @return List&lt;PolicyEvaluationRecord&gt;
+     * @return ArrayList&lt;PolicyEvaluationRecord&gt;
      */
-    public List<PolicyEvaluationRecord> getPolicyEvaluations(
+    public ArrayList<PolicyEvaluationRecord> getPolicyEvaluations(
         final String project, 
         final String artifactId, 
         final Boolean includeNotApplicable, 
@@ -519,7 +520,7 @@ public abstract class PolicyHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<PolicyEvaluationRecord>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<PolicyEvaluationRecord>>() {});
     }
 
     /** 
@@ -535,9 +536,9 @@ public abstract class PolicyHttpClientBase
      *            
      * @param skip 
      *            
-     * @return List&lt;PolicyEvaluationRecord&gt;
+     * @return ArrayList&lt;PolicyEvaluationRecord&gt;
      */
-    public List<PolicyEvaluationRecord> getPolicyEvaluations(
+    public ArrayList<PolicyEvaluationRecord> getPolicyEvaluations(
         final UUID project, 
         final String artifactId, 
         final Boolean includeNotApplicable, 
@@ -563,7 +564,7 @@ public abstract class PolicyHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<PolicyEvaluationRecord>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<PolicyEvaluationRecord>>() {});
     }
 
     /** 
@@ -643,9 +644,9 @@ public abstract class PolicyHttpClientBase
      *            
      * @param skip 
      *            
-     * @return List&lt;PolicyConfiguration&gt;
+     * @return ArrayList&lt;PolicyConfiguration&gt;
      */
-    public List<PolicyConfiguration> getPolicyConfigurationRevisions(
+    public ArrayList<PolicyConfiguration> getPolicyConfigurationRevisions(
         final String project, 
         final int configurationId, 
         final Integer top, 
@@ -669,7 +670,7 @@ public abstract class PolicyHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<PolicyConfiguration>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<PolicyConfiguration>>() {});
     }
 
     /** 
@@ -683,9 +684,9 @@ public abstract class PolicyHttpClientBase
      *            
      * @param skip 
      *            
-     * @return List&lt;PolicyConfiguration&gt;
+     * @return ArrayList&lt;PolicyConfiguration&gt;
      */
-    public List<PolicyConfiguration> getPolicyConfigurationRevisions(
+    public ArrayList<PolicyConfiguration> getPolicyConfigurationRevisions(
         final UUID project, 
         final int configurationId, 
         final Integer top, 
@@ -709,7 +710,7 @@ public abstract class PolicyHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<PolicyConfiguration>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<PolicyConfiguration>>() {});
     }
 
     /** 
@@ -775,9 +776,9 @@ public abstract class PolicyHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;PolicyType&gt;
+     * @return ArrayList&lt;PolicyType&gt;
      */
-    public List<PolicyType> getPolicyTypes(final String project) { 
+    public ArrayList<PolicyType> getPolicyTypes(final String project) { 
 
         final UUID locationId = UUID.fromString("44096322-2d3d-466a-bb30-d1b7de69f61f"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -791,7 +792,7 @@ public abstract class PolicyHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<PolicyType>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<PolicyType>>() {});
     }
 
     /** 
@@ -799,9 +800,9 @@ public abstract class PolicyHttpClientBase
      * 
      * @param project 
      *            Project ID
-     * @return List&lt;PolicyType&gt;
+     * @return ArrayList&lt;PolicyType&gt;
      */
-    public List<PolicyType> getPolicyTypes(final UUID project) { 
+    public ArrayList<PolicyType> getPolicyTypes(final UUID project) { 
 
         final UUID locationId = UUID.fromString("44096322-2d3d-466a-bb30-d1b7de69f61f"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -815,6 +816,6 @@ public abstract class PolicyHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<PolicyType>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<PolicyType>>() {});
     }
 }

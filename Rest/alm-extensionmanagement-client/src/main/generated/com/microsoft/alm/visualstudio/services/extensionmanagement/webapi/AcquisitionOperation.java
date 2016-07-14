@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -36,7 +36,7 @@ public class AcquisitionOperation {
     /**
     * List of reasons indicating why the operation is not allowed.
     */
-    private List<AcquisitionOperationDisallowReason> reasons;
+    private ArrayList<AcquisitionOperationDisallowReason> reasons;
 
     /**
     * State of the the AcquisitionOperation for the current user
@@ -83,14 +83,14 @@ public class AcquisitionOperation {
     /**
     * List of reasons indicating why the operation is not allowed.
     */
-    public List<AcquisitionOperationDisallowReason> getReasons() {
+    public ArrayList<AcquisitionOperationDisallowReason> getReasons() {
         return reasons;
     }
 
     /**
     * List of reasons indicating why the operation is not allowed.
     */
-    public void setReasons(final List<AcquisitionOperationDisallowReason> reasons) {
+    public void setReasons(final ArrayList<AcquisitionOperationDisallowReason> reasons) {
         this.reasons = reasons;
     }
 }

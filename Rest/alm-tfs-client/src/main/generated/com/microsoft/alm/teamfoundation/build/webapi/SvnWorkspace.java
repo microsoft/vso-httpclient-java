@@ -15,19 +15,19 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class SvnWorkspace {
 
-    private List<SvnMappingDetails> mappings;
+    private ArrayList<SvnMappingDetails> mappings;
 
-    public List<SvnMappingDetails> getMappings() {
+    public ArrayList<SvnMappingDetails> getMappings() {
         return mappings;
     }
 
-    public void setMappings(final List<SvnMappingDetails> mappings) {
+    public void setMappings(final ArrayList<SvnMappingDetails> mappings) {
         this.mappings = mappings;
     }
 }

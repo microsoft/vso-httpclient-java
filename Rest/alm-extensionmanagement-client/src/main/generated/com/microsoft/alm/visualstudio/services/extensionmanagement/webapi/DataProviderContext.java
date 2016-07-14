@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  * Contextual information that data providers can examine when populating their data
@@ -26,19 +26,19 @@ public class DataProviderContext {
     /**
     * Generic property bag that contains context-specific properties that data providers can use when populating their data dictionary
     */
-    private Map<String, Object> properties;
+    private HashMap<String, Object> properties;
 
     /**
     * Generic property bag that contains context-specific properties that data providers can use when populating their data dictionary
     */
-    public Map<String, Object> getProperties() {
+    public HashMap<String, Object> getProperties() {
         return properties;
     }
 
     /**
     * Generic property bag that contains context-specific properties that data providers can use when populating their data dictionary
     */
-    public void setProperties(final Map<String, Object> properties) {
+    public void setProperties(final HashMap<String, Object> properties) {
         this.properties = properties;
     }
 }

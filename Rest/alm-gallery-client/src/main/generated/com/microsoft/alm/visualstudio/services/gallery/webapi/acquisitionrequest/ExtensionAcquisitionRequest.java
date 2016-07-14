@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi.acquisitionrequest;
 
-import java.util.List;
-import com.microsoft.alm.client.json.JObject;
+import java.util.ArrayList;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /** 
  * Contract for handling the extension acquisition process
@@ -43,7 +43,7 @@ public class ExtensionAcquisitionRequest {
     /**
     * Additional properties which can be added to the request.
     */
-    private JObject properties;
+    private ObjectNode properties;
     /**
     * How many licenses should be purchased
     */
@@ -51,7 +51,7 @@ public class ExtensionAcquisitionRequest {
     /**
     * A list of target guids where the item should be acquired (installed, requested, etc.), such as account id
     */
-    private List<String> targets;
+    private ArrayList<String> targets;
 
     /**
     * How the item is being assigned
@@ -112,14 +112,14 @@ public class ExtensionAcquisitionRequest {
     /**
     * Additional properties which can be added to the request.
     */
-    public JObject getProperties() {
+    public ObjectNode getProperties() {
         return properties;
     }
 
     /**
     * Additional properties which can be added to the request.
     */
-    public void setProperties(final JObject properties) {
+    public void setProperties(final ObjectNode properties) {
         this.properties = properties;
     }
 
@@ -140,14 +140,14 @@ public class ExtensionAcquisitionRequest {
     /**
     * A list of target guids where the item should be acquired (installed, requested, etc.), such as account id
     */
-    public List<String> getTargets() {
+    public ArrayList<String> getTargets() {
         return targets;
     }
 
     /**
     * A list of target guids where the item should be acquired (installed, requested, etc.), such as account id
     */
-    public void setTargets(final List<String> targets) {
+    public void setTargets(final ArrayList<String> targets) {
         this.targets = targets;
     }
 }

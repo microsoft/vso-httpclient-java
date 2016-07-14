@@ -16,6 +16,7 @@
 package com.microsoft.alm.teamfoundation.chat.webapi;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -100,9 +101,9 @@ public abstract class ChatHttpClientBase
      * 
      * @param roomId 
      *            Id of the room
-     * @return List&lt;Message&gt;
+     * @return ArrayList&lt;Message&gt;
      */
-    public List<Message> getChatRoomMessages(final int roomId) { 
+    public ArrayList<Message> getChatRoomMessages(final int roomId) { 
 
         final UUID locationId = UUID.fromString("7d11c820-4bdc-4bca-8957-9d74e32cdd20"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -116,7 +117,7 @@ public abstract class ChatHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Message>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Message>>() {});
     }
 
     /** 
@@ -260,9 +261,9 @@ public abstract class ChatHttpClientBase
     /** 
      * [Preview API 3.0-preview.1]
      * 
-     * @return List&lt;Room&gt;
+     * @return ArrayList&lt;Room&gt;
      */
-    public List<Room> getRooms() { 
+    public ArrayList<Room> getRooms() { 
 
         final UUID locationId = UUID.fromString("3d0e7ee0-a6c9-497e-9a2c-23b687e860e2"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -272,7 +273,7 @@ public abstract class ChatHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Room>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Room>>() {});
     }
 
     /** 
@@ -334,9 +335,9 @@ public abstract class ChatHttpClientBase
      * 
      * @param roomId 
      *            Id of the room
-     * @return List&lt;User&gt;
+     * @return ArrayList&lt;User&gt;
      */
-    public List<User> getChatRoomUsers(final int roomId) { 
+    public ArrayList<User> getChatRoomUsers(final int roomId) { 
 
         final UUID locationId = UUID.fromString("01408881-1a9a-4cc9-981d-9333e354e9d9"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -350,7 +351,7 @@ public abstract class ChatHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<User>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<User>>() {});
     }
 
     /** 

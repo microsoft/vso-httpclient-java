@@ -16,12 +16,13 @@
 package com.microsoft.alm.visualstudio.services.identity.client;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.microsoft.alm.client.json.JObject;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.VssHttpClientBase;
 import com.microsoft.alm.visualstudio.services.identity.ChangedIdentities;
@@ -81,9 +82,9 @@ public abstract class IdentityHttpClientBase
      * 
      * @param container 
      *            
-     * @return List&lt;Identity&gt;
+     * @return ArrayList&lt;Identity&gt;
      */
-    public List<Identity> createGroups(final JObject container) { 
+    public ArrayList<Identity> createGroups(final ObjectNode container) { 
 
         final UUID locationId = UUID.fromString("5966283b-4196-4d57-9211-1b68f41ec1c2"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -95,7 +96,7 @@ public abstract class IdentityHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Identity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Identity>>() {});
     }
 
     /** 
@@ -132,9 +133,9 @@ public abstract class IdentityHttpClientBase
      *            
      * @param properties 
      *            
-     * @return List&lt;Identity&gt;
+     * @return ArrayList&lt;Identity&gt;
      */
-    public List<Identity> listGroups(
+    public ArrayList<Identity> listGroups(
         final String scopeIds, 
         final Boolean recurse, 
         final Boolean deleted, 
@@ -155,7 +156,7 @@ public abstract class IdentityHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Identity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Identity>>() {});
     }
 
     /** 
@@ -210,9 +211,9 @@ public abstract class IdentityHttpClientBase
      *            
      * @param options 
      *            
-     * @return List&lt;Identity&gt;
+     * @return ArrayList&lt;Identity&gt;
      */
-    public List<Identity> readIdentities(
+    public ArrayList<Identity> readIdentities(
         final String descriptors, 
         final String identityIds, 
         final String searchFilter, 
@@ -241,7 +242,7 @@ public abstract class IdentityHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Identity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Identity>>() {});
     }
 
     /** 
@@ -253,9 +254,9 @@ public abstract class IdentityHttpClientBase
      *            
      * @param properties 
      *            
-     * @return List&lt;Identity&gt;
+     * @return ArrayList&lt;Identity&gt;
      */
-    public List<Identity> readIdentitiesByScope(
+    public ArrayList<Identity> readIdentitiesByScope(
         final UUID scopeId, 
         final QueryMembership queryMembership, 
         final String properties) { 
@@ -274,7 +275,7 @@ public abstract class IdentityHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Identity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Identity>>() {});
     }
 
     /** 
@@ -318,9 +319,9 @@ public abstract class IdentityHttpClientBase
      * 
      * @param identities 
      *            
-     * @return List&lt;IdentityUpdateData&gt;
+     * @return ArrayList&lt;IdentityUpdateData&gt;
      */
-    public List<IdentityUpdateData> updateIdentities(final VssJsonCollectionWrapper<List<Identity>> identities) { 
+    public ArrayList<IdentityUpdateData> updateIdentities(final VssJsonCollectionWrapper<List<Identity>> identities) { 
 
         final UUID locationId = UUID.fromString("28010c54-d0c0-4c89-a5b0-1c9e188b9fb7"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -332,7 +333,7 @@ public abstract class IdentityHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<IdentityUpdateData>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityUpdateData>>() {});
     }
 
     /** 
@@ -391,9 +392,9 @@ public abstract class IdentityHttpClientBase
      * 
      * @param batchInfo 
      *            
-     * @return List&lt;Identity&gt;
+     * @return ArrayList&lt;Identity&gt;
      */
-    public List<Identity> readIdentityBatch(final IdentityBatchInfo batchInfo) { 
+    public ArrayList<Identity> readIdentityBatch(final IdentityBatchInfo batchInfo) { 
 
         final UUID locationId = UUID.fromString("299e50df-fe45-4d3a-8b5b-a5836fac74dc"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -405,7 +406,7 @@ public abstract class IdentityHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Identity>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Identity>>() {});
     }
 
     /** 
@@ -522,9 +523,9 @@ public abstract class IdentityHttpClientBase
      *            
      * @param queryMembership 
      *            
-     * @return List&lt;IdentityDescriptor&gt;
+     * @return ArrayList&lt;IdentityDescriptor&gt;
      */
-    public List<IdentityDescriptor> readMembers(
+    public ArrayList<IdentityDescriptor> readMembers(
         final String containerId, 
         final QueryMembership queryMembership) { 
 
@@ -544,7 +545,7 @@ public abstract class IdentityHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<IdentityDescriptor>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityDescriptor>>() {});
     }
 
     /** 
@@ -619,9 +620,9 @@ public abstract class IdentityHttpClientBase
      *            
      * @param queryMembership 
      *            
-     * @return List&lt;IdentityDescriptor&gt;
+     * @return ArrayList&lt;IdentityDescriptor&gt;
      */
-    public List<IdentityDescriptor> readMembersOf(
+    public ArrayList<IdentityDescriptor> readMembersOf(
         final String memberId, 
         final QueryMembership queryMembership) { 
 
@@ -641,7 +642,7 @@ public abstract class IdentityHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<IdentityDescriptor>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityDescriptor>>() {});
     }
 
     /** 

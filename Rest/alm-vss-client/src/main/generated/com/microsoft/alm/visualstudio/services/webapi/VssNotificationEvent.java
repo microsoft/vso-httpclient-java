@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  * This is the type used for firing notifications intended for the subsystem in the Notifications SDK. For components that can&#039;t take a dependency on the Notifications SDK directly, they can use ITeamFoundationEventService.PublishNotification and the Notifications SDK ISubscriber implementation will get it.
@@ -26,11 +26,11 @@ public class VssNotificationEvent {
     /**
     * Optional: A list of actors which are additional identities with corresponding roles that are relevant to the event.
     */
-    private List<EventActor> actors;
+    private ArrayList<EventActor> actors;
     /**
     * Optional: A list of artifacts referenced or impacted by this event.
     */
-    private List<String> artifactUris;
+    private ArrayList<String> artifactUris;
     /**
     * Required: The event payload.  If Data is a string, it must be in Json or XML format.  Otherwise it must have a serialization format attribute.
     */
@@ -43,28 +43,28 @@ public class VssNotificationEvent {
     /**
     * Optional: A list of actors which are additional identities with corresponding roles that are relevant to the event.
     */
-    public List<EventActor> getActors() {
+    public ArrayList<EventActor> getActors() {
         return actors;
     }
 
     /**
     * Optional: A list of actors which are additional identities with corresponding roles that are relevant to the event.
     */
-    public void setActors(final List<EventActor> actors) {
+    public void setActors(final ArrayList<EventActor> actors) {
         this.actors = actors;
     }
 
     /**
     * Optional: A list of artifacts referenced or impacted by this event.
     */
-    public List<String> getArtifactUris() {
+    public ArrayList<String> getArtifactUris() {
         return artifactUris;
     }
 
     /**
     * Optional: A list of artifacts referenced or impacted by this event.
     */
-    public void setArtifactUris(final List<String> artifactUris) {
+    public void setArtifactUris(final ArrayList<String> artifactUris) {
         this.artifactUris = artifactUris;
     }
 

@@ -15,26 +15,26 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /** 
  */
 public class TestResultTrendFilter {
 
-    private List<String> branchNames;
+    private ArrayList<String> branchNames;
     private int buildCount;
-    private List<Integer> definitionIds;
+    private ArrayList<Integer> definitionIds;
     private Date maxCompleteDate;
     private String publishContext;
-    private List<String> testRunTitles;
+    private ArrayList<String> testRunTitles;
     private int trendDays;
 
-    public List<String> getBranchNames() {
+    public ArrayList<String> getBranchNames() {
         return branchNames;
     }
 
-    public void setBranchNames(final List<String> branchNames) {
+    public void setBranchNames(final ArrayList<String> branchNames) {
         this.branchNames = branchNames;
     }
 
@@ -46,11 +46,11 @@ public class TestResultTrendFilter {
         this.buildCount = buildCount;
     }
 
-    public List<Integer> getDefinitionIds() {
+    public ArrayList<Integer> getDefinitionIds() {
         return definitionIds;
     }
 
-    public void setDefinitionIds(final List<Integer> definitionIds) {
+    public void setDefinitionIds(final ArrayList<Integer> definitionIds) {
         this.definitionIds = definitionIds;
     }
 
@@ -70,11 +70,11 @@ public class TestResultTrendFilter {
         this.publishContext = publishContext;
     }
 
-    public List<String> getTestRunTitles() {
+    public ArrayList<String> getTestRunTitles() {
         return testRunTitles;
     }
 
-    public void setTestRunTitles(final List<String> testRunTitles) {
+    public void setTestRunTitles(final ArrayList<String> testRunTitles) {
         this.testRunTitles = testRunTitles;
     }
 

@@ -15,20 +15,20 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.Map;
+import java.util.HashMap;
 import com.microsoft.alm.visualstudio.services.forminput.InputValue;
 
 /** 
  */
 public class MappingDetails {
 
-    private Map<String, InputValue> mappings;
+    private HashMap<String, InputValue> mappings;
 
-    public Map<String, InputValue> getMappings() {
+    public HashMap<String, InputValue> getMappings() {
         return mappings;
     }
 
-    public void setMappings(final Map<String, InputValue> mappings) {
+    public void setMappings(final HashMap<String, InputValue> mappings) {
         this.mappings = mappings;
     }
 }

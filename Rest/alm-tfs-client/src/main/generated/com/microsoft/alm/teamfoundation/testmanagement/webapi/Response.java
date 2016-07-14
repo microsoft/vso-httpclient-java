@@ -16,7 +16,6 @@
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
 import java.util.UUID;
-import com.system.net.HttpStatusCode;
 
 /** 
  */
@@ -24,7 +23,7 @@ public class Response {
 
     private String error;
     private UUID id;
-    private HttpStatusCode status;
+    private String status;
     private String url;
 
     public String getError() {
@@ -43,11 +42,11 @@ public class Response {
         this.id = id;
     }
 
-    public HttpStatusCode getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(final HttpStatusCode status) {
+    public void setStatus(final String status) {
         this.status = status;
     }
 

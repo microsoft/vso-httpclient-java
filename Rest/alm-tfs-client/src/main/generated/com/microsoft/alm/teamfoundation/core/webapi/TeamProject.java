@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.core.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
@@ -33,7 +33,7 @@ public class TeamProject
     /**
     * Set of capabilities this project has (such as process template &amp; version control).
     */
-    private Map<String, Map<String, String>> capabilities;
+    private HashMap<String, HashMap<String, String>> capabilities;
     /**
     * The shallow ref to the default team.
     */
@@ -58,14 +58,14 @@ public class TeamProject
     /**
     * Set of capabilities this project has (such as process template &amp;amp; version control).
     */
-    public Map<String, Map<String, String>> getCapabilities() {
+    public HashMap<String, HashMap<String, String>> getCapabilities() {
         return capabilities;
     }
 
     /**
     * Set of capabilities this project has (such as process template &amp;amp; version control).
     */
-    public void setCapabilities(final Map<String, Map<String, String>> capabilities) {
+    public void setCapabilities(final HashMap<String, HashMap<String, String>> capabilities) {
         this.capabilities = capabilities;
     }
 

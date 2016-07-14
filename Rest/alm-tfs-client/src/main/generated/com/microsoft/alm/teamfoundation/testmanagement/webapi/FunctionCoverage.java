@@ -21,20 +21,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class FunctionCoverage {
 
-    private String _class;
+    private String _clazz;
     private String name;
     private String namespace;
     private String sourceFile;
     private CoverageStatistics statistics;
 
     @JsonProperty("class")
-    public String getClass() {
-        return _class;
+    public String getClazz() {
+        return _clazz;
     }
 
     @JsonProperty("class")
-    public void setClass(final String _class) {
-        this._class = _class;
+    public void setClazz(final String _clazz) {
+        this._clazz = _clazz;
     }
 
     public String getName() {

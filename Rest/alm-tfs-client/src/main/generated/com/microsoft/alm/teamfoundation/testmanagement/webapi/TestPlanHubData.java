@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -23,8 +23,8 @@ public class TestPlanHubData {
 
     private int selectedSuiteId;
     private TestPlan testPlan;
-    private List<TestPoint> testPoints;
-    private List<TestSuite> testSuites;
+    private ArrayList<TestPoint> testPoints;
+    private ArrayList<TestSuite> testSuites;
 
     public int getSelectedSuiteId() {
         return selectedSuiteId;
@@ -42,19 +42,19 @@ public class TestPlanHubData {
         this.testPlan = testPlan;
     }
 
-    public List<TestPoint> getTestPoints() {
+    public ArrayList<TestPoint> getTestPoints() {
         return testPoints;
     }
 
-    public void setTestPoints(final List<TestPoint> testPoints) {
+    public void setTestPoints(final ArrayList<TestPoint> testPoints) {
         this.testPoints = testPoints;
     }
 
-    public List<TestSuite> getTestSuites() {
+    public ArrayList<TestSuite> getTestSuites() {
         return testSuites;
     }
 
-    public void setTestSuites(final List<TestSuite> testSuites) {
+    public void setTestSuites(final ArrayList<TestSuite> testSuites) {
         this.testSuites = testSuites;
     }
 }

@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.security.client;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.visualstudio.services.security.AccessControlEntry;
 import com.microsoft.alm.visualstudio.services.security.AccessControlList;
 
@@ -23,23 +23,23 @@ import com.microsoft.alm.visualstudio.services.security.AccessControlList;
  */
 public class SetAccessControlListsRequest {
 
-    private List<AccessControlEntry> accessControlEntries;
-    private List<AccessControlList> accessControlLists;
+    private ArrayList<AccessControlEntry> accessControlEntries;
+    private ArrayList<AccessControlList> accessControlLists;
     private boolean throwOnInvalidIdentity;
 
-    public List<AccessControlEntry> getAccessControlEntries() {
+    public ArrayList<AccessControlEntry> getAccessControlEntries() {
         return accessControlEntries;
     }
 
-    public void setAccessControlEntries(final List<AccessControlEntry> accessControlEntries) {
+    public void setAccessControlEntries(final ArrayList<AccessControlEntry> accessControlEntries) {
         this.accessControlEntries = accessControlEntries;
     }
 
-    public List<AccessControlList> getAccessControlLists() {
+    public ArrayList<AccessControlList> getAccessControlLists() {
         return accessControlLists;
     }
 
-    public void setAccessControlLists(final List<AccessControlList> accessControlLists) {
+    public void setAccessControlLists(final ArrayList<AccessControlList> accessControlLists) {
         this.accessControlLists = accessControlLists;
     }
 

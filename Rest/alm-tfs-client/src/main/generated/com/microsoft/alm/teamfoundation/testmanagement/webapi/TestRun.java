@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
@@ -30,7 +30,7 @@ public class TestRun {
     private Date completedDate;
     private String controller;
     private Date createdDate;
-    private List<CustomTestField> customFields;
+    private ArrayList<CustomTestField> customFields;
     private String dropLocation;
     private ShallowReference dtlAutEnvironment;
     private ShallowReference dtlEnvironment;
@@ -55,7 +55,7 @@ public class TestRun {
     private String releaseEnvironmentUri;
     private String releaseUri;
     private int revision;
-    private List<RunStatistic> runStatistics;
+    private ArrayList<RunStatistic> runStatistics;
     private Date startedDate;
     private String state;
     private TestRunSubstate substate;
@@ -115,11 +115,11 @@ public class TestRun {
         this.createdDate = createdDate;
     }
 
-    public List<CustomTestField> getCustomFields() {
+    public ArrayList<CustomTestField> getCustomFields() {
         return customFields;
     }
 
-    public void setCustomFields(final List<CustomTestField> customFields) {
+    public void setCustomFields(final ArrayList<CustomTestField> customFields) {
         this.customFields = customFields;
     }
 
@@ -317,11 +317,11 @@ public class TestRun {
         this.revision = revision;
     }
 
-    public List<RunStatistic> getRunStatistics() {
+    public ArrayList<RunStatistic> getRunStatistics() {
         return runStatistics;
     }
 
-    public void setRunStatistics(final List<RunStatistic> runStatistics) {
+    public void setRunStatistics(final ArrayList<RunStatistic> runStatistics) {
         this.runStatistics = runStatistics;
     }
 

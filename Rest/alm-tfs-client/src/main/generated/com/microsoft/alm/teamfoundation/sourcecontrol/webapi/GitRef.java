@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
@@ -29,7 +29,7 @@ public class GitRef {
     private String name;
     private String objectId;
     private String peeledObjectId;
-    private List<GitStatus> statuses;
+    private ArrayList<GitStatus> statuses;
     private String url;
 
     @JsonProperty("_links")
@@ -74,11 +74,11 @@ public class GitRef {
         this.peeledObjectId = peeledObjectId;
     }
 
-    public List<GitStatus> getStatuses() {
+    public ArrayList<GitStatus> getStatuses() {
         return statuses;
     }
 
-    public void setStatuses(final List<GitStatus> statuses) {
+    public void setStatuses(final ArrayList<GitStatus> statuses) {
         this.statuses = statuses;
     }
 

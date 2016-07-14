@@ -15,20 +15,20 @@
 
 package com.microsoft.alm.visualstudio.services.gallery.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 /** 
  */
 public class PublishedExtension {
 
-    private List<String> categories;
+    private ArrayList<String> categories;
     private String displayName;
     private UUID extensionId;
     private String extensionName;
     private PublishedExtensionFlags flags;
-    private List<InstallationTarget> installationTargets;
+    private ArrayList<InstallationTarget> installationTargets;
     private Date lastUpdated;
     private String longDescription;
     /**
@@ -40,17 +40,17 @@ public class PublishedExtension {
     * Date on which the extension first went public.
     */
     private Date releaseDate;
-    private List<ExtensionShare> sharedWith;
+    private ArrayList<ExtensionShare> sharedWith;
     private String shortDescription;
-    private List<ExtensionStatistic> statistics;
-    private List<String> tags;
-    private List<ExtensionVersion> versions;
+    private ArrayList<ExtensionStatistic> statistics;
+    private ArrayList<String> tags;
+    private ArrayList<ExtensionVersion> versions;
 
-    public List<String> getCategories() {
+    public ArrayList<String> getCategories() {
         return categories;
     }
 
-    public void setCategories(final List<String> categories) {
+    public void setCategories(final ArrayList<String> categories) {
         this.categories = categories;
     }
 
@@ -86,11 +86,11 @@ public class PublishedExtension {
         this.flags = flags;
     }
 
-    public List<InstallationTarget> getInstallationTargets() {
+    public ArrayList<InstallationTarget> getInstallationTargets() {
         return installationTargets;
     }
 
-    public void setInstallationTargets(final List<InstallationTarget> installationTargets) {
+    public void setInstallationTargets(final ArrayList<InstallationTarget> installationTargets) {
         this.installationTargets = installationTargets;
     }
 
@@ -146,11 +146,11 @@ public class PublishedExtension {
         this.releaseDate = releaseDate;
     }
 
-    public List<ExtensionShare> getSharedWith() {
+    public ArrayList<ExtensionShare> getSharedWith() {
         return sharedWith;
     }
 
-    public void setSharedWith(final List<ExtensionShare> sharedWith) {
+    public void setSharedWith(final ArrayList<ExtensionShare> sharedWith) {
         this.sharedWith = sharedWith;
     }
 
@@ -162,27 +162,27 @@ public class PublishedExtension {
         this.shortDescription = shortDescription;
     }
 
-    public List<ExtensionStatistic> getStatistics() {
+    public ArrayList<ExtensionStatistic> getStatistics() {
         return statistics;
     }
 
-    public void setStatistics(final List<ExtensionStatistic> statistics) {
+    public void setStatistics(final ArrayList<ExtensionStatistic> statistics) {
         this.statistics = statistics;
     }
 
-    public List<String> getTags() {
+    public ArrayList<String> getTags() {
         return tags;
     }
 
-    public void setTags(final List<String> tags) {
+    public void setTags(final ArrayList<String> tags) {
         this.tags = tags;
     }
 
-    public List<ExtensionVersion> getVersions() {
+    public ArrayList<ExtensionVersion> getVersions() {
         return versions;
     }
 
-    public void setVersions(final List<ExtensionVersion> versions) {
+    public void setVersions(final ArrayList<ExtensionVersion> versions) {
         this.versions = versions;
     }
 }

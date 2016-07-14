@@ -15,21 +15,21 @@
 
 package com.microsoft.alm.visualstudio.services.identity;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
  */
 public class CreateGroupsInfo {
 
-    private List<Identity> groups;
+    private ArrayList<Identity> groups;
     private UUID scopeId;
 
-    public List<Identity> getGroups() {
+    public ArrayList<Identity> getGroups() {
         return groups;
     }
 
-    public void setGroups(final List<Identity> groups) {
+    public void setGroups(final ArrayList<Identity> groups) {
         this.groups = groups;
     }
 

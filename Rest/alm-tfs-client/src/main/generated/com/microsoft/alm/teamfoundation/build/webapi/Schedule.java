@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
  */
 public class Schedule {
 
-    private List<String> branchFilters;
+    private ArrayList<String> branchFilters;
     /**
     * Days for a build (flags enum for days of the week)
     */
@@ -44,11 +44,11 @@ public class Schedule {
     */
     private String timeZoneId;
 
-    public List<String> getBranchFilters() {
+    public ArrayList<String> getBranchFilters() {
         return branchFilters;
     }
 
-    public void setBranchFilters(final List<String> branchFilters) {
+    public void setBranchFilters(final ArrayList<String> branchFilters) {
         this.branchFilters = branchFilters;
     }
 

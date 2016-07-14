@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.visualstudio.services.forminput.InputDescriptor;
 
 /** 
@@ -23,7 +23,7 @@ import com.microsoft.alm.visualstudio.services.forminput.InputDescriptor;
 public class ArtifactTypeDefinition {
 
     private String displayName;
-    private List<InputDescriptor> inputDescriptors;
+    private ArrayList<InputDescriptor> inputDescriptors;
     private String name;
     private String uniqueSourceIdentifier;
 
@@ -35,11 +35,11 @@ public class ArtifactTypeDefinition {
         this.displayName = displayName;
     }
 
-    public List<InputDescriptor> getInputDescriptors() {
+    public ArrayList<InputDescriptor> getInputDescriptors() {
         return inputDescriptors;
     }
 
-    public void setInputDescriptors(final List<InputDescriptor> inputDescriptors) {
+    public void setInputDescriptors(final ArrayList<InputDescriptor> inputDescriptors) {
         this.inputDescriptors = inputDescriptors;
     }
 

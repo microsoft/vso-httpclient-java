@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi.internal;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
@@ -24,8 +24,8 @@ import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 public class GitLimitedRefCriteria {
 
     private ReferenceLinks _links;
-    private List<String> refExactMatches;
-    private List<String> refNamespaces;
+    private ArrayList<String> refExactMatches;
+    private ArrayList<String> refNamespaces;
     private String url;
 
     @JsonProperty("_links")
@@ -38,19 +38,19 @@ public class GitLimitedRefCriteria {
         this._links = _links;
     }
 
-    public List<String> getRefExactMatches() {
+    public ArrayList<String> getRefExactMatches() {
         return refExactMatches;
     }
 
-    public void setRefExactMatches(final List<String> refExactMatches) {
+    public void setRefExactMatches(final ArrayList<String> refExactMatches) {
         this.refExactMatches = refExactMatches;
     }
 
-    public List<String> getRefNamespaces() {
+    public ArrayList<String> getRefNamespaces() {
         return refNamespaces;
     }
 
-    public void setRefNamespaces(final List<String> refNamespaces) {
+    public void setRefNamespaces(final ArrayList<String> refNamespaces) {
         this.refNamespaces = refNamespaces;
     }
 

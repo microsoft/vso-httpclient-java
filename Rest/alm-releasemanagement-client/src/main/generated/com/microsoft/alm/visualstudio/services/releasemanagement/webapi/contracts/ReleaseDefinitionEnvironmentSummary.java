@@ -15,14 +15,14 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class ReleaseDefinitionEnvironmentSummary {
 
     private int id;
-    private List<ShallowReference> lastReleases;
+    private ArrayList<ShallowReference> lastReleases;
     private String name;
 
     public int getId() {
@@ -33,11 +33,11 @@ public class ReleaseDefinitionEnvironmentSummary {
         this.id = id;
     }
 
-    public List<ShallowReference> getLastReleases() {
+    public ArrayList<ShallowReference> getLastReleases() {
         return lastReleases;
     }
 
-    public void setLastReleases(final List<ShallowReference> lastReleases) {
+    public void setLastReleases(final ArrayList<ShallowReference> lastReleases) {
         this.lastReleases = lastReleases;
     }
 

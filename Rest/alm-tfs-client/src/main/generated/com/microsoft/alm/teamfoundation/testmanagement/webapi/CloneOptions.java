@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
@@ -40,7 +40,7 @@ public class CloneOptions {
     /**
     * Key value pairs where the key value is overridden by the value.
     */
-    private Map<String, String> overrideParameters;
+    private HashMap<String, String> overrideParameters;
     /**
     * Comment on the link that will link the new clone  test case to the original Set null for no comment
     */
@@ -105,14 +105,14 @@ public class CloneOptions {
     /**
     * Key value pairs where the key value is overridden by the value.
     */
-    public Map<String, String> getOverrideParameters() {
+    public HashMap<String, String> getOverrideParameters() {
         return overrideParameters;
     }
 
     /**
     * Key value pairs where the key value is overridden by the value.
     */
-    public void setOverrideParameters(final Map<String, String> overrideParameters) {
+    public void setOverrideParameters(final HashMap<String, String> overrideParameters) {
         this.overrideParameters = overrideParameters;
     }
 

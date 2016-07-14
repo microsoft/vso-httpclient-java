@@ -6,6 +6,7 @@ package com.microsoft.alm.client.utils;
 import junit.framework.TestCase;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,7 +34,10 @@ public class StringUtilTest
         final String r3 = StringUtil.join(",", v2);
         assertTrue("1,2,3".equals(r3));
 
-        final List<?> v3 = Arrays.asList(1, "abc", true);
+        final List<Object> v3 = new ArrayList<Object>();
+        v3.add(1);
+        v3.add("abc");
+        v3.add(true);
         final String r4 = StringUtil.join(",", v3);
         assertTrue("1,abc,true".equals(r4));
     }

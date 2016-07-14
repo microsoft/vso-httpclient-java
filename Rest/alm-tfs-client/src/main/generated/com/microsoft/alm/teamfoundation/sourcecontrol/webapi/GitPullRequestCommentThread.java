@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.PropertiesCollection;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
@@ -31,7 +31,7 @@ public class GitPullRequestCommentThread {
     /**
     * A list of the comments.
     */
-    private List<GitPullRequestComment> comments;
+    private ArrayList<GitPullRequestComment> comments;
     /**
     * The comment thread id.
     */
@@ -70,14 +70,14 @@ public class GitPullRequestCommentThread {
     /**
     * A list of the comments.
     */
-    public List<GitPullRequestComment> getComments() {
+    public ArrayList<GitPullRequestComment> getComments() {
         return comments;
     }
 
     /**
     * A list of the comments.
     */
-    public void setComments(final List<GitPullRequestComment> comments) {
+    public void setComments(final ArrayList<GitPullRequestComment> comments) {
         this.comments = comments;
     }
 

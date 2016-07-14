@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 import java.util.UUID;
 
 /** 
@@ -40,7 +40,7 @@ public class TaskAgentSession {
     * Gets the unique identifier for this session.
     */
     private UUID sessionId;
-    private Map<String, String> systemCapabilities;
+    private HashMap<String, String> systemCapabilities;
 
     /**
     * Gets or sets the agent which is the target of the session.
@@ -98,11 +98,11 @@ public class TaskAgentSession {
         this.sessionId = sessionId;
     }
 
-    public Map<String, String> getSystemCapabilities() {
+    public HashMap<String, String> getSystemCapabilities() {
         return systemCapabilities;
     }
 
-    public void setSystemCapabilities(final Map<String, String> systemCapabilities) {
+    public void setSystemCapabilities(final HashMap<String, String> systemCapabilities) {
         this.systemCapabilities = systemCapabilities;
     }
 }

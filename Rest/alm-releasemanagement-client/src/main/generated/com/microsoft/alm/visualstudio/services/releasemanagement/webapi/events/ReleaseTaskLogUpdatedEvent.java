@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.events;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
@@ -24,7 +24,7 @@ public class ReleaseTaskLogUpdatedEvent
     extends RealtimeReleaseEvent {
 
     private int environmentId;
-    private List<String> lines;
+    private ArrayList<String> lines;
     private UUID timelineRecordId;
 
     public int getEnvironmentId() {
@@ -35,11 +35,11 @@ public class ReleaseTaskLogUpdatedEvent
         this.environmentId = environmentId;
     }
 
-    public List<String> getLines() {
+    public ArrayList<String> getLines() {
         return lines;
     }
 
-    public void setLines(final List<String> lines) {
+    public void setLines(final ArrayList<String> lines) {
         this.lines = lines;
     }
 

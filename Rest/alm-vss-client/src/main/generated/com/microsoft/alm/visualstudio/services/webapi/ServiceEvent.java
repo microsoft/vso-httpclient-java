@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
@@ -36,7 +36,7 @@ public class ServiceEvent {
     /**
     * This dictionary carries the context descriptors along with their ids.
     */
-    private Map<String, Object> resourceContainers;
+    private HashMap<String, Object> resourceContainers;
     /**
     * This is the version of the resource.
     */
@@ -87,14 +87,14 @@ public class ServiceEvent {
     /**
     * This dictionary carries the context descriptors along with their ids.
     */
-    public Map<String, Object> getResourceContainers() {
+    public HashMap<String, Object> getResourceContainers() {
         return resourceContainers;
     }
 
     /**
     * This dictionary carries the context descriptors along with their ids.
     */
-    public void setResourceContainers(final Map<String, Object> resourceContainers) {
+    public void setResourceContainers(final HashMap<String, Object> resourceContainers) {
         this.resourceContainers = resourceContainers;
     }
 

@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /** 
  */
@@ -37,7 +37,7 @@ public class WorkspaceTemplate {
     /**
     * List of workspace mappings
     */
-    private List<WorkspaceMapping> mappings;
+    private ArrayList<WorkspaceMapping> mappings;
     /**
     * Id of the workspace for this template
     */
@@ -88,14 +88,14 @@ public class WorkspaceTemplate {
     /**
     * List of workspace mappings
     */
-    public List<WorkspaceMapping> getMappings() {
+    public ArrayList<WorkspaceMapping> getMappings() {
         return mappings;
     }
 
     /**
     * List of workspace mappings
     */
-    public void setMappings(final List<WorkspaceMapping> mappings) {
+    public void setMappings(final ArrayList<WorkspaceMapping> mappings) {
         this.mappings = mappings;
     }
 

@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi.events;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.microsoft.alm.teamfoundation.build.webapi.Change;
 
 /** 
@@ -23,13 +23,13 @@ import com.microsoft.alm.teamfoundation.build.webapi.Change;
 public class BuildChangesCalculatedEvent
     extends BuildUpdatedEvent {
 
-    private List<Change> changes;
+    private ArrayList<Change> changes;
 
-    public List<Change> getChanges() {
+    public ArrayList<Change> getChanges() {
         return changes;
     }
 
-    public void setChanges(final List<Change> changes) {
+    public void setChanges(final ArrayList<Change> changes) {
         this.changes = changes;
     }
 }

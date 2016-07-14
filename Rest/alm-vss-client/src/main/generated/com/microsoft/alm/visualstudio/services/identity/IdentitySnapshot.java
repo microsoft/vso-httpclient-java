@@ -15,40 +15,40 @@
 
 package com.microsoft.alm.visualstudio.services.identity;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /** 
  */
 public class IdentitySnapshot {
 
-    private List<Identity> groups;
-    private List<UUID> identityIds;
-    private List<GroupMembership> memberships;
+    private ArrayList<Identity> groups;
+    private ArrayList<UUID> identityIds;
+    private ArrayList<GroupMembership> memberships;
     private UUID scopeId;
-    private List<IdentityScope> scopes;
+    private ArrayList<IdentityScope> scopes;
 
-    public List<Identity> getGroups() {
+    public ArrayList<Identity> getGroups() {
         return groups;
     }
 
-    public void setGroups(final List<Identity> groups) {
+    public void setGroups(final ArrayList<Identity> groups) {
         this.groups = groups;
     }
 
-    public List<UUID> getIdentityIds() {
+    public ArrayList<UUID> getIdentityIds() {
         return identityIds;
     }
 
-    public void setIdentityIds(final List<UUID> identityIds) {
+    public void setIdentityIds(final ArrayList<UUID> identityIds) {
         this.identityIds = identityIds;
     }
 
-    public List<GroupMembership> getMemberships() {
+    public ArrayList<GroupMembership> getMemberships() {
         return memberships;
     }
 
-    public void setMemberships(final List<GroupMembership> memberships) {
+    public void setMemberships(final ArrayList<GroupMembership> memberships) {
         this.memberships = memberships;
     }
 
@@ -60,11 +60,11 @@ public class IdentitySnapshot {
         this.scopeId = scopeId;
     }
 
-    public List<IdentityScope> getScopes() {
+    public ArrayList<IdentityScope> getScopes() {
         return scopes;
     }
 
-    public void setScopes(final List<IdentityScope> scopes) {
+    public void setScopes(final ArrayList<IdentityScope> scopes) {
         this.scopes = scopes;
     }
 }

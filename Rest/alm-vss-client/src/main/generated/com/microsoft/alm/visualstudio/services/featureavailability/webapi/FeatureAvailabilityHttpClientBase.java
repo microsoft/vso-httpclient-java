@@ -16,6 +16,7 @@
 package com.microsoft.alm.visualstudio.services.featureavailability.webapi;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -66,9 +67,9 @@ public abstract class FeatureAvailabilityHttpClientBase
     /** 
      * [Preview API 3.0-preview.1]
      * 
-     * @return List&lt;FeatureFlag&gt;
+     * @return ArrayList&lt;FeatureFlag&gt;
      */
-    public List<FeatureFlag> getAllFeatureFlags() { 
+    public ArrayList<FeatureFlag> getAllFeatureFlags() { 
 
         final UUID locationId = UUID.fromString("3e2b80f8-9e6f-441e-8393-005610692d9c"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -78,7 +79,7 @@ public abstract class FeatureAvailabilityHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<FeatureFlag>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<FeatureFlag>>() {});
     }
 
     /** 
@@ -86,9 +87,9 @@ public abstract class FeatureAvailabilityHttpClientBase
      * 
      * @param userEmail 
      *            The email of the user to check
-     * @return List&lt;FeatureFlag&gt;
+     * @return ArrayList&lt;FeatureFlag&gt;
      */
-    public List<FeatureFlag> getAllFeatureFlags(final String userEmail) { 
+    public ArrayList<FeatureFlag> getAllFeatureFlags(final String userEmail) { 
 
         final UUID locationId = UUID.fromString("3e2b80f8-9e6f-441e-8393-005610692d9c"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -102,7 +103,7 @@ public abstract class FeatureAvailabilityHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<FeatureFlag>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<FeatureFlag>>() {});
     }
 
     /** 

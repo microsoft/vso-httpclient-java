@@ -16,7 +16,7 @@
 package com.microsoft.alm.visualstudio.services.profile;
 
 import java.util.Date;
-import java.util.Map;
+import java.util.HashMap;
 import java.util.UUID;
 
 /** 
@@ -24,7 +24,7 @@ import java.util.UUID;
 public class Profile {
 
     private AttributesContainer applicationContainer;
-    private Map<String, CoreProfileAttribute> coreAttributes;
+    private HashMap<String, CoreProfileAttribute> coreAttributes;
     private int coreRevision;
     private UUID id;
     private int revision;
@@ -38,11 +38,11 @@ public class Profile {
         this.applicationContainer = applicationContainer;
     }
 
-    public Map<String, CoreProfileAttribute> getCoreAttributes() {
+    public HashMap<String, CoreProfileAttribute> getCoreAttributes() {
         return coreAttributes;
     }
 
-    public void setCoreAttributes(final Map<String, CoreProfileAttribute> coreAttributes) {
+    public void setCoreAttributes(final HashMap<String, CoreProfileAttribute> coreAttributes) {
         this.coreAttributes = coreAttributes;
     }
 

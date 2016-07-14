@@ -15,37 +15,37 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class WorkItemRelationUpdates {
 
-    private List<WorkItemRelation> added;
-    private List<WorkItemRelation> removed;
-    private List<WorkItemRelation> updated;
+    private ArrayList<WorkItemRelation> added;
+    private ArrayList<WorkItemRelation> removed;
+    private ArrayList<WorkItemRelation> updated;
 
-    public List<WorkItemRelation> getAdded() {
+    public ArrayList<WorkItemRelation> getAdded() {
         return added;
     }
 
-    public void setAdded(final List<WorkItemRelation> added) {
+    public void setAdded(final ArrayList<WorkItemRelation> added) {
         this.added = added;
     }
 
-    public List<WorkItemRelation> getRemoved() {
+    public ArrayList<WorkItemRelation> getRemoved() {
         return removed;
     }
 
-    public void setRemoved(final List<WorkItemRelation> removed) {
+    public void setRemoved(final ArrayList<WorkItemRelation> removed) {
         this.removed = removed;
     }
 
-    public List<WorkItemRelation> getUpdated() {
+    public ArrayList<WorkItemRelation> getUpdated() {
         return updated;
     }
 
-    public void setUpdated(final List<WorkItemRelation> updated) {
+    public void setUpdated(final ArrayList<WorkItemRelation> updated) {
         this.updated = updated;
     }
 }

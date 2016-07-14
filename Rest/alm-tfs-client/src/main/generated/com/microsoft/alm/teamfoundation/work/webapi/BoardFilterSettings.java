@@ -15,32 +15,29 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.List;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
 
 /** 
  */
 public class BoardFilterSettings {
 
     private FilterModel criteria;
-    private List<Integer> parentWorkItemIds;
+    private ArrayList<Integer> parentWorkItemIds;
     private String queryText;
 
-    @JsonProperty("criteria")
-    public FilterModel getQueryExpression() {
+    public FilterModel getCriteria() {
         return criteria;
     }
 
-    @JsonProperty("criteria")
-    public void setQueryExpression(final FilterModel criteria) {
+    public void setCriteria(final FilterModel criteria) {
         this.criteria = criteria;
     }
 
-    public List<Integer> getParentWorkItemIds() {
+    public ArrayList<Integer> getParentWorkItemIds() {
         return parentWorkItemIds;
     }
 
-    public void setParentWorkItemIds(final List<Integer> parentWorkItemIds) {
+    public void setParentWorkItemIds(final ArrayList<Integer> parentWorkItemIds) {
         this.parentWorkItemIds = parentWorkItemIds;
     }
 

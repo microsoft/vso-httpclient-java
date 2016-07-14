@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.ShallowReference;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
@@ -31,7 +31,7 @@ public class ReleaseApproval {
     private int attempt;
     private String comments;
     private Date createdOn;
-    private List<ReleaseApprovalHistory> history;
+    private ArrayList<ReleaseApprovalHistory> history;
     private int id;
     private boolean isAutomated;
     private boolean isNotificationOn;
@@ -93,11 +93,11 @@ public class ReleaseApproval {
         this.createdOn = createdOn;
     }
 
-    public List<ReleaseApprovalHistory> getHistory() {
+    public ArrayList<ReleaseApprovalHistory> getHistory() {
         return history;
     }
 
-    public void setHistory(final List<ReleaseApprovalHistory> history) {
+    public void setHistory(final ArrayList<ReleaseApprovalHistory> history) {
         this.history = history;
     }
 

@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -25,19 +25,19 @@ public class ReleaseDefinitionDeployStep
     /**
     * The list of steps for this definition.
     */
-    private List<WorkflowTask> tasks;
+    private ArrayList<WorkflowTask> tasks;
 
     /**
     * The list of steps for this definition.
     */
-    public List<WorkflowTask> getTasks() {
+    public ArrayList<WorkflowTask> getTasks() {
         return tasks;
     }
 
     /**
     * The list of steps for this definition.
     */
-    public void setTasks(final List<WorkflowTask> tasks) {
+    public void setTasks(final ArrayList<WorkflowTask> tasks) {
         this.tasks = tasks;
     }
 }

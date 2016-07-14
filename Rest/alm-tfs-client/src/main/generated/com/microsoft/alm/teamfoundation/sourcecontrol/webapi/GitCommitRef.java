@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
@@ -26,14 +26,14 @@ public class GitCommitRef {
     private ReferenceLinks _links;
     private GitUserDate author;
     private ChangeCountDictionary changeCounts;
-    private List<GitChange> changes;
+    private ArrayList<GitChange> changes;
     private String comment;
     private boolean commentTruncated;
     private String commitId;
     private GitUserDate committer;
-    private List<String> parents;
+    private ArrayList<String> parents;
     private String remoteUrl;
-    private List<GitStatus> statuses;
+    private ArrayList<GitStatus> statuses;
     private String url;
 
     @JsonProperty("_links")
@@ -62,11 +62,11 @@ public class GitCommitRef {
         this.changeCounts = changeCounts;
     }
 
-    public List<GitChange> getChanges() {
+    public ArrayList<GitChange> getChanges() {
         return changes;
     }
 
-    public void setChanges(final List<GitChange> changes) {
+    public void setChanges(final ArrayList<GitChange> changes) {
         this.changes = changes;
     }
 
@@ -102,11 +102,11 @@ public class GitCommitRef {
         this.committer = committer;
     }
 
-    public List<String> getParents() {
+    public ArrayList<String> getParents() {
         return parents;
     }
 
-    public void setParents(final List<String> parents) {
+    public void setParents(final ArrayList<String> parents) {
         this.parents = parents;
     }
 
@@ -118,11 +118,11 @@ public class GitCommitRef {
         this.remoteUrl = remoteUrl;
     }
 
-    public List<GitStatus> getStatuses() {
+    public ArrayList<GitStatus> getStatuses() {
         return statuses;
     }
 
-    public void setStatuses(final List<GitStatus> statuses) {
+    public void setStatuses(final ArrayList<GitStatus> statuses) {
         this.statuses = statuses;
     }
 

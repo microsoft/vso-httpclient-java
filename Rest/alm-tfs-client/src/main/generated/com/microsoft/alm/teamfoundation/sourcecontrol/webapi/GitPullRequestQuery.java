@@ -15,9 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /** 
  * A pull request query
@@ -28,39 +27,37 @@ public class GitPullRequestQuery {
     /**
     * The query to perform
     */
-    private List<GitPullRequestQueryInput> queries;
+    private ArrayList<GitPullRequestQueryInput> queries;
     /**
     * The results of the query
     */
-    private List<Map<String, List<GitPullRequest>>> results;
+    private ArrayList<HashMap<String, ArrayList<GitPullRequest>>> results;
 
     /**
     * The query to perform
     */
-    @JsonProperty("queries")
-    public List<GitPullRequestQueryInput> getQueryInputs() {
+    public ArrayList<GitPullRequestQueryInput> getQueries() {
         return queries;
     }
 
     /**
     * The query to perform
     */
-    @JsonProperty("queries")
-    public void setQueryInputs(final List<GitPullRequestQueryInput> queries) {
+    public void setQueries(final ArrayList<GitPullRequestQueryInput> queries) {
         this.queries = queries;
     }
 
     /**
     * The results of the query
     */
-    public List<Map<String, List<GitPullRequest>>> getResults() {
+    public ArrayList<HashMap<String, ArrayList<GitPullRequest>>> getResults() {
         return results;
     }
 
     /**
     * The results of the query
     */
-    public void setResults(final List<Map<String, List<GitPullRequest>>> results) {
+    public void setResults(final ArrayList<HashMap<String, ArrayList<GitPullRequest>>> results) {
         this.results = results;
     }
 }

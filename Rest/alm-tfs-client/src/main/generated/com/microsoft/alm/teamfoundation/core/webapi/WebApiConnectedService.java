@@ -15,7 +15,6 @@
 
 package com.microsoft.alm.teamfoundation.core.webapi;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
 /** 
@@ -97,16 +96,14 @@ public class WebApiConnectedService
     /**
     * Id/Name of the connection service. For Ex: Subscription Id for Azure Connection
     */
-    @JsonProperty("id")
-    public String getName() {
+    public String getId() {
         return id;
     }
 
     /**
     * Id/Name of the connection service. For Ex: Subscription Id for Azure Connection
     */
-    @JsonProperty("id")
-    public void setName(final String id) {
+    public void setId(final String id) {
         this.id = id;
     }
 

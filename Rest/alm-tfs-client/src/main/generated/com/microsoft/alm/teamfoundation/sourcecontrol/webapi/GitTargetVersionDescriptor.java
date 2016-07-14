@@ -15,7 +15,6 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
  */
@@ -38,48 +37,42 @@ public class GitTargetVersionDescriptor
     /**
     * Version string identifier (name of tag/branch, SHA1 of commit)
     */
-    @JsonProperty("targetVersion")
-    public String getVersion() {
+    public String getTargetVersion() {
         return targetVersion;
     }
 
     /**
     * Version string identifier (name of tag/branch, SHA1 of commit)
     */
-    @JsonProperty("targetVersion")
-    public void setVersion(final String targetVersion) {
+    public void setTargetVersion(final String targetVersion) {
         this.targetVersion = targetVersion;
     }
 
     /**
     * Version options - Specify additional modifiers to version (e.g Previous)
     */
-    @JsonProperty("targetVersionOptions")
-    public GitVersionOptions getVersionOptions() {
+    public GitVersionOptions getTargetVersionOptions() {
         return targetVersionOptions;
     }
 
     /**
     * Version options - Specify additional modifiers to version (e.g Previous)
     */
-    @JsonProperty("targetVersionOptions")
-    public void setVersionOptions(final GitVersionOptions targetVersionOptions) {
+    public void setTargetVersionOptions(final GitVersionOptions targetVersionOptions) {
         this.targetVersionOptions = targetVersionOptions;
     }
 
     /**
     * Version type (branch, tag, or commit). Determines how Id is interpreted
     */
-    @JsonProperty("targetVersionType")
-    public GitVersionType getVersionType() {
+    public GitVersionType getTargetVersionType() {
         return targetVersionType;
     }
 
     /**
     * Version type (branch, tag, or commit). Determines how Id is interpreted
     */
-    @JsonProperty("targetVersionType")
-    public void setVersionType(final GitVersionType targetVersionType) {
+    public void setTargetVersionType(final GitVersionType targetVersionType) {
         this.targetVersionType = targetVersionType;
     }
 }

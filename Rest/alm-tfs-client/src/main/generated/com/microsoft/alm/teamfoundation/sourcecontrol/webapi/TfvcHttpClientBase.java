@@ -17,6 +17,7 @@ package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -206,9 +207,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param includeLinks 
      *            
-     * @return List&lt;TfvcBranch&gt;
+     * @return ArrayList&lt;TfvcBranch&gt;
      */
-    public List<TfvcBranch> getBranches(
+    public ArrayList<TfvcBranch> getBranches(
         final String project, 
         final Boolean includeParent, 
         final Boolean includeChildren, 
@@ -234,7 +235,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcBranch>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcBranch>>() {});
     }
 
     /** 
@@ -250,9 +251,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param includeLinks 
      *            
-     * @return List&lt;TfvcBranch&gt;
+     * @return ArrayList&lt;TfvcBranch&gt;
      */
-    public List<TfvcBranch> getBranches(
+    public ArrayList<TfvcBranch> getBranches(
         final UUID project, 
         final Boolean includeParent, 
         final Boolean includeChildren, 
@@ -278,7 +279,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcBranch>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcBranch>>() {});
     }
 
     /** 
@@ -292,9 +293,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param includeLinks 
      *            
-     * @return List&lt;TfvcBranch&gt;
+     * @return ArrayList&lt;TfvcBranch&gt;
      */
-    public List<TfvcBranch> getBranches(
+    public ArrayList<TfvcBranch> getBranches(
         final Boolean includeParent, 
         final Boolean includeChildren, 
         final Boolean includeDeleted, 
@@ -315,7 +316,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcBranch>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcBranch>>() {});
     }
 
     /** 
@@ -329,9 +330,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param includeLinks 
      *            
-     * @return List&lt;TfvcBranchRef&gt;
+     * @return ArrayList&lt;TfvcBranchRef&gt;
      */
-    public List<TfvcBranchRef> getBranchRefs(
+    public ArrayList<TfvcBranchRef> getBranchRefs(
         final String project, 
         final String scopePath, 
         final Boolean includeDeleted, 
@@ -355,7 +356,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcBranchRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcBranchRef>>() {});
     }
 
     /** 
@@ -369,9 +370,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param includeLinks 
      *            
-     * @return List&lt;TfvcBranchRef&gt;
+     * @return ArrayList&lt;TfvcBranchRef&gt;
      */
-    public List<TfvcBranchRef> getBranchRefs(
+    public ArrayList<TfvcBranchRef> getBranchRefs(
         final UUID project, 
         final String scopePath, 
         final Boolean includeDeleted, 
@@ -395,7 +396,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcBranchRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcBranchRef>>() {});
     }
 
     /** 
@@ -407,9 +408,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param includeLinks 
      *            
-     * @return List&lt;TfvcBranchRef&gt;
+     * @return ArrayList&lt;TfvcBranchRef&gt;
      */
-    public List<TfvcBranchRef> getBranchRefs(
+    public ArrayList<TfvcBranchRef> getBranchRefs(
         final String scopePath, 
         final Boolean includeDeleted, 
         final Boolean includeLinks) { 
@@ -428,7 +429,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcBranchRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcBranchRef>>() {});
     }
 
     /** 
@@ -440,9 +441,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param top 
      *            
-     * @return List&lt;TfvcChange&gt;
+     * @return ArrayList&lt;TfvcChange&gt;
      */
-    public List<TfvcChange> getChangesetChanges(
+    public ArrayList<TfvcChange> getChangesetChanges(
         final Integer id, 
         final Integer skip, 
         final Integer top) { 
@@ -464,7 +465,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcChange>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcChange>>() {});
     }
 
     /** 
@@ -764,9 +765,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param searchCriteria 
      *            
-     * @return List&lt;TfvcChangesetRef&gt;
+     * @return ArrayList&lt;TfvcChangesetRef&gt;
      */
-    public List<TfvcChangesetRef> getChangesets(
+    public ArrayList<TfvcChangesetRef> getChangesets(
         final String project, 
         final Integer maxCommentLength, 
         final Integer skip, 
@@ -794,7 +795,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcChangesetRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcChangesetRef>>() {});
     }
 
     /** 
@@ -812,9 +813,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param searchCriteria 
      *            
-     * @return List&lt;TfvcChangesetRef&gt;
+     * @return ArrayList&lt;TfvcChangesetRef&gt;
      */
-    public List<TfvcChangesetRef> getChangesets(
+    public ArrayList<TfvcChangesetRef> getChangesets(
         final UUID project, 
         final Integer maxCommentLength, 
         final Integer skip, 
@@ -842,7 +843,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcChangesetRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcChangesetRef>>() {});
     }
 
     /** 
@@ -858,9 +859,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param searchCriteria 
      *            
-     * @return List&lt;TfvcChangesetRef&gt;
+     * @return ArrayList&lt;TfvcChangesetRef&gt;
      */
-    public List<TfvcChangesetRef> getChangesets(
+    public ArrayList<TfvcChangesetRef> getChangesets(
         final Integer maxCommentLength, 
         final Integer skip, 
         final Integer top, 
@@ -883,7 +884,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcChangesetRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcChangesetRef>>() {});
     }
 
     /** 
@@ -891,9 +892,9 @@ public abstract class TfvcHttpClientBase
      * 
      * @param changesetsRequestData 
      *            
-     * @return List&lt;TfvcChangesetRef&gt;
+     * @return ArrayList&lt;TfvcChangesetRef&gt;
      */
-    public List<TfvcChangesetRef> getBatchedChangesets(final TfvcChangesetsRequestData changesetsRequestData) { 
+    public ArrayList<TfvcChangesetRef> getBatchedChangesets(final TfvcChangesetsRequestData changesetsRequestData) { 
 
         final UUID locationId = UUID.fromString("b7e7c173-803c-4fea-9ec8-31ee35c5502a"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -905,7 +906,7 @@ public abstract class TfvcHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcChangesetRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcChangesetRef>>() {});
     }
 
     /** 
@@ -913,9 +914,9 @@ public abstract class TfvcHttpClientBase
      * 
      * @param id 
      *            
-     * @return List&lt;AssociatedWorkItem&gt;
+     * @return ArrayList&lt;AssociatedWorkItem&gt;
      */
-    public List<AssociatedWorkItem> getChangesetWorkItems(final Integer id) { 
+    public ArrayList<AssociatedWorkItem> getChangesetWorkItems(final Integer id) { 
 
         final UUID locationId = UUID.fromString("64ae0bea-1d71-47c9-a9e5-fe73f5ea0ff4"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -929,7 +930,7 @@ public abstract class TfvcHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<AssociatedWorkItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<AssociatedWorkItem>>() {});
     }
 
     /** 
@@ -937,9 +938,9 @@ public abstract class TfvcHttpClientBase
      * 
      * @param itemRequestData 
      *            
-     * @return List&lt;List&lt;TfvcItem&gt;&gt;
+     * @return ArrayList&lt;ArrayList&lt;TfvcItem&gt;&gt;
      */
-    public List<List<TfvcItem>> getItemsBatch(final TfvcItemRequestData itemRequestData) { 
+    public ArrayList<ArrayList<TfvcItem>> getItemsBatch(final TfvcItemRequestData itemRequestData) { 
 
         final UUID locationId = UUID.fromString("fe6f827b-5f64-480f-b8af-1eca3b80e833"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -951,7 +952,7 @@ public abstract class TfvcHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<List<TfvcItem>>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArrayList<TfvcItem>>>() {});
     }
 
     /** 
@@ -961,9 +962,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param project 
      *            Project ID or project name
-     * @return List&lt;List&lt;TfvcItem&gt;&gt;
+     * @return ArrayList&lt;ArrayList&lt;TfvcItem&gt;&gt;
      */
-    public List<List<TfvcItem>> getItemsBatch(
+    public ArrayList<ArrayList<TfvcItem>> getItemsBatch(
         final TfvcItemRequestData itemRequestData, 
         final String project) { 
 
@@ -981,7 +982,7 @@ public abstract class TfvcHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<List<TfvcItem>>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArrayList<TfvcItem>>>() {});
     }
 
     /** 
@@ -991,9 +992,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param project 
      *            Project ID
-     * @return List&lt;List&lt;TfvcItem&gt;&gt;
+     * @return ArrayList&lt;ArrayList&lt;TfvcItem&gt;&gt;
      */
-    public List<List<TfvcItem>> getItemsBatch(
+    public ArrayList<ArrayList<TfvcItem>> getItemsBatch(
         final TfvcItemRequestData itemRequestData, 
         final UUID project) { 
 
@@ -1011,7 +1012,7 @@ public abstract class TfvcHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<List<TfvcItem>>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArrayList<TfvcItem>>>() {});
     }
 
     /** 
@@ -1407,9 +1408,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param versionDescriptor 
      *            
-     * @return List&lt;TfvcItem&gt;
+     * @return ArrayList&lt;TfvcItem&gt;
      */
-    public List<TfvcItem> getItems(
+    public ArrayList<TfvcItem> getItems(
         final String project, 
         final String scopePath, 
         final VersionControlRecursionType recursionLevel, 
@@ -1435,7 +1436,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcItem>>() {});
     }
 
     /** 
@@ -1451,9 +1452,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param versionDescriptor 
      *            
-     * @return List&lt;TfvcItem&gt;
+     * @return ArrayList&lt;TfvcItem&gt;
      */
-    public List<TfvcItem> getItems(
+    public ArrayList<TfvcItem> getItems(
         final UUID project, 
         final String scopePath, 
         final VersionControlRecursionType recursionLevel, 
@@ -1479,7 +1480,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcItem>>() {});
     }
 
     /** 
@@ -1493,9 +1494,9 @@ public abstract class TfvcHttpClientBase
      *            
      * @param versionDescriptor 
      *            
-     * @return List&lt;TfvcItem&gt;
+     * @return ArrayList&lt;TfvcItem&gt;
      */
-    public List<TfvcItem> getItems(
+    public ArrayList<TfvcItem> getItems(
         final String scopePath, 
         final VersionControlRecursionType recursionLevel, 
         final Boolean includeLinks, 
@@ -1516,7 +1517,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcItem>>() {});
     }
 
     /** 
@@ -1826,9 +1827,9 @@ public abstract class TfvcHttpClientBase
      *            Max number of items to return
      * @param skip 
      *            Number of items to skip
-     * @return List&lt;TfvcItem&gt;
+     * @return ArrayList&lt;TfvcItem&gt;
      */
-    public List<TfvcItem> getLabelItems(
+    public ArrayList<TfvcItem> getLabelItems(
         final String labelId, 
         final Integer top, 
         final Integer skip) { 
@@ -1850,7 +1851,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcItem>>() {});
     }
 
     /** 
@@ -1968,9 +1969,9 @@ public abstract class TfvcHttpClientBase
      *            Max number of labels to return
      * @param skip 
      *            Number of labels to skip
-     * @return List&lt;TfvcLabelRef&gt;
+     * @return ArrayList&lt;TfvcLabelRef&gt;
      */
-    public List<TfvcLabelRef> getLabels(
+    public ArrayList<TfvcLabelRef> getLabels(
         final String project, 
         final TfvcLabelRequestData requestData, 
         final Integer top, 
@@ -1994,7 +1995,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcLabelRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcLabelRef>>() {});
     }
 
     /** 
@@ -2008,9 +2009,9 @@ public abstract class TfvcHttpClientBase
      *            Max number of labels to return
      * @param skip 
      *            Number of labels to skip
-     * @return List&lt;TfvcLabelRef&gt;
+     * @return ArrayList&lt;TfvcLabelRef&gt;
      */
-    public List<TfvcLabelRef> getLabels(
+    public ArrayList<TfvcLabelRef> getLabels(
         final UUID project, 
         final TfvcLabelRequestData requestData, 
         final Integer top, 
@@ -2034,7 +2035,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcLabelRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcLabelRef>>() {});
     }
 
     /** 
@@ -2046,9 +2047,9 @@ public abstract class TfvcHttpClientBase
      *            Max number of labels to return
      * @param skip 
      *            Number of labels to skip
-     * @return List&lt;TfvcLabelRef&gt;
+     * @return ArrayList&lt;TfvcLabelRef&gt;
      */
-    public List<TfvcLabelRef> getLabels(
+    public ArrayList<TfvcLabelRef> getLabels(
         final TfvcLabelRequestData requestData, 
         final Integer top, 
         final Integer skip) { 
@@ -2067,7 +2068,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcLabelRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcLabelRef>>() {});
     }
 
     /** 
@@ -2079,9 +2080,9 @@ public abstract class TfvcHttpClientBase
      *            Max number of changes to return
      * @param skip 
      *            Number of changes to skip
-     * @return List&lt;TfvcChange&gt;
+     * @return ArrayList&lt;TfvcChange&gt;
      */
-    public List<TfvcChange> getShelvesetChanges(
+    public ArrayList<TfvcChange> getShelvesetChanges(
         final String shelvesetId, 
         final Integer top, 
         final Integer skip) { 
@@ -2100,7 +2101,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcChange>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcChange>>() {});
     }
 
     /** 
@@ -2141,9 +2142,9 @@ public abstract class TfvcHttpClientBase
      *            Max number of shelvesets to return
      * @param skip 
      *            Number of shelvesets to skip
-     * @return List&lt;TfvcShelvesetRef&gt;
+     * @return ArrayList&lt;TfvcShelvesetRef&gt;
      */
-    public List<TfvcShelvesetRef> getShelvesets(
+    public ArrayList<TfvcShelvesetRef> getShelvesets(
         final TfvcShelvesetRequestData requestData, 
         final Integer top, 
         final Integer skip) { 
@@ -2162,7 +2163,7 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TfvcShelvesetRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcShelvesetRef>>() {});
     }
 
     /** 
@@ -2170,9 +2171,9 @@ public abstract class TfvcHttpClientBase
      * 
      * @param shelvesetId 
      *            Shelveset&#039;s unique ID
-     * @return List&lt;AssociatedWorkItem&gt;
+     * @return ArrayList&lt;AssociatedWorkItem&gt;
      */
-    public List<AssociatedWorkItem> getShelvesetWorkItems(final String shelvesetId) { 
+    public ArrayList<AssociatedWorkItem> getShelvesetWorkItems(final String shelvesetId) { 
 
         final UUID locationId = UUID.fromString("a7a0c1c1-373e-425a-b031-a519474d743d"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -2186,6 +2187,6 @@ public abstract class TfvcHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<AssociatedWorkItem>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<AssociatedWorkItem>>() {});
     }
 }

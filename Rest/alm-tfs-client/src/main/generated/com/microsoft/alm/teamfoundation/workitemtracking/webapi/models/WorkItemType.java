@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 /** 
  */
@@ -24,10 +24,10 @@ public class WorkItemType
     extends WorkItemTrackingResource {
 
     private String description;
-    private List<WorkItemTypeFieldInstance> fieldInstances;
-    private List<WorkItemTypeFieldInstance> fields;
+    private ArrayList<WorkItemTypeFieldInstance> fieldInstances;
+    private ArrayList<WorkItemTypeFieldInstance> fields;
     private String name;
-    private Map<String, WorkItemStateTransition[]> transitions;
+    private HashMap<String, WorkItemStateTransition[]> transitions;
     private String xmlForm;
 
     public String getDescription() {
@@ -38,19 +38,19 @@ public class WorkItemType
         this.description = description;
     }
 
-    public List<WorkItemTypeFieldInstance> getFieldInstances() {
+    public ArrayList<WorkItemTypeFieldInstance> getFieldInstances() {
         return fieldInstances;
     }
 
-    public void setFieldInstances(final List<WorkItemTypeFieldInstance> fieldInstances) {
+    public void setFieldInstances(final ArrayList<WorkItemTypeFieldInstance> fieldInstances) {
         this.fieldInstances = fieldInstances;
     }
 
-    public List<WorkItemTypeFieldInstance> getFields() {
+    public ArrayList<WorkItemTypeFieldInstance> getFields() {
         return fields;
     }
 
-    public void setFields(final List<WorkItemTypeFieldInstance> fields) {
+    public void setFields(final ArrayList<WorkItemTypeFieldInstance> fields) {
         this.fields = fields;
     }
 
@@ -62,11 +62,11 @@ public class WorkItemType
         this.name = name;
     }
 
-    public Map<String, WorkItemStateTransition[]> getTransitions() {
+    public HashMap<String, WorkItemStateTransition[]> getTransitions() {
         return transitions;
     }
 
-    public void setTransitions(final Map<String, WorkItemStateTransition[]> transitions) {
+    public void setTransitions(final HashMap<String, WorkItemStateTransition[]> transitions) {
         this.transitions = transitions;
     }
 

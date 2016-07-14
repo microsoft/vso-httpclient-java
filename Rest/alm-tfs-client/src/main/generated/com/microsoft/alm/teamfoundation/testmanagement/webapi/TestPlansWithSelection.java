@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -23,7 +23,7 @@ public class TestPlansWithSelection {
 
     private int lastSelectedPlan;
     private int lastSelectedSuite;
-    private List<TestPlan> plans;
+    private ArrayList<TestPlan> plans;
 
     public int getLastSelectedPlan() {
         return lastSelectedPlan;
@@ -41,11 +41,11 @@ public class TestPlansWithSelection {
         this.lastSelectedSuite = lastSelectedSuite;
     }
 
-    public List<TestPlan> getPlans() {
+    public ArrayList<TestPlan> getPlans() {
         return plans;
     }
 
-    public void setPlans(final List<TestPlan> plans) {
+    public void setPlans(final ArrayList<TestPlan> plans) {
         this.plans = plans;
     }
 }

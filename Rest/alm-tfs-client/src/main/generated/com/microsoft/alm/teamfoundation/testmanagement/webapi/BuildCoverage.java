@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -24,7 +24,7 @@ public class BuildCoverage {
     private String codeCoverageFileUrl;
     private BuildConfiguration configuration;
     private String lastError;
-    private List<ModuleCoverage> modules;
+    private ArrayList<ModuleCoverage> modules;
     private String state;
 
     public String getCodeCoverageFileUrl() {
@@ -51,11 +51,11 @@ public class BuildCoverage {
         this.lastError = lastError;
     }
 
-    public List<ModuleCoverage> getModules() {
+    public ArrayList<ModuleCoverage> getModules() {
         return modules;
     }
 
-    public void setModules(final List<ModuleCoverage> modules) {
+    public void setModules(final ArrayList<ModuleCoverage> modules) {
         this.modules = modules;
     }
 

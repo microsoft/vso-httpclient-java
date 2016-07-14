@@ -16,6 +16,7 @@
 package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -95,9 +96,9 @@ public abstract class ContributionsHttpClientBase
      *            
      * @param assetTypes 
      *            
-     * @return List&lt;InstalledExtension&gt;
+     * @return ArrayList&lt;InstalledExtension&gt;
      */
-    public List<InstalledExtension> getInstalledExtensions(
+    public ArrayList<InstalledExtension> getInstalledExtensions(
         final List<String> contributionIds, 
         final Boolean includeDisabledApps, 
         final List<String> assetTypes) { 
@@ -116,7 +117,7 @@ public abstract class ContributionsHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<InstalledExtension>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<InstalledExtension>>() {});
     }
 
     /** 

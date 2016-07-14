@@ -101,13 +101,11 @@ public class TfvcItem
         this.size = size;
     }
 
-    @JsonProperty("version")
-    public int getChangesetVersion() {
+    public int getVersion() {
         return version;
     }
 
-    @JsonProperty("version")
-    public void setChangesetVersion(final int version) {
+    public void setVersion(final int version) {
         this.version = version;
     }
 }

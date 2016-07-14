@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 import java.util.UUID;
 
 /** 
@@ -23,7 +23,7 @@ import java.util.UUID;
 public class TaskReference {
 
     private UUID id;
-    private Map<String, String> inputs;
+    private HashMap<String, String> inputs;
     private String name;
     private String version;
 
@@ -35,11 +35,11 @@ public class TaskReference {
         this.id = id;
     }
 
-    public Map<String, String> getInputs() {
+    public HashMap<String, String> getInputs() {
         return inputs;
     }
 
-    public void setInputs(final Map<String, String> inputs) {
+    public void setInputs(final HashMap<String, String> inputs) {
         this.inputs = inputs;
     }
 

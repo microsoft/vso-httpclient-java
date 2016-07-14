@@ -15,9 +15,9 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 import java.util.UUID;
-import com.system.DayOfWeek;
+import com.microsoft.alm.client.model.DayOfWeek;
 
 /** 
  * Data contract for what we expect to receive when PATCH
@@ -26,7 +26,7 @@ import com.system.DayOfWeek;
 public class TeamSettingsPatch {
 
     private UUID backlogIteration;
-    private Map<String, Boolean> backlogVisibilities;
+    private HashMap<String, Boolean> backlogVisibilities;
     private BugsBehavior bugsBehavior;
     private UUID defaultIteration;
     private String defaultIterationMacro;
@@ -40,11 +40,11 @@ public class TeamSettingsPatch {
         this.backlogIteration = backlogIteration;
     }
 
-    public Map<String, Boolean> getBacklogVisibilities() {
+    public HashMap<String, Boolean> getBacklogVisibilities() {
         return backlogVisibilities;
     }
 
-    public void setBacklogVisibilities(final Map<String, Boolean> backlogVisibilities) {
+    public void setBacklogVisibilities(final HashMap<String, Boolean> backlogVisibilities) {
         this.backlogVisibilities = backlogVisibilities;
     }
 

@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
@@ -24,19 +24,19 @@ public class PropertyBag {
     /**
     * Generic store for test session data
     */
-    private Map<String, String> bag;
+    private HashMap<String, String> bag;
 
     /**
     * Generic store for test session data
     */
-    public Map<String, String> getBag() {
+    public HashMap<String, String> getBag() {
         return bag;
     }
 
     /**
     * Generic store for test session data
     */
-    public void setBag(final Map<String, String> bag) {
+    public void setBag(final HashMap<String, String> bag) {
         this.bag = bag;
     }
 }

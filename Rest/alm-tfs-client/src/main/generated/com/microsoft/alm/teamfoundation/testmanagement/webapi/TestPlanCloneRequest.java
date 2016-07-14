@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
@@ -23,7 +23,7 @@ public class TestPlanCloneRequest {
 
     private TestPlan destinationTestPlan;
     private CloneOptions options;
-    private List<Integer> suiteIds;
+    private ArrayList<Integer> suiteIds;
 
     public TestPlan getDestinationTestPlan() {
         return destinationTestPlan;
@@ -41,11 +41,11 @@ public class TestPlanCloneRequest {
         this.options = options;
     }
 
-    public List<Integer> getSuiteIds() {
+    public ArrayList<Integer> getSuiteIds() {
         return suiteIds;
     }
 
-    public void setSuiteIds(final List<Integer> suiteIds) {
+    public void setSuiteIds(final ArrayList<Integer> suiteIds) {
         this.suiteIds = suiteIds;
     }
 }

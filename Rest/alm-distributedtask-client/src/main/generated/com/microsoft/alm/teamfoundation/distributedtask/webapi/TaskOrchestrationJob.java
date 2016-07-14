@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -31,20 +31,20 @@ import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 public class TaskOrchestrationJob
     extends TaskOrchestrationItem {
 
-    private List<Demand> demands;
+    private ArrayList<Demand> demands;
     private IdentityRef executeAs;
     private String executionMode;
     private String executionTimeout;
     private UUID instanceId;
     private String name;
-    private List<TaskInstance> tasks;
-    private Map<String, String> variables;
+    private ArrayList<TaskInstance> tasks;
+    private HashMap<String, String> variables;
 
-    public List<Demand> getDemands() {
+    public ArrayList<Demand> getDemands() {
         return demands;
     }
 
-    public void setDemands(final List<Demand> demands) {
+    public void setDemands(final ArrayList<Demand> demands) {
         this.demands = demands;
     }
 
@@ -88,19 +88,19 @@ public class TaskOrchestrationJob
         this.name = name;
     }
 
-    public List<TaskInstance> getTasks() {
+    public ArrayList<TaskInstance> getTasks() {
         return tasks;
     }
 
-    public void setTasks(final List<TaskInstance> tasks) {
+    public void setTasks(final ArrayList<TaskInstance> tasks) {
         this.tasks = tasks;
     }
 
-    public Map<String, String> getVariables() {
+    public HashMap<String, String> getVariables() {
         return variables;
     }
 
-    public void setVariables(final Map<String, String> variables) {
+    public void setVariables(final HashMap<String, String> variables) {
         this.variables = variables;
     }
 }

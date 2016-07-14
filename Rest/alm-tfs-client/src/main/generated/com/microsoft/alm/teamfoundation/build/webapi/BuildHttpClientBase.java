@@ -17,6 +17,7 @@ package com.microsoft.alm.teamfoundation.build.webapi;
 
 import java.io.InputStream;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +26,6 @@ import java.util.UUID;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.VssHttpClientBase;
-import com.microsoft.alm.teamfoundation.build.webapi.AgentPoolQueue;
 import com.microsoft.alm.teamfoundation.build.webapi.Build;
 import com.microsoft.alm.teamfoundation.build.webapi.BuildArtifact;
 import com.microsoft.alm.teamfoundation.build.webapi.BuildBadge;
@@ -400,9 +400,9 @@ public abstract class BuildHttpClientBase
      * 
      * @param buildId 
      *            
-     * @return List&lt;BuildArtifact&gt;
+     * @return ArrayList&lt;BuildArtifact&gt;
      */
-    public List<BuildArtifact> getArtifacts(final int buildId) { 
+    public ArrayList<BuildArtifact> getArtifacts(final int buildId) { 
 
         final UUID locationId = UUID.fromString("1db06c96-014e-44e1-ac91-90b2d4b3e984"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
@@ -416,7 +416,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildArtifact>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildArtifact>>() {});
     }
 
     /** 
@@ -426,9 +426,9 @@ public abstract class BuildHttpClientBase
      *            Project ID or project name
      * @param buildId 
      *            
-     * @return List&lt;BuildArtifact&gt;
+     * @return ArrayList&lt;BuildArtifact&gt;
      */
-    public List<BuildArtifact> getArtifacts(
+    public ArrayList<BuildArtifact> getArtifacts(
         final String project, 
         final int buildId) { 
 
@@ -445,7 +445,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildArtifact>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildArtifact>>() {});
     }
 
     /** 
@@ -455,9 +455,9 @@ public abstract class BuildHttpClientBase
      *            Project ID
      * @param buildId 
      *            
-     * @return List&lt;BuildArtifact&gt;
+     * @return ArrayList&lt;BuildArtifact&gt;
      */
-    public List<BuildArtifact> getArtifacts(
+    public ArrayList<BuildArtifact> getArtifacts(
         final UUID project, 
         final int buildId) { 
 
@@ -474,7 +474,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildArtifact>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildArtifact>>() {});
     }
 
     /** 
@@ -901,15 +901,15 @@ public abstract class BuildHttpClientBase
      *            
      * @param repositoryType 
      *            
-     * @return List&lt;Build&gt;
+     * @return ArrayList&lt;Build&gt;
      */
-    public List<Build> getBuilds(
+    public ArrayList<Build> getBuilds(
         final String project, 
         final List<Integer> definitions, 
         final List<Integer> queues, 
         final String buildNumber, 
-        final java.util.Date minFinishTime, 
-        final java.util.Date maxFinishTime, 
+        final Date minFinishTime, 
+        final Date maxFinishTime, 
         final String requestedFor, 
         final BuildReason reasonFilter, 
         final BuildStatus statusFilter, 
@@ -961,7 +961,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Build>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Build>>() {});
     }
 
     /** 
@@ -1009,15 +1009,15 @@ public abstract class BuildHttpClientBase
      *            
      * @param repositoryType 
      *            
-     * @return List&lt;Build&gt;
+     * @return ArrayList&lt;Build&gt;
      */
-    public List<Build> getBuilds(
+    public ArrayList<Build> getBuilds(
         final UUID project, 
         final List<Integer> definitions, 
         final List<Integer> queues, 
         final String buildNumber, 
-        final java.util.Date minFinishTime, 
-        final java.util.Date maxFinishTime, 
+        final Date minFinishTime, 
+        final Date maxFinishTime, 
         final String requestedFor, 
         final BuildReason reasonFilter, 
         final BuildStatus statusFilter, 
@@ -1069,7 +1069,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Build>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Build>>() {});
     }
 
     /** 
@@ -1115,14 +1115,14 @@ public abstract class BuildHttpClientBase
      *            
      * @param repositoryType 
      *            
-     * @return List&lt;Build&gt;
+     * @return ArrayList&lt;Build&gt;
      */
-    public List<Build> getBuilds(
+    public ArrayList<Build> getBuilds(
         final List<Integer> definitions, 
         final List<Integer> queues, 
         final String buildNumber, 
-        final java.util.Date minFinishTime, 
-        final java.util.Date maxFinishTime, 
+        final Date minFinishTime, 
+        final Date maxFinishTime, 
         final String requestedFor, 
         final BuildReason reasonFilter, 
         final BuildStatus statusFilter, 
@@ -1170,7 +1170,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Build>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Build>>() {});
     }
 
     /** 
@@ -1392,9 +1392,9 @@ public abstract class BuildHttpClientBase
      * 
      * @param builds 
      *            
-     * @return List&lt;Build&gt;
+     * @return ArrayList&lt;Build&gt;
      */
-    public List<Build> updateBuilds(final List<Build> builds) { 
+    public ArrayList<Build> updateBuilds(final List<Build> builds) { 
 
         final UUID locationId = UUID.fromString("0cd358e1-9217-4d94-8269-1c1ee6f93dcf"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
@@ -1406,7 +1406,7 @@ public abstract class BuildHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Build>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Build>>() {});
     }
 
     /** 
@@ -1416,9 +1416,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param project 
      *            Project ID or project name
-     * @return List&lt;Build&gt;
+     * @return ArrayList&lt;Build&gt;
      */
-    public List<Build> updateBuilds(
+    public ArrayList<Build> updateBuilds(
         final List<Build> builds, 
         final String project) { 
 
@@ -1436,7 +1436,7 @@ public abstract class BuildHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Build>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Build>>() {});
     }
 
     /** 
@@ -1446,9 +1446,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param project 
      *            Project ID
-     * @return List&lt;Build&gt;
+     * @return ArrayList&lt;Build&gt;
      */
-    public List<Build> updateBuilds(
+    public ArrayList<Build> updateBuilds(
         final List<Build> builds, 
         final UUID project) { 
 
@@ -1466,7 +1466,7 @@ public abstract class BuildHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Build>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Build>>() {});
     }
 
     /** 
@@ -1482,9 +1482,9 @@ public abstract class BuildHttpClientBase
      *            The maximum number of changes to return
      * @param includeSourceChange 
      *            
-     * @return List&lt;Change&gt;
+     * @return ArrayList&lt;Change&gt;
      */
-    public List<Change> getBuildChanges(
+    public ArrayList<Change> getBuildChanges(
         final String project, 
         final int buildId, 
         final String continuationToken, 
@@ -1510,7 +1510,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Change>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Change>>() {});
     }
 
     /** 
@@ -1526,9 +1526,9 @@ public abstract class BuildHttpClientBase
      *            The maximum number of changes to return
      * @param includeSourceChange 
      *            
-     * @return List&lt;Change&gt;
+     * @return ArrayList&lt;Change&gt;
      */
-    public List<Change> getBuildChanges(
+    public ArrayList<Change> getBuildChanges(
         final UUID project, 
         final int buildId, 
         final String continuationToken, 
@@ -1554,7 +1554,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Change>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Change>>() {});
     }
 
     /** 
@@ -1568,9 +1568,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param top 
      *            The maximum number of changes to return
-     * @return List&lt;Change&gt;
+     * @return ArrayList&lt;Change&gt;
      */
-    public List<Change> getChangesBetweenBuilds(
+    public ArrayList<Change> getChangesBetweenBuilds(
         final String project, 
         final Integer fromBuildId, 
         final Integer toBuildId, 
@@ -1594,7 +1594,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Change>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Change>>() {});
     }
 
     /** 
@@ -1608,9 +1608,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param top 
      *            The maximum number of changes to return
-     * @return List&lt;Change&gt;
+     * @return ArrayList&lt;Change&gt;
      */
-    public List<Change> getChangesBetweenBuilds(
+    public ArrayList<Change> getChangesBetweenBuilds(
         final UUID project, 
         final Integer fromBuildId, 
         final Integer toBuildId, 
@@ -1634,7 +1634,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Change>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Change>>() {});
     }
 
     /** 
@@ -1666,9 +1666,9 @@ public abstract class BuildHttpClientBase
      * 
      * @param name 
      *            
-     * @return List&lt;BuildController&gt;
+     * @return ArrayList&lt;BuildController&gt;
      */
-    public List<BuildController> getBuildControllers(final String name) { 
+    public ArrayList<BuildController> getBuildControllers(final String name) { 
 
         final UUID locationId = UUID.fromString("fcac1932-2ee1-437f-9b6f-7f696be858f6"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -1682,7 +1682,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildController>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildController>>() {});
     }
 
     /** 
@@ -2023,9 +2023,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param notBuiltAfter 
      *            
-     * @return List&lt;BuildDefinitionReference&gt;
+     * @return ArrayList&lt;BuildDefinitionReference&gt;
      */
-    public List<BuildDefinitionReference> getDefinitions(
+    public ArrayList<BuildDefinitionReference> getDefinitions(
         final String project, 
         final String name, 
         final String repositoryId, 
@@ -2033,11 +2033,11 @@ public abstract class BuildHttpClientBase
         final DefinitionQueryOrder queryOrder, 
         final Integer top, 
         final String continuationToken, 
-        final java.util.Date minMetricsTime, 
+        final Date minMetricsTime, 
         final List<Integer> definitionIds, 
         final String path, 
-        final java.util.Date builtAfter, 
-        final java.util.Date notBuiltAfter) { 
+        final Date builtAfter, 
+        final Date notBuiltAfter) { 
 
         final UUID locationId = UUID.fromString("dbeaf647-6167-421a-bda9-c9327b25e2e6"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -2065,7 +2065,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildDefinitionReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildDefinitionReference>>() {});
     }
 
     /** 
@@ -2095,9 +2095,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param notBuiltAfter 
      *            
-     * @return List&lt;BuildDefinitionReference&gt;
+     * @return ArrayList&lt;BuildDefinitionReference&gt;
      */
-    public List<BuildDefinitionReference> getDefinitions(
+    public ArrayList<BuildDefinitionReference> getDefinitions(
         final UUID project, 
         final String name, 
         final String repositoryId, 
@@ -2105,11 +2105,11 @@ public abstract class BuildHttpClientBase
         final DefinitionQueryOrder queryOrder, 
         final Integer top, 
         final String continuationToken, 
-        final java.util.Date minMetricsTime, 
+        final Date minMetricsTime, 
         final List<Integer> definitionIds, 
         final String path, 
-        final java.util.Date builtAfter, 
-        final java.util.Date notBuiltAfter) { 
+        final Date builtAfter, 
+        final Date notBuiltAfter) { 
 
         final UUID locationId = UUID.fromString("dbeaf647-6167-421a-bda9-c9327b25e2e6"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -2137,7 +2137,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildDefinitionReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildDefinitionReference>>() {});
     }
 
     /** 
@@ -2165,20 +2165,20 @@ public abstract class BuildHttpClientBase
      *            
      * @param notBuiltAfter 
      *            
-     * @return List&lt;BuildDefinitionReference&gt;
+     * @return ArrayList&lt;BuildDefinitionReference&gt;
      */
-    public List<BuildDefinitionReference> getDefinitions(
+    public ArrayList<BuildDefinitionReference> getDefinitions(
         final String name, 
         final String repositoryId, 
         final String repositoryType, 
         final DefinitionQueryOrder queryOrder, 
         final Integer top, 
         final String continuationToken, 
-        final java.util.Date minMetricsTime, 
+        final Date minMetricsTime, 
         final List<Integer> definitionIds, 
         final String path, 
-        final java.util.Date builtAfter, 
-        final java.util.Date notBuiltAfter) { 
+        final Date builtAfter, 
+        final Date notBuiltAfter) { 
 
         final UUID locationId = UUID.fromString("dbeaf647-6167-421a-bda9-c9327b25e2e6"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -2202,7 +2202,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildDefinitionReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildDefinitionReference>>() {});
     }
 
     /** 
@@ -2469,9 +2469,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param queryOrder 
      *            
-     * @return List&lt;Folder&gt;
+     * @return ArrayList&lt;Folder&gt;
      */
-    public List<Folder> getFolders(
+    public ArrayList<Folder> getFolders(
         final String project, 
         final String path, 
         final FolderQueryOrder queryOrder) { 
@@ -2493,7 +2493,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Folder>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Folder>>() {});
     }
 
     /** 
@@ -2505,9 +2505,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param queryOrder 
      *            
-     * @return List&lt;Folder&gt;
+     * @return ArrayList&lt;Folder&gt;
      */
-    public List<Folder> getFolders(
+    public ArrayList<Folder> getFolders(
         final UUID project, 
         final String path, 
         final FolderQueryOrder queryOrder) { 
@@ -2529,7 +2529,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Folder>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Folder>>() {});
     }
 
     /** 
@@ -2701,9 +2701,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param endLine 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> getBuildLogLines(
+    public ArrayList<String> getBuildLogLines(
         final String project, 
         final int buildId, 
         final int logId, 
@@ -2729,7 +2729,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -2745,9 +2745,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param endLine 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> getBuildLogLines(
+    public ArrayList<String> getBuildLogLines(
         final UUID project, 
         final int buildId, 
         final int logId, 
@@ -2773,7 +2773,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -2783,9 +2783,9 @@ public abstract class BuildHttpClientBase
      *            Project ID or project name
      * @param buildId 
      *            
-     * @return List&lt;BuildLog&gt;
+     * @return ArrayList&lt;BuildLog&gt;
      */
-    public List<BuildLog> getBuildLogs(
+    public ArrayList<BuildLog> getBuildLogs(
         final String project, 
         final int buildId) { 
 
@@ -2802,7 +2802,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildLog>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildLog>>() {});
     }
 
     /** 
@@ -2812,9 +2812,9 @@ public abstract class BuildHttpClientBase
      *            Project ID
      * @param buildId 
      *            
-     * @return List&lt;BuildLog&gt;
+     * @return ArrayList&lt;BuildLog&gt;
      */
-    public List<BuildLog> getBuildLogs(
+    public ArrayList<BuildLog> getBuildLogs(
         final UUID project, 
         final int buildId) { 
 
@@ -2831,7 +2831,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildLog>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildLog>>() {});
     }
 
     /** 
@@ -2901,12 +2901,12 @@ public abstract class BuildHttpClientBase
      *            
      * @param minMetricsTime 
      *            
-     * @return List&lt;BuildMetric&gt;
+     * @return ArrayList&lt;BuildMetric&gt;
      */
-    public List<BuildMetric> getDefinitionMetrics(
+    public ArrayList<BuildMetric> getDefinitionMetrics(
         final String project, 
         final int definitionId, 
-        final java.util.Date minMetricsTime) { 
+        final Date minMetricsTime) { 
 
         final UUID locationId = UUID.fromString("d973b939-0ce0-4fec-91d8-da3940fa1827"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -2925,7 +2925,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildMetric>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildMetric>>() {});
     }
 
     /** 
@@ -2937,12 +2937,12 @@ public abstract class BuildHttpClientBase
      *            
      * @param minMetricsTime 
      *            
-     * @return List&lt;BuildMetric&gt;
+     * @return ArrayList&lt;BuildMetric&gt;
      */
-    public List<BuildMetric> getDefinitionMetrics(
+    public ArrayList<BuildMetric> getDefinitionMetrics(
         final UUID project, 
         final int definitionId, 
-        final java.util.Date minMetricsTime) { 
+        final Date minMetricsTime) { 
 
         final UUID locationId = UUID.fromString("d973b939-0ce0-4fec-91d8-da3940fa1827"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -2961,15 +2961,15 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildMetric>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildMetric>>() {});
     }
 
     /** 
      * [Preview API 3.0-preview.2]
      * 
-     * @return List&lt;BuildOptionDefinition&gt;
+     * @return ArrayList&lt;BuildOptionDefinition&gt;
      */
-    public List<BuildOptionDefinition> getBuildOptionDefinitions() { 
+    public ArrayList<BuildOptionDefinition> getBuildOptionDefinitions() { 
 
         final UUID locationId = UUID.fromString("591cb5a4-2d46-4f3a-a697-5cd42b6bd332"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -2979,7 +2979,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildOptionDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildOptionDefinition>>() {});
     }
 
     /** 
@@ -2987,9 +2987,9 @@ public abstract class BuildHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;BuildOptionDefinition&gt;
+     * @return ArrayList&lt;BuildOptionDefinition&gt;
      */
-    public List<BuildOptionDefinition> getBuildOptionDefinitions(final String project) { 
+    public ArrayList<BuildOptionDefinition> getBuildOptionDefinitions(final String project) { 
 
         final UUID locationId = UUID.fromString("591cb5a4-2d46-4f3a-a697-5cd42b6bd332"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -3003,7 +3003,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildOptionDefinition>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildOptionDefinition>>() {});
     }
 
     /** 
@@ -3011,9 +3011,9 @@ public abstract class BuildHttpClientBase
      * 
      * @param project 
      *            Project ID
-     * @return List&lt;BuildOptionDefinition&gt;
+     * @return ArrayList&lt;BuildOptionDefinition&gt;
      */
-    public List<BuildOptionDefinition> getBuildOptionDefinitions(final UUID project) { 
+    public ArrayList<BuildOptionDefinition> getBuildOptionDefinitions(final UUID project) { 
 
         final UUID locationId = UUID.fromString("591cb5a4-2d46-4f3a-a697-5cd42b6bd332"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -3027,101 +3027,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildOptionDefinition>>() {});
-    }
-
-    /** 
-     * [Preview API 3.0-preview.2] Creates a build queue
-     * 
-     * @param queue 
-     *            
-     * @return String
-     */
-    public String createQueue(final AgentPoolQueue queue) { 
-
-        final UUID locationId = UUID.fromString("09f2a4b8-08c9-4991-85c3-d698937568be"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queue,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, String.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.2] Deletes a build queue
-     * 
-     * @param id 
-     *            
-     * @return String
-     */
-    public String deleteQueue(final int id) { 
-
-        final UUID locationId = UUID.fromString("09f2a4b8-08c9-4991-85c3-d698937568be"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.put("id", String.valueOf(id)); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, String.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.2] Gets a queue
-     * 
-     * @param controllerId 
-     *            
-     * @return String
-     */
-    public String getAgentPoolQueue(final int controllerId) { 
-
-        final UUID locationId = UUID.fromString("09f2a4b8-08c9-4991-85c3-d698937568be"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("controllerId", controllerId); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, String.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.2] Gets queues, optionally filtered by name
-     * 
-     * @param name 
-     *            
-     * @return String
-     */
-    public String getQueues(final String name) { 
-
-        final UUID locationId = UUID.fromString("09f2a4b8-08c9-4991-85c3-d698937568be"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.addIfNotEmpty("name", name); //$NON-NLS-1$
-
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, String.class);
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildOptionDefinition>>() {});
     }
 
     /** 
@@ -3227,7 +3133,7 @@ public abstract class BuildHttpClientBase
                                                        routeValues,
                                                        apiVersion,
                                                        queryParameters,
-                                                       text/html);
+                                                       TEXT_HTML_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -3263,7 +3169,7 @@ public abstract class BuildHttpClientBase
                                                        routeValues,
                                                        apiVersion,
                                                        queryParameters,
-                                                       text/html);
+                                                       TEXT_HTML_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -3293,9 +3199,9 @@ public abstract class BuildHttpClientBase
      *            Project ID or project name
      * @param definitionId 
      *            
-     * @return List&lt;BuildDefinitionRevision&gt;
+     * @return ArrayList&lt;BuildDefinitionRevision&gt;
      */
-    public List<BuildDefinitionRevision> getDefinitionRevisions(
+    public ArrayList<BuildDefinitionRevision> getDefinitionRevisions(
         final String project, 
         final int definitionId) { 
 
@@ -3312,7 +3218,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildDefinitionRevision>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildDefinitionRevision>>() {});
     }
 
     /** 
@@ -3322,9 +3228,9 @@ public abstract class BuildHttpClientBase
      *            Project ID
      * @param definitionId 
      *            
-     * @return List&lt;BuildDefinitionRevision&gt;
+     * @return ArrayList&lt;BuildDefinitionRevision&gt;
      */
-    public List<BuildDefinitionRevision> getDefinitionRevisions(
+    public ArrayList<BuildDefinitionRevision> getDefinitionRevisions(
         final UUID project, 
         final int definitionId) { 
 
@@ -3341,7 +3247,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildDefinitionRevision>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildDefinitionRevision>>() {});
     }
 
     /** 
@@ -3393,9 +3299,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param tag 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> addBuildTag(
+    public ArrayList<String> addBuildTag(
         final String project, 
         final int buildId, 
         final String tag) { 
@@ -3414,7 +3320,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -3426,9 +3332,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param tag 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> addBuildTag(
+    public ArrayList<String> addBuildTag(
         final UUID project, 
         final int buildId, 
         final String tag) { 
@@ -3447,7 +3353,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -3459,9 +3365,9 @@ public abstract class BuildHttpClientBase
      *            Project ID or project name
      * @param buildId 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> addBuildTags(
+    public ArrayList<String> addBuildTags(
         final List<String> tags, 
         final String project, 
         final int buildId) { 
@@ -3481,7 +3387,7 @@ public abstract class BuildHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -3493,9 +3399,9 @@ public abstract class BuildHttpClientBase
      *            Project ID
      * @param buildId 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> addBuildTags(
+    public ArrayList<String> addBuildTags(
         final List<String> tags, 
         final UUID project, 
         final int buildId) { 
@@ -3515,7 +3421,7 @@ public abstract class BuildHttpClientBase
                                                        APPLICATION_JSON_TYPE,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -3527,9 +3433,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param tag 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> deleteBuildTag(
+    public ArrayList<String> deleteBuildTag(
         final String project, 
         final int buildId, 
         final String tag) { 
@@ -3548,7 +3454,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -3560,9 +3466,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param tag 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> deleteBuildTag(
+    public ArrayList<String> deleteBuildTag(
         final UUID project, 
         final int buildId, 
         final String tag) { 
@@ -3581,7 +3487,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -3591,9 +3497,9 @@ public abstract class BuildHttpClientBase
      *            Project ID or project name
      * @param buildId 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> getBuildTags(
+    public ArrayList<String> getBuildTags(
         final String project, 
         final int buildId) { 
 
@@ -3610,7 +3516,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -3620,9 +3526,9 @@ public abstract class BuildHttpClientBase
      *            Project ID
      * @param buildId 
      *            
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> getBuildTags(
+    public ArrayList<String> getBuildTags(
         final UUID project, 
         final int buildId) { 
 
@@ -3639,7 +3545,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -3647,9 +3553,9 @@ public abstract class BuildHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> getTags(final String project) { 
+    public ArrayList<String> getTags(final String project) { 
 
         final UUID locationId = UUID.fromString("d84ac5c6-edc7-43d5-adc9-1b34be5dea09"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -3663,7 +3569,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -3671,9 +3577,9 @@ public abstract class BuildHttpClientBase
      * 
      * @param project 
      *            Project ID
-     * @return List&lt;String&gt;
+     * @return ArrayList&lt;String&gt;
      */
-    public List<String> getTags(final UUID project) { 
+    public ArrayList<String> getTags(final UUID project) { 
 
         final UUID locationId = UUID.fromString("d84ac5c6-edc7-43d5-adc9-1b34be5dea09"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
@@ -3687,7 +3593,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<String>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
 
     /** 
@@ -3809,9 +3715,9 @@ public abstract class BuildHttpClientBase
      * 
      * @param project 
      *            Project ID or project name
-     * @return List&lt;BuildDefinitionTemplate&gt;
+     * @return ArrayList&lt;BuildDefinitionTemplate&gt;
      */
-    public List<BuildDefinitionTemplate> getTemplates(final String project) { 
+    public ArrayList<BuildDefinitionTemplate> getTemplates(final String project) { 
 
         final UUID locationId = UUID.fromString("e884571e-7f92-4d6a-9274-3f5649900835"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -3825,7 +3731,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildDefinitionTemplate>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildDefinitionTemplate>>() {});
     }
 
     /** 
@@ -3833,9 +3739,9 @@ public abstract class BuildHttpClientBase
      * 
      * @param project 
      *            Project ID
-     * @return List&lt;BuildDefinitionTemplate&gt;
+     * @return ArrayList&lt;BuildDefinitionTemplate&gt;
      */
-    public List<BuildDefinitionTemplate> getTemplates(final UUID project) { 
+    public ArrayList<BuildDefinitionTemplate> getTemplates(final UUID project) { 
 
         final UUID locationId = UUID.fromString("e884571e-7f92-4d6a-9274-3f5649900835"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -3849,7 +3755,7 @@ public abstract class BuildHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<BuildDefinitionTemplate>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<BuildDefinitionTemplate>>() {});
     }
 
     /** 
@@ -4017,9 +3923,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param top 
      *            The maximum number of workitems to return
-     * @return List&lt;ResourceRef&gt;
+     * @return ArrayList&lt;ResourceRef&gt;
      */
-    public List<ResourceRef> getBuildWorkItemsRefs(
+    public ArrayList<ResourceRef> getBuildWorkItemsRefs(
         final String project, 
         final int buildId, 
         final Integer top) { 
@@ -4041,7 +3947,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ResourceRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ResourceRef>>() {});
     }
 
     /** 
@@ -4053,9 +3959,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param top 
      *            The maximum number of workitems to return
-     * @return List&lt;ResourceRef&gt;
+     * @return ArrayList&lt;ResourceRef&gt;
      */
-    public List<ResourceRef> getBuildWorkItemsRefs(
+    public ArrayList<ResourceRef> getBuildWorkItemsRefs(
         final UUID project, 
         final int buildId, 
         final Integer top) { 
@@ -4077,7 +3983,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ResourceRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ResourceRef>>() {});
     }
 
     /** 
@@ -4091,9 +3997,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param top 
      *            The maximum number of workitems to return, also number of commits to consider if commitids are not sent
-     * @return List&lt;ResourceRef&gt;
+     * @return ArrayList&lt;ResourceRef&gt;
      */
-    public List<ResourceRef> getBuildWorkItemsRefsFromCommits(
+    public ArrayList<ResourceRef> getBuildWorkItemsRefsFromCommits(
         final List<String> commitIds, 
         final String project, 
         final int buildId, 
@@ -4118,7 +4024,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ResourceRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ResourceRef>>() {});
     }
 
     /** 
@@ -4132,9 +4038,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param top 
      *            The maximum number of workitems to return, also number of commits to consider if commitids are not sent
-     * @return List&lt;ResourceRef&gt;
+     * @return ArrayList&lt;ResourceRef&gt;
      */
-    public List<ResourceRef> getBuildWorkItemsRefsFromCommits(
+    public ArrayList<ResourceRef> getBuildWorkItemsRefsFromCommits(
         final List<String> commitIds, 
         final UUID project, 
         final int buildId, 
@@ -4159,7 +4065,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ResourceRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ResourceRef>>() {});
     }
 
     /** 
@@ -4173,9 +4079,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param top 
      *            The maximum number of workitems to return
-     * @return List&lt;ResourceRef&gt;
+     * @return ArrayList&lt;ResourceRef&gt;
      */
-    public List<ResourceRef> getWorkItemsBetweenBuilds(
+    public ArrayList<ResourceRef> getWorkItemsBetweenBuilds(
         final String project, 
         final int fromBuildId, 
         final int toBuildId, 
@@ -4199,7 +4105,7 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ResourceRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ResourceRef>>() {});
     }
 
     /** 
@@ -4213,9 +4119,9 @@ public abstract class BuildHttpClientBase
      *            
      * @param top 
      *            The maximum number of workitems to return
-     * @return List&lt;ResourceRef&gt;
+     * @return ArrayList&lt;ResourceRef&gt;
      */
-    public List<ResourceRef> getWorkItemsBetweenBuilds(
+    public ArrayList<ResourceRef> getWorkItemsBetweenBuilds(
         final UUID project, 
         final int fromBuildId, 
         final int toBuildId, 
@@ -4239,6 +4145,6 @@ public abstract class BuildHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<ResourceRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<ResourceRef>>() {});
     }
 }

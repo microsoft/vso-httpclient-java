@@ -15,22 +15,22 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class WorkItemComments {
 
-    private List<WorkItemComment> comments;
+    private ArrayList<WorkItemComment> comments;
     private int count;
     private int fromRevisionCount;
     private int totalCount;
 
-    public List<WorkItemComment> getComments() {
+    public ArrayList<WorkItemComment> getComments() {
         return comments;
     }
 
-    public void setComments(final List<WorkItemComment> comments) {
+    public void setComments(final ArrayList<WorkItemComment> comments) {
         this.comments = comments;
     }
 

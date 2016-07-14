@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
@@ -57,7 +57,7 @@ public class GitPullRequestComment {
     /**
     * A list of the users who&#039;ve liked this comment.
     */
-    private List<IdentityRef> usersLiked;
+    private ArrayList<IdentityRef> usersLiked;
 
     @JsonProperty("_links")
     public ReferenceLinks getLinks() {
@@ -172,14 +172,14 @@ public class GitPullRequestComment {
     /**
     * A list of the users who&amp;#039;ve liked this comment.
     */
-    public List<IdentityRef> getUsersLiked() {
+    public ArrayList<IdentityRef> getUsersLiked() {
         return usersLiked;
     }
 
     /**
     * A list of the users who&amp;#039;ve liked this comment.
     */
-    public void setUsersLiked(final List<IdentityRef> usersLiked) {
+    public void setUsersLiked(final ArrayList<IdentityRef> usersLiked) {
         this.usersLiked = usersLiked;
     }
 }

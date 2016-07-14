@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 /** 
@@ -25,13 +25,13 @@ public class TaskAgentJobRequest {
 
     private Date assignTime;
     private TaskOrchestrationOwner definition;
-    private List<Demand> demands;
+    private ArrayList<Demand> demands;
     private Date finishTime;
     private UUID hostId;
     private UUID jobId;
     private String jobName;
     private Date lockedUntil;
-    private List<TaskAgentReference> matchedAgents;
+    private ArrayList<TaskAgentReference> matchedAgents;
     private TaskOrchestrationOwner owner;
     private UUID planId;
     private String planType;
@@ -59,11 +59,11 @@ public class TaskAgentJobRequest {
         this.definition = definition;
     }
 
-    public List<Demand> getDemands() {
+    public ArrayList<Demand> getDemands() {
         return demands;
     }
 
-    public void setDemands(final List<Demand> demands) {
+    public void setDemands(final ArrayList<Demand> demands) {
         this.demands = demands;
     }
 
@@ -107,11 +107,11 @@ public class TaskAgentJobRequest {
         this.lockedUntil = lockedUntil;
     }
 
-    public List<TaskAgentReference> getMatchedAgents() {
+    public ArrayList<TaskAgentReference> getMatchedAgents() {
         return matchedAgents;
     }
 
-    public void setMatchedAgents(final List<TaskAgentReference> matchedAgents) {
+    public void setMatchedAgents(final ArrayList<TaskAgentReference> matchedAgents) {
         this.matchedAgents = matchedAgents;
     }
 

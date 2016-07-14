@@ -15,7 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 import java.util.UUID;
 
 /** 
@@ -24,17 +24,17 @@ import java.util.UUID;
  */
 public class JobOption {
 
-    private Map<String, String> data;
+    private HashMap<String, String> data;
     /**
     * Gets the id of the option.
     */
     private UUID id;
 
-    public Map<String, String> getData() {
+    public HashMap<String, String> getData() {
         return data;
     }
 
-    public void setData(final Map<String, String> data) {
+    public void setData(final HashMap<String, String> data) {
         this.data = data;
     }
 

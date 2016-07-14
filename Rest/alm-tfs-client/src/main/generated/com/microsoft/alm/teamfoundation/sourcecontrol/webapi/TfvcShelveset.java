@@ -15,23 +15,23 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /** 
  */
 public class TfvcShelveset
     extends TfvcShelvesetRef {
 
-    private List<TfvcChange> changes;
+    private ArrayList<TfvcChange> changes;
     private CheckinNote[] notes;
     private TfvcPolicyOverrideInfo policyOverride;
-    private List<AssociatedWorkItem> workItems;
+    private ArrayList<AssociatedWorkItem> workItems;
 
-    public List<TfvcChange> getChanges() {
+    public ArrayList<TfvcChange> getChanges() {
         return changes;
     }
 
-    public void setChanges(final List<TfvcChange> changes) {
+    public void setChanges(final ArrayList<TfvcChange> changes) {
         this.changes = changes;
     }
 
@@ -51,11 +51,11 @@ public class TfvcShelveset
         this.policyOverride = policyOverride;
     }
 
-    public List<AssociatedWorkItem> getWorkItems() {
+    public ArrayList<AssociatedWorkItem> getWorkItems() {
         return workItems;
     }
 
-    public void setWorkItems(final List<AssociatedWorkItem> workItems) {
+    public void setWorkItems(final ArrayList<AssociatedWorkItem> workItems) {
         this.workItems = workItems;
     }
 }

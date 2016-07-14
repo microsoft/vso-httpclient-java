@@ -15,20 +15,20 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.Map;
+import java.util.HashMap;
 
 /** 
  */
 public class GitSuggestion {
 
-    private Map<String, Object> properties;
+    private HashMap<String, Object> properties;
     private String type;
 
-    public Map<String, Object> getProperties() {
+    public HashMap<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(final Map<String, Object> properties) {
+    public void setProperties(final HashMap<String, Object> properties) {
         this.properties = properties;
     }
 

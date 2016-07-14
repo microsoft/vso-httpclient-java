@@ -15,8 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
-import java.util.List;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 /** 
@@ -24,26 +24,26 @@ import java.util.UUID;
 public class WorkItemClassificationNode
     extends WorkItemTrackingResource {
 
-    private Map<String, Object> attributes;
-    private List<WorkItemClassificationNode> children;
+    private HashMap<String, Object> attributes;
+    private ArrayList<WorkItemClassificationNode> children;
     private int id;
     private UUID identifier;
     private String name;
     private TreeNodeStructureType structureType;
 
-    public Map<String, Object> getAttributes() {
+    public HashMap<String, Object> getAttributes() {
         return attributes;
     }
 
-    public void setAttributes(final Map<String, Object> attributes) {
+    public void setAttributes(final HashMap<String, Object> attributes) {
         this.attributes = attributes;
     }
 
-    public List<WorkItemClassificationNode> getChildren() {
+    public ArrayList<WorkItemClassificationNode> getChildren() {
         return children;
     }
 
-    public void setChildren(final List<WorkItemClassificationNode> children) {
+    public void setChildren(final ArrayList<WorkItemClassificationNode> children) {
         this.children = children;
     }
 

@@ -16,6 +16,7 @@
 package com.microsoft.alm.teamfoundation.core.webapi;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -141,9 +142,9 @@ public abstract class CoreHttpClientBase
      *            
      * @param kind 
      *            
-     * @return List&lt;WebApiConnectedService&gt;
+     * @return ArrayList&lt;WebApiConnectedService&gt;
      */
-    public List<WebApiConnectedService> getConnectedServices(
+    public ArrayList<WebApiConnectedService> getConnectedServices(
         final String projectId, 
         final ConnectedServiceKind kind) { 
 
@@ -163,7 +164,7 @@ public abstract class CoreHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WebApiConnectedService>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WebApiConnectedService>>() {});
     }
 
     /** 
@@ -227,9 +228,9 @@ public abstract class CoreHttpClientBase
      * 
      * @param mruName 
      *            
-     * @return List&lt;IdentityRef&gt;
+     * @return ArrayList&lt;IdentityRef&gt;
      */
-    public List<IdentityRef> getIdentityMru(final String mruName) { 
+    public ArrayList<IdentityRef> getIdentityMru(final String mruName) { 
 
         final UUID locationId = UUID.fromString("5ead0b70-2572-4697-97e9-f341069a783a"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -243,7 +244,7 @@ public abstract class CoreHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<IdentityRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRef>>() {});
     }
 
     /** 
@@ -286,9 +287,9 @@ public abstract class CoreHttpClientBase
      *            
      * @param skip 
      *            
-     * @return List&lt;IdentityRef&gt;
+     * @return ArrayList&lt;IdentityRef&gt;
      */
-    public List<IdentityRef> getTeamMembers(
+    public ArrayList<IdentityRef> getTeamMembers(
         final String projectId, 
         final String teamId, 
         final Integer top, 
@@ -312,7 +313,7 @@ public abstract class CoreHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<IdentityRef>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRef>>() {});
     }
 
     /** 
@@ -342,9 +343,9 @@ public abstract class CoreHttpClientBase
     /** 
      * [Preview API 3.0-preview.1]
      * 
-     * @return List&lt;Process&gt;
+     * @return ArrayList&lt;Process&gt;
      */
-    public List<Process> getProcesses() { 
+    public ArrayList<Process> getProcesses() { 
 
         final UUID locationId = UUID.fromString("93878975-88c5-4e6a-8abb-7ddd77a8a7d8"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -354,7 +355,7 @@ public abstract class CoreHttpClientBase
                                                        apiVersion,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Process>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Process>>() {});
     }
 
     /** 
@@ -388,9 +389,9 @@ public abstract class CoreHttpClientBase
      *            
      * @param skip 
      *            
-     * @return List&lt;TeamProjectCollectionReference&gt;
+     * @return ArrayList&lt;TeamProjectCollectionReference&gt;
      */
-    public List<TeamProjectCollectionReference> getProjectCollections(
+    public ArrayList<TeamProjectCollectionReference> getProjectCollections(
         final Integer top, 
         final Integer skip) { 
 
@@ -407,7 +408,7 @@ public abstract class CoreHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamProjectCollectionReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamProjectCollectionReference>>() {});
     }
 
     /** 
@@ -415,9 +416,9 @@ public abstract class CoreHttpClientBase
      * 
      * @param minRevision 
      *            
-     * @return List&lt;TeamProjectReference&gt;
+     * @return ArrayList&lt;TeamProjectReference&gt;
      */
-    public List<TeamProjectReference> getProjectHistory(final Integer minRevision) { 
+    public ArrayList<TeamProjectReference> getProjectHistory(final Integer minRevision) { 
 
         final UUID locationId = UUID.fromString("6488a877-4749-4954-82ea-7340d36be9f2"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -431,7 +432,7 @@ public abstract class CoreHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamProjectReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamProjectReference>>() {});
     }
 
     /** 
@@ -479,9 +480,9 @@ public abstract class CoreHttpClientBase
      *            
      * @param skip 
      *            
-     * @return List&lt;TeamProjectReference&gt;
+     * @return ArrayList&lt;TeamProjectReference&gt;
      */
-    public List<TeamProjectReference> getProjects(
+    public ArrayList<TeamProjectReference> getProjects(
         final ProjectState stateFilter, 
         final Integer top, 
         final Integer skip) { 
@@ -500,7 +501,7 @@ public abstract class CoreHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<TeamProjectReference>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TeamProjectReference>>() {});
     }
 
     /** 
@@ -584,9 +585,9 @@ public abstract class CoreHttpClientBase
      * 
      * @param proxyUrl 
      *            
-     * @return List&lt;Proxy&gt;
+     * @return ArrayList&lt;Proxy&gt;
      */
-    public List<Proxy> getProxies(final String proxyUrl) { 
+    public ArrayList<Proxy> getProxies(final String proxyUrl) { 
 
         final UUID locationId = UUID.fromString("ec1f4311-f2b4-4c15-b2b8-8990b80d2908"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -600,7 +601,7 @@ public abstract class CoreHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<Proxy>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<Proxy>>() {});
     }
 
     /** 
@@ -699,9 +700,9 @@ public abstract class CoreHttpClientBase
      *            
      * @param skip 
      *            
-     * @return List&lt;WebApiTeam&gt;
+     * @return ArrayList&lt;WebApiTeam&gt;
      */
-    public List<WebApiTeam> getTeams(
+    public ArrayList<WebApiTeam> getTeams(
         final String projectId, 
         final Integer top, 
         final Integer skip) { 
@@ -723,7 +724,7 @@ public abstract class CoreHttpClientBase
                                                        queryParameters,
                                                        APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<List<WebApiTeam>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WebApiTeam>>() {});
     }
 
     /** 

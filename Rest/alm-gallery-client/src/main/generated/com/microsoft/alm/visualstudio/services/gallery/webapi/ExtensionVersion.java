@@ -16,19 +16,19 @@
 package com.microsoft.alm.visualstudio.services.gallery.webapi;
 
 import java.util.AbstractMap.SimpleEntry;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /** 
  */
 public class ExtensionVersion {
 
     private String assetUri;
-    private List<ExtensionBadge> badges;
-    private List<ExtensionFile> files;
+    private ArrayList<ExtensionBadge> badges;
+    private ArrayList<ExtensionFile> files;
     private ExtensionVersionFlags flags;
     private Date lastUpdated;
-    private List<SimpleEntry<String, String>> properties;
+    private ArrayList<SimpleEntry<String, String>> properties;
     private String validationResultMessage;
     private String version;
     private String versionDescription;
@@ -41,19 +41,19 @@ public class ExtensionVersion {
         this.assetUri = assetUri;
     }
 
-    public List<ExtensionBadge> getBadges() {
+    public ArrayList<ExtensionBadge> getBadges() {
         return badges;
     }
 
-    public void setBadges(final List<ExtensionBadge> badges) {
+    public void setBadges(final ArrayList<ExtensionBadge> badges) {
         this.badges = badges;
     }
 
-    public List<ExtensionFile> getFiles() {
+    public ArrayList<ExtensionFile> getFiles() {
         return files;
     }
 
-    public void setFiles(final List<ExtensionFile> files) {
+    public void setFiles(final ArrayList<ExtensionFile> files) {
         this.files = files;
     }
 
@@ -73,11 +73,11 @@ public class ExtensionVersion {
         this.lastUpdated = lastUpdated;
     }
 
-    public List<SimpleEntry<String, String>> getProperties() {
+    public ArrayList<SimpleEntry<String, String>> getProperties() {
         return properties;
     }
 
-    public void setProperties(final List<SimpleEntry<String, String>> properties) {
+    public void setProperties(final ArrayList<SimpleEntry<String, String>> properties) {
         this.properties = properties;
     }
 

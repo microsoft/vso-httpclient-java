@@ -15,9 +15,8 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-import java.util.List;
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
+import java.util.HashMap;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.JsonDeserializer;
@@ -35,7 +34,7 @@ public class BuildDefinition
     * Indicates whether badges are enabled for this definition
     */
     private boolean badgeEnabled;
-    private List<BuildDefinitionStep> build;
+    private ArrayList<BuildDefinitionStep> build;
     /**
     * The build number format
     */
@@ -44,7 +43,7 @@ public class BuildDefinition
     * The comment entered when saving the definition
     */
     private String comment;
-    private List<Demand> demands;
+    private ArrayList<Demand> demands;
     /**
     * The description
     */
@@ -61,15 +60,15 @@ public class BuildDefinition
     * Gets or sets the job execution timeout in minutes for builds which are queued against this definition
     */
     private int jobTimeoutInMinutes;
-    private List<BuildOption> options;
+    private ArrayList<BuildOption> options;
     private PropertiesCollection properties;
     /**
     * The repository
     */
     private BuildRepository repository;
-    private List<RetentionPolicy> retentionRules;
-    private List<BuildTrigger> triggers;
-    private Map<String, BuildDefinitionVariable> variables;
+    private ArrayList<RetentionPolicy> retentionRules;
+    private ArrayList<BuildTrigger> triggers;
+    private HashMap<String, BuildDefinitionVariable> variables;
 
     /**
     * Indicates whether badges are enabled for this definition
@@ -85,13 +84,11 @@ public class BuildDefinition
         this.badgeEnabled = badgeEnabled;
     }
 
-    @JsonProperty("build")
-    public List<BuildDefinitionStep> getSteps() {
+    public ArrayList<BuildDefinitionStep> getBuild() {
         return build;
     }
 
-    @JsonProperty("build")
-    public void setSteps(final List<BuildDefinitionStep> build) {
+    public void setBuild(final ArrayList<BuildDefinitionStep> build) {
         this.build = build;
     }
 
@@ -123,11 +120,11 @@ public class BuildDefinition
         this.comment = comment;
     }
 
-    public List<Demand> getDemands() {
+    public ArrayList<Demand> getDemands() {
         return demands;
     }
 
-    public void setDemands(final List<Demand> demands) {
+    public void setDemands(final ArrayList<Demand> demands) {
         this.demands = demands;
     }
 
@@ -187,11 +184,11 @@ public class BuildDefinition
         this.jobTimeoutInMinutes = jobTimeoutInMinutes;
     }
 
-    public List<BuildOption> getOptions() {
+    public ArrayList<BuildOption> getOptions() {
         return options;
     }
 
-    public void setOptions(final List<BuildOption> options) {
+    public void setOptions(final ArrayList<BuildOption> options) {
         this.options = options;
     }
 
@@ -217,27 +214,27 @@ public class BuildDefinition
         this.repository = repository;
     }
 
-    public List<RetentionPolicy> getRetentionRules() {
+    public ArrayList<RetentionPolicy> getRetentionRules() {
         return retentionRules;
     }
 
-    public void setRetentionRules(final List<RetentionPolicy> retentionRules) {
+    public void setRetentionRules(final ArrayList<RetentionPolicy> retentionRules) {
         this.retentionRules = retentionRules;
     }
 
-    public List<BuildTrigger> getTriggers() {
+    public ArrayList<BuildTrigger> getTriggers() {
         return triggers;
     }
 
-    public void setTriggers(final List<BuildTrigger> triggers) {
+    public void setTriggers(final ArrayList<BuildTrigger> triggers) {
         this.triggers = triggers;
     }
 
-    public Map<String, BuildDefinitionVariable> getVariables() {
+    public HashMap<String, BuildDefinitionVariable> getVariables() {
         return variables;
     }
 
-    public void setVariables(final Map<String, BuildDefinitionVariable> variables) {
+    public void setVariables(final HashMap<String, BuildDefinitionVariable> variables) {
         this.variables = variables;
     }
 }
