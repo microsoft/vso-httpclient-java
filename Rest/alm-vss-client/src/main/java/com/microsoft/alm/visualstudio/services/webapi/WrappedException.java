@@ -24,7 +24,8 @@ public class WrappedException {
     private int eventId;
     private String stackTrace;
 
-    public WrappedException() {}
+    public WrappedException() {
+    }
 
     public WrappedException(final Throwable exception, final boolean includeErrorDetail) {
         this.type = exception.getClass();

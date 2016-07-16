@@ -7,8 +7,7 @@ import java.util.Map;
 
 import com.microsoft.alm.client.utils.ArgumentUtility;
 
-public class DemandEquals
-    extends Demand {
+public class DemandEquals extends Demand {
     public DemandEquals(final String name, final String value) {
         super(name, value);
         ArgumentUtility.checkStringForNullOrEmpty(value, "value"); //$NON-NLS-1$

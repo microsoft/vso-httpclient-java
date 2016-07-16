@@ -8,8 +8,7 @@ import junit.framework.TestCase;
 import com.microsoft.alm.visualstudio.services.webapi.ApiResourceVersion;
 import com.microsoft.alm.visualstudio.services.webapi.ApiResourceVersion.Version;
 
-public class ApiVersionTest
-        extends TestCase {
+public class ApiVersionTest extends TestCase {
     public void testApiVersion() {
         testApiVersion("1.0"); //$NON-NLS-1$
         testApiVersion("2.3"); //$NON-NLS-1$

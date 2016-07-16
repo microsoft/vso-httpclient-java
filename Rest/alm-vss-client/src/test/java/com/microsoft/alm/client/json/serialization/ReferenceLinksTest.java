@@ -18,12 +18,10 @@ import com.microsoft.alm.client.entitytypes.EntityWithReferenceLinks;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLink;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
-public class ReferenceLinksTest
-    extends TestCase {
+public class ReferenceLinksTest extends TestCase {
 
     @Test
-    public void testReferenceLinksDeserialization1()
-        throws IOException {
+    public void testReferenceLinksDeserialization1() throws IOException {
         final ReferenceLinks rl = new ReferenceLinks();
 
         final Map<String, Object> linkValues = new HashMap<String, Object>();
@@ -46,8 +44,7 @@ public class ReferenceLinksTest
     }
 
     @Test
-    public void testReferenceLinksDeserialization2()
-        throws IOException {
+    public void testReferenceLinksDeserialization2() throws IOException {
 
         List<ReferenceLink> links = new ArrayList<ReferenceLink>();
 

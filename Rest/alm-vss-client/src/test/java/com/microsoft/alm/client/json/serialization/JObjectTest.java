@@ -15,12 +15,10 @@ import com.microsoft.alm.client.entitytypes.EntityWithoutJObject1;
 import com.microsoft.alm.client.entitytypes.EntityWithoutJObject2;
 import com.microsoft.alm.client.entitytypes.EntityWithoutJObject3;
 
-public class JObjectTest
-    extends TestCase {
+public class JObjectTest extends TestCase {
 
     @Test
-    public void testJObject1()
-        throws IOException {
+    public void testJObject1() throws IOException {
         final EntityWithoutJObject1 e1 = EntityWithoutJObject1.getRandomSample();
 
         final String s1 = TestUtil.toJsonString(e1);
@@ -34,8 +32,7 @@ public class JObjectTest
     }
 
     @Test
-    public void testJObject2()
-        throws IOException {
+    public void testJObject2() throws IOException {
         final EntityWithoutJObject2 e1 = EntityWithoutJObject2.getRandomSample();
 
         final String s1 = TestUtil.toJsonString(e1);
@@ -49,8 +46,7 @@ public class JObjectTest
     }
 
     @Test
-    public void testJObject3()
-        throws IOException {
+    public void testJObject3() throws IOException {
         final EntityWithoutJObject3 e1 = EntityWithoutJObject3.getRandomSample();
 
         final String s1 = TestUtil.toJsonString(e1);

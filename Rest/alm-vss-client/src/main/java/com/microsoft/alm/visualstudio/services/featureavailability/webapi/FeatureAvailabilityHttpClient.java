@@ -12,12 +12,9 @@ import com.microsoft.alm.client.utils.ArgumentUtility;
 
 import javax.ws.rs.client.Client;
 
-public class FeatureAvailabilityHttpClient
-    extends FeatureAvailabilityHttpClientBase
-{
+public class FeatureAvailabilityHttpClient extends FeatureAvailabilityHttpClientBase {
 
-    public FeatureAvailabilityHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public FeatureAvailabilityHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

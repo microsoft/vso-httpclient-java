@@ -9,7 +9,8 @@ public class JObjectSample1 {
     private int fieldA;
     private String fieldB;
 
-    public JObjectSample1() {}
+    public JObjectSample1() {
+    }
 
     private JObjectSample1(final int fieldA, final String fieldB) {
         this.fieldA = fieldA;

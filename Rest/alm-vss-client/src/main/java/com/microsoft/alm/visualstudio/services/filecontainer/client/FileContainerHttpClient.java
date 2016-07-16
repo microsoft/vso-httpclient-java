@@ -12,12 +12,9 @@ import com.microsoft.alm.client.utils.ArgumentUtility;
 
 import javax.ws.rs.client.Client;
 
-public class FileContainerHttpClient
-    extends FileContainerHttpClientBase
-{
+public class FileContainerHttpClient extends FileContainerHttpClientBase {
 
-    public FileContainerHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public FileContainerHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

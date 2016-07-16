@@ -5,8 +5,7 @@ package com.microsoft.alm.teamfoundation.build.webapi;
 
 import com.microsoft.alm.client.utils.ArgumentUtility;
 
-public class DemandEquals
-    extends Demand {
+public class DemandEquals extends Demand {
 
     public DemandEquals(final String name, final String value) {
         super(name, value);

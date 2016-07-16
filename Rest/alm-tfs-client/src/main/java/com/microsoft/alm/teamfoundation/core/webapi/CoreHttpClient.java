@@ -13,21 +13,19 @@ import com.microsoft.alm.client.utils.ArgumentUtility;
 
 import javax.ws.rs.client.Client;
 
-public class CoreHttpClient
-    extends CoreHttpClientBase {
+public class CoreHttpClient extends CoreHttpClientBase {
 
-    public CoreHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public CoreHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
+
     /**
      * Get TeamProject
      * 
      * @param projectId
      * @return TeamProject
      */
-    public TeamProject getProject(final String projectId)
-    {
+    public TeamProject getProject(final String projectId) {
         ArgumentUtility.checkStringForNullOrEmpty(projectId, "projectId", true); //$NON-NLS-1$
         return super.getProject(projectId, null, null);
     }
@@ -39,8 +37,7 @@ public class CoreHttpClient
      * @param includeCapabilities
      * @return TeamProject
      */
-    public TeamProject getProject(final String projectId, final boolean includeCapabilities)
-    {
+    public TeamProject getProject(final String projectId, final boolean includeCapabilities) {
         ArgumentUtility.checkStringForNullOrEmpty(projectId, "projectId", true); //$NON-NLS-1$
         return super.getProject(projectId, includeCapabilities, null);
     }
@@ -56,8 +53,7 @@ public class CoreHttpClient
     public TeamProject getProject(
         final String projectId,
         final boolean includeCapabilities,
-        final boolean includeHistory)
-    {
+        final boolean includeHistory) {
         ArgumentUtility.checkStringForNullOrEmpty(projectId, "projectId", true); //$NON-NLS-1$
         return super.getProject(projectId, includeCapabilities, includeHistory);
     }
@@ -67,8 +63,7 @@ public class CoreHttpClient
      * 
      * @return List&lt;TeamProjectReference&gt;
      */
-    public List<TeamProjectReference> getProjects()
-    {
+    public List<TeamProjectReference> getProjects() {
         return super.getProjects(null, null, null);
     }
 
@@ -78,8 +73,7 @@ public class CoreHttpClient
      * @param stateFilter
      * @return List&lt;TeamProjectReference&gt;
      */
-    public List<TeamProjectReference> getProjects(final ProjectState stateFilter)
-    {
+    public List<TeamProjectReference> getProjects(final ProjectState stateFilter) {
         ArgumentUtility.checkForNull(stateFilter, "stateFilter"); //$NON-NLS-1$
         return super.getProjects(stateFilter, null, null);
     }
@@ -91,8 +85,7 @@ public class CoreHttpClient
      * @param top
      * @return List&lt;TeamProjectReference&gt;
      */
-    public List<TeamProjectReference> getProjects(final ProjectState stateFilter, final int top)
-    {
+    public List<TeamProjectReference> getProjects(final ProjectState stateFilter, final int top) {
         ArgumentUtility.checkForNull(stateFilter, "stateFilter"); //$NON-NLS-1$
         return super.getProjects(stateFilter, top, null);
     }
@@ -105,8 +98,7 @@ public class CoreHttpClient
      * @param skip
      * @return List&lt;TeamProjectReference&gt;
      */
-    public List<TeamProjectReference> getProjects(final ProjectState stateFilter, final int top, final int skip)
-    {
+    public List<TeamProjectReference> getProjects(final ProjectState stateFilter, final int top, final int skip) {
         ArgumentUtility.checkForNull(stateFilter, "stateFilter"); //$NON-NLS-1$
         return super.getProjects(stateFilter, top, skip);
     }

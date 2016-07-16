@@ -10,8 +10,7 @@ import java.util.UUID;
 import com.microsoft.alm.client.Messages;
 import com.microsoft.alm.client.utils.StringUtil;
 
-public class VssResourceNotFoundException
-    extends VssServiceException {
+public class VssResourceNotFoundException extends VssServiceException {
 
     public VssResourceNotFoundException(final UUID locationId) {
         super(MessageFormat.format(Messages.getString("VssResourceNotFoundException.NotRegisteredFormat"), locationId)); //$NON-NLS-1$
@@ -19,21 +18,29 @@ public class VssResourceNotFoundException
 
     public VssResourceNotFoundException(final UUID locationId, final Exception innerException) {
         super(MessageFormat.format(Messages.getString("VssResourceNotFoundException.NotRegisteredFormat"), locationId) //$NON-NLS-1$
-                        + " "   //$NON-NLS-1$
-                        + (innerException != null ? innerException.getMessage() : StringUtil.EMPTY),
-                innerException);
+            + " " //$NON-NLS-1$
+            + (innerException != null ? innerException.getMessage() : StringUtil.EMPTY), innerException);
     }
 
     public VssResourceNotFoundException(final UUID locationId, final URI serverBaseUri) {
-        super(MessageFormat.format(
-            Messages.getString("VssResourceNotFoundException.NotRegisteredOnFormat"), locationId, serverBaseUri)); //$NON-NLS-1$
+        super(
+            MessageFormat.format(
+                Messages.getString("VssResourceNotFoundException.NotRegisteredOnFormat"), //$NON-NLS-1$
+                locationId,
+                serverBaseUri));
     }
 
-    public VssResourceNotFoundException(final UUID locationId, final URI serverBaseUri, final Exception innerException) {
-        super(MessageFormat.format(
-            Messages.getString("VssResourceNotFoundException.NotRegisteredOnFormat"), locationId, serverBaseUri)  //$NON-NLS-1$
-                        + " "   //$NON-NLS-1$
-                        + (innerException != null ? innerException.getMessage() : StringUtil.EMPTY),
+    public VssResourceNotFoundException(
+        final UUID locationId,
+        final URI serverBaseUri,
+        final Exception innerException) {
+        super(
+            MessageFormat.format(
+                Messages.getString("VssResourceNotFoundException.NotRegisteredOnFormat"), //$NON-NLS-1$
+                locationId,
+                serverBaseUri)
+                + " " //$NON-NLS-1$
+                + (innerException != null ? innerException.getMessage() : StringUtil.EMPTY),
             innerException);
     }
 }

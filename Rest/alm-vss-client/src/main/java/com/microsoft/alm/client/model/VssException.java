@@ -16,8 +16,7 @@ import com.microsoft.alm.client.utils.StringUtil;
  * from TeamFoundationServerException or TeamFoundationServiceException
  * </p>
  */
-public abstract class VssException
-    extends RuntimeException {
+public abstract class VssException extends RuntimeException {
 
     private int errorCode;
     private boolean logException;

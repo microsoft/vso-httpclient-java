@@ -11,7 +11,8 @@ public class EntityWithoutJObject2 {
     private JObjectSample2 fieldB;
     private String fieldC;
 
-    public EntityWithoutJObject2() {}
+    public EntityWithoutJObject2() {
+    }
 
     private EntityWithoutJObject2(final int fieldA, final JObjectSample2 fieldB, final String fieldC) {
         super();

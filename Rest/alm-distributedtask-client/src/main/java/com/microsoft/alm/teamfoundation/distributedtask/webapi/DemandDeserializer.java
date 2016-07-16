@@ -12,11 +12,11 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class DemandDeserializer
-    extends JsonDeserializer<Demand> {
+public class DemandDeserializer extends JsonDeserializer<Demand> {
 
     /**
      * Deserializes JSON to Demand
+     * 
      * @param parser
      * @param context
      * @return Demand

@@ -3,8 +3,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
-public class DemandExists
-    extends Demand {
+public class DemandExists extends Demand {
 
     public DemandExists(final String name) {
         super(name, null);

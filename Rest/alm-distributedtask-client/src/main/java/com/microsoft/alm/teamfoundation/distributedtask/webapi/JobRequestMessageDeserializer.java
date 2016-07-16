@@ -12,11 +12,9 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JobRequestMessageDeserializer
-    extends JsonDeserializer<JobRequestMessage>
-{
-    public final static String  AGENT_JOB_REQUEST = "JobRequest"; //$NON-NLS-1$
-    public final static String  SERVER_JOB_REQUEST = "ServerJobRequest"; //$NON-NLS-1$
+public class JobRequestMessageDeserializer extends JsonDeserializer<JobRequestMessage> {
+    public final static String AGENT_JOB_REQUEST = "JobRequest"; //$NON-NLS-1$
+    public final static String SERVER_JOB_REQUEST = "ServerJobRequest"; //$NON-NLS-1$
 
     /**
      * {@inheritDoc}
@@ -24,8 +22,7 @@ public class JobRequestMessageDeserializer
     @Override
     public JobRequestMessage deserialize(JsonParser parser, DeserializationContext context)
         throws IOException,
-            JsonProcessingException
-    {
+            JsonProcessingException {
 
         final ObjectMapper mapper = (ObjectMapper) parser.getCodec();
         final JsonNode rootNode = (JsonNode) mapper.readTree(parser);
@@ -38,22 +35,18 @@ public class JobRequestMessageDeserializer
 
         final JsonNode messageTypeNode = rootNode.findValue("MessageType"); //$NON-NLS-1$
 
-        if (messageTypeNode != null && messageTypeNode.isTextual())
-        {
-            final String messageType =  messageTypeNode.asText();
+        if (messageTypeNode != null && messageTypeNode.isTextual()) {
+            final String messageType = messageTypeNode.asText();
 
-            if (AGENT_JOB_REQUEST.equalsIgnoreCase(messageTypeNode.asText()))
-            {
+            if (AGENT_JOB_REQUEST.equalsIgnoreCase(messageTypeNode.asText())) {
                 return rootNode.traverse(mapper).readValueAs(AgentJobRequestMessage.class);
-            }
-            else if (SERVER_JOB_REQUEST.equalsIgnoreCase(messageTypeNode.asText()))
-            {
+            } else if (SERVER_JOB_REQUEST.equalsIgnoreCase(messageTypeNode.asText())) {
                 return rootNode.traverse(mapper).readValueAs(ServerJobRequestMessage.class);
             }
         }
 
         if (rootNode.findValue("RequestId") != null) { //$NON-NLS-1$
-            
+
             return rootNode.traverse(mapper).readValueAs(AgentJobRequestMessage.class);
         }
 

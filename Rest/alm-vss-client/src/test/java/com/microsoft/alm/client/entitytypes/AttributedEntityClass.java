@@ -9,7 +9,8 @@ public class AttributedEntityClass {
     private int fieldA;
     private int fieldB;
 
-    public AttributedEntityClass() {}
+    public AttributedEntityClass() {
+    }
 
     public AttributedEntityClass(final int a, final int b) {
         setFieldA(a);

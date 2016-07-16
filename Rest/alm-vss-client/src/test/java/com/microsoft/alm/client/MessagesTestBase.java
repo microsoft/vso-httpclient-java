@@ -20,8 +20,7 @@ import java.util.regex.Pattern;
 import junit.framework.AssertionFailedError;
 import junit.framework.TestCase;
 
-public abstract class MessagesTestBase
-    extends TestCase {
+public abstract class MessagesTestBase extends TestCase {
     private final Hashtable<String, ArrayList<String>> mapClassNames = new Hashtable<String, ArrayList<String>>();
     private final Hashtable<String, Integer> mapParameterCount = new Hashtable<String, Integer>();
     private final Hashtable<String, Integer> mapArgumentsPassed = new Hashtable<String, Integer>();
@@ -169,8 +168,7 @@ public abstract class MessagesTestBase
         }
     }
 
-    private void processJavaFiles(List<File> javaFiles)
-        throws IOException {
+    private void processJavaFiles(List<File> javaFiles) throws IOException {
         for (int i = 0; i < javaFiles.size(); i++) {
             File javaFile = javaFiles.get(i);
             String javaSourceCode = readFile(javaFile);
@@ -193,8 +191,7 @@ public abstract class MessagesTestBase
         }
     }
 
-    private List<String> getMessageReferences(String javaSourceCode)
-        throws IOException {
+    private List<String> getMessageReferences(String javaSourceCode) throws IOException {
         String regex = "Messages.getString\\(\"([^\"]*)\"[^\\)]*\\)"; //$NON-NLS-1$
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(javaSourceCode);
@@ -208,8 +205,7 @@ public abstract class MessagesTestBase
         return refs;
     }
 
-    private List<ArgumentInfo> getMessageArguments(String javaSourceCode)
-        throws IOException {
+    private List<ArgumentInfo> getMessageArguments(String javaSourceCode) throws IOException {
         String regex = "(?m)Messages.getString\\(\"[^\"]*\"\\).*$[^$]MessageFormat.format\\(.*;"; //$NON-NLS-1$
         Pattern pattern = Pattern.compile(regex, Pattern.MULTILINE);
         Matcher matcher = pattern.matcher(javaSourceCode);
@@ -259,10 +255,14 @@ public abstract class MessagesTestBase
                 parameterIndex++;
             } else {
                 throw new AssertionFailedError("Parameter values must repeat the previous value or increase by 1: " //$NON-NLS-1$
-                    + property.name + " [" //$NON-NLS-1$
-                    + property.value + "]; '" //$NON-NLS-1$
-                    + subValue + "' must be " //$NON-NLS-1$
-                    + parameterIndex + " or " //$NON-NLS-1$
+                    + property.name
+                    + " [" //$NON-NLS-1$
+                    + property.value
+                    + "]; '" //$NON-NLS-1$
+                    + subValue
+                    + "' must be " //$NON-NLS-1$
+                    + parameterIndex
+                    + " or " //$NON-NLS-1$
                     + (parameterIndex + 1));
             }
         }
@@ -300,8 +300,7 @@ public abstract class MessagesTestBase
      * @return
      * @throws IOException
      */
-    private String readFile(File f)
-        throws IOException {
+    private String readFile(File f) throws IOException {
         assertTrue("File does not exist=" + f.getAbsolutePath(), f.exists()); //$NON-NLS-1$
 
         FileInputStream in = new FileInputStream(f);

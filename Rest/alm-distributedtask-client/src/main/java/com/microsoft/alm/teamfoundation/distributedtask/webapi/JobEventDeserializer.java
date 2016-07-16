@@ -12,9 +12,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JobEventDeserializer
-    extends JsonDeserializer<JobEvent>
-{
+public class JobEventDeserializer extends JsonDeserializer<JobEvent> {
 
     /**
      * {@inheritDoc}
@@ -22,16 +20,14 @@ public class JobEventDeserializer
     @Override
     public JobEvent deserialize(JsonParser parser, DeserializationContext context)
         throws IOException,
-            JsonProcessingException
-    {
+            JsonProcessingException {
 
         final ObjectMapper mapper = (ObjectMapper) parser.getCodec();
         final JsonNode rootNode = (JsonNode) mapper.readTree(parser);
 
         final JsonNode nameNode = rootNode.findValue("Name"); //$NON-NLS-1$
 
-        if (nameNode != null)
-        {
+        if (nameNode != null) {
             if (nameNode.isTextual() && "JobAssigned".equals(nameNode.asText())) //$NON-NLS-1$
             {
                 return rootNode.traverse(mapper).readValueAs(JobAssignedEvent.class);
@@ -45,15 +41,13 @@ public class JobEventDeserializer
 
         final JsonNode requestNode = rootNode.findValue("Request"); //$NON-NLS-1$
 
-        if (requestNode != null)
-        {
+        if (requestNode != null) {
             return rootNode.traverse(mapper).readValueAs(JobAssignedEvent.class);
         }
 
         final JsonNode resultNode = rootNode.findValue("Result"); //$NON-NLS-1$
 
-        if (resultNode != null)
-        {
+        if (resultNode != null) {
             return rootNode.traverse(mapper).readValueAs(JobCompletedEvent.class);
         }
 

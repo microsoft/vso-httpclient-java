@@ -32,16 +32,20 @@ public class ApiResourceVersion {
     }
 
     /**
-    * String representation of the Public API version. This is the version that the public sees and is used for a large group of services (e.g. the TFS 1.0 API)
-    */
+     * String representation of the Public API version. This is the version that
+     * the public sees and is used for a large group of services (e.g. the TFS
+     * 1.0 API)
+     */
     @JsonProperty("apiVersion")
     public String getApiVersionString() {
         return apiVersion.toString();
     }
 
     /**
-    * String representation of the Public API version. This is the version that the public sees and is used for a large group of services (e.g. the TFS 1.0 API)
-    */
+     * String representation of the Public API version. This is the version that
+     * the public sees and is used for a large group of services (e.g. the TFS
+     * 1.0 API)
+     */
     @JsonProperty("apiVersion")
     public void setApiVersionString(final String apiVersionString) {
         if (StringUtil.isNullOrEmpty(apiVersionString)) {
@@ -96,8 +100,8 @@ public class ApiResourceVersion {
     }
 
     /**
-    * Is the public API version in preview
-    */
+     * Is the public API version in preview
+     */
     @JsonProperty("IsPreview")
     public void setPreview(final boolean isPreview) {
         this.isPreview = isPreview;
@@ -172,8 +176,7 @@ public class ApiResourceVersion {
         return false;
     }
 
-    public static class Version
-            implements Comparable<Version> {
+    public static class Version implements Comparable<Version> {
         final int major;
         final int minor;
 
@@ -223,8 +226,7 @@ public class ApiResourceVersion {
 
         @Override
         public int compareTo(final Version v) {
-            if (v == null)
-            {
+            if (v == null) {
                 return 1;
             }
 

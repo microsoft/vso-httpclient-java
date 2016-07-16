@@ -12,12 +12,9 @@ import com.microsoft.alm.client.utils.ArgumentUtility;
 
 import javax.ws.rs.client.Client;
 
-public class WorkItemTrackingHttpClient
-    extends WorkItemTrackingHttpClientBase
-{
+public class WorkItemTrackingHttpClient extends WorkItemTrackingHttpClientBase {
 
-    public WorkItemTrackingHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public WorkItemTrackingHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

@@ -5,8 +5,7 @@ package com.microsoft.alm.client;
 
 import com.microsoft.alm.client.MessagesTestBase;
 
-public class MessagesTest
-    extends MessagesTestBase {
+public class MessagesTest extends MessagesTestBase {
     public void testMessages() {
         validate();
     }

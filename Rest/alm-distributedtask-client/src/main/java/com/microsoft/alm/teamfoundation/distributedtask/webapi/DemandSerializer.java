@@ -10,11 +10,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
-public class DemandSerializer
-    extends JsonSerializer<Demand> {
+public class DemandSerializer extends JsonSerializer<Demand> {
 
     /**
      * Serializes ReferenceLinks to JSON
+     * 
      * @param value
      * @param writer
      * @param serializer

@@ -12,9 +12,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.microsoft.alm.client.Messages;
 
-public class BuildTriggerSerializer
-    extends JsonSerializer<BuildTrigger>
-{
+public class BuildTriggerSerializer extends JsonSerializer<BuildTrigger> {
 
     /**
      * {@inheritDoc}
@@ -22,23 +20,18 @@ public class BuildTriggerSerializer
     @Override
     public void serialize(BuildTrigger value, JsonGenerator writer, SerializerProvider provider)
         throws IOException,
-            JsonProcessingException
-    {
-        if (value instanceof ContinuousIntegrationTrigger)
-        {
+            JsonProcessingException {
+        if (value instanceof ContinuousIntegrationTrigger) {
             final ContinuousIntegrationTrigger v = (ContinuousIntegrationTrigger) value;
             writer.writeObject(v);
-        }
-        else if (value instanceof ScheduleTrigger)
-        {
+        } else if (value instanceof ScheduleTrigger) {
             final ScheduleTrigger v = (ScheduleTrigger) value;
             writer.writeObject(v);
-        }
-        else
-        {
-            throw new UnsupportedOperationException(MessageFormat.format(
-                Messages.getString("Serializer.NotImplementedFormat"), //$NON-NLS-1$
-                value.getClass().getName()));
+        } else {
+            throw new UnsupportedOperationException(
+                MessageFormat.format(
+                    Messages.getString("Serializer.NotImplementedFormat"), //$NON-NLS-1$
+                    value.getClass().getName()));
         }
     }
 

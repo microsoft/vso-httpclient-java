@@ -12,12 +12,9 @@ import com.microsoft.alm.client.utils.ArgumentUtility;
 
 import javax.ws.rs.client.Client;
 
-public class SecurityHttpClient
-    extends SecurityHttpClientBase
-{
+public class SecurityHttpClient extends SecurityHttpClientBase {
 
-    public SecurityHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public SecurityHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

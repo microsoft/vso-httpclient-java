@@ -3,9 +3,7 @@
 
 package com.microsoft.alm.client.model;
 
-
-public class VssServiceException
-    extends VssException {
+public class VssServiceException extends VssException {
 
     public VssServiceException() {
         super();

@@ -6,12 +6,9 @@ package com.microsoft.alm.visualstudio.services.extensionmanagement.webapi;
 import javax.ws.rs.client.Client;
 import java.net.URI;
 
-public class ExtensionManagementHttpClient
-    extends ExtensionManagementHttpClientBase
-{
+public class ExtensionManagementHttpClient extends ExtensionManagementHttpClientBase {
 
-    public ExtensionManagementHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public ExtensionManagementHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

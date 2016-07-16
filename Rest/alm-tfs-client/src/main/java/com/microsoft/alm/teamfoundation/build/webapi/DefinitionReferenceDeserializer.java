@@ -12,55 +12,39 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class DefinitionReferenceDeserializer
-    extends JsonDeserializer<DefinitionReference>
-{
+public class DefinitionReferenceDeserializer extends JsonDeserializer<DefinitionReference> {
     @Override
     public DefinitionReference deserialize(final JsonParser parser, final DeserializationContext context)
         throws IOException,
-            JsonProcessingException
-    {
+            JsonProcessingException {
 
         final ObjectMapper mapper = (ObjectMapper) parser.getCodec();
         final JsonNode rootNode = (JsonNode) mapper.readTree(parser);
 
         final JsonNode typeNode = rootNode.findValue("type"); //$NON-NLS-1$
 
-        if (typeNode != null)
-        {
+        if (typeNode != null) {
             DefinitionType definitionType = DefinitionType.BUILD;
-            if (typeNode.isInt() && typeNode.asInt() == DefinitionType.XAML.getValue())
-            {
+            if (typeNode.isInt() && typeNode.asInt() == DefinitionType.XAML.getValue()) {
                 definitionType = DefinitionType.XAML;
-            }
-            else if (typeNode.isTextual() && DefinitionType.XAML.toString().equalsIgnoreCase(typeNode.asText()))
-            {
+            } else if (typeNode.isTextual() && DefinitionType.XAML.toString().equalsIgnoreCase(typeNode.asText())) {
                 definitionType = DefinitionType.XAML;
-            }
-            else
-            {
+            } else {
                 definitionType = DefinitionType.BUILD;
             }
 
-            switch (definitionType)
-            {
+            switch (definitionType) {
                 case XAML:
                     return rootNode.traverse(mapper).readValueAs(XamlBuildDefinition.class);
                 default:
-                    try
-                    {
+                    try {
                         return rootNode.traverse(mapper).readValueAs(BuildDefinition.class);
-                    }
-                    catch (final Exception e)
-                    {
+                    } catch (final Exception e) {
                         // do nothing and try another type
                     }
-                    try
-                    {
+                    try {
                         return rootNode.traverse(mapper).readValueAs(BuildDefinitionReference.class);
-                    }
-                    catch (final Exception e)
-                    {
+                    } catch (final Exception e) {
                         // do nothing
                     }
                     break;

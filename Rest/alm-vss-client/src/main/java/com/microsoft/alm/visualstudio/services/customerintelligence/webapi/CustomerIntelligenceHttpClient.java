@@ -12,12 +12,9 @@ import com.microsoft.alm.client.utils.ArgumentUtility;
 
 import javax.ws.rs.client.Client;
 
-public class CustomerIntelligenceHttpClient
-    extends CustomerIntelligenceHttpClientBase
-{
+public class CustomerIntelligenceHttpClient extends CustomerIntelligenceHttpClientBase {
 
-    public CustomerIntelligenceHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public CustomerIntelligenceHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

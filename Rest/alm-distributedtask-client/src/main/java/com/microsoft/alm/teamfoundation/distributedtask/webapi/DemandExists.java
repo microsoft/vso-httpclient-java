@@ -5,8 +5,7 @@ package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
 import java.util.Map;
 
-public class DemandExists
-    extends Demand {
+public class DemandExists extends Demand {
 
     public DemandExists(final String name) {
         super(name, null);

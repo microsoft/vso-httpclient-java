@@ -24,11 +24,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.alm.client.utils.JsonHelper;
 import com.microsoft.alm.visualstudio.services.webapi.VssJsonCollectionWrapper;
 
-public class ApiResourceEntityProvider
-    implements MessageBodyReader<Object>, MessageBodyWriter<Object> {
+public class ApiResourceEntityProvider implements MessageBodyReader<Object>, MessageBodyWriter<Object> {
 
     /**
      * get size of entity
+     * 
      * @param entity
      * @param type
      * @param genericType
@@ -37,13 +37,13 @@ public class ApiResourceEntityProvider
      * @return long
      */
     @Override
-    public long getSize(Object entity, Class<?> type, Type genericType,
-                        Annotation[] annotations, MediaType mediaType) {
+    public long getSize(Object entity, Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
         return -1;
     }
 
     /**
      * Check if writeable
+     * 
      * @param type
      * @param genericType
      * @param annotations
@@ -51,13 +51,13 @@ public class ApiResourceEntityProvider
      * @return boolean
      */
     @Override
-    public boolean isWriteable(Class<?> type, Type genericType, Annotation[]
-            annotations, MediaType mediaType) {
+    public boolean isWriteable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
         return mediaType.isCompatible(MediaType.APPLICATION_JSON_TYPE);
     }
 
     /**
      * Write to entity
+     * 
      * @param entity
      * @param type
      * @param genericType
@@ -69,15 +69,17 @@ public class ApiResourceEntityProvider
      * @throws WebApplicationException
      */
     @Override
-    public void writeTo(Object entity, Class<?> type, Type genericType,
-                        Annotation[] annotations, MediaType mediaType,
-                        MultivaluedMap<String, Object> httpHeaders, OutputStream entityStream)
-            throws IOException,
-            WebApplicationException {
+    public void writeTo(
+        Object entity,
+        Class<?> type,
+        Type genericType,
+        Annotation[] annotations,
+        MediaType mediaType,
+        MultivaluedMap<String, Object> httpHeaders,
+        OutputStream entityStream) throws IOException, WebApplicationException {
 
         final ObjectMapper objectMapper = JsonHelper.getObjectMapper();
-        final JsonGenerator jsonGenerator =
-                objectMapper.getFactory().createGenerator(entityStream);
+        final JsonGenerator jsonGenerator = objectMapper.getFactory().createGenerator(entityStream);
         jsonGenerator.disable(JsonGenerator.Feature.AUTO_CLOSE_TARGET);
 
         jsonGenerator.writeObject(entity);
@@ -85,6 +87,7 @@ public class ApiResourceEntityProvider
 
     /**
      * Check if readable
+     * 
      * @param type
      * @param genericType
      * @param annotations
@@ -94,11 +97,12 @@ public class ApiResourceEntityProvider
     @Override
     public boolean isReadable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
         return mediaType.getType().equalsIgnoreCase("application") //$NON-NLS-1$
-            && mediaType.getSubtype().equalsIgnoreCase("json");  //$NON-NLS-1$
+            && mediaType.getSubtype().equalsIgnoreCase("json"); //$NON-NLS-1$
     }
 
     /**
      * Read from entity
+     * 
      * @param type
      * @param genericType
      * @param annotations
@@ -110,19 +114,22 @@ public class ApiResourceEntityProvider
      * @throws WebApplicationException
      */
     @Override
-    public Object readFrom(Class<Object> type, Type genericType, Annotation[] annotations, MediaType mediaType,
-        MultivaluedMap<String, String> httpHeaders, InputStream entityStream)
-        throws IOException,
-            WebApplicationException {
+    public Object readFrom(
+        Class<Object> type,
+        Type genericType,
+        Annotation[] annotations,
+        MediaType mediaType,
+        MultivaluedMap<String, String> httpHeaders,
+        InputStream entityStream) throws IOException, WebApplicationException {
 
         final ObjectMapper objectMapper = JsonHelper.getObjectMapper();
         final JsonParser jsonParser = objectMapper.getFactory().createParser(entityStream);
         jsonParser.disable(JsonParser.Feature.AUTO_CLOSE_SOURCE);
 
         if (genericType instanceof ParameterizedType && ((ParameterizedType) genericType).getRawType() == List.class) {
-            final JavaType rootType =
-                objectMapper.getTypeFactory().constructParametricType(VssJsonCollectionWrapper.class,
-                    objectMapper.constructType(genericType));
+            final JavaType rootType = objectMapper.getTypeFactory().constructParametricType(
+                VssJsonCollectionWrapper.class,
+                objectMapper.constructType(genericType));
             final VssJsonCollectionWrapper<?> result = objectMapper.readValue(jsonParser, rootType);
             return result.getValue();
         } else {

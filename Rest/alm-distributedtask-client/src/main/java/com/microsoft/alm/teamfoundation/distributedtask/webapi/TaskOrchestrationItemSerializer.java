@@ -12,9 +12,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.microsoft.alm.client.Messages;
 
-public class TaskOrchestrationItemSerializer
-    extends JsonSerializer<TaskOrchestrationItem>
-{
+public class TaskOrchestrationItemSerializer extends JsonSerializer<TaskOrchestrationItem> {
 
     /**
      * {@inheritDoc}
@@ -22,23 +20,18 @@ public class TaskOrchestrationItemSerializer
     @Override
     public void serialize(TaskOrchestrationItem value, JsonGenerator writer, SerializerProvider provider)
         throws IOException,
-            JsonProcessingException
-    {
-        if (value instanceof TaskOrchestrationContainer)
-        {
+            JsonProcessingException {
+        if (value instanceof TaskOrchestrationContainer) {
             final TaskOrchestrationContainer v = (TaskOrchestrationContainer) value;
             writer.writeObject(v);
-        }
-        else if (value instanceof TaskOrchestrationJob)
-        {
+        } else if (value instanceof TaskOrchestrationJob) {
             final TaskOrchestrationJob v = (TaskOrchestrationJob) value;
             writer.writeObject(v);
-        }
-        else
-        {
-            throw new UnsupportedOperationException(MessageFormat.format(
-                Messages.getString("Serializer.NotImplementedFormat"), //$NON-NLS-1$
-                value.getClass().getName()));
+        } else {
+            throw new UnsupportedOperationException(
+                MessageFormat.format(
+                    Messages.getString("Serializer.NotImplementedFormat"), //$NON-NLS-1$
+                    value.getClass().getName()));
         }
     }
 

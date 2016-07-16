@@ -10,8 +10,7 @@ import java.util.List;
 import com.microsoft.alm.client.utils.JsonHelper;
 import com.microsoft.alm.client.utils.StringUtil;
 
-public class NameValueCollection
-    extends HashMap<String, String> {
+public class NameValueCollection extends HashMap<String, String> {
 
     public <TValue> void addIfNotEmpty(String parameterName, List<TValue> values) {
         if (values != null && !values.isEmpty()) {

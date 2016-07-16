@@ -5,8 +5,7 @@ package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contrac
 
 import com.microsoft.alm.client.utils.ArgumentUtility;
 
-public class DemandMinimumVersion
-    extends Demand {
+public class DemandMinimumVersion extends Demand {
 
     public DemandMinimumVersion(final String name, final String value) {
         super(name, value);

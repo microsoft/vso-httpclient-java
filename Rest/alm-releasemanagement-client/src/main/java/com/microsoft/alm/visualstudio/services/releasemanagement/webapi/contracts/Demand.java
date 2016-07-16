@@ -64,10 +64,10 @@ public abstract class Demand {
             return null;
         }
 
-        final String name = match.group(1); 
-        final String opcode = match.group(3); 
-        final String value = match.group(4); 
-        
+        final String name = match.group(1);
+        final String opcode = match.group(3);
+        final String value = match.group(4);
+
         if (StringUtil.isNullOrEmpty(opcode)) {
             demand = new DemandExists(name);
         } else if (opcode.equals("equals")) { //$NON-NLS-1$
@@ -79,7 +79,6 @@ public abstract class Demand {
         return demand;
     }
 
-    private static final Pattern DEMAND_PATTERN =
-        Pattern.compile("^([^ ]+)([ ]+\\-([^ ]+)[ ]+(.*))?$"); //$NON-NLS-1$
+    private static final Pattern DEMAND_PATTERN = Pattern.compile("^([^ ]+)([ ]+\\-([^ ]+)[ ]+(.*))?$"); //$NON-NLS-1$
 
 }

@@ -5,8 +5,7 @@ package com.microsoft.alm.client.model;
 
 import com.microsoft.alm.client.Messages;
 
-public class ProxyAuthenticationRequiredException
-    extends VssException {
+public class ProxyAuthenticationRequiredException extends VssException {
 
     public ProxyAuthenticationRequiredException() {
         super(Messages.getString("ProxyAuthenticationRequiredException.ErrorMessage")); //$NON-NLS-1$

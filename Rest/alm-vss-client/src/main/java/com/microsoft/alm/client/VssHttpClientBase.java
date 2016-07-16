@@ -7,8 +7,13 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLDecoder;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.UUID;
 import java.util.concurrent.ExecutionException;
 
 import javax.ws.rs.client.Client;
@@ -22,7 +27,6 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-
 import com.microsoft.alm.client.jaxrs.ApiResourceEntityProvider;
 import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.model.ProxyAuthenticationRequiredException;
@@ -64,8 +68,7 @@ public abstract class VssHttpClientBase {
     private final URI baseUrl;
     private final WebTarget baseTarget;
     private final static Properties clientProperties = new Properties();
-    static
-    {
+    static {
         loadClientProperties();
     }
 
@@ -134,8 +137,10 @@ public abstract class VssHttpClientBase {
         return resourceLocations.getLocationById(locationId);
     }
 
-    private WebTarget createTarget(final UUID locationId, final Map<String, Object> routeValues,
-                                   final Map<String, String> queryParameters) {
+    private WebTarget createTarget(
+        final UUID locationId,
+        final Map<String, Object> routeValues,
+        final Map<String, String> queryParameters) {
 
         final ApiResourceLocation location = getLocation(locationId);
         if (location == null) {
@@ -143,7 +148,7 @@ public abstract class VssHttpClientBase {
         }
 
         final Map<String, Object> dictionary =
-                toRouteDictionary(routeValues, location.getArea(), location.getResourceName());
+            toRouteDictionary(routeValues, location.getArea(), location.getResourceName());
 
         final String routeTemplate = location.getRouteTemplate();
         final String actualTemplate = removeUndefinedOptionalParameters(routeTemplate, dictionary);
@@ -187,8 +192,10 @@ public abstract class VssHttpClientBase {
         return StringUtil.join(ROUTE_TEMPLATE_SEPARATOR, actualParameters);
     }
 
-    private Map<String, Object> toRouteDictionary(final Map<String, Object> routeValues, final String areaName,
-                                                  final String resourceName) {
+    private Map<String, Object> toRouteDictionary(
+        final Map<String, Object> routeValues,
+        final String areaName,
+        final String resourceName) {
 
         final HashMap<String, Object> dictionary = new HashMap<String, Object>();
         if (routeValues != null) {
@@ -211,7 +218,9 @@ public abstract class VssHttpClientBase {
         return dictionary;
     }
 
-    private MediaType getMediaTypeWithQualityHeaderValue(final MediaType baseMediaType, final ApiResourceVersion version) {
+    private MediaType getMediaTypeWithQualityHeaderValue(
+        final MediaType baseMediaType,
+        final ApiResourceVersion version) {
         final Map<String, String> parameters = new HashMap<String, String>();
         parameters.put(API_VERSION_PARAMETER_NAME, version.toString());
         parameters.put(CHARSET_PARAMETER_NAME, StringUtil.UTF8_CHARSET);
@@ -232,8 +241,8 @@ public abstract class VssHttpClientBase {
 
     private boolean isJsonResponse(final Response response) {
         if (response != null && response.getMediaType() != null) {
-            return response.getMediaType().getType().equalsIgnoreCase("application")
-                    && response.getMediaType().getSubtype().equalsIgnoreCase("json"); //$NON-NLS-1$ //$NON-NLS-2$
+            return response.getMediaType().getType().equalsIgnoreCase("application") //$NON-NLS-1$
+                && response.getMediaType().getSubtype().equalsIgnoreCase("json"); //$NON-NLS-1$
         } else {
             return false;
         }
@@ -243,16 +252,18 @@ public abstract class VssHttpClientBase {
      * Negotiate the appropriate request version to use for the given api
      * resource location, based on the client and server capabilities
      *
-     * @param location - Location of the API resource
-     * @param version  - Client version to attempt to use (use the latest VSS API
-     *                 version if unspecified)
+     * @param location
+     *        - Location of the API resource
+     * @param version
+     *        - Client version to attempt to use (use the latest VSS API version
+     *        if unspecified)
      * @return - Max API version supported on the server that is less than or
-     * equal to the client version. Returns null if the server does not
-     * support this location or this version of the client.
+     *         equal to the client version. Returns null if the server does not
+     *         support this location or this version of the client.
      */
     protected ApiResourceVersion negotiateRequestVersion(
-            final ApiResourceLocation location,
-            final ApiResourceVersion version) {
+        final ApiResourceLocation location,
+        final ApiResourceVersion version) {
 
         if (version == null) {
             return DEFAULT_API_VERSION;
@@ -278,7 +289,7 @@ public abstract class VssHttpClientBase {
             // version is not bigger than what the server supports.
             final int resourceVersion = Math.min(version.getResourceVersion(), location.getResourceVersion());
             final ApiResourceVersion negotiatedVersion =
-                    new ApiResourceVersion(version.getApiVersion(), resourceVersion);
+                new ApiResourceVersion(version.getApiVersion(), resourceVersion);
 
             // If server released version is less than the requested one, the
             // negotiated version is in preview mode.
@@ -296,177 +307,139 @@ public abstract class VssHttpClientBase {
         return negotiateRequestVersion(getLocation(locationId), version);
     }
 
-    protected Invocation createRequest(final HttpMethod method,
-                                       final UUID locationId,
-                                       final Map<String, Object> routeValues,
-                                       final ApiResourceVersion version,
-                                       final Map<String, String> queryParameters) {
+    protected Invocation createRequest(
+        final HttpMethod method,
+        final UUID locationId,
+        final Map<String, Object> routeValues,
+        final ApiResourceVersion version,
+        final Map<String, String> queryParameters) {
 
         return createRequest(
-                method,
-                locationId,
-                routeValues,
-                version,
-                null,
-                null,
-                queryParameters,
-                APPLICATION_JSON_TYPE);
+            method,
+            locationId,
+            routeValues,
+            version,
+            null,
+            null,
+            queryParameters,
+            APPLICATION_JSON_TYPE);
     }
 
-    protected Invocation createRequest(final HttpMethod method,
-                                       final UUID locationId,
-                                       final ApiResourceVersion version,
-                                       final MediaType acceptMediaType) {
+    protected Invocation createRequest(
+        final HttpMethod method,
+        final UUID locationId,
+        final ApiResourceVersion version,
+        final MediaType acceptMediaType) {
+
+        return createRequest(method, locationId, null, version, null, null, null, acceptMediaType);
+    }
+
+    protected Invocation createRequest(
+        final HttpMethod method,
+        final UUID locationId,
+        final Map<String, Object> routeValues,
+        final ApiResourceVersion version,
+        final MediaType acceptMediaType) {
+
+        return createRequest(method, locationId, routeValues, version, null, null, null, acceptMediaType);
+    }
+
+    protected Invocation createRequest(
+        final HttpMethod method,
+        final UUID locationId,
+        final Map<String, Object> routeValues,
+        final ApiResourceVersion version,
+        final Map<String, String> queryParameters,
+        final MediaType acceptMediaType) {
+
+        return createRequest(method, locationId, routeValues, version, null, null, queryParameters, acceptMediaType);
+    }
+
+    protected Invocation createRequest(
+        final HttpMethod method,
+        final UUID locationId,
+        final ApiResourceVersion version,
+        final Map<String, String> queryParameters,
+        final MediaType acceptMediaType) {
+
+        return createRequest(method, locationId, null, version, null, null, queryParameters, acceptMediaType);
+    }
+
+    protected <TEntity> Invocation createRequest(
+        final HttpMethod method,
+        final UUID locationId,
+        final ApiResourceVersion version,
+        final TEntity value,
+        final MediaType contentMediaType,
+        final MediaType acceptMediaType) {
+
+        return createRequest(method, locationId, null, version, value, contentMediaType, null, acceptMediaType);
+    }
+
+    protected <TEntity> Invocation createRequest(
+        final HttpMethod method,
+        final UUID locationId,
+        final Map<String, Object> routeValues,
+        final ApiResourceVersion version,
+        final TEntity value,
+        final MediaType contentMediaType,
+        final MediaType acceptMediaType) {
+
+        return createRequest(method, locationId, routeValues, version, value, contentMediaType, null, acceptMediaType);
+    }
+
+    protected <TEntity> Invocation createRequest(
+        final HttpMethod method,
+        final UUID locationId,
+        final ApiResourceVersion version,
+        final TEntity value,
+        final MediaType contentMediaType,
+        final Map<String, String> queryParameters,
+        final MediaType acceptMediaType) {
 
         return createRequest(
-                method,
-                locationId,
-                null,
-                version,
-                null,
-                null,
-                null,
-                acceptMediaType);
+            method,
+            locationId,
+            null,
+            version,
+            value,
+            contentMediaType,
+            queryParameters,
+            acceptMediaType);
     }
 
-    protected Invocation createRequest(final HttpMethod method,
-                                       final UUID locationId,
-                                       final Map<String, Object> routeValues,
-                                       final ApiResourceVersion version,
-                                       final MediaType acceptMediaType) {
+    protected <TEntity> Invocation createRequest(
+        final HttpMethod method,
+        final UUID locationId,
+        final Map<String, Object> routeValues,
+        final ApiResourceVersion version,
+        final TEntity value,
+        final Map<String, String> queryParameters) {
 
         return createRequest(
-                method,
-                locationId,
-                routeValues,
-                version,
-                null,
-                null,
-                null,
-                acceptMediaType);
+            method,
+            locationId,
+            routeValues,
+            version,
+            value,
+            APPLICATION_JSON_TYPE,
+            queryParameters,
+            APPLICATION_JSON_TYPE);
     }
 
-    protected Invocation createRequest(final HttpMethod method,
-                                       final UUID locationId,
-                                       final Map<String, Object> routeValues,
-                                       final ApiResourceVersion version,
-                                       final Map<String, String> queryParameters,
-                                       final MediaType acceptMediaType) {
-
-        return createRequest(
-                method,
-                locationId,
-                routeValues,
-                version,
-                null,
-                null,
-                queryParameters,
-                acceptMediaType);
-    }
-
-    protected Invocation createRequest(final HttpMethod method,
-                                       final UUID locationId,
-                                       final ApiResourceVersion version,
-                                       final Map<String, String> queryParameters,
-                                       final MediaType acceptMediaType) {
-
-        return createRequest(
-                method,
-                locationId,
-                null,
-                version,
-                null,
-                null,
-                queryParameters,
-                acceptMediaType);
-    }
-
-    protected <TEntity> Invocation createRequest(final HttpMethod method,
-                                                 final UUID locationId,
-                                                 final ApiResourceVersion version,
-                                                 final TEntity value,
-                                                 final MediaType contentMediaType,
-                                                 final MediaType acceptMediaType) {
-
-        return createRequest(
-                method,
-                locationId,
-                null,
-                version,
-                value,
-                contentMediaType,
-                null,
-                acceptMediaType);
-    }
-
-    protected <TEntity> Invocation createRequest(final HttpMethod method,
-                                                 final UUID locationId,
-                                                 final Map<String, Object> routeValues,
-                                                 final ApiResourceVersion version,
-                                                 final TEntity value,
-                                                 final MediaType contentMediaType,
-                                                 final MediaType acceptMediaType) {
-
-        return createRequest(
-                method,
-                locationId,
-                routeValues,
-                version,
-                value,
-                contentMediaType,
-                null,
-                acceptMediaType);
-    }
-
-    protected <TEntity> Invocation createRequest(final HttpMethod method,
-                                                 final UUID locationId,
-                                                 final ApiResourceVersion version,
-                                                 final TEntity value,
-                                                 final MediaType contentMediaType,
-                                                 final Map<String, String> queryParameters,
-                                                 final MediaType acceptMediaType) {
-
-        return createRequest(
-                method,
-                locationId,
-                null,
-                version,
-                value,
-                contentMediaType,
-                queryParameters,
-                acceptMediaType);
-    }
-
-    protected <TEntity> Invocation createRequest(final HttpMethod method,
-                                                 final UUID locationId,
-                                                 final Map<String, Object> routeValues,
-                                                 final ApiResourceVersion version,
-                                                 final TEntity value,
-                                                 final Map<String, String> queryParameters) {
-
-        return createRequest(
-                method,
-                locationId,
-                routeValues,
-                version,
-                value,
-                APPLICATION_JSON_TYPE,
-                queryParameters,
-                APPLICATION_JSON_TYPE);
-    }
-
-    protected <TEntity> Invocation createRequest(final HttpMethod method,
-                                                 final UUID locationId,
-                                                 final Map<String, Object> routeValues,
-                                                 final ApiResourceVersion version,
-                                                 final TEntity value,
-                                                 final MediaType contentMediaType,
-                                                 final Map<String, String> queryParameters,
-                                                 final MediaType acceptMediaType) {
+    protected <TEntity> Invocation createRequest(
+        final HttpMethod method,
+        final UUID locationId,
+        final Map<String, Object> routeValues,
+        final ApiResourceVersion version,
+        final TEntity value,
+        final MediaType contentMediaType,
+        final Map<String, String> queryParameters,
+        final MediaType acceptMediaType) {
 
         final WebTarget target = createTarget(locationId, routeValues, queryParameters);
         final MediaType acceptType =
-                getMediaTypeWithQualityHeaderValue(acceptMediaType, NegotiateRequestVersion(locationId, version));
+            getMediaTypeWithQualityHeaderValue(acceptMediaType, NegotiateRequestVersion(locationId, version));
 
         final Invocation.Builder requestBuilder = target.request(acceptType);
 
@@ -478,14 +451,15 @@ public abstract class VssHttpClientBase {
             httpMethod = method;
         }
 
-        requestBuilder.header(VssHttpHeaders.TFS_VERSION, clientProperties.getProperty("version"));
+        requestBuilder.header(VssHttpHeaders.TFS_VERSION, clientProperties.getProperty("version")); //$NON-NLS-1$
 
         if (value != null) {
             final MediaType contentType = getMediaTypeWithQualityHeaderValue(contentMediaType);
             return requestBuilder.build(httpMethod.getVerb(), Entity.entity(value, contentType));
         } else if (httpMethod == HttpMethod.POST) {
             final MediaType contentType = getMediaTypeWithQualityHeaderValue(APPLICATION_JSON_TYPE);
-            // value is null but it is POST (most likely because of method overriding), adding an empty entity body
+            // value is null but it is POST (most likely because of method
+            // overriding), adding an empty entity body
             return requestBuilder.build(httpMethod.getVerb(), Entity.entity(StringUtil.EMPTY, contentType));
         } else {
             return requestBuilder.build(httpMethod.getVerb());
@@ -556,7 +530,7 @@ public abstract class VssHttpClientBase {
                         // do nothing
                     }
                 } else if (StringUtil.isNullOrEmpty(message)
-                        && !StringUtil.isNullOrEmpty(response.getStatusInfo().getReasonPhrase())) {
+                    && !StringUtil.isNullOrEmpty(response.getStatusInfo().getReasonPhrase())) {
                     message = response.getStatusInfo().getReasonPhrase();
                 }
 
@@ -579,16 +553,12 @@ public abstract class VssHttpClientBase {
         }
     }
 
-    private static void loadClientProperties()
-    {
-        try
-        {
-            final InputStream in = VssHttpClientBase.class.getResourceAsStream("client.properties");
+    private static void loadClientProperties() {
+        try {
+            final InputStream in = VssHttpClientBase.class.getResourceAsStream("client.properties"); //$NON-NLS-1$
             clientProperties.load(in);
             in.close();
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             throw new VssServiceException(ex.getMessage(), ex);
         }
     }
@@ -602,13 +572,13 @@ public abstract class VssHttpClientBase {
     }
 
     protected static enum HttpMethod {
-        PATCH("PATCH", true),
-        GET("GET", false),
-        POST("POST", false),
-        PUT("PUT", true),
-        DELETE("DELETE", true),
-        HEAD("HEAD", false),
-        OPTIONS("OPTIONS", true);
+        PATCH("PATCH", true), //$NON-NLS-1$
+        GET("GET", false), //$NON-NLS-1$
+        POST("POST", false), //$NON-NLS-1$
+        PUT("PUT", true), //$NON-NLS-1$
+        DELETE("DELETE", true), //$NON-NLS-1$
+        HEAD("HEAD", false), //$NON-NLS-1$
+        OPTIONS("OPTIONS", true); //$NON-NLS-1$
 
         private String verb;
         private boolean overrideable;

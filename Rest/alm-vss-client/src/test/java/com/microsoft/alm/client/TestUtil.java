@@ -29,7 +29,8 @@ public class TestUtil {
         });
     }
 
-    private TestUtil() {}
+    private TestUtil() {
+    }
 
     public static int getRandomInt() {
         return getRandomInt(0, 9);
@@ -54,8 +55,7 @@ public class TestUtil {
         return new File(System.getProperty("java.io.tmpdir"), TEST_CASES_LOCATION); //$NON-NLS-1$
     }
 
-    public static void setUp(final String testCaseName)
-        throws Exception {
+    public static void setUp(final String testCaseName) throws Exception {
         File testCaseTempLocation = getTemporaryTestFilesLocation(testCaseName);
 
         cleanupDirectory(testCaseTempLocation);
@@ -67,8 +67,7 @@ public class TestUtil {
         return new File(getTempFolder(), testCaseName);
     }
 
-    public static void tearDown(final String testCaseName)
-        throws Exception {
+    public static void tearDown(final String testCaseName) throws Exception {
         cleanupDirectory(getTemporaryTestFilesLocation(testCaseName));
     }
 
@@ -86,15 +85,13 @@ public class TestUtil {
         return (path.delete());
     }
 
-    public static InputStream toInputStream(final String source)
-        throws IOException {
+    public static InputStream toInputStream(final String source) throws IOException {
         final byte[] bytes = source.getBytes(StringUtil.UTF8_CHARSET);
 
         return new ByteArrayInputStream(bytes);
     }
 
-    public static String toString(final InputStream inputStream)
-        throws IOException {
+    public static String toString(final InputStream inputStream) throws IOException {
         final InputStreamReader reader = new InputStreamReader(inputStream, StringUtil.UTF8_CHARSET);
         final StringWriter writer = new StringWriter(4096);
 
@@ -106,15 +103,13 @@ public class TestUtil {
         return writer.toString();
     }
 
-    public static String toJsonString(final Object object)
-        throws IOException {
+    public static String toJsonString(final Object object) throws IOException {
         final ObjectMapper objectMapper = JsonHelper.getObjectMapper();
 
         return objectMapper.writeValueAsString(object);
     }
 
-    public static Object fromJsonString(final String s, Class<?> valueType)
-        throws IOException {
+    public static Object fromJsonString(final String s, Class<?> valueType) throws IOException {
         final ObjectMapper objectMapper = JsonHelper.getObjectMapper();
 
         return objectMapper.readValue(s, valueType);

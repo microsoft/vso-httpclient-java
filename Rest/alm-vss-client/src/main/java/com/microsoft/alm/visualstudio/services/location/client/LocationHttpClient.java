@@ -12,12 +12,9 @@ import com.microsoft.alm.client.utils.ArgumentUtility;
 
 import javax.ws.rs.client.Client;
 
-public class LocationHttpClient
-    extends LocationHttpClientBase
-{
+public class LocationHttpClient extends LocationHttpClientBase {
 
-    public LocationHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public LocationHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

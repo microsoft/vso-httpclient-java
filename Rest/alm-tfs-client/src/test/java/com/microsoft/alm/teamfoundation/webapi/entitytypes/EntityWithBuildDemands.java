@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See License.txt in the project root.
 
-package com.microsoft.alm.client.entitytypes;
+package com.microsoft.alm.teamfoundation.webapi.entitytypes;
 
 import com.microsoft.alm.teamfoundation.build.webapi.Demand;
 

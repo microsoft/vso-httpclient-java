@@ -17,8 +17,7 @@ import java.util.Map;
 /**
  * Created by arukhlin on 6/19/2015.
  */
-public class MokeClient implements Client
-{
+public class MokeClient implements Client {
     @Override
     public void close() {
 

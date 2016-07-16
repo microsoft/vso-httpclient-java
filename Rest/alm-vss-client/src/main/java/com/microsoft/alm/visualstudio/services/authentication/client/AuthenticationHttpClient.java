@@ -12,12 +12,9 @@ import com.microsoft.alm.client.utils.ArgumentUtility;
 
 import javax.ws.rs.client.Client;
 
-public class AuthenticationHttpClient
-    extends AuthenticationHttpClientBase
-{
+public class AuthenticationHttpClient extends AuthenticationHttpClientBase {
 
-    public AuthenticationHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public AuthenticationHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

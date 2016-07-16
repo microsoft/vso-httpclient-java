@@ -12,8 +12,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class ReleaseTriggerBaseDeserializer
-    extends JsonDeserializer<ReleaseTriggerBase> {
+public class ReleaseTriggerBaseDeserializer extends JsonDeserializer<ReleaseTriggerBase> {
 
     @Override
     public ReleaseTriggerBase deserialize(JsonParser parser, DeserializationContext context)
@@ -24,36 +23,26 @@ public class ReleaseTriggerBaseDeserializer
 
         final JsonNode typeNode = rootNode.findValue("TriggerType"); //$NON-NLS-1$
 
-        if (typeNode != null)
-        {
+        if (typeNode != null) {
             ReleaseTriggerType triggerType = null;
 
-            if (typeNode.isInt() && typeNode.asInt() == ReleaseTriggerType.ARTIFACT_SOURCE.getValue())
-            {
+            if (typeNode.isInt() && typeNode.asInt() == ReleaseTriggerType.ARTIFACT_SOURCE.getValue()) {
                 triggerType = ReleaseTriggerType.ARTIFACT_SOURCE;
-            }
-            else if (typeNode.isInt() && typeNode.asInt() == ReleaseTriggerType.SCHEDULE.getValue())
-            {
+            } else if (typeNode.isInt() && typeNode.asInt() == ReleaseTriggerType.SCHEDULE.getValue()) {
                 triggerType = ReleaseTriggerType.SCHEDULE;
-            }
-            else if (typeNode.isTextual()
-                && ReleaseTriggerType.ARTIFACT_SOURCE.toString().equalsIgnoreCase(typeNode.asText()))
-            {
+            } else if (typeNode.isTextual()
+                && ReleaseTriggerType.ARTIFACT_SOURCE.toString().equalsIgnoreCase(typeNode.asText())) {
                 triggerType = ReleaseTriggerType.ARTIFACT_SOURCE;
-            }
-            else if (typeNode.isTextual()
-                && ReleaseTriggerType.SCHEDULE.toString().equalsIgnoreCase(typeNode.asText()))
-            {
+            } else if (typeNode.isTextual()
+                && ReleaseTriggerType.SCHEDULE.toString().equalsIgnoreCase(typeNode.asText())) {
                 triggerType = ReleaseTriggerType.SCHEDULE;
             }
 
-            if (ReleaseTriggerType.SCHEDULE == triggerType)
-            {
+            if (ReleaseTriggerType.SCHEDULE == triggerType) {
                 return rootNode.traverse(mapper).readValueAs(ScheduledReleaseTrigger.class);
             }
 
-            if (ReleaseTriggerType.ARTIFACT_SOURCE == triggerType)
-            {
+            if (ReleaseTriggerType.ARTIFACT_SOURCE == triggerType) {
                 return rootNode.traverse(mapper).readValueAs(ArtifactSourceTrigger.class);
             }
         }

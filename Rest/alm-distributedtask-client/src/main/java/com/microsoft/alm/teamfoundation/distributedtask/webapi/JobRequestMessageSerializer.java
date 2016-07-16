@@ -13,9 +13,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 
 import com.microsoft.alm.client.Messages;
 
-public class JobRequestMessageSerializer
-    extends JsonSerializer<JobRequestMessage>
-{
+public class JobRequestMessageSerializer extends JsonSerializer<JobRequestMessage> {
 
     /**
      * {@inheritDoc}
@@ -23,11 +21,11 @@ public class JobRequestMessageSerializer
     @Override
     public void serialize(JobRequestMessage value, JsonGenerator writer, SerializerProvider provider)
         throws IOException,
-            JsonProcessingException
-    {
-        throw new UnsupportedOperationException(MessageFormat.format(
-            Messages.getString("Serializer.NotImplementedFormat"), //$NON-NLS-1$
-            value.getClass().getName()));
+            JsonProcessingException {
+        throw new UnsupportedOperationException(
+            MessageFormat.format(
+                Messages.getString("Serializer.NotImplementedFormat"), //$NON-NLS-1$
+                value.getClass().getName()));
     }
 
 }

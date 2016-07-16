@@ -11,7 +11,8 @@ public class SimpleEntityClass {
     public String stringField;
     public Date dateField;
 
-    public SimpleEntityClass() {}
+    public SimpleEntityClass() {
+    }
 
     public SimpleEntityClass(final int intField, final boolean boolField, final String stringField) {
         this(intField, boolField, stringField, new Date());

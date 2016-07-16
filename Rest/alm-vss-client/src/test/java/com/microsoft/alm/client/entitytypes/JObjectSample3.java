@@ -13,7 +13,8 @@ public class JObjectSample3 {
     private String fieldB;
     private int[] fieldC;
 
-    public JObjectSample3() {}
+    public JObjectSample3() {
+    }
 
     private JObjectSample3(final List<String> fieldA, final String fieldB, final int[] fieldC) {
         this.fieldA = fieldA;

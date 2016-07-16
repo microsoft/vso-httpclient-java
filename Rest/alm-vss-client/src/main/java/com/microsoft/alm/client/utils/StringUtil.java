@@ -22,11 +22,14 @@ public abstract class StringUtil {
     private final static List<Character> VALID_PASSWORD_ENDING = Arrays.asList(';', '\'', '"');
 
     private static String[] TOKENS_TO_SCRUB = new String[] {
-        PASSWORD_TOKEN, PWD_TOKEN, ACCOUNT_KEY_TOKEN
+        PASSWORD_TOKEN,
+        PWD_TOKEN,
+        ACCOUNT_KEY_TOKEN
     };
 
     /**
      * Check if input string is null or empty
+     * 
      * @param s
      * @return boolean
      */
@@ -36,6 +39,7 @@ public abstract class StringUtil {
 
     /**
      * Join values to string
+     * 
      * @param delimiter
      * @param values
      * @return String
@@ -56,6 +60,7 @@ public abstract class StringUtil {
 
     /**
      * Scrub password
+     * 
      * @param message
      * @return String
      */
@@ -65,6 +70,7 @@ public abstract class StringUtil {
 
     /**
      * Scrub Password
+     * 
      * @param message
      * @param assertOnDetection
      * @return String
@@ -85,14 +91,18 @@ public abstract class StringUtil {
 
     /**
      * Scrub secret
+     * 
      * @param message
      * @param token
      * @param mask
      * @param assertOnDetection
      * @return String
      */
-    private static String scrubSecret(final String message, final String token, final String mask,
-                                      final boolean assertOnDetection) {
+    private static String scrubSecret(
+        final String message,
+        final String token,
+        final String mask,
+        final boolean assertOnDetection) {
 
         int startIndex = 0;
         String msg = message;
@@ -172,7 +182,8 @@ public abstract class StringUtil {
                 // : TraceLevel.Info;
                 // TeamFoundationTracingService.TraceRaw(99230, traceLevel,
                 // s_area, s_layer,
-                // "An unmasked password was detected in a message. MESSAGE: {0}. STACK TRACE: {1}",
+                // "An unmasked password was detected in a message. MESSAGE:
+                // {0}. STACK TRACE: {1}",
                 // message, Environment.StackTrace);
             } catch (Exception ex) {
                 // With an exception here the message may still contain an
@@ -194,6 +205,7 @@ public abstract class StringUtil {
 
     /**
      * Create new string
+     * 
      * @param padChar
      * @param width
      * @return String
@@ -210,6 +222,7 @@ public abstract class StringUtil {
 
     /**
      * Pad string
+     * 
      * @param s
      * @param width
      * @param leftJustified
@@ -226,6 +239,7 @@ public abstract class StringUtil {
 
     /**
      * Pad string
+     * 
      * @param s
      * @param width
      * @param leftJustified
@@ -237,6 +251,7 @@ public abstract class StringUtil {
 
     /**
      * Pad string
+     * 
      * @param s
      * @param width
      * @return String
@@ -247,6 +262,7 @@ public abstract class StringUtil {
 
     /**
      * Pad string
+     * 
      * @param n
      * @param width
      * @param padChar
@@ -258,6 +274,7 @@ public abstract class StringUtil {
 
     /**
      * Pad string
+     * 
      * @param n
      * @param width
      * @return String

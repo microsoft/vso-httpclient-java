@@ -6,11 +6,9 @@ package com.microsoft.alm.teamfoundation.chat.webapi;
 import javax.ws.rs.client.Client;
 import java.net.URI;
 
-public class ChatHttpClient
-    extends ChatHttpClientBase {
+public class ChatHttpClient extends ChatHttpClientBase {
 
-    public ChatHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public ChatHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

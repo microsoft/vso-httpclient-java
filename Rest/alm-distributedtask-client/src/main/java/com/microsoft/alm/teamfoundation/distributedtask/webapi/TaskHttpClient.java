@@ -23,12 +23,9 @@ import com.microsoft.alm.teamfoundation.distributedtask.webapi.TimelineRecord;
 import com.microsoft.alm.visualstudio.services.webapi.ApiResourceVersion;
 import com.microsoft.alm.visualstudio.services.webapi.VssJsonCollectionWrapper;
 
-public class TaskHttpClient
-    extends TaskHttpClientBase
-{
+public class TaskHttpClient extends TaskHttpClientBase {
 
-    public TaskHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public TaskHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 
@@ -36,9 +33,10 @@ public class TaskHttpClient
      * @param records
      *
      * @param scopeIdentifier
-     *            The project GUID to scope the request
+     *        The project GUID to scope the request
      * @param hubName
-     *            The name of the server hub: &quot;build&quot; for the Build server or &quot;rm&quot; for the Release Management server
+     *        The name of the server hub: &quot;build&quot; for the Build server
+     *        or &quot;rm&quot; for the Release Management server
      * @param planId
      *
      * @param timelineId
@@ -46,12 +44,17 @@ public class TaskHttpClient
      * @return List&lt;TimelineRecord&gt;
      */
     public List<TimelineRecord> updateRecords(
-            final List<TimelineRecord> records,
-            final UUID scopeIdentifier,
-            final String hubName,
-            final UUID planId,
-            final UUID timelineId) {
-        return super.updateRecords(VssJsonCollectionWrapper.newInstance(records), scopeIdentifier, hubName, planId, timelineId);
+        final List<TimelineRecord> records,
+        final UUID scopeIdentifier,
+        final String hubName,
+        final UUID planId,
+        final UUID timelineId) {
+        return super.updateRecords(
+            VssJsonCollectionWrapper.newInstance(records),
+            scopeIdentifier,
+            hubName,
+            planId,
+            timelineId);
     }
 
     /**
@@ -71,8 +74,7 @@ public class TaskHttpClient
         final UUID scopeIdentifier,
         final String hubName,
         final UUID planId,
-        final UUID timelineId)
-    {
+        final UUID timelineId) {
         return super.getTimeline(scopeIdentifier, hubName, planId, timelineId, (Integer) null, (Boolean) null);
     }
 
@@ -96,8 +98,7 @@ public class TaskHttpClient
         final String hubName,
         final UUID planId,
         final UUID timelineId,
-        final boolean includeRecords)
-    {
+        final boolean includeRecords) {
         return super.getTimeline(scopeIdentifier, hubName, planId, timelineId, (Integer) null, includeRecords);
     }
 
@@ -121,8 +122,7 @@ public class TaskHttpClient
         final String hubName,
         final UUID planId,
         final UUID timelineId,
-        final int changeId)
-    {
+        final int changeId) {
         return super.getTimeline(scopeIdentifier, hubName, planId, timelineId, changeId, (Boolean) null);
     }
 
@@ -143,8 +143,7 @@ public class TaskHttpClient
         final UUID scopeIdentifier,
         final String hubName,
         final UUID planId,
-        final UUID timelineId)
-    {
+        final UUID timelineId) {
         return super.getRecords(scopeIdentifier, hubName, planId, timelineId, (Integer) null);
     }
 }

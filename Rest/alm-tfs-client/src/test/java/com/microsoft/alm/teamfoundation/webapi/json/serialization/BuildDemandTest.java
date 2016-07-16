@@ -1,25 +1,23 @@
 // Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See License.txt in the project root.
 
-package com.microsoft.alm.client.json.serialization;
+package com.microsoft.alm.teamfoundation.webapi.json.serialization;
 
 import java.io.IOException;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
+import com.microsoft.alm.client.TestUtil;
 import com.microsoft.alm.teamfoundation.build.webapi.DemandEquals;
 import com.microsoft.alm.teamfoundation.build.webapi.DemandExists;
-import com.microsoft.alm.client.TestUtil;
-import com.microsoft.alm.client.entitytypes.EntityWithBuildDemands;
+import com.microsoft.alm.teamfoundation.webapi.entitytypes.EntityWithBuildDemands;
 
-public class BuildDemandTest
-    extends TestCase {
+import junit.framework.TestCase;
+
+public class BuildDemandTest extends TestCase {
 
     @Test
-    public void testBuildDemandDeserialization1()
-        throws IOException {
+    public void testBuildDemandDeserialization1() throws IOException {
         final DemandExists dl = new DemandExists("abc"); //$NON-NLS-1$
         final DemandEquals d2 = new DemandEquals("abc", "xyz"); //$NON-NLS-1$ //$NON-NLS-2$
 

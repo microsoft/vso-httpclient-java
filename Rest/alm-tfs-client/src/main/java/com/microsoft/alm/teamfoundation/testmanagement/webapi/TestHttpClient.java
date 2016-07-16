@@ -6,11 +6,9 @@ package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 import javax.ws.rs.client.Client;
 import java.net.URI;
 
-public class TestHttpClient
-    extends TestHttpClientBase {
+public class TestHttpClient extends TestHttpClientBase {
 
-    public TestHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public TestHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

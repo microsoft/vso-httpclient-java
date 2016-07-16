@@ -18,9 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.alm.client.Messages;
 import com.microsoft.alm.client.utils.StringUtil;
 
-public class ReferenceLinksDeserializer
-    extends JsonDeserializer<ReferenceLinks>
-{
+public class ReferenceLinksDeserializer extends JsonDeserializer<ReferenceLinks> {
 
     /**
      * Deserializes JSON to ReferenceLinks
@@ -34,24 +32,20 @@ public class ReferenceLinksDeserializer
     @Override
     public ReferenceLinks deserialize(final JsonParser parser, final DeserializationContext context)
         throws IOException,
-            JsonProcessingException
-    {
+            JsonProcessingException {
 
         final ReferenceLinks result = new ReferenceLinks();
 
-        if (parser.getCurrentToken().equals(JsonToken.START_OBJECT))
-        {
+        if (parser.getCurrentToken().equals(JsonToken.START_OBJECT)) {
             final Map<String, Object> links = new HashMap<String, Object>();
 
-            while (parser.nextToken() != JsonToken.END_OBJECT)
-            {
+            while (parser.nextToken() != JsonToken.END_OBJECT) {
                 // Read the reference link key. We know this is a string
                 // because the JsonReader validates that the first token
                 // is a property name, and it has to be a string.
                 final String name = parser.getCurrentName();
 
-                if (StringUtil.isNullOrEmpty(name))
-                {
+                if (StringUtil.isNullOrEmpty(name)) {
                     throw new IOException(Messages.getString("ReferenceLinksDeserializer.InvalidReferenceLink")); //$NON-NLS-1$
                 }
 
@@ -59,28 +53,21 @@ public class ReferenceLinksDeserializer
                 parser.nextToken();
 
                 // Start object means we have just one reference link
-                if (parser.getCurrentToken().equals(JsonToken.START_OBJECT))
-                {
+                if (parser.getCurrentToken().equals(JsonToken.START_OBJECT)) {
                     links.put(name, parser.readValueAs(ReferenceLink.class));
                 }
                 // Start array means we have a list of reference links.
-                else if (parser.getCurrentToken().equals(JsonToken.START_ARRAY))
-                {
-                    final List<ReferenceLink> values = parser.readValueAs(new TypeReference<List<ReferenceLink>>()
-                    {
+                else if (parser.getCurrentToken().equals(JsonToken.START_ARRAY)) {
+                    final List<ReferenceLink> values = parser.readValueAs(new TypeReference<List<ReferenceLink>>() {
                     });
                     links.put(name, values);
-                }
-                else
-                {
+                } else {
                     throw new IOException(Messages.getString("ReferenceLinksDeserializer.InvalidReferenceLink")); //$NON-NLS-1$
                 }
             }
 
             result.setLinks(links);
-        }
-        else
-        {
+        } else {
             // consume this stream
             final ObjectMapper mapper = (ObjectMapper) parser.getCodec();
             mapper.readTree(parser);

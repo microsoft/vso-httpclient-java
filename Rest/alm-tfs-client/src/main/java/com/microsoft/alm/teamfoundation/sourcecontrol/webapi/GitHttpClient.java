@@ -17,13 +17,12 @@ import com.microsoft.alm.client.utils.ArgumentUtility;
 
 import javax.ws.rs.client.Client;
 
-public class GitHttpClient
-    extends GitHttpClientBase {
+public class GitHttpClient extends GitHttpClientBase {
 
-    public GitHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public GitHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
+
     /**
      * Get item
      * 
@@ -37,8 +36,7 @@ public class GitHttpClient
         final String project,
         final String repositoryId,
         final String path,
-        final boolean includeContentMetadata)
-    {
+        final boolean includeContentMetadata) {
         ArgumentUtility.checkStringForNullOrEmpty(project, "project", true); //$NON-NLS-1$
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId", true); //$NON-NLS-1$
         return super.getItem(
@@ -70,8 +68,7 @@ public class GitHttpClient
         final String path,
         final boolean includeContentMetadata,
         final boolean latestProcessedChange,
-        final GitVersionDescriptor versionDescriptor)
-    {
+        final GitVersionDescriptor versionDescriptor) {
         ArgumentUtility.checkStringForNullOrEmpty(project, "project", true); //$NON-NLS-1$
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId", true); //$NON-NLS-1$
         return super.getItem(
@@ -94,8 +91,7 @@ public class GitHttpClient
      * @param includeContentMetadata
      * @return GitItem
      */
-    public GitItem getItem(final UUID repositoryId, final String path, final boolean includeContentMetadata)
-    {
+    public GitItem getItem(final UUID repositoryId, final String path, final boolean includeContentMetadata) {
         ArgumentUtility.checkForEmptyGuid(repositoryId, "repositoryId"); //$NON-NLS-1$
         return super.getItem(
             repositoryId,
@@ -123,8 +119,7 @@ public class GitHttpClient
         final String path,
         final boolean includeContentMetadata,
         final boolean latestProcessedChange,
-        final GitVersionDescriptor versionDescriptor)
-    {
+        final GitVersionDescriptor versionDescriptor) {
         ArgumentUtility.checkForEmptyGuid(repositoryId, "repositoryId"); //$NON-NLS-1$
         return super.getItem(
             repositoryId,
@@ -156,8 +151,7 @@ public class GitHttpClient
         final boolean includeContentMetadata,
         final boolean latestProcessedChange,
         final boolean includeLinks,
-        final GitVersionDescriptor versionDescriptor)
-    {
+        final GitVersionDescriptor versionDescriptor) {
         ArgumentUtility.checkForEmptyGuid(repositoryId, "repositoryId"); //$NON-NLS-1$
         return super.getItems(
             repositoryId,
@@ -191,8 +185,7 @@ public class GitHttpClient
         final boolean includeContentMetadata,
         final boolean latestProcessedChange,
         final boolean includeLinks,
-        final GitVersionDescriptor versionDescriptor)
-    {
+        final GitVersionDescriptor versionDescriptor) {
         ArgumentUtility.checkStringForNullOrEmpty(project, "project", true); //$NON-NLS-1$
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId", true); //$NON-NLS-1$
         return super.getItems(
@@ -218,8 +211,7 @@ public class GitHttpClient
     public InputStream getItemContent(
         final UUID repositoryId,
         final String path,
-        final GitVersionDescriptor versionDescriptor)
-    {
+        final GitVersionDescriptor versionDescriptor) {
         ArgumentUtility.checkForEmptyGuid(repositoryId, "repositoryId"); //$NON-NLS-1$
         return super.getItemContent(
             repositoryId,
@@ -245,8 +237,7 @@ public class GitHttpClient
         final String project,
         final String repositoryId,
         final String path,
-        final GitVersionDescriptor versionDescriptor)
-    {
+        final GitVersionDescriptor versionDescriptor) {
         ArgumentUtility.checkStringForNullOrEmpty(project, "project", true); //$NON-NLS-1$
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId", true); //$NON-NLS-1$
         return super.getItemContent(
@@ -273,8 +264,7 @@ public class GitHttpClient
         final String project,
         final String repositoryId,
         final String scopePath,
-        final GitVersionDescriptor versionDescriptor)
-    {
+        final GitVersionDescriptor versionDescriptor) {
         ArgumentUtility.checkStringForNullOrEmpty(project, "project", true); //$NON-NLS-1$
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId", true); //$NON-NLS-1$
         return super.getItemZip(
@@ -300,8 +290,7 @@ public class GitHttpClient
     public InputStream getItemZip(
         final UUID repositoryId,
         final String scopePath,
-        final GitVersionDescriptor versionDescriptor)
-    {
+        final GitVersionDescriptor versionDescriptor) {
         ArgumentUtility.checkForEmptyGuid(repositoryId, "repositoryId"); //$NON-NLS-1$
         return super.getItemZip(
             repositoryId,
@@ -320,8 +309,7 @@ public class GitHttpClient
      * @param repositoryId
      * @return List&lt;GitRef&gt;
      */
-    public List<GitRef> getRefs(final String repositoryId)
-    {
+    public List<GitRef> getRefs(final String repositoryId) {
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId", true); //$NON-NLS-1$
         return super.getRefs(repositoryId, null, null);
     }
@@ -333,8 +321,7 @@ public class GitHttpClient
      * @param includeLinks
      * @return List&lt;GitRef&gt;
      */
-    public List<GitRef> getRefs(final String repositoryId, final boolean includeLinks)
-    {
+    public List<GitRef> getRefs(final String repositoryId, final boolean includeLinks) {
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId"); //$NON-NLS-1$
         return super.getRefs(repositoryId, null, includeLinks);
     }
@@ -346,8 +333,7 @@ public class GitHttpClient
      * @param refType
      * @return List&lt;GitRef&gt;
      */
-    public List<GitRef> getRefs(final String repositoryId, final String refType)
-    {
+    public List<GitRef> getRefs(final String repositoryId, final String refType) {
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId"); //$NON-NLS-1$
         return super.getRefs(repositoryId, refType, null);
     }
@@ -360,8 +346,7 @@ public class GitHttpClient
      * @param includeLinks
      * @return List&lt;GitRef&gt;
      */
-    public List<GitRef> getRefs(final String repositoryId, final String refType, final boolean includeLinks)
-    {
+    public List<GitRef> getRefs(final String repositoryId, final String refType, final boolean includeLinks) {
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId"); //$NON-NLS-1$
         ArgumentUtility.checkStringForNullOrEmpty(refType, "refType", true); //$NON-NLS-1$
         return super.getRefs(repositoryId, refType, includeLinks);
@@ -373,8 +358,7 @@ public class GitHttpClient
      * @param repositoryId
      * @return List&lt;GitRef&gt;
      */
-    public List<GitRef> getRefs(final UUID repositoryId)
-    {
+    public List<GitRef> getRefs(final UUID repositoryId) {
         return super.getRefs(repositoryId, null, null);
     }
 
@@ -385,8 +369,7 @@ public class GitHttpClient
      * @param includeLinks
      * @return List&lt;GitRef&gt;
      */
-    public List<GitRef> getRefs(final UUID repositoryId, final boolean includeLinks)
-    {
+    public List<GitRef> getRefs(final UUID repositoryId, final boolean includeLinks) {
         ArgumentUtility.checkForEmptyGuid(repositoryId, "repositoryId"); //$NON-NLS-1$
         return super.getRefs(repositoryId, null, includeLinks);
     }
@@ -398,8 +381,7 @@ public class GitHttpClient
      * @param refType
      * @return List&lt;GitRef&gt;
      */
-    public List<GitRef> getRefs(final UUID repositoryId, final String refType)
-    {
+    public List<GitRef> getRefs(final UUID repositoryId, final String refType) {
         ArgumentUtility.checkForEmptyGuid(repositoryId, "repositoryId"); //$NON-NLS-1$
         return super.getRefs(repositoryId, refType, null);
     }
@@ -412,8 +394,7 @@ public class GitHttpClient
      * @param includeLinks
      * @return List&lt;GitRef&gt;
      */
-    public List<GitRef> getRefs(final UUID repositoryId, final String refType, final boolean includeLinks)
-    {
+    public List<GitRef> getRefs(final UUID repositoryId, final String refType, final boolean includeLinks) {
         ArgumentUtility.checkForEmptyGuid(repositoryId, "repositoryId"); //$NON-NLS-1$
         ArgumentUtility.checkStringForNullOrEmpty(refType, "refType", true); //$NON-NLS-1$
         return super.getRefs(repositoryId, refType, includeLinks);
@@ -424,8 +405,7 @@ public class GitHttpClient
      * 
      * @return List&lt;GitRepository&gt;
      */
-    public List<GitRepository> getRepositories()
-    {
+    public List<GitRepository> getRepositories() {
         return super.getRepositories(null);
     }
 
@@ -435,8 +415,7 @@ public class GitHttpClient
      * @param includeLinks
      * @return List&lt;GitRepository&gt;
      */
-    public List<GitRepository> getRepositories(final boolean includeLinks)
-    {
+    public List<GitRepository> getRepositories(final boolean includeLinks) {
         return super.getRepositories(includeLinks);
     }
 
@@ -446,8 +425,7 @@ public class GitHttpClient
      * @param project
      * @return List&lt;GitRepository&gt;
      */
-    public List<GitRepository> getRepositories(final String project)
-    {
+    public List<GitRepository> getRepositories(final String project) {
         ArgumentUtility.checkStringForNullOrEmpty(project, "project", true); //$NON-NLS-1$
         return super.getRepositories(project, null);
     }
@@ -459,8 +437,7 @@ public class GitHttpClient
      * @param includeLinks
      * @return List&lt;GitRepository&gt;
      */
-    public List<GitRepository> getRepositories(final String project, final boolean includeLinks)
-    {
+    public List<GitRepository> getRepositories(final String project, final boolean includeLinks) {
         ArgumentUtility.checkStringForNullOrEmpty(project, "project", true); //$NON-NLS-1$
         return super.getRepositories(project, includeLinks);
     }

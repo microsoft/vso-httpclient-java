@@ -12,12 +12,9 @@ import com.microsoft.alm.client.utils.ArgumentUtility;
 
 import javax.ws.rs.client.Client;
 
-public class ProfileHttpClient
-    extends ProfileHttpClientBase
-{
+public class ProfileHttpClient extends ProfileHttpClientBase {
 
-    public ProfileHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public ProfileHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

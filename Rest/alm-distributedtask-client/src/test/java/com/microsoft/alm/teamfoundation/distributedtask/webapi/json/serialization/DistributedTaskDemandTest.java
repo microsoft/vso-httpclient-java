@@ -14,12 +14,10 @@ import com.microsoft.alm.teamfoundation.distributedtask.webapi.DemandExists;
 import com.microsoft.alm.client.TestUtil;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.entitytypes.EntityWithDistributedTaskDemands;
 
-public class DistributedTaskDemandTest
-    extends TestCase {
+public class DistributedTaskDemandTest extends TestCase {
 
     @Test
-    public void testBuildDemandDeserialization1()
-        throws IOException {
+    public void testBuildDemandDeserialization1() throws IOException {
         final DemandExists dl = new DemandExists("abc"); //$NON-NLS-1$
         final DemandEquals d2 = new DemandEquals("abc", "xyz"); //$NON-NLS-1$ //$NON-NLS-2$
 

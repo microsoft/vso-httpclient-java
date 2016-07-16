@@ -12,12 +12,9 @@ import com.microsoft.alm.client.utils.ArgumentUtility;
 
 import javax.ws.rs.client.Client;
 
-public class GalleryHttpClient
-    extends GalleryHttpClientBase
-{
+public class GalleryHttpClient extends GalleryHttpClientBase {
 
-    public GalleryHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public GalleryHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

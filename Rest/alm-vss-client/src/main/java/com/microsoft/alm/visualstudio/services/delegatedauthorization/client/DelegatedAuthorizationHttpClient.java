@@ -15,8 +15,7 @@ import com.microsoft.alm.visualstudio.services.delegatedauthorization.SessionTok
  *
  * Should convert to generated class in the future
  */
-public class DelegatedAuthorizationHttpClient
-        extends DelegatedAuthorizationHttpClientBase {
+public class DelegatedAuthorizationHttpClient extends DelegatedAuthorizationHttpClientBase {
 
     public DelegatedAuthorizationHttpClient(final Object jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);

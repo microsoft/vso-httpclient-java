@@ -15,7 +15,8 @@ public class VssJsonCollectionWrapper<T> {
     private int count;
     private T value;
 
-    public VssJsonCollectionWrapper() {}
+    public VssJsonCollectionWrapper() {
+    }
 
     public VssJsonCollectionWrapper(final T value) {
         this.value = value;
@@ -26,9 +27,10 @@ public class VssJsonCollectionWrapper<T> {
         } else if (value instanceof Collection<?>) {
             this.count = ((Collection<?>) value).size();
         } else {
-            throw new IllegalArgumentException(MessageFormat.format(
-                Messages.getString("VssJsonCollectionWrapper.CannotWrapFormat"), //$NON-NLS-1$
-                value.getClass().getName()));
+            throw new IllegalArgumentException(
+                MessageFormat.format(
+                    Messages.getString("VssJsonCollectionWrapper.CannotWrapFormat"), //$NON-NLS-1$
+                    value.getClass().getName()));
         }
     }
 

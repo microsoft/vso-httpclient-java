@@ -6,11 +6,9 @@ package com.microsoft.alm.teamfoundation.work.webapi;
 import javax.ws.rs.client.Client;
 import java.net.URI;
 
-public class WorkHttpClient
-    extends WorkHttpClientBase {
+public class WorkHttpClient extends WorkHttpClientBase {
 
-    public WorkHttpClient(final Client jaxrsClient, final URI baseUrl)
-    {
+    public WorkHttpClient(final Client jaxrsClient, final URI baseUrl) {
         super(jaxrsClient, baseUrl);
     }
 }

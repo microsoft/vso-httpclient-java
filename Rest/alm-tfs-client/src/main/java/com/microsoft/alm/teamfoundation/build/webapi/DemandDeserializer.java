@@ -12,8 +12,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class DemandDeserializer
-    extends JsonDeserializer<Demand> {
+public class DemandDeserializer extends JsonDeserializer<Demand> {
 
     @Override
     public Demand deserialize(JsonParser parser, DeserializationContext context)

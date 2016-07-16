@@ -13,15 +13,15 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 
 import com.microsoft.alm.client.Messages;
 
-public class ReleaseTriggerBaseSerializer
-    extends JsonSerializer<ReleaseTriggerBase> {
+public class ReleaseTriggerBaseSerializer extends JsonSerializer<ReleaseTriggerBase> {
 
     @Override
     public void serialize(ReleaseTriggerBase value, JsonGenerator writer, SerializerProvider serializer)
         throws IOException,
             JsonProcessingException {
-        throw new UnsupportedOperationException(MessageFormat.format(
-            Messages.getString("Serializer.NotImplementedFormat"), //$NON-NLS-1$
-            value.getClass().getName()));
+        throw new UnsupportedOperationException(
+            MessageFormat.format(
+                Messages.getString("Serializer.NotImplementedFormat"), //$NON-NLS-1$
+                value.getClass().getName()));
     }
 }

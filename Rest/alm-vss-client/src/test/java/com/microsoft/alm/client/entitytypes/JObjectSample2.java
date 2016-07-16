@@ -13,7 +13,8 @@ public class JObjectSample2 {
     private Map<String, Integer> fieldA;
     private String fieldB;
 
-    public JObjectSample2() {}
+    public JObjectSample2() {
+    }
 
     private JObjectSample2(final Map<String, Integer> fieldA, final String fieldB) {
         this.fieldA = fieldA;

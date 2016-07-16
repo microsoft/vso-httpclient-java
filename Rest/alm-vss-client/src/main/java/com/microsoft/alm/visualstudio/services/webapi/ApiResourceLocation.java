@@ -9,8 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.client.utils.StringUtil;
 import com.microsoft.alm.visualstudio.services.webapi.ApiResourceVersion.Version;
 
-public class ApiResourceLocation
-{
+public class ApiResourceLocation {
     private UUID id;
     private String area;
     private String resourceName;
@@ -22,146 +21,116 @@ public class ApiResourceLocation
     private Version releasedVersion = new Version(0, 0);
 
     @JsonProperty
-    public UUID getId()
-    {
+    public UUID getId() {
         return id;
     }
 
     @JsonProperty
-    public void setId(final UUID id)
-    {
+    public void setId(final UUID id) {
         this.id = id;
     }
 
     @JsonProperty
-    public String getArea()
-    {
+    public String getArea() {
         return area;
     }
 
     @JsonProperty
-    public void setArea(final String area)
-    {
+    public void setArea(final String area) {
         this.area = area;
     }
 
     @JsonProperty
-    public String getResourceName()
-    {
+    public String getResourceName() {
         return resourceName;
     }
 
     @JsonProperty
-    public void setResourceName(final String resourceName)
-    {
+    public void setResourceName(final String resourceName) {
         this.resourceName = resourceName;
     }
 
     @JsonProperty
-    public String getRouteTemplate()
-    {
+    public String getRouteTemplate() {
         return routeTemplate;
     }
 
     @JsonProperty
-    public void setRouteTemplate(final String routeTemplate)
-    {
+    public void setRouteTemplate(final String routeTemplate) {
         this.routeTemplate = routeTemplate;
     }
 
     @JsonProperty
-    public String getRouteName()
-    {
+    public String getRouteName() {
         return routeName;
     }
 
     @JsonProperty
-    public void setRouteName(final String routeName)
-    {
+    public void setRouteName(final String routeName) {
         this.routeName = routeName;
     }
 
     @JsonProperty
-    public int getResourceVersion()
-    {
+    public int getResourceVersion() {
         return resourceVersion;
     }
 
     @JsonProperty
-    public void setResourceVersion(final int resourceVersion)
-    {
+    public void setResourceVersion(final int resourceVersion) {
         this.resourceVersion = resourceVersion;
     }
 
     @JsonProperty("minVersion")
-    public String getMinVersionString()
-    {
+    public String getMinVersionString() {
         return minVersion.toString();
     }
 
     @JsonProperty("minVersion")
-    public void setMinVersionString(final String minVersion)
-    {
-        if (StringUtil.isNullOrEmpty(minVersion))
-        {
+    public void setMinVersionString(final String minVersion) {
+        if (StringUtil.isNullOrEmpty(minVersion)) {
             this.minVersion = new Version(1, 0);
-        }
-        else
-        {
+        } else {
             this.minVersion = new Version(minVersion);
         }
     }
 
-    public Version getMinVersion()
-    {
+    public Version getMinVersion() {
         return minVersion;
     }
 
     @JsonProperty("maxVersion")
-    public String getMaxVersionString()
-    {
+    public String getMaxVersionString() {
         return maxVersion.toString();
     }
 
     @JsonProperty("maxVersion")
-    public void setMaxVersionString(final String maxVersion)
-    {
-        if (StringUtil.isNullOrEmpty(maxVersion))
-        {
+    public void setMaxVersionString(final String maxVersion) {
+        if (StringUtil.isNullOrEmpty(maxVersion)) {
             this.maxVersion = new Version(1, 0);
-        }
-        else
-        {
+        } else {
             this.maxVersion = new Version(maxVersion);
         }
     }
 
-    public Version getMaxVersion()
-    {
+    public Version getMaxVersion() {
         return maxVersion;
     }
 
     @JsonProperty("releasedVersion")
-    public String getReleasedVersionString()
-    {
+    public String getReleasedVersionString() {
         return releasedVersion.toString();
     }
 
     @JsonProperty("releasedVersion")
-    public void setReleasedVersionString(final String releasedVersion)
-    {
-        if (StringUtil.isNullOrEmpty(releasedVersion))
-        {
+    public void setReleasedVersionString(final String releasedVersion) {
+        if (StringUtil.isNullOrEmpty(releasedVersion)) {
             this.releasedVersion = new Version(1, 0);
-        }
-        else
-        {
+        } else {
             this.releasedVersion = new Version(releasedVersion);
         }
     }
 
-    public Version getReleasedVersion()
-    {
+    public Version getReleasedVersion() {
         return releasedVersion;
     }
 }

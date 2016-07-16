@@ -40,6 +40,7 @@ public class JsonHelper {
 
     /**
      * Get DateFormat
+     * 
      * @return DateFormat
      */
     public static DateFormat getDateFormat() {
@@ -48,6 +49,7 @@ public class JsonHelper {
 
     /**
      * Get ObjectMapper
+     * 
      * @return ObjectMapper
      */
     public static ObjectMapper getObjectMapper() {
@@ -56,6 +58,7 @@ public class JsonHelper {
 
     /**
      * Map to QueryParameters
+     * 
      * @param model
      * @return Map<String, String>
      */
@@ -63,8 +66,10 @@ public class JsonHelper {
         final ObjectMapper objectMapper = getObjectMapper();
 
         try {
-            return objectMapper.readValue(objectMapper.writeValueAsString(model),
-                new TypeReference<Map<String, String>>() {});
+            return objectMapper.readValue(
+                objectMapper.writeValueAsString(model),
+                new TypeReference<Map<String, String>>() {
+                });
         } catch (final Exception e) {
             throw new VssServiceException(e.getMessage(), e);
         }
