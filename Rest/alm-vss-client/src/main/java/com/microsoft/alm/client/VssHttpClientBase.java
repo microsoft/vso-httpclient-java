@@ -54,6 +54,7 @@ public abstract class VssHttpClientBase {
     protected final static MediaType APPLICATION_GZIP = new MediaType("application", "gzip"); //$NON-NLS-1$ //$NON-NLS-2$
 
     private final static String OPTIONS_RELATIVE_PATH = "_apis"; //$NON-NLS-1$
+    private final static String CONNECTION_DATA_RELATIVE_PATH = "_apis/connectiondata"; //$NON-NLS-1$
     private final static String AREA_PARAMETER_NAME = "area"; //$NON-NLS-1$
     private final static String RESOURCE_PARAMETER_NAME = "resource"; //$NON-NLS-1$
     private final static String ROUTE_TEMPLATE_SEPARATOR = "/"; //$NON-NLS-1$
@@ -119,22 +120,42 @@ public abstract class VssHttpClientBase {
 
     private ApiResourceLocation getLocation(final UUID locationId) {
         if (resourceLocations == null) {
-            final WebTarget optionsTarget = baseTarget.path(OPTIONS_RELATIVE_PATH);
-            final Builder builder = optionsTarget.request(MediaType.APPLICATION_JSON_TYPE);
-
-            try {
-                // String o = builder.async().options(String.class).get();
-                resourceLocations = builder.async().options(ApiResourceLocationCollection.class).get();
-            } catch (final InterruptedException e) {
-                // TODO log errors
-                return null;
-            } catch (final ExecutionException e) {
-                lastException = (Exception) e.getCause();
-                return null;
-            }
+            resourceLocations = loadLocations();
         }
 
-        return resourceLocations.getLocationById(locationId);
+        if (resourceLocations != null) {
+            return resourceLocations.getLocationById(locationId);
+        } else {
+            return null;
+        }
+    }
+
+    public boolean checkConnection() {
+        final WebTarget optionsTarget = baseTarget.path(CONNECTION_DATA_RELATIVE_PATH);
+        final Builder builder = optionsTarget.request(MediaType.APPLICATION_JSON_TYPE);
+
+        try {
+            return sendRequest(builder.build(HttpMethod.GET.getVerb())) != null;
+        } catch (final Exception e) {
+            lastException = e;
+        }
+
+        return false;
+    }
+
+    private ApiResourceLocationCollection loadLocations() {
+        final WebTarget optionsTarget = baseTarget.path(OPTIONS_RELATIVE_PATH);
+        final Builder builder = optionsTarget.request(MediaType.APPLICATION_JSON_TYPE);
+
+        try {
+            return builder.async().options(ApiResourceLocationCollection.class).get();
+        } catch (final InterruptedException e) {
+            // TODO log errors
+        } catch (final ExecutionException e) {
+            lastException = (Exception) e.getCause();
+        }
+
+        return null;
     }
 
     private WebTarget createTarget(
