@@ -3,18 +3,13 @@
 
 package com.microsoft.alm.visualstudio.services.operations;
 
-import java.io.InputStream;
 import java.net.URI;
-import java.util.List;
-import java.util.UUID;
 
-import com.microsoft.alm.client.utils.ArgumentUtility;
-
-import javax.ws.rs.client.Client;
+import com.microsoft.alm.client.VssRestClientHandler;
 
 public class OperationsHttpClient extends OperationsHttpClientBase {
 
-    public OperationsHttpClient(final Client jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    public OperationsHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 }

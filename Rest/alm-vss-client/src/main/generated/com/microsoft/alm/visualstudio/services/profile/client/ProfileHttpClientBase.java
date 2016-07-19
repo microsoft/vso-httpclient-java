@@ -24,8 +24,12 @@ import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.microsoft.alm.client.HttpMethod;
 import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.VssHttpClientBase;
+import com.microsoft.alm.client.VssMediaTypes;
+import com.microsoft.alm.client.VssRestClientHandler;
+import com.microsoft.alm.client.VssRestRequest;
 import com.microsoft.alm.visualstudio.services.profile.Avatar;
 import com.microsoft.alm.visualstudio.services.profile.CreateProfileContext;
 import com.microsoft.alm.visualstudio.services.profile.GeoRegion;
@@ -49,22 +53,13 @@ public abstract class ProfileHttpClientBase
     * Create a new instance of ProfileHttpClientBase
     *
     * @param jaxrsClient
-    *            an initialized instance of a JAX-RS Client implementation
+    *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
+    *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
-    *            a TFS project collection URL
+    *            a TFS services URL
     */
-    protected ProfileHttpClientBase(final Object jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
-    }
-
-    /**
-    * Create a new instance of ProfileHttpClientBase
-    *
-    * @param tfsConnection
-    *            an initialized instance of a TfsTeamProjectCollection
-    */
-    protected ProfileHttpClientBase(final Object tfsConnection) {
-        super(tfsConnection);
+    protected ProfileHttpClientBase(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 
     @Override
@@ -93,12 +88,12 @@ public abstract class ProfileHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("descriptor", descriptor); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -125,12 +120,12 @@ public abstract class ProfileHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("descriptor", descriptor); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, ProfileAttribute.class);
     }
@@ -173,12 +168,12 @@ public abstract class ProfileHttpClientBase
         queryParameters.addIfNotNull("withCoreAttributes", withCoreAttributes); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("coreAttributes", coreAttributes); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<ProfileAttribute>>() {});
     }
@@ -207,14 +202,14 @@ public abstract class ProfileHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("descriptor", descriptor); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       container,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               container,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -237,13 +232,13 @@ public abstract class ProfileHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       attributesCollection,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               attributesCollection,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -274,12 +269,12 @@ public abstract class ProfileHttpClientBase
         queryParameters.addIfNotEmpty("size", size); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("format", format); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, Avatar.class);
     }
@@ -317,14 +312,14 @@ public abstract class ProfileHttpClientBase
         queryParameters.addIfNotEmpty("format", format); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("displayName", displayName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       container,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               container,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, Avatar.class);
     }
@@ -343,11 +338,11 @@ public abstract class ProfileHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -370,13 +365,13 @@ public abstract class ProfileHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       container,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               container,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -396,11 +391,11 @@ public abstract class ProfileHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("ipaddress", ipaddress); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GeoRegion.class);
     }
@@ -424,13 +419,13 @@ public abstract class ProfileHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("autoCreate", autoCreate); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       createProfileContext,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               createProfileContext,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, Profile.class);
     }
@@ -473,12 +468,12 @@ public abstract class ProfileHttpClientBase
         queryParameters.addIfNotEmpty("coreAttributes", coreAttributes); //$NON-NLS-1$
         queryParameters.addIfNotNull("forceRefresh", forceRefresh); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, Profile.class);
     }
@@ -501,13 +496,13 @@ public abstract class ProfileHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       profile,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               profile,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -522,10 +517,10 @@ public abstract class ProfileHttpClientBase
         final UUID locationId = UUID.fromString("92d8d1c9-26b8-4774-a929-d640a73da524"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, ProfileRegions.class);
     }
@@ -540,10 +535,10 @@ public abstract class ProfileHttpClientBase
         final UUID locationId = UUID.fromString("d5bd1aa6-c269-4bcd-ad32-75fa17475584"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<HashSet<String>>() {});
     }
@@ -563,11 +558,11 @@ public abstract class ProfileHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeAvatar", includeAvatar); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, Profile.class);
     }

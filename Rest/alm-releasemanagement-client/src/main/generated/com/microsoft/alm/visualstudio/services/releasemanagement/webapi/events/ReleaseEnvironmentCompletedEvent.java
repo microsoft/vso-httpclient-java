@@ -15,6 +15,9 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.events;
 
+import java.util.ArrayList;
+import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.conditions.Condition;
+import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.DeploymentReason;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.ReleaseEnvironment;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
@@ -22,18 +25,28 @@ import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
  */
 public class ReleaseEnvironmentCompletedEvent {
 
+    private ArrayList<Condition> conditions;
     private String createdByName;
     private int definitionId;
     private String definitionName;
     private ReleaseEnvironment environment;
     private int environmentId;
     private String projectName;
+    private DeploymentReason reason;
     private IdentityRef releaseCreatedBy;
     private String releaseLogsUri;
     private String releaseName;
     private String status;
     private String title;
     private String webAccessUri;
+
+    public ArrayList<Condition> getConditions() {
+        return conditions;
+    }
+
+    public void setConditions(final ArrayList<Condition> conditions) {
+        this.conditions = conditions;
+    }
 
     public String getCreatedByName() {
         return createdByName;
@@ -81,6 +94,14 @@ public class ReleaseEnvironmentCompletedEvent {
 
     public void setProjectName(final String projectName) {
         this.projectName = projectName;
+    }
+
+    public DeploymentReason getReason() {
+        return reason;
+    }
+
+    public void setReason(final DeploymentReason reason) {
+        this.reason = reason;
     }
 
     public IdentityRef getReleaseCreatedBy() {

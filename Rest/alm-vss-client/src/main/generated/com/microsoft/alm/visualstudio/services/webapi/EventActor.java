@@ -15,6 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.webapi;
 
+import java.util.UUID;
 
 /** 
  * Defines an &quot;actor&quot; for an event.
@@ -22,4 +23,40 @@ package com.microsoft.alm.visualstudio.services.webapi;
  */
 public class EventActor {
 
+    /**
+    * Required: This is the identity of the user for the specified role.
+    */
+    private UUID id;
+    /**
+    * Required: The event specific name of a role.
+    */
+    private String role;
+
+    /**
+    * Required: This is the identity of the user for the specified role.
+    */
+    public UUID getId() {
+        return id;
+    }
+
+    /**
+    * Required: This is the identity of the user for the specified role.
+    */
+    public void setId(final UUID id) {
+        this.id = id;
+    }
+
+    /**
+    * Required: The event specific name of a role.
+    */
+    public String getRole() {
+        return role;
+    }
+
+    /**
+    * Required: The event specific name of a role.
+    */
+    public void setRole(final String role) {
+        this.role = role;
+    }
 }

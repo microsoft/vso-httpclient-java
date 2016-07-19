@@ -23,8 +23,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.microsoft.alm.client.HttpMethod;
 import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.VssHttpClientBase;
+import com.microsoft.alm.client.VssMediaTypes;
+import com.microsoft.alm.client.VssRestClientHandler;
+import com.microsoft.alm.client.VssRestRequest;
 import com.microsoft.alm.visualstudio.services.filecontainer.FileContainer;
 import com.microsoft.alm.visualstudio.services.filecontainer.FileContainerItem;
 import com.microsoft.alm.visualstudio.services.webapi.ApiResourceVersion;
@@ -43,22 +47,13 @@ public abstract class FileContainerHttpClientBase
     * Create a new instance of FileContainerHttpClientBase
     *
     * @param jaxrsClient
-    *            an initialized instance of a JAX-RS Client implementation
+    *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
+    *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
-    *            a TFS project collection URL
+    *            a TFS services URL
     */
-    protected FileContainerHttpClientBase(final Object jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
-    }
-
-    /**
-    * Create a new instance of FileContainerHttpClientBase
-    *
-    * @param tfsConnection
-    *            an initialized instance of a TfsTeamProjectCollection
-    */
-    protected FileContainerHttpClientBase(final Object tfsConnection) {
-        super(tfsConnection);
+    protected FileContainerHttpClientBase(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 
     @Override
@@ -91,14 +86,14 @@ public abstract class FileContainerHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("itemPath", itemPath); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       uploadStream,
-                                                       APPLICATION_OCTET_STREAM_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               uploadStream,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, FileContainerItem.class);
     }
@@ -132,14 +127,14 @@ public abstract class FileContainerHttpClientBase
         queryParameters.addIfNotEmpty("itemPath", itemPath); //$NON-NLS-1$
         queryParameters.addIfNotNull("scope", scope); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       uploadStream,
-                                                       APPLICATION_OCTET_STREAM_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               uploadStream,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, FileContainerItem.class);
     }
@@ -163,13 +158,13 @@ public abstract class FileContainerHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("containerId", containerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       items,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               items,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainerItem>>() {});
     }
@@ -199,14 +194,14 @@ public abstract class FileContainerHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("scope", scope); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       items,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               items,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainerItem>>() {});
     }
@@ -232,12 +227,12 @@ public abstract class FileContainerHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("itemPath", itemPath); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -267,12 +262,12 @@ public abstract class FileContainerHttpClientBase
         queryParameters.addIfNotEmpty("itemPath", itemPath); //$NON-NLS-1$
         queryParameters.addIfNotNull("scope", scope); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -292,11 +287,11 @@ public abstract class FileContainerHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("artifactUris", artifactUris); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainer>>() {});
     }
@@ -321,11 +316,11 @@ public abstract class FileContainerHttpClientBase
         queryParameters.addIfNotNull("scope", scope); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("artifactUris", artifactUris); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainer>>() {});
     }
@@ -372,12 +367,12 @@ public abstract class FileContainerHttpClientBase
         queryParameters.addIfNotNull("includeDownloadTickets", includeDownloadTickets); //$NON-NLS-1$
         queryParameters.addIfNotNull("isShallow", isShallow); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainerItem>>() {});
     }
@@ -428,12 +423,12 @@ public abstract class FileContainerHttpClientBase
         queryParameters.addIfNotNull("includeDownloadTickets", includeDownloadTickets); //$NON-NLS-1$
         queryParameters.addIfNotNull("isShallow", isShallow); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainerItem>>() {});
     }
@@ -460,12 +455,12 @@ public abstract class FileContainerHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("itemPath", itemPath); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainerItem>>() {});
     }

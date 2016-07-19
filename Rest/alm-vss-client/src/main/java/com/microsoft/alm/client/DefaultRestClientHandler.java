@@ -1,6 +1,5 @@
 package com.microsoft.alm.client;
 
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -29,13 +28,11 @@ import com.microsoft.alm.visualstudio.services.webapi.ApiResourceVersion;
 public class DefaultRestClientHandler extends VssRestClientHandlerBase implements VssRestClientHandler {
 
     private final Client rsClient;
-    private final URI baseUrl;
     private final WebTarget baseTarget;
 
-    public DefaultRestClientHandler(final Client rsClient, final URI baseUrl) {
+    public DefaultRestClientHandler(final Client rsClient) {
         this.rsClient = rsClient;
-        this.baseUrl = baseUrl;
-        this.baseTarget = this.rsClient.target(baseUrl).register(ApiResourceEntityProvider.class);
+        this.baseTarget = this.rsClient.target(getBaseUrl()).register(ApiResourceEntityProvider.class);
     }
 
     @Override
@@ -119,7 +116,7 @@ public class DefaultRestClientHandler extends VssRestClientHandlerBase implement
 
         final ApiResourceLocation location = getLocation(locationId);
         if (location == null) {
-            throw new VssResourceNotFoundException(locationId, baseUrl, getLastException());
+            throw new VssResourceNotFoundException(locationId, getBaseUrl(), getLastException());
         }
 
         final Map<String, Object> dictionary =

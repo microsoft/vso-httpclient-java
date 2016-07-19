@@ -4,20 +4,15 @@
 package com.microsoft.alm.teamfoundation.build.webapi;
 
 import java.net.URI;
-import java.util.List;
 import java.util.UUID;
 
-import com.microsoft.alm.teamfoundation.build.webapi.Build;
-import com.microsoft.alm.teamfoundation.build.webapi.BuildDefinition;
-import com.microsoft.alm.teamfoundation.build.webapi.DefinitionReference;
+import com.microsoft.alm.client.VssRestClientHandler;
 import com.microsoft.alm.client.utils.ArgumentUtility;
-
-import javax.ws.rs.client.Client;
 
 public class BuildHttpClient extends BuildHttpClientBase {
 
-    public BuildHttpClient(final Client jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    public BuildHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 
     /**

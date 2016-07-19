@@ -23,8 +23,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.microsoft.alm.client.HttpMethod;
 import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.VssHttpClientBase;
+import com.microsoft.alm.client.VssMediaTypes;
+import com.microsoft.alm.client.VssRestClientHandler;
+import com.microsoft.alm.client.VssRestRequest;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.AssociatedWorkItem;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitAsyncRefOperationParameters;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitBaseVersionDescriptor;
@@ -39,7 +43,6 @@ import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitDeletedRepositor
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitItem;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitItemRequestData;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequest;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequestChange;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequestCommentThread;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequestIteration;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequestIterationChanges;
@@ -79,22 +82,13 @@ public abstract class GitHttpClientBase
     * Create a new instance of GitHttpClientBase
     *
     * @param jaxrsClient
-    *            an initialized instance of a JAX-RS Client implementation
+    *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
+    *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
-    *            a TFS project collection URL
+    *            a TFS services URL
     */
-    protected GitHttpClientBase(final Object jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
-    }
-
-    /**
-    * Create a new instance of GitHttpClientBase
-    *
-    * @param tfsConnection
-    *            an initialized instance of a TfsTeamProjectCollection
-    */
-    protected GitHttpClientBase(final Object tfsConnection) {
-        super(tfsConnection);
+    protected GitHttpClientBase(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 
     @Override
@@ -136,12 +130,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitBlobRef.class);
     }
@@ -180,12 +174,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitBlobRef.class);
     }
@@ -224,12 +218,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitBlobRef.class);
     }
@@ -268,12 +262,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitBlobRef.class);
     }
@@ -308,12 +302,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitBlobRef.class);
     }
@@ -348,12 +342,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitBlobRef.class);
     }
@@ -392,12 +386,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -436,12 +430,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -480,12 +474,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -524,12 +518,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -564,12 +558,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -604,12 +598,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -639,14 +633,14 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("filename", filename); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       blobIds,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               blobIds,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -676,14 +670,14 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("filename", filename); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       blobIds,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               blobIds,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -717,14 +711,14 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("filename", filename); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       blobIds,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               blobIds,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -758,14 +752,14 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("filename", filename); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       blobIds,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               blobIds,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -799,14 +793,14 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("filename", filename); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       blobIds,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               blobIds,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -840,14 +834,14 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("filename", filename); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       blobIds,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               blobIds,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -886,12 +880,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -930,12 +924,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -974,12 +968,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1018,12 +1012,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1058,12 +1052,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1098,12 +1092,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1138,12 +1132,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("name", name); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitBranchStats.class);
     }
@@ -1178,12 +1172,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("name", name); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitBranchStats.class);
     }
@@ -1218,12 +1212,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("name", name); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitBranchStats.class);
     }
@@ -1258,12 +1252,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("name", name); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitBranchStats.class);
     }
@@ -1294,12 +1288,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("name", name); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitBranchStats.class);
     }
@@ -1330,12 +1324,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("name", name); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitBranchStats.class);
     }
@@ -1366,12 +1360,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitBranchStats>>() {});
     }
@@ -1402,12 +1396,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitBranchStats>>() {});
     }
@@ -1438,12 +1432,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitBranchStats>>() {});
     }
@@ -1474,12 +1468,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitBranchStats>>() {});
     }
@@ -1506,12 +1500,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitBranchStats>>() {});
     }
@@ -1538,12 +1532,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitBranchStats>>() {});
     }
@@ -1567,13 +1561,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       searchCriteria,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               searchCriteria,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitBranchStats>>() {});
     }
@@ -1597,13 +1591,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       searchCriteria,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               searchCriteria,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitBranchStats>>() {});
     }
@@ -1631,13 +1625,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       searchCriteria,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               searchCriteria,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitBranchStats>>() {});
     }
@@ -1665,13 +1659,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       searchCriteria,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               searchCriteria,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitBranchStats>>() {});
     }
@@ -1699,13 +1693,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       searchCriteria,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               searchCriteria,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitBranchStats>>() {});
     }
@@ -1733,13 +1727,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       searchCriteria,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               searchCriteria,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitBranchStats>>() {});
     }
@@ -1778,12 +1772,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommitChanges.class);
     }
@@ -1822,12 +1816,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommitChanges.class);
     }
@@ -1866,12 +1860,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommitChanges.class);
     }
@@ -1910,12 +1904,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommitChanges.class);
     }
@@ -1950,12 +1944,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommitChanges.class);
     }
@@ -1990,12 +1984,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommitChanges.class);
     }
@@ -2023,13 +2017,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       cherryPickToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               cherryPickToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCherryPick.class);
     }
@@ -2057,13 +2051,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       cherryPickToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               cherryPickToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCherryPick.class);
     }
@@ -2091,13 +2085,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       cherryPickToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               cherryPickToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCherryPick.class);
     }
@@ -2125,13 +2119,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       cherryPickToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               cherryPickToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCherryPick.class);
     }
@@ -2160,11 +2154,11 @@ public abstract class GitHttpClientBase
         routeValues.put("cherryPickId", cherryPickId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCherryPick.class);
     }
@@ -2193,11 +2187,11 @@ public abstract class GitHttpClientBase
         routeValues.put("cherryPickId", cherryPickId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCherryPick.class);
     }
@@ -2226,11 +2220,11 @@ public abstract class GitHttpClientBase
         routeValues.put("cherryPickId", cherryPickId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCherryPick.class);
     }
@@ -2259,11 +2253,11 @@ public abstract class GitHttpClientBase
         routeValues.put("cherryPickId", cherryPickId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCherryPick.class);
     }
@@ -2294,12 +2288,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("refName", refName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCherryPick.class);
     }
@@ -2330,12 +2324,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("refName", refName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCherryPick.class);
     }
@@ -2366,12 +2360,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("refName", refName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCherryPick.class);
     }
@@ -2402,12 +2396,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("refName", refName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCherryPick.class);
     }
@@ -2454,12 +2448,12 @@ public abstract class GitHttpClientBase
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
         addModelAsQueryParams(queryParameters, targetVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommitDiffs.class);
     }
@@ -2506,12 +2500,12 @@ public abstract class GitHttpClientBase
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
         addModelAsQueryParams(queryParameters, targetVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommitDiffs.class);
     }
@@ -2558,12 +2552,12 @@ public abstract class GitHttpClientBase
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
         addModelAsQueryParams(queryParameters, targetVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommitDiffs.class);
     }
@@ -2610,12 +2604,12 @@ public abstract class GitHttpClientBase
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
         addModelAsQueryParams(queryParameters, targetVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommitDiffs.class);
     }
@@ -2658,12 +2652,12 @@ public abstract class GitHttpClientBase
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
         addModelAsQueryParams(queryParameters, targetVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommitDiffs.class);
     }
@@ -2706,12 +2700,12 @@ public abstract class GitHttpClientBase
         addModelAsQueryParams(queryParameters, baseVersionDescriptor);
         addModelAsQueryParams(queryParameters, targetVersionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommitDiffs.class);
     }
@@ -2746,12 +2740,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("changeCount", changeCount); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommit.class);
     }
@@ -2786,12 +2780,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("changeCount", changeCount); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommit.class);
     }
@@ -2826,12 +2820,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("changeCount", changeCount); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommit.class);
     }
@@ -2866,12 +2860,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("changeCount", changeCount); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommit.class);
     }
@@ -2902,12 +2896,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("changeCount", changeCount); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommit.class);
     }
@@ -2938,12 +2932,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("changeCount", changeCount); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitCommit.class);
     }
@@ -2982,12 +2976,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3026,12 +3020,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3070,12 +3064,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3114,12 +3108,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3154,12 +3148,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3194,12 +3188,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3242,12 +3236,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3290,12 +3284,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3338,12 +3332,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3386,12 +3380,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3430,12 +3424,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3474,12 +3468,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3517,14 +3511,14 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeStatuses", includeStatuses); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       searchCriteria,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               searchCriteria,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3562,14 +3556,14 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeStatuses", includeStatuses); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       searchCriteria,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               searchCriteria,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3611,14 +3605,14 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeStatuses", includeStatuses); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       searchCriteria,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               searchCriteria,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3660,14 +3654,14 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeStatuses", includeStatuses); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       searchCriteria,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               searchCriteria,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3709,14 +3703,14 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeStatuses", includeStatuses); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       searchCriteria,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               searchCriteria,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3758,14 +3752,14 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeStatuses", includeStatuses); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       searchCriteria,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               searchCriteria,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -3785,11 +3779,11 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitDeletedRepository>>() {});
     }
@@ -3809,11 +3803,11 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitDeletedRepository>>() {});
     }
@@ -3868,12 +3862,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitItem.class);
     }
@@ -3928,12 +3922,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitItem.class);
     }
@@ -3988,12 +3982,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitItem.class);
     }
@@ -4048,12 +4042,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitItem.class);
     }
@@ -4104,12 +4098,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitItem.class);
     }
@@ -4160,12 +4154,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitItem.class);
     }
@@ -4220,12 +4214,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -4280,12 +4274,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -4340,12 +4334,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -4400,12 +4394,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -4456,12 +4450,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -4512,12 +4506,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -4572,12 +4566,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitItem>>() {});
     }
@@ -4632,12 +4626,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitItem>>() {});
     }
@@ -4692,12 +4686,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitItem>>() {});
     }
@@ -4752,12 +4746,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitItem>>() {});
     }
@@ -4808,12 +4802,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitItem>>() {});
     }
@@ -4864,12 +4858,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitItem>>() {});
     }
@@ -4924,12 +4918,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       TEXT_PLAIN_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.TEXT_PLAIN_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -4984,12 +4978,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       TEXT_PLAIN_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.TEXT_PLAIN_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -5044,12 +5038,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       TEXT_PLAIN_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.TEXT_PLAIN_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -5104,12 +5098,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       TEXT_PLAIN_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.TEXT_PLAIN_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -5160,12 +5154,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       TEXT_PLAIN_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.TEXT_PLAIN_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -5216,12 +5210,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       TEXT_PLAIN_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.TEXT_PLAIN_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -5276,12 +5270,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -5336,12 +5330,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -5396,12 +5390,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -5456,12 +5450,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -5512,12 +5506,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -5568,12 +5562,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("download", download); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -5597,13 +5591,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       requestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               requestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArrayList<GitItem>>>() {});
     }
@@ -5627,13 +5621,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       requestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               requestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArrayList<GitItem>>>() {});
     }
@@ -5661,13 +5655,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       requestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               requestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArrayList<GitItem>>>() {});
     }
@@ -5695,13 +5689,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       requestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               requestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArrayList<GitItem>>>() {});
     }
@@ -5729,13 +5723,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       requestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               requestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArrayList<GitItem>>>() {});
     }
@@ -5763,13 +5757,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       requestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               requestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArrayList<GitItem>>>() {});
     }
@@ -5798,11 +5792,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -5831,11 +5825,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -5868,11 +5862,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -5905,11 +5899,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -5942,11 +5936,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -5979,11 +5973,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -6008,11 +6002,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -6037,11 +6031,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -6070,11 +6064,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -6103,11 +6097,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -6136,11 +6130,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -6169,11 +6163,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitCommitRef>>() {});
     }
@@ -6181,6 +6175,310 @@ public abstract class GitHttpClientBase
     /** 
      * [Preview API 3.0-preview.1]
      * 
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param iterationId 
+     *            
+     * @param top 
+     *            
+     * @param skip 
+     *            
+     * @param compareTo 
+     *            
+     * @return GitPullRequestIterationChanges
+     */
+    public GitPullRequestIterationChanges getPullRequestIterationChanges(
+        final String project, 
+        final String repositoryId, 
+        final int pullRequestId, 
+        final int iterationId, 
+        final Integer top, 
+        final Integer skip, 
+        final Integer compareTo) { 
+
+        final UUID locationId = UUID.fromString("4216bdcf-b6b1-4d59-8b82-c34cc183fc8b"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("iterationId", iterationId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$compareTo", compareTo); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitPullRequestIterationChanges.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1]
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param iterationId 
+     *            
+     * @param top 
+     *            
+     * @param skip 
+     *            
+     * @param compareTo 
+     *            
+     * @return GitPullRequestIterationChanges
+     */
+    public GitPullRequestIterationChanges getPullRequestIterationChanges(
+        final String project, 
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final int iterationId, 
+        final Integer top, 
+        final Integer skip, 
+        final Integer compareTo) { 
+
+        final UUID locationId = UUID.fromString("4216bdcf-b6b1-4d59-8b82-c34cc183fc8b"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("iterationId", iterationId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$compareTo", compareTo); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitPullRequestIterationChanges.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1]
+     * 
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param iterationId 
+     *            
+     * @param top 
+     *            
+     * @param skip 
+     *            
+     * @param compareTo 
+     *            
+     * @return GitPullRequestIterationChanges
+     */
+    public GitPullRequestIterationChanges getPullRequestIterationChanges(
+        final UUID project, 
+        final String repositoryId, 
+        final int pullRequestId, 
+        final int iterationId, 
+        final Integer top, 
+        final Integer skip, 
+        final Integer compareTo) { 
+
+        final UUID locationId = UUID.fromString("4216bdcf-b6b1-4d59-8b82-c34cc183fc8b"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("iterationId", iterationId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$compareTo", compareTo); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitPullRequestIterationChanges.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1]
+     * 
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param iterationId 
+     *            
+     * @param top 
+     *            
+     * @param skip 
+     *            
+     * @param compareTo 
+     *            
+     * @return GitPullRequestIterationChanges
+     */
+    public GitPullRequestIterationChanges getPullRequestIterationChanges(
+        final UUID project, 
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final int iterationId, 
+        final Integer top, 
+        final Integer skip, 
+        final Integer compareTo) { 
+
+        final UUID locationId = UUID.fromString("4216bdcf-b6b1-4d59-8b82-c34cc183fc8b"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("iterationId", iterationId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$compareTo", compareTo); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitPullRequestIterationChanges.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1]
+     * 
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param iterationId 
+     *            
+     * @param top 
+     *            
+     * @param skip 
+     *            
+     * @param compareTo 
+     *            
+     * @return GitPullRequestIterationChanges
+     */
+    public GitPullRequestIterationChanges getPullRequestIterationChanges(
+        final String repositoryId, 
+        final int pullRequestId, 
+        final int iterationId, 
+        final Integer top, 
+        final Integer skip, 
+        final Integer compareTo) { 
+
+        final UUID locationId = UUID.fromString("4216bdcf-b6b1-4d59-8b82-c34cc183fc8b"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("iterationId", iterationId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$compareTo", compareTo); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitPullRequestIterationChanges.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1]
+     * 
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param iterationId 
+     *            
+     * @param top 
+     *            
+     * @param skip 
+     *            
+     * @param compareTo 
+     *            
+     * @return GitPullRequestIterationChanges
+     */
+    public GitPullRequestIterationChanges getPullRequestIterationChanges(
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final int iterationId, 
+        final Integer top, 
+        final Integer skip, 
+        final Integer compareTo) { 
+
+        final UUID locationId = UUID.fromString("4216bdcf-b6b1-4d59-8b82-c34cc183fc8b"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("iterationId", iterationId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$compareTo", compareTo); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitPullRequestIterationChanges.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @param pullRequestId 
@@ -6202,11 +6500,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestIteration.class);
     }
@@ -6235,11 +6533,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestIteration.class);
     }
@@ -6272,11 +6570,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestIteration.class);
     }
@@ -6309,11 +6607,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestIteration.class);
     }
@@ -6346,11 +6644,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestIteration.class);
     }
@@ -6383,11 +6681,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestIteration.class);
     }
@@ -6422,12 +6720,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestIteration>>() {});
     }
@@ -6462,12 +6760,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestIteration>>() {});
     }
@@ -6502,12 +6800,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestIteration>>() {});
     }
@@ -6542,12 +6840,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestIteration>>() {});
     }
@@ -6578,12 +6876,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestIteration>>() {});
     }
@@ -6614,12 +6912,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestIteration>>() {});
     }
@@ -6643,13 +6941,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queries,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queries,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestQuery.class);
     }
@@ -6673,13 +6971,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queries,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queries,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestQuery.class);
     }
@@ -6707,13 +7005,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queries,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queries,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestQuery.class);
     }
@@ -6741,13 +7039,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queries,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queries,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestQuery.class);
     }
@@ -6775,13 +7073,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queries,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queries,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestQuery.class);
     }
@@ -6809,13 +7107,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queries,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queries,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestQuery.class);
     }
@@ -6847,13 +7145,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewer,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewer,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, IdentityRefWithVote.class);
     }
@@ -6885,13 +7183,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewer,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewer,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, IdentityRefWithVote.class);
     }
@@ -6927,13 +7225,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewer,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewer,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, IdentityRefWithVote.class);
     }
@@ -6969,13 +7267,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewer,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewer,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, IdentityRefWithVote.class);
     }
@@ -7011,13 +7309,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewer,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewer,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, IdentityRefWithVote.class);
     }
@@ -7053,13 +7351,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewer,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewer,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, IdentityRefWithVote.class);
     }
@@ -7087,13 +7385,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewers,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewers,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
     }
@@ -7121,13 +7419,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewers,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewers,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
     }
@@ -7159,13 +7457,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewers,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewers,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
     }
@@ -7197,13 +7495,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewers,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewers,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
     }
@@ -7235,13 +7533,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewers,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewers,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
     }
@@ -7273,13 +7571,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewers,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewers,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
     }
@@ -7307,11 +7605,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -7339,11 +7637,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -7375,11 +7673,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -7411,11 +7709,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -7447,11 +7745,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -7483,11 +7781,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -7516,11 +7814,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, IdentityRefWithVote.class);
     }
@@ -7549,11 +7847,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, IdentityRefWithVote.class);
     }
@@ -7586,11 +7884,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, IdentityRefWithVote.class);
     }
@@ -7623,11 +7921,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, IdentityRefWithVote.class);
     }
@@ -7660,11 +7958,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, IdentityRefWithVote.class);
     }
@@ -7697,11 +7995,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, IdentityRefWithVote.class);
     }
@@ -7726,11 +8024,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
     }
@@ -7755,11 +8053,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
     }
@@ -7788,11 +8086,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
     }
@@ -7821,11 +8119,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
     }
@@ -7854,11 +8152,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
     }
@@ -7887,11 +8185,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
     }
@@ -7911,11 +8209,11 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -7954,12 +8252,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequest>>() {});
     }
@@ -7998,12 +8296,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequest>>() {});
     }
@@ -8027,13 +8325,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitPullRequestToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8057,13 +8355,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitPullRequestToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8091,13 +8389,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitPullRequestToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8125,13 +8423,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitPullRequestToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8159,13 +8457,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitPullRequestToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8193,13 +8491,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitPullRequestToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8250,12 +8548,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeWorkItemRefs", includeWorkItemRefs); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8306,12 +8604,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeWorkItemRefs", includeWorkItemRefs); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8362,12 +8660,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeWorkItemRefs", includeWorkItemRefs); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8418,12 +8716,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeWorkItemRefs", includeWorkItemRefs); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8470,12 +8768,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeWorkItemRefs", includeWorkItemRefs); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8522,12 +8820,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeWorkItemRefs", includeWorkItemRefs); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8570,12 +8868,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequest>>() {});
     }
@@ -8618,12 +8916,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequest>>() {});
     }
@@ -8666,12 +8964,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequest>>() {});
     }
@@ -8714,12 +9012,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequest>>() {});
     }
@@ -8758,12 +9056,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequest>>() {});
     }
@@ -8802,12 +9100,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequest>>() {});
     }
@@ -8835,13 +9133,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitPullRequestToUpdate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToUpdate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8869,13 +9167,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitPullRequestToUpdate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToUpdate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8907,13 +9205,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitPullRequestToUpdate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToUpdate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8945,13 +9243,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitPullRequestToUpdate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToUpdate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -8983,13 +9281,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitPullRequestToUpdate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToUpdate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -9021,13 +9319,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitPullRequestToUpdate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToUpdate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
     }
@@ -9059,13 +9357,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9097,13 +9395,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9139,13 +9437,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9181,13 +9479,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9223,13 +9521,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9265,13 +9563,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9304,11 +9602,11 @@ public abstract class GitHttpClientBase
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9341,11 +9639,11 @@ public abstract class GitHttpClientBase
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9382,11 +9680,11 @@ public abstract class GitHttpClientBase
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9423,11 +9721,11 @@ public abstract class GitHttpClientBase
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9464,11 +9762,11 @@ public abstract class GitHttpClientBase
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9505,11 +9803,11 @@ public abstract class GitHttpClientBase
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9538,11 +9836,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestStatus>>() {});
     }
@@ -9571,11 +9869,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestStatus>>() {});
     }
@@ -9608,11 +9906,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestStatus>>() {});
     }
@@ -9645,11 +9943,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestStatus>>() {});
     }
@@ -9682,11 +9980,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestStatus>>() {});
     }
@@ -9719,11 +10017,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestStatus>>() {});
     }
@@ -9759,13 +10057,13 @@ public abstract class GitHttpClientBase
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9801,13 +10099,13 @@ public abstract class GitHttpClientBase
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9847,13 +10145,13 @@ public abstract class GitHttpClientBase
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9893,13 +10191,13 @@ public abstract class GitHttpClientBase
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9939,13 +10237,13 @@ public abstract class GitHttpClientBase
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -9985,13 +10283,13 @@ public abstract class GitHttpClientBase
         routeValues.put("iterationId", iterationId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10019,13 +10317,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10053,13 +10351,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10091,13 +10389,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10129,13 +10427,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10167,13 +10465,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10205,13 +10503,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10240,11 +10538,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10273,11 +10571,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10310,11 +10608,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10347,11 +10645,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10384,11 +10682,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10421,11 +10719,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10450,11 +10748,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestStatus>>() {});
     }
@@ -10479,11 +10777,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestStatus>>() {});
     }
@@ -10512,11 +10810,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestStatus>>() {});
     }
@@ -10545,11 +10843,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestStatus>>() {});
     }
@@ -10578,11 +10876,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestStatus>>() {});
     }
@@ -10611,11 +10909,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestStatus>>() {});
     }
@@ -10647,13 +10945,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10685,13 +10983,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10727,13 +11025,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10769,13 +11067,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10811,13 +11109,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10853,13 +11151,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("statusId", statusId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       status,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestStatus.class);
     }
@@ -10887,13 +11185,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       commentThread,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               commentThread,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -10921,13 +11219,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       commentThread,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               commentThread,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -10959,13 +11257,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       commentThread,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               commentThread,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -10997,13 +11295,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       commentThread,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               commentThread,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11035,13 +11333,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       commentThread,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               commentThread,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11073,13 +11371,13 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       commentThread,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               commentThread,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11108,11 +11406,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("threadId", threadId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11141,11 +11439,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("threadId", threadId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11178,11 +11476,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("threadId", threadId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11215,11 +11513,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("threadId", threadId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11252,11 +11550,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("threadId", threadId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11289,11 +11587,11 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("threadId", threadId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11318,11 +11616,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestCommentThread>>() {});
     }
@@ -11347,11 +11645,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestCommentThread>>() {});
     }
@@ -11380,11 +11678,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestCommentThread>>() {});
     }
@@ -11413,11 +11711,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestCommentThread>>() {});
     }
@@ -11446,11 +11744,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestCommentThread>>() {});
     }
@@ -11479,11 +11777,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestCommentThread>>() {});
     }
@@ -11515,13 +11813,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("threadId", threadId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       commentThread,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               commentThread,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11553,13 +11851,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("threadId", threadId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       commentThread,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               commentThread,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11595,13 +11893,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("threadId", threadId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       commentThread,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               commentThread,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11637,13 +11935,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("threadId", threadId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       commentThread,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               commentThread,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11679,13 +11977,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("threadId", threadId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       commentThread,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               commentThread,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11721,13 +12019,13 @@ public abstract class GitHttpClientBase
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
         routeValues.put("threadId", threadId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       commentThread,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               commentThread,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequestCommentThread.class);
     }
@@ -11752,11 +12050,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<AssociatedWorkItem>>() {});
     }
@@ -11781,11 +12079,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<AssociatedWorkItem>>() {});
     }
@@ -11814,11 +12112,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<AssociatedWorkItem>>() {});
     }
@@ -11847,11 +12145,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<AssociatedWorkItem>>() {});
     }
@@ -11880,11 +12178,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<AssociatedWorkItem>>() {});
     }
@@ -11913,11 +12211,11 @@ public abstract class GitHttpClientBase
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<AssociatedWorkItem>>() {});
     }
@@ -11941,13 +12239,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       push,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               push,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPush.class);
     }
@@ -11971,13 +12269,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       push,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               push,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPush.class);
     }
@@ -12005,13 +12303,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       push,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               push,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPush.class);
     }
@@ -12039,13 +12337,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       push,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               push,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPush.class);
     }
@@ -12073,13 +12371,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       push,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               push,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPush.class);
     }
@@ -12107,13 +12405,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       push,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               push,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPush.class);
     }
@@ -12152,12 +12450,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeRefUpdates", includeRefUpdates); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPush.class);
     }
@@ -12196,12 +12494,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeRefUpdates", includeRefUpdates); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPush.class);
     }
@@ -12240,12 +12538,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeRefUpdates", includeRefUpdates); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPush.class);
     }
@@ -12284,12 +12582,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeRefUpdates", includeRefUpdates); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPush.class);
     }
@@ -12324,12 +12622,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeRefUpdates", includeRefUpdates); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPush.class);
     }
@@ -12364,12 +12662,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("includeCommits", includeCommits); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeRefUpdates", includeRefUpdates); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPush.class);
     }
@@ -12408,12 +12706,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, searchCriteria);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPush>>() {});
     }
@@ -12452,12 +12750,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, searchCriteria);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPush>>() {});
     }
@@ -12496,12 +12794,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, searchCriteria);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPush>>() {});
     }
@@ -12540,12 +12838,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, searchCriteria);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPush>>() {});
     }
@@ -12580,12 +12878,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, searchCriteria);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPush>>() {});
     }
@@ -12620,12 +12918,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, searchCriteria);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPush>>() {});
     }
@@ -12652,13 +12950,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       refLockRequest,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               refLockRequest,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -12685,13 +12983,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       refLockRequest,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               refLockRequest,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -12718,13 +13016,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       refLockRequest,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               refLockRequest,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -12751,13 +13049,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       refLockRequest,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               refLockRequest,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -12792,12 +13090,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("filter", filter); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRef>>() {});
     }
@@ -12832,12 +13130,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("filter", filter); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRef>>() {});
     }
@@ -12872,12 +13170,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("filter", filter); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRef>>() {});
     }
@@ -12912,12 +13210,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("filter", filter); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRef>>() {});
     }
@@ -12948,12 +13246,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("filter", filter); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRef>>() {});
     }
@@ -12984,12 +13282,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("filter", filter); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRef>>() {});
     }
@@ -13019,14 +13317,14 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("projectId", projectId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       refUpdates,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               refUpdates,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRefUpdateResult>>() {});
     }
@@ -13056,14 +13354,14 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("projectId", projectId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       refUpdates,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               refUpdates,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRefUpdateResult>>() {});
     }
@@ -13097,14 +13395,14 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("projectId", projectId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       refUpdates,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               refUpdates,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRefUpdateResult>>() {});
     }
@@ -13138,14 +13436,14 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("projectId", projectId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       refUpdates,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               refUpdates,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRefUpdateResult>>() {});
     }
@@ -13179,14 +13477,14 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("projectId", projectId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       refUpdates,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               refUpdates,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRefUpdateResult>>() {});
     }
@@ -13220,14 +13518,14 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("projectId", projectId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       refUpdates,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               refUpdates,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRefUpdateResult>>() {});
     }
@@ -13251,13 +13549,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       favorite,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               favorite,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRefFavorite.class);
     }
@@ -13281,13 +13579,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       favorite,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               favorite,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRefFavorite.class);
     }
@@ -13311,11 +13609,11 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("favoriteId", favoriteId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -13339,11 +13637,11 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("favoriteId", favoriteId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -13368,11 +13666,11 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("favoriteId", favoriteId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRefFavorite.class);
     }
@@ -13397,11 +13695,11 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("favoriteId", favoriteId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRefFavorite.class);
     }
@@ -13432,12 +13730,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("repositoryId", repositoryId); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("identityId", identityId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRefFavorite>>() {});
     }
@@ -13468,12 +13766,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotEmpty("repositoryId", repositoryId); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("identityId", identityId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRefFavorite>>() {});
     }
@@ -13490,12 +13788,12 @@ public abstract class GitHttpClientBase
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       gitRepositoryToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               gitRepositoryToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRepository.class);
     }
@@ -13519,13 +13817,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitRepositoryToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitRepositoryToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRepository.class);
     }
@@ -13549,13 +13847,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitRepositoryToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitRepositoryToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRepository.class);
     }
@@ -13574,11 +13872,11 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -13602,11 +13900,11 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -13630,11 +13928,11 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -13661,12 +13959,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRepository>>() {});
     }
@@ -13693,12 +13991,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRepository>>() {});
     }
@@ -13718,11 +14016,11 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRepository>>() {});
     }
@@ -13742,11 +14040,11 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRepository.class);
     }
@@ -13766,11 +14064,11 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRepository.class);
     }
@@ -13795,11 +14093,11 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRepository.class);
     }
@@ -13824,11 +14122,11 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRepository.class);
     }
@@ -13853,11 +14151,11 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRepository.class);
     }
@@ -13882,11 +14180,11 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRepository.class);
     }
@@ -13910,13 +14208,13 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       newRepositoryInfo,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               newRepositoryInfo,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRepository.class);
     }
@@ -13944,13 +14242,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       newRepositoryInfo,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               newRepositoryInfo,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRepository.class);
     }
@@ -13978,13 +14276,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       newRepositoryInfo,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               newRepositoryInfo,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRepository.class);
     }
@@ -14012,13 +14310,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       revertToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               revertToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRevert.class);
     }
@@ -14046,13 +14344,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       revertToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               revertToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRevert.class);
     }
@@ -14080,13 +14378,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       revertToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               revertToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRevert.class);
     }
@@ -14114,13 +14412,13 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       revertToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               revertToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRevert.class);
     }
@@ -14149,11 +14447,11 @@ public abstract class GitHttpClientBase
         routeValues.put("revertId", revertId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRevert.class);
     }
@@ -14182,11 +14480,11 @@ public abstract class GitHttpClientBase
         routeValues.put("revertId", revertId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRevert.class);
     }
@@ -14215,11 +14513,11 @@ public abstract class GitHttpClientBase
         routeValues.put("revertId", revertId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRevert.class);
     }
@@ -14248,11 +14546,11 @@ public abstract class GitHttpClientBase
         routeValues.put("revertId", revertId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRevert.class);
     }
@@ -14283,12 +14581,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("refName", refName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRevert.class);
     }
@@ -14319,12 +14617,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("refName", refName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRevert.class);
     }
@@ -14355,12 +14653,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("refName", refName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRevert.class);
     }
@@ -14391,12 +14689,12 @@ public abstract class GitHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("refName", refName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitRevert.class);
     }
@@ -14424,13 +14722,13 @@ public abstract class GitHttpClientBase
         routeValues.put("commitId", commitId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitCommitStatusToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitCommitStatusToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitStatus.class);
     }
@@ -14458,13 +14756,13 @@ public abstract class GitHttpClientBase
         routeValues.put("commitId", commitId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitCommitStatusToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitCommitStatusToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitStatus.class);
     }
@@ -14496,13 +14794,13 @@ public abstract class GitHttpClientBase
         routeValues.put("commitId", commitId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitCommitStatusToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitCommitStatusToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitStatus.class);
     }
@@ -14534,13 +14832,13 @@ public abstract class GitHttpClientBase
         routeValues.put("commitId", commitId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitCommitStatusToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitCommitStatusToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitStatus.class);
     }
@@ -14572,13 +14870,13 @@ public abstract class GitHttpClientBase
         routeValues.put("commitId", commitId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitCommitStatusToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitCommitStatusToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitStatus.class);
     }
@@ -14610,13 +14908,13 @@ public abstract class GitHttpClientBase
         routeValues.put("commitId", commitId); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       gitCommitStatusToCreate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitCommitStatusToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitStatus.class);
     }
@@ -14659,12 +14957,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("latestOnly", latestOnly); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitStatus>>() {});
     }
@@ -14707,12 +15005,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("latestOnly", latestOnly); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitStatus>>() {});
     }
@@ -14755,12 +15053,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("latestOnly", latestOnly); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitStatus>>() {});
     }
@@ -14803,12 +15101,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("latestOnly", latestOnly); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitStatus>>() {});
     }
@@ -14847,12 +15145,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("latestOnly", latestOnly); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitStatus>>() {});
     }
@@ -14891,12 +15189,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("latestOnly", latestOnly); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitStatus>>() {});
     }
@@ -14939,12 +15237,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("recursive", recursive); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitTreeRef.class);
     }
@@ -14987,12 +15285,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("recursive", recursive); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitTreeRef.class);
     }
@@ -15035,12 +15333,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("recursive", recursive); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitTreeRef.class);
     }
@@ -15083,12 +15381,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("recursive", recursive); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitTreeRef.class);
     }
@@ -15127,12 +15425,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("recursive", recursive); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitTreeRef.class);
     }
@@ -15171,12 +15469,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("recursive", recursive); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitTreeRef.class);
     }
@@ -15219,12 +15517,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("recursive", recursive); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -15267,12 +15565,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("recursive", recursive); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -15315,12 +15613,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("recursive", recursive); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -15363,12 +15661,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("recursive", recursive); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -15407,12 +15705,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("recursive", recursive); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -15451,12 +15749,12 @@ public abstract class GitHttpClientBase
         queryParameters.addIfNotNull("recursive", recursive); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
