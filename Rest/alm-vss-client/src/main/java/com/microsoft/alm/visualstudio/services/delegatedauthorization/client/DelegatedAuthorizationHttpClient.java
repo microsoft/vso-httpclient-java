@@ -5,8 +5,8 @@ package com.microsoft.alm.visualstudio.services.delegatedauthorization.client;
 
 import java.net.URI;
 
+import com.microsoft.alm.client.VssRestClientHandler;
 import com.microsoft.alm.client.utils.ArgumentUtility;
-import com.microsoft.alm.visualstudio.services.delegatedauthorization.client.DelegatedAuthorizationHttpClientBase;
 import com.microsoft.alm.visualstudio.services.delegatedauthorization.SessionToken;
 import com.microsoft.alm.visualstudio.services.delegatedauthorization.SessionTokenType;
 
@@ -17,8 +17,8 @@ import com.microsoft.alm.visualstudio.services.delegatedauthorization.SessionTok
  */
 public class DelegatedAuthorizationHttpClient extends DelegatedAuthorizationHttpClientBase {
 
-    public DelegatedAuthorizationHttpClient(final Object jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    protected DelegatedAuthorizationHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 
     /**

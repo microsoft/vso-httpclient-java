@@ -8,6 +8,7 @@ import java.net.URISyntaxException;
 
 import javax.ws.rs.client.Client;
 
+import com.microsoft.alm.client.DefaultRestClientHandler;
 import com.microsoft.alm.client.VssHttpClientBase;
 import com.microsoft.alm.client.moke.MokeClient;
 import com.microsoft.alm.visualstudio.services.webapi.ApiResourceLocation;
@@ -187,6 +188,7 @@ public class VersionNegotiationTest extends TestCase {
 
         final static Client client = new MokeClient();
         final static URI testUri = getBaseUri("http://ar01.me.tfsallin.net:81/DefaultCollection"); //$NON-NLS-1$
+        final static DefaultRestClientHandler clientHandler = new DefaultRestClientHandler(client);
 
         private static URI getBaseUri(final String uri) {
             try {
@@ -200,11 +202,11 @@ public class VersionNegotiationTest extends TestCase {
         }
 
         public TestClient() {
-            super(client, testUri);
+            super(clientHandler, testUri);
         }
 
         public ApiResourceVersion negotiate(ApiResourceLocation location, ApiResourceVersion version) {
-            return super.negotiateRequestVersion(location, version);
+            return clientHandler.negotiateRequestVersion(location, version);
         }
     }
 }

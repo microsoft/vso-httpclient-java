@@ -20,9 +20,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.microsoft.alm.client.model.NameValueCollection;
+import com.microsoft.alm.client.HttpMethod;
 import com.microsoft.alm.client.VssHttpClientBase;
+import com.microsoft.alm.client.VssMediaTypes;
+import com.microsoft.alm.client.VssRestClientHandler;
+import com.microsoft.alm.client.VssRestRequest;
+import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.visualstudio.services.delegatedauthorization.SessionToken;
 import com.microsoft.alm.visualstudio.services.delegatedauthorization.SessionTokenType;
 import com.microsoft.alm.visualstudio.services.webapi.ApiResourceVersion;
@@ -39,23 +44,14 @@ public abstract class DelegatedAuthorizationHttpClientBase
     /**
     * Create a new instance of TokenHttpClientBase
     *
-    * @param jaxrsClient
-    *            an initialized instance of a JAX-RS Client implementation
+    * @param clientHandler
+    *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
+    *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
-    *            a TFS project collection URL
+    *            a TFS services URL, 
     */
-    protected DelegatedAuthorizationHttpClientBase(final Object jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
-    }
-
-    /**
-    * Create a new instance of TokenHttpClientBase
-    *
-    * @param tfsConnection
-    *            an initialized instance of a TfsTeamProjectCollection
-    */
-    protected DelegatedAuthorizationHttpClientBase(final Object tfsConnection) {
-        super(tfsConnection);
+    protected DelegatedAuthorizationHttpClientBase(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 
     @Override
@@ -86,13 +82,13 @@ public abstract class DelegatedAuthorizationHttpClientBase
         queryParameters.addIfNotNull("tokenType", tokenType); //$NON-NLS-1$
         queryParameters.addIfNotNull("isPublic", isPublic); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                        locationId,
                                                        apiVersion,
                                                        sessionToken,
-                                                       APPLICATION_JSON_TYPE,
+                                                       VssMediaTypes.APPLICATION_JSON_TYPE,
                                                        queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+                                                       VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, SessionToken.class);
     }
@@ -123,12 +119,12 @@ public abstract class DelegatedAuthorizationHttpClientBase
         queryParameters.addIfNotNull("isPublic", isPublic); //$NON-NLS-1$
         queryParameters.addIfNotNull("includePublicData", includePublicData); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                        locationId,
                                                        routeValues,
                                                        apiVersion,
                                                        queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+                                                       VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<List<SessionToken>>() {});
     }
@@ -153,12 +149,12 @@ public abstract class DelegatedAuthorizationHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("isPublic", isPublic); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
                                                        locationId,
                                                        routeValues,
                                                        apiVersion,
                                                        queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+                                                       VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
