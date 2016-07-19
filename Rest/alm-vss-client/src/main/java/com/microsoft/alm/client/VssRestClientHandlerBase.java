@@ -124,7 +124,7 @@ public abstract class VssRestClientHandlerBase implements VssRestClientHandler {
         }
     }
 
-    protected ApiResourceVersion NegotiateRequestVersion(final UUID locationId, final ApiResourceVersion version) {
+    protected ApiResourceVersion negotiateRequestVersion(final UUID locationId, final ApiResourceVersion version) {
         return negotiateRequestVersion(getLocation(locationId), version);
     }
 

@@ -78,7 +78,7 @@ public class DefaultRestClientHandler extends VssRestClientHandlerBase implement
 
         final WebTarget target = createTarget(locationId, routeValues, queryParameters);
         final MediaType acceptType =
-            getMediaTypeWithQualityHeaderValue(acceptMediaType, NegotiateRequestVersion(locationId, version));
+            getMediaTypeWithQualityHeaderValue(acceptMediaType, negotiateRequestVersion(locationId, version));
 
         final Invocation.Builder requestBuilder = target.request(acceptType);
 
