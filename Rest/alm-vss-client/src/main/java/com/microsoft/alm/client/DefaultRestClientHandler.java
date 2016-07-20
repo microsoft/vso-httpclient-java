@@ -67,14 +67,14 @@ public class DefaultRestClientHandler extends VssRestClientHandlerBase implement
 
     @Override
     public <TEntity> VssRestRequest createRequest(
-        HttpMethod method,
-        UUID locationId,
-        Map<String, Object> routeValues,
-        ApiResourceVersion version,
-        TEntity value,
-        String contentMediaType,
-        Map<String, String> queryParameters,
-        String acceptMediaType) {
+        final HttpMethod method,
+        final UUID locationId,
+        final Map<String, Object> routeValues,
+        final ApiResourceVersion version,
+        final TEntity value,
+        final String contentMediaType,
+        final Map<String, String> queryParameters,
+        final String acceptMediaType) {
 
         final WebTarget target = createTarget(locationId, routeValues, queryParameters);
         final MediaType acceptType =
@@ -158,7 +158,7 @@ public class DefaultRestClientHandler extends VssRestClientHandlerBase implement
         return mediaType;
     }
 
-    public class JaxRsRequest implements VssRestRequest {
+    public static class JaxRsRequest implements VssRestRequest {
 
         final private Invocation request;
 
@@ -188,7 +188,7 @@ public class DefaultRestClientHandler extends VssRestClientHandlerBase implement
         }
     }
 
-    public class JaxRsResponse implements VssRestResponse {
+    public static class JaxRsResponse implements VssRestResponse {
 
         final private Response response;
 
@@ -199,8 +199,7 @@ public class DefaultRestClientHandler extends VssRestClientHandlerBase implement
         @Override
         public boolean isJsonResponse() {
             if (response != null && response.getMediaType() != null) {
-                return response.getMediaType().getType().equalsIgnoreCase("application") //$NON-NLS-1$
-                    && response.getMediaType().getSubtype().equalsIgnoreCase("json"); //$NON-NLS-1$
+                return StringUtil.startsWithIgnoreCase(response.getMediaType().toString(), MediaType.APPLICATION_JSON);
             } else {
                 return false;
             }
@@ -213,7 +212,7 @@ public class DefaultRestClientHandler extends VssRestClientHandlerBase implement
 
         @Override
         public boolean isSuccessResponse() {
-            return response.getStatusInfo().getFamily() != Response.Status.Family.SUCCESSFUL;
+            return response.getStatusInfo().getFamily() == Response.Status.Family.SUCCESSFUL;
         }
 
         @Override

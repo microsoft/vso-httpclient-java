@@ -13,7 +13,7 @@ import com.microsoft.alm.visualstudio.services.webapi.ApiResourceLocation;
 import com.microsoft.alm.visualstudio.services.webapi.ApiResourceLocationCollection;
 import com.microsoft.alm.visualstudio.services.webapi.ApiResourceVersion;
 
-public abstract class VssRestClientHandlerBase implements VssRestClientHandler {
+abstract class VssRestClientHandlerBase implements VssRestClientHandler {
 
     private boolean overrideEnabled;
     private ApiResourceLocationCollection resourceLocations;

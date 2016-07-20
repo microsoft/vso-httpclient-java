@@ -4,6 +4,7 @@
 package com.microsoft.alm.teamfoundation.build.webapi;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import com.microsoft.alm.client.VssRestClientHandler;
@@ -13,6 +14,30 @@ public class BuildHttpClient extends BuildHttpClientBase {
 
     public BuildHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
         super(clientHandler, baseUrl);
+    }
+
+    /**
+     * [Preview API 3.0-preview.2] Gets definitions
+     * 
+     * @param projectName
+     *        Project ID or project name
+     * 
+     * @return ArrayList&lt;BuildDefinitionReference&gt;
+     */
+    public ArrayList<BuildDefinitionReference> getDefinitions(final String projectName) {
+        return super.getDefinitions(projectName, null, null, null, null, null, null, null, null, null, null, null);
+    }
+
+    /**
+     * [Preview API 3.0-preview.2] Gets definitions
+     * 
+     * @param project
+     *        Project ID or project name
+     * 
+     * @return ArrayList&lt;BuildDefinitionReference&gt;
+     */
+    public ArrayList<BuildDefinitionReference> getDefinitions(final UUID projectId) {
+        return super.getDefinitions(projectId, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**

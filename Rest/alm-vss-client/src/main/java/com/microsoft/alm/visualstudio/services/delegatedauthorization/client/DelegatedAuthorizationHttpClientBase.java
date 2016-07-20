@@ -50,7 +50,7 @@ public abstract class DelegatedAuthorizationHttpClientBase
     * @param baseUrl
     *            a TFS services URL, 
     */
-    protected DelegatedAuthorizationHttpClientBase(final VssRestClientHandler clientHandler, final URI baseUrl) {
+    public DelegatedAuthorizationHttpClientBase(final VssRestClientHandler clientHandler, final URI baseUrl) {
         super(clientHandler, baseUrl);
     }
 

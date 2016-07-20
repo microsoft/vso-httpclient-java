@@ -17,7 +17,7 @@ import com.microsoft.alm.visualstudio.services.delegatedauthorization.SessionTok
  */
 public class DelegatedAuthorizationHttpClient extends DelegatedAuthorizationHttpClientBase {
 
-    protected DelegatedAuthorizationHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+    public DelegatedAuthorizationHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
         super(clientHandler, baseUrl);
     }
 
