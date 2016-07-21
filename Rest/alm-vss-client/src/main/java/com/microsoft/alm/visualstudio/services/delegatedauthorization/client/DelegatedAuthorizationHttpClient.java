@@ -4,10 +4,13 @@
 package com.microsoft.alm.visualstudio.services.delegatedauthorization.client;
 
 import java.net.URI;
+import java.util.Arrays;
+import java.util.UUID;
 
 import com.microsoft.alm.client.VssRestClientHandler;
 import com.microsoft.alm.client.utils.ArgumentUtility;
 import com.microsoft.alm.visualstudio.services.delegatedauthorization.SessionToken;
+import com.microsoft.alm.visualstudio.services.delegatedauthorization.SessionTokenScope;
 import com.microsoft.alm.visualstudio.services.delegatedauthorization.SessionTokenType;
 
 /**
@@ -29,4 +32,21 @@ public class DelegatedAuthorizationHttpClient extends DelegatedAuthorizationHttp
 
         return super.createSessionToken(sessionToken, SessionTokenType.COMPACT, null);
     }
+
+    public SessionToken createAccountSessionToken(
+        final String displayName,
+        final UUID accountId,
+        final SessionTokenScope... scopes) {
+
+        final SessionToken token = new SessionToken();
+
+        token.setDisplayName(displayName);
+        token.setScope(SessionTokenScope.combine(scopes));
+        token.setTargetAccounts(Arrays.asList(new UUID[] {
+            accountId
+        }));
+
+        return createSessionToken(token);
+    }
+
 }
