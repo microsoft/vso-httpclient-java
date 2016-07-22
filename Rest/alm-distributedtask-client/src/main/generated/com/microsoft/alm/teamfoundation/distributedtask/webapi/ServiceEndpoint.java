@@ -18,6 +18,8 @@ package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.UUID;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
 /** 
@@ -46,9 +48,17 @@ public class ServiceEndpoint {
     */
     private UUID id;
     /**
+    * EndPoint state indictor
+    */
+    private boolean isReady;
+    /**
     * Gets or sets the friendly name of the endpoint.
     */
     private String name;
+    /**
+    * Error message during creation/deletion of endpoint
+    */
+    private ObjectNode operationStatus;
     private IdentityRef readersGroup;
     /**
     * Gets or sets the type of the endpoint.
@@ -140,6 +150,22 @@ public class ServiceEndpoint {
     }
 
     /**
+    * EndPoint state indictor
+    */
+    @JsonProperty("isReady")
+    public boolean isReady() {
+        return isReady;
+    }
+
+    /**
+    * EndPoint state indictor
+    */
+    @JsonProperty("isReady")
+    public void setReady(final boolean isReady) {
+        this.isReady = isReady;
+    }
+
+    /**
     * Gets or sets the friendly name of the endpoint.
     */
     public String getName() {
@@ -151,6 +177,20 @@ public class ServiceEndpoint {
     */
     public void setName(final String name) {
         this.name = name;
+    }
+
+    /**
+    * Error message during creation/deletion of endpoint
+    */
+    public ObjectNode getOperationStatus() {
+        return operationStatus;
+    }
+
+    /**
+    * Error message during creation/deletion of endpoint
+    */
+    public void setOperationStatus(final ObjectNode operationStatus) {
+        this.operationStatus = operationStatus;
     }
 
     public IdentityRef getReadersGroup() {

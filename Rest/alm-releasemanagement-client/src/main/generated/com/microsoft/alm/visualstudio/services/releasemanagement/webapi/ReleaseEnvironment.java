@@ -20,6 +20,7 @@ import java.util.Date;
 import java.util.HashMap;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.conditions.Condition;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.Demand;
+import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.DeployPhase;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.ReleaseDefinitionApprovals;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.ShallowReference;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.WorkflowTask;
@@ -33,6 +34,7 @@ public class ReleaseEnvironment {
     private Date createdOn;
     private int definitionEnvironmentId;
     private ArrayList<Demand> demands;
+    private ArrayList<DeployPhase> deployPhasesSnapshot;
     private ArrayList<DeploymentAttempt> deploySteps;
     private EnvironmentOptions environmentOptions;
     private int id;
@@ -90,6 +92,14 @@ public class ReleaseEnvironment {
 
     public void setDemands(final ArrayList<Demand> demands) {
         this.demands = demands;
+    }
+
+    public ArrayList<DeployPhase> getDeployPhasesSnapshot() {
+        return deployPhasesSnapshot;
+    }
+
+    public void setDeployPhasesSnapshot(final ArrayList<DeployPhase> deployPhasesSnapshot) {
+        this.deployPhasesSnapshot = deployPhasesSnapshot;
     }
 
     public ArrayList<DeploymentAttempt> getDeploySteps() {

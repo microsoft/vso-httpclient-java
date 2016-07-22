@@ -58,6 +58,10 @@ public class GitQueryCommitsCriteria {
     */
     private boolean includeLinks;
     /**
+    * Whether to include linked work items
+    */
+    private boolean includeWorkItems;
+    /**
     * Path of item to search under
     */
     private String itemPath;
@@ -202,6 +206,20 @@ public class GitQueryCommitsCriteria {
     */
     public void setIncludeLinks(final boolean includeLinks) {
         this.includeLinks = includeLinks;
+    }
+
+    /**
+    * Whether to include linked work items
+    */
+    public boolean getIncludeWorkItems() {
+        return includeWorkItems;
+    }
+
+    /**
+    * Whether to include linked work items
+    */
+    public void setIncludeWorkItems(final boolean includeWorkItems) {
+        this.includeWorkItems = includeWorkItems;
     }
 
     /**

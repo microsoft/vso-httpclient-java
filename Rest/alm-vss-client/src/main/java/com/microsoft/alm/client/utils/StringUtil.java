@@ -282,4 +282,11 @@ public abstract class StringUtil {
     public static String pad(final Number n, final int width) {
         return pad(n, width, ' ');
     }
+
+    public static boolean startsWithIgnoreCase(final String s, final String searchFor) {
+        if (s == null || searchFor == null) {
+            return false;
+        }
+        return s.toLowerCase().startsWith(searchFor.toLowerCase());
+    }
 }

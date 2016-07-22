@@ -29,6 +29,7 @@ public class ReleaseDefinitionEnvironment {
 
     private ArrayList<Condition> conditions;
     private ArrayList<Demand> demands;
+    private ArrayList<DeployPhase> deployPhases;
     private ReleaseDefinitionDeployStep deployStep;
     private EnvironmentOptions environmentOptions;
     private EnvironmentExecutionPolicy executionPolicy;
@@ -58,6 +59,14 @@ public class ReleaseDefinitionEnvironment {
 
     public void setDemands(final ArrayList<Demand> demands) {
         this.demands = demands;
+    }
+
+    public ArrayList<DeployPhase> getDeployPhases() {
+        return deployPhases;
+    }
+
+    public void setDeployPhases(final ArrayList<DeployPhase> deployPhases) {
+        this.deployPhases = deployPhases;
     }
 
     public ReleaseDefinitionDeployStep getDeployStep() {

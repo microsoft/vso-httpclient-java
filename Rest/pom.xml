@@ -22,10 +22,10 @@
     <url>https://www.visualstudio.com/</url>
 
     <properties>
-<!-- 
+<!--
         <skip.javadoc>true</skip.javadoc>
         <skip.sources>true</skip.sources>
-  -->
+-->
         <jaxrs-api.version>2.0.1</jaxrs-api.version>
         <common-codec.version>1.10</common-codec.version>
         <mvn.compiler.version>3.3</mvn.compiler.version>

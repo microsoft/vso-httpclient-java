@@ -6,17 +6,13 @@ package com.microsoft.alm.teamfoundation.core.webapi;
 import java.net.URI;
 import java.util.List;
 
-import com.microsoft.alm.teamfoundation.core.webapi.ProjectState;
-import com.microsoft.alm.teamfoundation.core.webapi.TeamProject;
-import com.microsoft.alm.teamfoundation.core.webapi.TeamProjectReference;
+import com.microsoft.alm.client.VssRestClientHandler;
 import com.microsoft.alm.client.utils.ArgumentUtility;
-
-import javax.ws.rs.client.Client;
 
 public class CoreHttpClient extends CoreHttpClientBase {
 
-    public CoreHttpClient(final Client jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    public CoreHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 
     /**

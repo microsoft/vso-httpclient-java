@@ -16,7 +16,10 @@
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
+import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.ReleaseDeployPhase;
+import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
 /** 
  */
@@ -33,7 +36,15 @@ public class DeploymentAttempt {
     private boolean hasStarted;
     private int id;
     private ReleaseTask job;
+    private IdentityRef lastModifiedBy;
+    private Date lastModifiedOn;
+    private DeploymentOperationStatus operationStatus;
+    private Date queuedOn;
+    private DeploymentReason reason;
+    private ArrayList<ReleaseDeployPhase> releaseDeployPhases;
+    private IdentityRef requestedBy;
     private UUID runPlanId;
+    private DeploymentStatus status;
     private ArrayList<ReleaseTask> tasks;
 
     public int getAttempt() {
@@ -88,12 +99,76 @@ public class DeploymentAttempt {
         this.job = job;
     }
 
+    public IdentityRef getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(final IdentityRef lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+    }
+
+    public Date getLastModifiedOn() {
+        return lastModifiedOn;
+    }
+
+    public void setLastModifiedOn(final Date lastModifiedOn) {
+        this.lastModifiedOn = lastModifiedOn;
+    }
+
+    public DeploymentOperationStatus getOperationStatus() {
+        return operationStatus;
+    }
+
+    public void setOperationStatus(final DeploymentOperationStatus operationStatus) {
+        this.operationStatus = operationStatus;
+    }
+
+    public Date getQueuedOn() {
+        return queuedOn;
+    }
+
+    public void setQueuedOn(final Date queuedOn) {
+        this.queuedOn = queuedOn;
+    }
+
+    public DeploymentReason getReason() {
+        return reason;
+    }
+
+    public void setReason(final DeploymentReason reason) {
+        this.reason = reason;
+    }
+
+    public ArrayList<ReleaseDeployPhase> getReleaseDeployPhases() {
+        return releaseDeployPhases;
+    }
+
+    public void setReleaseDeployPhases(final ArrayList<ReleaseDeployPhase> releaseDeployPhases) {
+        this.releaseDeployPhases = releaseDeployPhases;
+    }
+
+    public IdentityRef getRequestedBy() {
+        return requestedBy;
+    }
+
+    public void setRequestedBy(final IdentityRef requestedBy) {
+        this.requestedBy = requestedBy;
+    }
+
     public UUID getRunPlanId() {
         return runPlanId;
     }
 
     public void setRunPlanId(final UUID runPlanId) {
         this.runPlanId = runPlanId;
+    }
+
+    public DeploymentStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(final DeploymentStatus status) {
+        this.status = status;
     }
 
     public ArrayList<ReleaseTask> getTasks() {

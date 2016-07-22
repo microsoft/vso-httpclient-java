@@ -25,6 +25,7 @@ public class TaskAgentQueue {
     private int id;
     private String name;
     private TaskAgentPoolReference pool;
+    private UUID projectId;
     private boolean provisioned;
 
     public UUID getGroupScopeId() {
@@ -57,6 +58,14 @@ public class TaskAgentQueue {
 
     public void setPool(final TaskAgentPoolReference pool) {
         this.pool = pool;
+    }
+
+    public UUID getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(final UUID projectId) {
+        this.projectId = projectId;
     }
 
     public boolean getProvisioned() {

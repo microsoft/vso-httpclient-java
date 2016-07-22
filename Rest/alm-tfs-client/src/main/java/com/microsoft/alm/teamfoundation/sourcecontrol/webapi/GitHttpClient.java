@@ -8,19 +8,13 @@ import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitItem;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitRef;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitRepository;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitVersionDescriptor;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.VersionControlRecursionType;
+import com.microsoft.alm.client.VssRestClientHandler;
 import com.microsoft.alm.client.utils.ArgumentUtility;
-
-import javax.ws.rs.client.Client;
 
 public class GitHttpClient extends GitHttpClientBase {
 
-    public GitHttpClient(final Client jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    public GitHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 
     /**

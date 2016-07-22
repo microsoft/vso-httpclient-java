@@ -3,16 +3,12 @@
 
 package com.microsoft.alm.client.model;
 
-import javax.ws.rs.core.Response;
-
+@SuppressWarnings("serial")
 public class VssServiceResponseException extends VssServiceException {
 
-    final Response.StatusType statusCode;
+    final int statusCode;
 
-    public VssServiceResponseException(
-        final Response.StatusType statusCode,
-        final String message,
-        final Exception innerException) {
+    public VssServiceResponseException(final int statusCode, final String message, final Exception innerException) {
         super(message, innerException);
         this.statusCode = statusCode;
     }

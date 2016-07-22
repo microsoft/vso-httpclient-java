@@ -3,12 +3,13 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import javax.ws.rs.client.Client;
 import java.net.URI;
+
+import com.microsoft.alm.client.VssRestClientHandler;
 
 public class TaskAgentHttpClient extends TaskAgentHttpClientBase {
 
-    public TaskAgentHttpClient(final Client jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    public TaskAgentHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 }
