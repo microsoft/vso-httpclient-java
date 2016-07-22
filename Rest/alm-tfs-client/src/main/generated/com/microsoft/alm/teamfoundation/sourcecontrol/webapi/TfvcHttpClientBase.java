@@ -23,8 +23,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.microsoft.alm.client.HttpMethod;
 import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.VssHttpClientBase;
+import com.microsoft.alm.client.VssMediaTypes;
+import com.microsoft.alm.client.VssRestClientHandler;
+import com.microsoft.alm.client.VssRestRequest;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.AssociatedWorkItem;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.TfvcBranch;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.TfvcBranchRef;
@@ -58,22 +62,13 @@ public abstract class TfvcHttpClientBase
     * Create a new instance of TfvcHttpClientBase
     *
     * @param jaxrsClient
-    *            an initialized instance of a JAX-RS Client implementation
+    *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
+    *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
-    *            a TFS project collection URL
+    *            a TFS services URL
     */
-    protected TfvcHttpClientBase(final Object jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
-    }
-
-    /**
-    * Create a new instance of TfvcHttpClientBase
-    *
-    * @param tfsConnection
-    *            an initialized instance of a TfsTeamProjectCollection
-    */
-    protected TfvcHttpClientBase(final Object tfsConnection) {
-        super(tfsConnection);
+    protected TfvcHttpClientBase(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 
     @Override
@@ -111,12 +106,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("includeParent", includeParent); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeChildren", includeChildren); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcBranch.class);
     }
@@ -151,12 +146,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("includeParent", includeParent); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeChildren", includeChildren); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcBranch.class);
     }
@@ -185,11 +180,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("includeParent", includeParent); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeChildren", includeChildren); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcBranch.class);
     }
@@ -228,12 +223,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("includeDeleted", includeDeleted); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcBranch>>() {});
     }
@@ -272,12 +267,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("includeDeleted", includeDeleted); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcBranch>>() {});
     }
@@ -310,11 +305,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("includeDeleted", includeDeleted); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcBranch>>() {});
     }
@@ -349,12 +344,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("includeDeleted", includeDeleted); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcBranchRef>>() {});
     }
@@ -389,12 +384,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("includeDeleted", includeDeleted); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcBranchRef>>() {});
     }
@@ -423,11 +418,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("includeDeleted", includeDeleted); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcBranchRef>>() {});
     }
@@ -458,12 +453,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcChange>>() {});
     }
@@ -480,12 +475,12 @@ public abstract class TfvcHttpClientBase
         final UUID locationId = UUID.fromString("0bc8f0a4-6bfb-42a9-ba84-139da7b99c49"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       changeset,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               changeset,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcChangesetRef.class);
     }
@@ -509,13 +504,13 @@ public abstract class TfvcHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       changeset,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               changeset,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcChangesetRef.class);
     }
@@ -539,13 +534,13 @@ public abstract class TfvcHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       changeset,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               changeset,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcChangesetRef.class);
     }
@@ -608,12 +603,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotEmpty("$orderby", orderby); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, searchCriteria);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcChangeset.class);
     }
@@ -676,12 +671,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotEmpty("$orderby", orderby); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, searchCriteria);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcChangeset.class);
     }
@@ -740,12 +735,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotEmpty("$orderby", orderby); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, searchCriteria);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcChangeset.class);
     }
@@ -788,12 +783,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotEmpty("$orderby", orderby); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, searchCriteria);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcChangesetRef>>() {});
     }
@@ -836,12 +831,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotEmpty("$orderby", orderby); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, searchCriteria);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcChangesetRef>>() {});
     }
@@ -878,11 +873,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotEmpty("$orderby", orderby); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, searchCriteria);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcChangesetRef>>() {});
     }
@@ -899,12 +894,12 @@ public abstract class TfvcHttpClientBase
         final UUID locationId = UUID.fromString("b7e7c173-803c-4fea-9ec8-31ee35c5502a"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       changesetsRequestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               changesetsRequestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcChangesetRef>>() {});
     }
@@ -924,11 +919,11 @@ public abstract class TfvcHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<AssociatedWorkItem>>() {});
     }
@@ -945,12 +940,12 @@ public abstract class TfvcHttpClientBase
         final UUID locationId = UUID.fromString("fe6f827b-5f64-480f-b8af-1eca3b80e833"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       itemRequestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               itemRequestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArrayList<TfvcItem>>>() {});
     }
@@ -974,13 +969,13 @@ public abstract class TfvcHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       itemRequestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               itemRequestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArrayList<TfvcItem>>>() {});
     }
@@ -1004,13 +999,13 @@ public abstract class TfvcHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       itemRequestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               itemRequestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<ArrayList<TfvcItem>>>() {});
     }
@@ -1027,12 +1022,12 @@ public abstract class TfvcHttpClientBase
         final UUID locationId = UUID.fromString("fe6f827b-5f64-480f-b8af-1eca3b80e833"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       itemRequestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               itemRequestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1056,13 +1051,13 @@ public abstract class TfvcHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       itemRequestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               itemRequestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1086,13 +1081,13 @@ public abstract class TfvcHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       itemRequestData,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               itemRequestData,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1139,12 +1134,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("recursionLevel", recursionLevel); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcItem.class);
     }
@@ -1191,12 +1186,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("recursionLevel", recursionLevel); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcItem.class);
     }
@@ -1237,11 +1232,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("recursionLevel", recursionLevel); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcItem.class);
     }
@@ -1288,12 +1283,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("recursionLevel", recursionLevel); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1340,12 +1335,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("recursionLevel", recursionLevel); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1386,11 +1381,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("recursionLevel", recursionLevel); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1429,12 +1424,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcItem>>() {});
     }
@@ -1473,12 +1468,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcItem>>() {});
     }
@@ -1511,11 +1506,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcItem>>() {});
     }
@@ -1562,12 +1557,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("recursionLevel", recursionLevel); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       TEXT_PLAIN_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.TEXT_PLAIN_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1614,12 +1609,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("recursionLevel", recursionLevel); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       TEXT_PLAIN_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.TEXT_PLAIN_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1660,11 +1655,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("recursionLevel", recursionLevel); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       TEXT_PLAIN_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.TEXT_PLAIN_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1711,12 +1706,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("recursionLevel", recursionLevel); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1763,12 +1758,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("recursionLevel", recursionLevel); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1809,11 +1804,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("recursionLevel", recursionLevel); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, versionDescriptor);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_ZIP_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -1844,12 +1839,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcItem>>() {});
     }
@@ -1880,12 +1875,12 @@ public abstract class TfvcHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         addModelAsQueryParams(queryParameters, requestData);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcLabel.class);
     }
@@ -1916,12 +1911,12 @@ public abstract class TfvcHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         addModelAsQueryParams(queryParameters, requestData);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcLabel.class);
     }
@@ -1948,12 +1943,12 @@ public abstract class TfvcHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         addModelAsQueryParams(queryParameters, requestData);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcLabel.class);
     }
@@ -1988,12 +1983,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcLabelRef>>() {});
     }
@@ -2028,12 +2023,12 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcLabelRef>>() {});
     }
@@ -2062,11 +2057,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcLabelRef>>() {});
     }
@@ -2095,11 +2090,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcChange>>() {});
     }
@@ -2124,11 +2119,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotEmpty("shelvesetId", shelvesetId); //$NON-NLS-1$
         addModelAsQueryParams(queryParameters, requestData);
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, TfvcShelveset.class);
     }
@@ -2157,11 +2152,11 @@ public abstract class TfvcHttpClientBase
         queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
         queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<TfvcShelvesetRef>>() {});
     }
@@ -2181,11 +2176,11 @@ public abstract class TfvcHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("shelvesetId", shelvesetId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<AssociatedWorkItem>>() {});
     }

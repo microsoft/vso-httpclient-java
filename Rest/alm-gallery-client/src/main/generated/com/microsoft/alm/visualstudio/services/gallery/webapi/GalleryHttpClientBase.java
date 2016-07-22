@@ -24,8 +24,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.microsoft.alm.client.HttpMethod;
 import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.VssHttpClientBase;
+import com.microsoft.alm.client.VssMediaTypes;
+import com.microsoft.alm.client.VssRestClientHandler;
+import com.microsoft.alm.client.VssRestRequest;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.acquisitionoption.AcquisitionOptions;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.acquisitionrequest.ExtensionAcquisitionRequest;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.AzurePublisher;
@@ -59,22 +63,13 @@ public abstract class GalleryHttpClientBase
     * Create a new instance of GalleryHttpClientBase
     *
     * @param jaxrsClient
-    *            an initialized instance of a JAX-RS Client implementation
+    *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
+    *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
-    *            a TFS project collection URL
+    *            a TFS services URL
     */
-    protected GalleryHttpClientBase(final Object jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
-    }
-
-    /**
-    * Create a new instance of GalleryHttpClientBase
-    *
-    * @param tfsConnection
-    *            an initialized instance of a TfsTeamProjectCollection
-    */
-    protected GalleryHttpClientBase(final Object tfsConnection) {
-        super(tfsConnection);
+    protected GalleryHttpClientBase(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 
     @Override
@@ -101,11 +96,11 @@ public abstract class GalleryHttpClientBase
         routeValues.put("extensionId", extensionId); //$NON-NLS-1$
         routeValues.put("accountName", accountName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -129,11 +124,11 @@ public abstract class GalleryHttpClientBase
         routeValues.put("extensionId", extensionId); //$NON-NLS-1$
         routeValues.put("accountName", accountName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -161,11 +156,11 @@ public abstract class GalleryHttpClientBase
         routeValues.put("extensionName", extensionName); //$NON-NLS-1$
         routeValues.put("accountName", accountName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -193,11 +188,11 @@ public abstract class GalleryHttpClientBase
         routeValues.put("extensionName", extensionName); //$NON-NLS-1$
         routeValues.put("accountName", accountName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -232,12 +227,12 @@ public abstract class GalleryHttpClientBase
         queryParameters.addIfNotNull("testCommerce", testCommerce); //$NON-NLS-1$
         queryParameters.addIfNotNull("isFreeOrTrialInstall", isFreeOrTrialInstall); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, AcquisitionOptions.class);
     }
@@ -254,12 +249,12 @@ public abstract class GalleryHttpClientBase
         final UUID locationId = UUID.fromString("3adb1f2d-e328-446e-be73-9f6d98071c45"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       acquisitionRequest,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               acquisitionRequest,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, ExtensionAcquisitionRequest.class);
     }
@@ -302,12 +297,12 @@ public abstract class GalleryHttpClientBase
         queryParameters.addIfNotEmpty("accountToken", accountToken); //$NON-NLS-1$
         queryParameters.addIfNotNull("acceptDefault", acceptDefault); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -346,12 +341,12 @@ public abstract class GalleryHttpClientBase
         queryParameters.addIfNotEmpty("accountToken", accountToken); //$NON-NLS-1$
         queryParameters.addIfNotNull("acceptDefault", acceptDefault); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -390,12 +385,12 @@ public abstract class GalleryHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("accountToken", accountToken); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -422,12 +417,12 @@ public abstract class GalleryHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("azurePublisherId", azurePublisherId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, AzurePublisher.class);
     }
@@ -447,11 +442,11 @@ public abstract class GalleryHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, AzurePublisher.class);
     }
@@ -471,11 +466,11 @@ public abstract class GalleryHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("languages", languages); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, new TypeReference<ArrayList<String>>() {});
     }
@@ -504,11 +499,11 @@ public abstract class GalleryHttpClientBase
         routeValues.put("extensionName", extensionName); //$NON-NLS-1$
         routeValues.put("version", version); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -532,13 +527,13 @@ public abstract class GalleryHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("accountToken", accountToken); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       extensionQuery,
-                                                       APPLICATION_JSON_TYPE,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               extensionQuery,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, ExtensionQueryResult.class);
     }
@@ -555,12 +550,12 @@ public abstract class GalleryHttpClientBase
         final UUID locationId = UUID.fromString("a41192c8-9525-4b58-bc86-179fa549d80d"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       extensionPackage,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               extensionPackage,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, PublishedExtension.class);
     }
@@ -586,12 +581,12 @@ public abstract class GalleryHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("version", version); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -622,12 +617,12 @@ public abstract class GalleryHttpClientBase
         queryParameters.addIfNotEmpty("version", version); //$NON-NLS-1$
         queryParameters.addIfNotNull("flags", flags); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, PublishedExtension.class);
     }
@@ -651,13 +646,13 @@ public abstract class GalleryHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("extensionId", extensionId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       extensionPackage,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               extensionPackage,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, PublishedExtension.class);
     }
@@ -681,13 +676,13 @@ public abstract class GalleryHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       extensionPackage,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               extensionPackage,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, PublishedExtension.class);
     }
@@ -717,12 +712,12 @@ public abstract class GalleryHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("version", version); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -761,12 +756,12 @@ public abstract class GalleryHttpClientBase
         queryParameters.addIfNotNull("flags", flags); //$NON-NLS-1$
         queryParameters.addIfNotEmpty("accountToken", accountToken); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, PublishedExtension.class);
     }
@@ -794,13 +789,13 @@ public abstract class GalleryHttpClientBase
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
         routeValues.put("extensionName", extensionName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       extensionPackage,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               extensionPackage,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, PublishedExtension.class);
     }
@@ -816,12 +811,12 @@ public abstract class GalleryHttpClientBase
         final UUID locationId = UUID.fromString("05e8a5e1-8c59-4c2c-8856-0ff087d1a844"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       azureRestApiRequestModel,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               azureRestApiRequestModel,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -860,12 +855,12 @@ public abstract class GalleryHttpClientBase
         queryParameters.addIfNotEmpty("accountToken", accountToken); //$NON-NLS-1$
         queryParameters.addIfNotNull("acceptDefault", acceptDefault); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -912,12 +907,12 @@ public abstract class GalleryHttpClientBase
         queryParameters.addIfNotEmpty("accountToken", accountToken); //$NON-NLS-1$
         queryParameters.addIfNotNull("acceptDefault", acceptDefault); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_OCTET_STREAM_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
 
         return super.sendRequest(httpRequest, InputStream.class);
     }
@@ -934,12 +929,12 @@ public abstract class GalleryHttpClientBase
         final UUID locationId = UUID.fromString("2ad6ee0a-b53f-4034-9d1d-d009fda1212e"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       publisherQuery,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               publisherQuery,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, PublisherQueryResult.class);
     }
@@ -956,12 +951,12 @@ public abstract class GalleryHttpClientBase
         final UUID locationId = UUID.fromString("4ddec66a-e4f6-4f5d-999e-9e77710d7ff4"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       publisher,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               publisher,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, Publisher.class);
     }
@@ -980,11 +975,11 @@ public abstract class GalleryHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -1011,12 +1006,12 @@ public abstract class GalleryHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("flags", flags); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, Publisher.class);
     }
@@ -1040,13 +1035,13 @@ public abstract class GalleryHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PUT,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       publisher,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               publisher,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, Publisher.class);
     }
@@ -1089,12 +1084,12 @@ public abstract class GalleryHttpClientBase
         queryParameters.addIfNotNull("beforeDate", beforeDate); //$NON-NLS-1$
         queryParameters.addIfNotNull("afterDate", afterDate); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, ReviewsResult.class);
     }
@@ -1122,13 +1117,13 @@ public abstract class GalleryHttpClientBase
         routeValues.put("pubName", pubName); //$NON-NLS-1$
         routeValues.put("extName", extName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       review,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               review,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, Review.class);
     }
@@ -1160,13 +1155,13 @@ public abstract class GalleryHttpClientBase
         routeValues.put("extName", extName); //$NON-NLS-1$
         routeValues.put("resourceId", resourceId); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       reviewPatch,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewPatch,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, ReviewPatch.class);
     }
@@ -1183,12 +1178,12 @@ public abstract class GalleryHttpClientBase
         final UUID locationId = UUID.fromString("476531a3-7024-4516-a76a-ed64d3008ad6"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       apiVersion,
-                                                       category,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               apiVersion,
+                                                               category,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, ExtensionCategory.class);
     }
@@ -1214,12 +1209,12 @@ public abstract class GalleryHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("expireCurrentSeconds", expireCurrentSeconds); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.POST,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       queryParameters,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }
@@ -1239,11 +1234,11 @@ public abstract class GalleryHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("keyType", keyType); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.GET,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, String.class);
     }
@@ -1270,13 +1265,13 @@ public abstract class GalleryHttpClientBase
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
         routeValues.put("extensionName", extensionName); //$NON-NLS-1$
 
-        final Object httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                       locationId,
-                                                       routeValues,
-                                                       apiVersion,
-                                                       extensionStatisticsUpdate,
-                                                       APPLICATION_JSON_TYPE,
-                                                       APPLICATION_JSON_TYPE);
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               extensionStatisticsUpdate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);
     }

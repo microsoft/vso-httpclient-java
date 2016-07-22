@@ -3,12 +3,13 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
-import javax.ws.rs.client.Client;
 import java.net.URI;
+
+import com.microsoft.alm.client.VssRestClientHandler;
 
 public class TestHttpClient extends TestHttpClientBase {
 
-    public TestHttpClient(final Client jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    public TestHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 }

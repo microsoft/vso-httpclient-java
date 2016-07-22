@@ -3,30 +3,17 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.io.InputStream;
 import java.net.URI;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
-import javax.ws.rs.client.Client;
-import javax.xml.ws.Response;
-
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.microsoft.alm.client.model.NameValueCollection;
-import com.microsoft.alm.teamfoundation.distributedtask.webapi.JobEvent;
-import com.microsoft.alm.teamfoundation.distributedtask.webapi.TaskLog;
-import com.microsoft.alm.teamfoundation.distributedtask.webapi.TaskOrchestrationPlan;
-import com.microsoft.alm.teamfoundation.distributedtask.webapi.Timeline;
-import com.microsoft.alm.teamfoundation.distributedtask.webapi.TimelineRecord;
-import com.microsoft.alm.visualstudio.services.webapi.ApiResourceVersion;
+import com.microsoft.alm.client.VssRestClientHandler;
 import com.microsoft.alm.visualstudio.services.webapi.VssJsonCollectionWrapper;
 
 public class TaskHttpClient extends TaskHttpClientBase {
 
-    public TaskHttpClient(final Client jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    public TaskHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 
     /**

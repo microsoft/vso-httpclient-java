@@ -40,6 +40,10 @@ public enum TestSessionState {
     * The session has completed.
     */
     COMPLETED(4),
+    /**
+    * This is required for Feedback session which are declined
+    */
+    DECLINED(5),
     ;
 
     private int value;
@@ -74,6 +78,10 @@ public enum TestSessionState {
 
         if (name.equals("COMPLETED")) { //$NON-NLS-1$
             return "completed"; //$NON-NLS-1$
+        }
+
+        if (name.equals("DECLINED")) { //$NON-NLS-1$
+            return "declined"; //$NON-NLS-1$
         }
 
         return null;

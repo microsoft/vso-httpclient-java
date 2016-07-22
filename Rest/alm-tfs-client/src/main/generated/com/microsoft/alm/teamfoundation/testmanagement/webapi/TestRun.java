@@ -52,6 +52,7 @@ public class TestRun {
     private ShallowReference plan;
     private String postProcessState;
     private ShallowReference project;
+    private ReleaseReference release;
     private String releaseEnvironmentUri;
     private String releaseUri;
     private int revision;
@@ -291,6 +292,14 @@ public class TestRun {
 
     public void setProject(final ShallowReference project) {
         this.project = project;
+    }
+
+    public ReleaseReference getRelease() {
+        return release;
+    }
+
+    public void setRelease(final ReleaseReference release) {
+        this.release = release;
     }
 
     public String getReleaseEnvironmentUri() {

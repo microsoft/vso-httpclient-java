@@ -18,6 +18,7 @@ package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 import java.util.ArrayList;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
+import com.microsoft.alm.visualstudio.services.webapi.ResourceRef;
 
 /** 
  */
@@ -35,6 +36,7 @@ public class GitCommitRef {
     private String remoteUrl;
     private ArrayList<GitStatus> statuses;
     private String url;
+    private ArrayList<ResourceRef> workItems;
 
     @JsonProperty("_links")
     public ReferenceLinks getLinks() {
@@ -132,5 +134,13 @@ public class GitCommitRef {
 
     public void setUrl(final String url) {
         this.url = url;
+    }
+
+    public ArrayList<ResourceRef> getWorkItems() {
+        return workItems;
+    }
+
+    public void setWorkItems(final ArrayList<ResourceRef> workItems) {
+        this.workItems = workItems;
     }
 }

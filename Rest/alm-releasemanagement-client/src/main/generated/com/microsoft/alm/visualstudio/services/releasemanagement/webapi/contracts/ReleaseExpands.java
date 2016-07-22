@@ -24,6 +24,7 @@ public enum ReleaseExpands {
     ENVIRONMENTS(2),
     ARTIFACTS(4),
     APPROVALS(8),
+    MANUAL_INTERVENTIONS(16),
     ;
 
     private int value;
@@ -54,6 +55,10 @@ public enum ReleaseExpands {
 
         if (name.equals("APPROVALS")) { //$NON-NLS-1$
             return "approvals"; //$NON-NLS-1$
+        }
+
+        if (name.equals("MANUAL_INTERVENTIONS")) { //$NON-NLS-1$
+            return "manualInterventions"; //$NON-NLS-1$
         }
 
         return null;
