@@ -1,0 +1,104 @@
+<!--
+  ~ Copyright (c) Microsoft. All rights reserved.
+  ~ Licensed under the MIT license. See License.txt in the project root.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.microsoft.alm</groupId>
+        <artifactId>alm-http-client</artifactId>
+        <version>15.103.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>alm-releasemanagement-client</artifactId>
+
+    <name>Microsoft VSTS ReleaseManagement API</name>
+    <description>This package contains Microsoft VSTS Release Management API.</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.microsoft.alm</groupId>
+            <artifactId>alm-vss-client</artifactId>
+            <version>${project.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.microsoft.alm</groupId>
+            <artifactId>alm-vss-client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+<!--       Generate test JAR       -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <configuration>
+                        <archive>
+                            <addMavenDescriptor>false</addMavenDescriptor>
+                        </archive>
+                    </configuration>
+                   <executions>
+                     <execution>
+                       <configuration>
+                         <skip>false</skip>
+                       </configuration>
+                       <goals>
+                         <goal>test-jar</goal>
+                       </goals>
+                     </execution>
+                   </executions>
+                </plugin>
+<!--        - - - end - - -        -->
+
+                <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-compiler-plugin</artifactId>
+                  <executions>
+                    <execution>
+                      <id>default-testCompile</id>
+                      <configuration>
+                        <skip>false</skip>
+                      </configuration>
+                      <phase>test-compile</phase>
+                      <goals>
+                        <goal>testCompile</goal>
+                      </goals>
+                    </execution>
+                  </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>1.5</version>
+          </plugin>
+        </plugins>
+        
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>
