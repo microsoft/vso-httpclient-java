@@ -22,8 +22,8 @@ import java.util.ArrayList;
 public class GitPullRequestIterationChanges {
 
     private ArrayList<GitPullRequestChange> changeEntries;
-    private ArrayList<String> nextSkip;
-    private ArrayList<String> nextTop;
+    private int nextSkip;
+    private int nextTop;
 
     public ArrayList<GitPullRequestChange> getChangeEntries() {
         return changeEntries;
@@ -33,19 +33,19 @@ public class GitPullRequestIterationChanges {
         this.changeEntries = changeEntries;
     }
 
-    public ArrayList<String> getNextSkip() {
+    public int getNextSkip() {
         return nextSkip;
     }
 
-    public void setNextSkip(final ArrayList<String> nextSkip) {
+    public void setNextSkip(final int nextSkip) {
         this.nextSkip = nextSkip;
     }
 
-    public ArrayList<String> getNextTop() {
+    public int getNextTop() {
         return nextTop;
     }
 
-    public void setNextTop(final ArrayList<String> nextTop) {
+    public void setNextTop(final int nextTop) {
         this.nextTop = nextTop;
     }
 }

@@ -3,12 +3,13 @@
 
 package com.microsoft.alm.teamfoundation.work.webapi;
 
-import javax.ws.rs.client.Client;
 import java.net.URI;
+
+import com.microsoft.alm.client.VssRestClientHandler;
 
 public class WorkHttpClient extends WorkHttpClientBase {
 
-    public WorkHttpClient(final Client jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    public WorkHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 }

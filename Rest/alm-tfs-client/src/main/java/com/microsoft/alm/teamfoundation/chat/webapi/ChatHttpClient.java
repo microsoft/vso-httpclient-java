@@ -3,12 +3,13 @@
 
 package com.microsoft.alm.teamfoundation.chat.webapi;
 
-import javax.ws.rs.client.Client;
 import java.net.URI;
+
+import com.microsoft.alm.client.VssRestClientHandler;
 
 public class ChatHttpClient extends ChatHttpClientBase {
 
-    public ChatHttpClient(final Client jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    public ChatHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 }

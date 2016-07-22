@@ -24,6 +24,7 @@ public class ReleaseReference {
     private int environmentDefinitionId;
     private String environmentDefinitionName;
     private int environmentId;
+    private String environmentName;
     private int id;
     private String name;
 
@@ -57,6 +58,14 @@ public class ReleaseReference {
 
     public void setEnvironmentId(final int environmentId) {
         this.environmentId = environmentId;
+    }
+
+    public String getEnvironmentName() {
+        return environmentName;
+    }
+
+    public void setEnvironmentName(final String environmentName) {
+        this.environmentName = environmentName;
     }
 
     public int getId() {

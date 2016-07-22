@@ -3,12 +3,13 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import javax.ws.rs.client.Client;
 import java.net.URI;
+
+import com.microsoft.alm.client.VssRestClientHandler;
 
 public class TfvcHttpClient extends TfvcHttpClientBase {
 
-    public TfvcHttpClient(final Client jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    public TfvcHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 }

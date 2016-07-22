@@ -18,14 +18,17 @@ package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.Artifact;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.ShallowReference;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
+import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
 /** 
  */
 public class Release {
 
+    private ReferenceLinks _links;
     private ArrayList<Artifact> artifacts;
     private String comment;
     private IdentityRef createdBy;
@@ -46,6 +49,16 @@ public class Release {
     private ReleaseStatus status;
     private String url;
     private HashMap<String, ConfigurationVariableValue> variables;
+
+    @JsonProperty("_links")
+    public ReferenceLinks getLinks() {
+        return _links;
+    }
+
+    @JsonProperty("_links")
+    public void setLinks(final ReferenceLinks _links) {
+        this._links = _links;
+    }
 
     public ArrayList<Artifact> getArtifacts() {
         return artifacts;

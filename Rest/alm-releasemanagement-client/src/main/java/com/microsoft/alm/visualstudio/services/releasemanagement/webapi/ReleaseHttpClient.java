@@ -3,12 +3,13 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
-import javax.ws.rs.client.Client;
 import java.net.URI;
+
+import com.microsoft.alm.client.VssRestClientHandler;
 
 public class ReleaseHttpClient extends ReleaseHttpClientBase {
 
-    public ReleaseHttpClient(final Client jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    public ReleaseHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 }

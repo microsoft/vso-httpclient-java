@@ -3,12 +3,13 @@
 
 package com.microsoft.alm.teamfoundation.policy.webapi;
 
-import javax.ws.rs.client.Client;
 import java.net.URI;
+
+import com.microsoft.alm.client.VssRestClientHandler;
 
 public class PolicyHttpClient extends PolicyHttpClientBase {
 
-    public PolicyHttpClient(final Client jaxrsClient, final URI baseUrl) {
-        super(jaxrsClient, baseUrl);
+    public PolicyHttpClient(final VssRestClientHandler clientHandler, final URI baseUrl) {
+        super(clientHandler, baseUrl);
     }
 }

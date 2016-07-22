@@ -20,4 +20,40 @@ package com.microsoft.alm.teamfoundation.testmanagement.webapi;
  */
 public class SuiteCreateModel {
 
+    private String name;
+    private String queryString;
+    private Integer[] requirementIds;
+    private String suiteType;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(final String name) {
+        this.name = name;
+    }
+
+    public String getQueryString() {
+        return queryString;
+    }
+
+    public void setQueryString(final String queryString) {
+        this.queryString = queryString;
+    }
+
+    public Integer[] getRequirementIds() {
+        return requirementIds;
+    }
+
+    public void setRequirementIds(final Integer[] requirementIds) {
+        this.requirementIds = requirementIds;
+    }
+
+    public String getSuiteType() {
+        return suiteType;
+    }
+
+    public void setSuiteType(final String suiteType) {
+        this.suiteType = suiteType;
+    }
 }
