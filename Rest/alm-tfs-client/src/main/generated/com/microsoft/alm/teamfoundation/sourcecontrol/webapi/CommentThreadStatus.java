@@ -18,7 +18,7 @@ package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
 /** 
  */
-public enum GitPullRequestCommentStatus {
+public enum CommentThreadStatus {
 
     UNKNOWN(0),
     ACTIVE(1),
@@ -31,7 +31,7 @@ public enum GitPullRequestCommentStatus {
 
     private int value;
 
-    private GitPullRequestCommentStatus(final int value) {
+    private CommentThreadStatus(final int value) {
         this.value = value;
     }
 

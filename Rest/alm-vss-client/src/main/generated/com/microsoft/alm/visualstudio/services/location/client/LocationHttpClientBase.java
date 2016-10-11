@@ -46,7 +46,7 @@ public abstract class LocationHttpClientBase
     /**
     * Create a new instance of LocationHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
@@ -198,6 +198,29 @@ public abstract class LocationHttpClientBase
                                                                apiVersion,
                                                                serviceDefinitions,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        super.sendRequest(httpRequest);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1]
+     * 
+     * @param hostId 
+     *            
+     */
+    public void updateSpsServiceDefinition(final UUID hostId) { 
+
+        final UUID locationId = UUID.fromString("df5f298a-4e06-4815-a13e-6ce90a37efa4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("hostId", hostId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);

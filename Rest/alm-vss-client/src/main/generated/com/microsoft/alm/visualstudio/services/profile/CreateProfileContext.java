@@ -26,7 +26,9 @@ public class CreateProfileContext {
     private String countryName;
     private String displayName;
     private String emailAddress;
+    private boolean hasAccount;
     private String language;
+    private String phoneNumber;
 
     public HashMap<String, Object> getCIData() {
         return cIData;
@@ -68,11 +70,27 @@ public class CreateProfileContext {
         this.emailAddress = emailAddress;
     }
 
+    public boolean getHasAccount() {
+        return hasAccount;
+    }
+
+    public void setHasAccount(final boolean hasAccount) {
+        this.hasAccount = hasAccount;
+    }
+
     public String getLanguage() {
         return language;
     }
 
     public void setLanguage(final String language) {
         this.language = language;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(final String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

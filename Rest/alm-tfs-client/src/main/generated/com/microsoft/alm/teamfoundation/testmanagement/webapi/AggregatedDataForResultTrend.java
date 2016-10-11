@@ -27,6 +27,7 @@ public class AggregatedDataForResultTrend {
     private String duration;
     private HashMap<TestOutcome, AggregatedResultsByOutcome> resultsByOutcome;
     private TestResultsContext testResultsContext;
+    private int totalTests;
 
     /**
     * This is tests execution duration.
@@ -56,5 +57,13 @@ public class AggregatedDataForResultTrend {
 
     public void setTestResultsContext(final TestResultsContext testResultsContext) {
         this.testResultsContext = testResultsContext;
+    }
+
+    public int getTotalTests() {
+        return totalTests;
+    }
+
+    public void setTotalTests(final int totalTests) {
+        this.totalTests = totalTests;
     }
 }

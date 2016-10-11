@@ -61,7 +61,7 @@ public abstract class TfvcHttpClientBase
     /**
     * Create a new instance of TfvcHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
@@ -77,7 +77,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a single branch hierarchy at the given path with parents or children (if specified)
+     * Get a single branch hierarchy at the given path with parents or children (if specified)
      * 
      * @param project 
      *            Project ID or project name
@@ -96,7 +96,7 @@ public abstract class TfvcHttpClientBase
         final Boolean includeChildren) { 
 
         final UUID locationId = UUID.fromString("bc1f417e-239d-42e7-85e1-76e80cb2d6eb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -117,7 +117,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a single branch hierarchy at the given path with parents or children (if specified)
+     * Get a single branch hierarchy at the given path with parents or children (if specified)
      * 
      * @param project 
      *            Project ID
@@ -136,7 +136,7 @@ public abstract class TfvcHttpClientBase
         final Boolean includeChildren) { 
 
         final UUID locationId = UUID.fromString("bc1f417e-239d-42e7-85e1-76e80cb2d6eb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -157,7 +157,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a single branch hierarchy at the given path with parents or children (if specified)
+     * Get a single branch hierarchy at the given path with parents or children (if specified)
      * 
      * @param path 
      *            
@@ -173,7 +173,7 @@ public abstract class TfvcHttpClientBase
         final Boolean includeChildren) { 
 
         final UUID locationId = UUID.fromString("bc1f417e-239d-42e7-85e1-76e80cb2d6eb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("path", path); //$NON-NLS-1$
@@ -190,7 +190,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a collection of branch roots -- first-level children, branches with no parents
+     * Get a collection of branch roots -- first-level children, branches with no parents
      * 
      * @param project 
      *            Project ID or project name
@@ -212,7 +212,7 @@ public abstract class TfvcHttpClientBase
         final Boolean includeLinks) { 
 
         final UUID locationId = UUID.fromString("bc1f417e-239d-42e7-85e1-76e80cb2d6eb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -234,7 +234,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a collection of branch roots -- first-level children, branches with no parents
+     * Get a collection of branch roots -- first-level children, branches with no parents
      * 
      * @param project 
      *            Project ID
@@ -256,7 +256,7 @@ public abstract class TfvcHttpClientBase
         final Boolean includeLinks) { 
 
         final UUID locationId = UUID.fromString("bc1f417e-239d-42e7-85e1-76e80cb2d6eb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -278,7 +278,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a collection of branch roots -- first-level children, branches with no parents
+     * Get a collection of branch roots -- first-level children, branches with no parents
      * 
      * @param includeParent 
      *            
@@ -297,7 +297,7 @@ public abstract class TfvcHttpClientBase
         final Boolean includeLinks) { 
 
         final UUID locationId = UUID.fromString("bc1f417e-239d-42e7-85e1-76e80cb2d6eb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeParent", includeParent); //$NON-NLS-1$
@@ -315,7 +315,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get branch hierarchies below the specified scopePath
+     * Get branch hierarchies below the specified scopePath
      * 
      * @param project 
      *            Project ID or project name
@@ -334,7 +334,7 @@ public abstract class TfvcHttpClientBase
         final Boolean includeLinks) { 
 
         final UUID locationId = UUID.fromString("bc1f417e-239d-42e7-85e1-76e80cb2d6eb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -355,7 +355,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get branch hierarchies below the specified scopePath
+     * Get branch hierarchies below the specified scopePath
      * 
      * @param project 
      *            Project ID
@@ -374,7 +374,7 @@ public abstract class TfvcHttpClientBase
         final Boolean includeLinks) { 
 
         final UUID locationId = UUID.fromString("bc1f417e-239d-42e7-85e1-76e80cb2d6eb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -395,7 +395,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get branch hierarchies below the specified scopePath
+     * Get branch hierarchies below the specified scopePath
      * 
      * @param scopePath 
      *            
@@ -411,7 +411,7 @@ public abstract class TfvcHttpClientBase
         final Boolean includeLinks) { 
 
         final UUID locationId = UUID.fromString("bc1f417e-239d-42e7-85e1-76e80cb2d6eb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("scopePath", scopePath); //$NON-NLS-1$
@@ -428,7 +428,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve Tfvc changes for a given changeset
+     * Retrieve Tfvc changes for a given changeset
      * 
      * @param id 
      *            
@@ -444,7 +444,7 @@ public abstract class TfvcHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("f32b86f2-15b9-4fe6-81b1-6f8938617ee5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -464,8 +464,6 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param changeset 
      *            
      * @return TfvcChangesetRef
@@ -473,7 +471,7 @@ public abstract class TfvcHttpClientBase
     public TfvcChangesetRef createChangeset(final TfvcChangeset changeset) { 
 
         final UUID locationId = UUID.fromString("0bc8f0a4-6bfb-42a9-ba84-139da7b99c49"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -486,8 +484,6 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param changeset 
      *            
      * @param project 
@@ -499,7 +495,7 @@ public abstract class TfvcHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("0bc8f0a4-6bfb-42a9-ba84-139da7b99c49"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -516,8 +512,6 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param changeset 
      *            
      * @param project 
@@ -529,7 +523,7 @@ public abstract class TfvcHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("0bc8f0a4-6bfb-42a9-ba84-139da7b99c49"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -546,7 +540,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Retrieve a Tfvc Changeset
+     * Retrieve a Tfvc Changeset
      * 
      * @param project 
      *            Project ID or project name
@@ -586,7 +580,7 @@ public abstract class TfvcHttpClientBase
         final TfvcChangesetSearchCriteria searchCriteria) { 
 
         final UUID locationId = UUID.fromString("0bc8f0a4-6bfb-42a9-ba84-139da7b99c49"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -614,7 +608,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Retrieve a Tfvc Changeset
+     * Retrieve a Tfvc Changeset
      * 
      * @param project 
      *            Project ID
@@ -654,7 +648,7 @@ public abstract class TfvcHttpClientBase
         final TfvcChangesetSearchCriteria searchCriteria) { 
 
         final UUID locationId = UUID.fromString("0bc8f0a4-6bfb-42a9-ba84-139da7b99c49"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -682,7 +676,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Retrieve a Tfvc Changeset
+     * Retrieve a Tfvc Changeset
      * 
      * @param id 
      *            
@@ -719,7 +713,7 @@ public abstract class TfvcHttpClientBase
         final TfvcChangesetSearchCriteria searchCriteria) { 
 
         final UUID locationId = UUID.fromString("0bc8f0a4-6bfb-42a9-ba84-139da7b99c49"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -746,7 +740,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Retrieve Tfvc changesets
+     * Retrieve Tfvc changesets
      * 
      * @param project 
      *            Project ID or project name
@@ -771,7 +765,7 @@ public abstract class TfvcHttpClientBase
         final TfvcChangesetSearchCriteria searchCriteria) { 
 
         final UUID locationId = UUID.fromString("0bc8f0a4-6bfb-42a9-ba84-139da7b99c49"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -794,7 +788,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Retrieve Tfvc changesets
+     * Retrieve Tfvc changesets
      * 
      * @param project 
      *            Project ID
@@ -819,7 +813,7 @@ public abstract class TfvcHttpClientBase
         final TfvcChangesetSearchCriteria searchCriteria) { 
 
         final UUID locationId = UUID.fromString("0bc8f0a4-6bfb-42a9-ba84-139da7b99c49"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -842,7 +836,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Retrieve Tfvc changesets
+     * Retrieve Tfvc changesets
      * 
      * @param maxCommentLength 
      *            
@@ -864,7 +858,7 @@ public abstract class TfvcHttpClientBase
         final TfvcChangesetSearchCriteria searchCriteria) { 
 
         final UUID locationId = UUID.fromString("0bc8f0a4-6bfb-42a9-ba84-139da7b99c49"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("maxCommentLength", maxCommentLength); //$NON-NLS-1$
@@ -883,8 +877,6 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param changesetsRequestData 
      *            
      * @return ArrayList&lt;TfvcChangesetRef&gt;
@@ -892,7 +884,7 @@ public abstract class TfvcHttpClientBase
     public ArrayList<TfvcChangesetRef> getBatchedChangesets(final TfvcChangesetsRequestData changesetsRequestData) { 
 
         final UUID locationId = UUID.fromString("b7e7c173-803c-4fea-9ec8-31ee35c5502a"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -905,8 +897,6 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param id 
      *            
      * @return ArrayList&lt;AssociatedWorkItem&gt;
@@ -914,7 +904,7 @@ public abstract class TfvcHttpClientBase
     public ArrayList<AssociatedWorkItem> getChangesetWorkItems(final Integer id) { 
 
         final UUID locationId = UUID.fromString("64ae0bea-1d71-47c9-a9e5-fe73f5ea0ff4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -929,7 +919,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
+     * Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
      * 
      * @param itemRequestData 
      *            
@@ -938,7 +928,7 @@ public abstract class TfvcHttpClientBase
     public ArrayList<ArrayList<TfvcItem>> getItemsBatch(final TfvcItemRequestData itemRequestData) { 
 
         final UUID locationId = UUID.fromString("fe6f827b-5f64-480f-b8af-1eca3b80e833"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -951,7 +941,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
+     * Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
      * 
      * @param itemRequestData 
      *            
@@ -964,7 +954,7 @@ public abstract class TfvcHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("fe6f827b-5f64-480f-b8af-1eca3b80e833"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -981,7 +971,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
+     * Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
      * 
      * @param itemRequestData 
      *            
@@ -994,7 +984,7 @@ public abstract class TfvcHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("fe6f827b-5f64-480f-b8af-1eca3b80e833"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1011,7 +1001,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
+     * Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
      * 
      * @param itemRequestData 
      *            
@@ -1020,7 +1010,7 @@ public abstract class TfvcHttpClientBase
     public InputStream getItemsBatchZip(final TfvcItemRequestData itemRequestData) { 
 
         final UUID locationId = UUID.fromString("fe6f827b-5f64-480f-b8af-1eca3b80e833"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -1033,7 +1023,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
+     * Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
      * 
      * @param itemRequestData 
      *            
@@ -1046,7 +1036,7 @@ public abstract class TfvcHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("fe6f827b-5f64-480f-b8af-1eca3b80e833"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1063,7 +1053,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
+     * Post for retrieving a set of items given a list of paths or a long path. Allows for specifying the recursionLevel and version descriptors for each path.
      * 
      * @param itemRequestData 
      *            
@@ -1076,7 +1066,7 @@ public abstract class TfvcHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("fe6f827b-5f64-480f-b8af-1eca3b80e833"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1093,7 +1083,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -1121,7 +1111,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1145,7 +1135,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -1173,7 +1163,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1197,7 +1187,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param path 
      *            
@@ -1222,7 +1212,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("path", path); //$NON-NLS-1$
@@ -1242,7 +1232,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -1270,7 +1260,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1294,7 +1284,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -1322,7 +1312,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1346,7 +1336,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param path 
      *            
@@ -1371,7 +1361,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("path", path); //$NON-NLS-1$
@@ -1391,7 +1381,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a list of Tfvc items
+     * Get a list of Tfvc items
      * 
      * @param project 
      *            Project ID or project name
@@ -1413,7 +1403,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1435,7 +1425,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a list of Tfvc items
+     * Get a list of Tfvc items
      * 
      * @param project 
      *            Project ID
@@ -1457,7 +1447,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1479,7 +1469,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a list of Tfvc items
+     * Get a list of Tfvc items
      * 
      * @param scopePath 
      *            
@@ -1498,7 +1488,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("scopePath", scopePath); //$NON-NLS-1$
@@ -1516,7 +1506,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -1544,7 +1534,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1568,7 +1558,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -1596,7 +1586,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1620,7 +1610,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param path 
      *            
@@ -1645,7 +1635,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("path", path); //$NON-NLS-1$
@@ -1665,7 +1655,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -1693,7 +1683,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1717,7 +1707,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -1745,7 +1735,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1769,7 +1759,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * Get Item Metadata and/or Content. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param path 
      *            
@@ -1794,7 +1784,7 @@ public abstract class TfvcHttpClientBase
         final TfvcVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("ba9fc436-9a38-4578-89d6-e4f3241f5040"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("path", path); //$NON-NLS-1$
@@ -1814,7 +1804,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get items under a label.
+     * Get items under a label.
      * 
      * @param labelId 
      *            Unique identifier of label
@@ -1830,7 +1820,7 @@ public abstract class TfvcHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("06166e34-de17-4b60-8cd1-23182a346fda"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("labelId", labelId); //$NON-NLS-1$
@@ -1850,7 +1840,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a single deep label.
+     * Get a single deep label.
      * 
      * @param project 
      *            Project ID or project name
@@ -1866,7 +1856,7 @@ public abstract class TfvcHttpClientBase
         final TfvcLabelRequestData requestData) { 
 
         final UUID locationId = UUID.fromString("a5d9bd7f-b661-4d0e-b9be-d9c16affae54"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1886,7 +1876,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a single deep label.
+     * Get a single deep label.
      * 
      * @param project 
      *            Project ID
@@ -1902,7 +1892,7 @@ public abstract class TfvcHttpClientBase
         final TfvcLabelRequestData requestData) { 
 
         final UUID locationId = UUID.fromString("a5d9bd7f-b661-4d0e-b9be-d9c16affae54"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1922,7 +1912,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a single deep label.
+     * Get a single deep label.
      * 
      * @param labelId 
      *            Unique identifier of label
@@ -1935,7 +1925,7 @@ public abstract class TfvcHttpClientBase
         final TfvcLabelRequestData requestData) { 
 
         final UUID locationId = UUID.fromString("a5d9bd7f-b661-4d0e-b9be-d9c16affae54"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("labelId", labelId); //$NON-NLS-1$
@@ -1954,7 +1944,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a collection of shallow label references.
+     * Get a collection of shallow label references.
      * 
      * @param project 
      *            Project ID or project name
@@ -1973,7 +1963,7 @@ public abstract class TfvcHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("a5d9bd7f-b661-4d0e-b9be-d9c16affae54"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1994,7 +1984,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a collection of shallow label references.
+     * Get a collection of shallow label references.
      * 
      * @param project 
      *            Project ID
@@ -2013,7 +2003,7 @@ public abstract class TfvcHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("a5d9bd7f-b661-4d0e-b9be-d9c16affae54"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2034,7 +2024,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a collection of shallow label references.
+     * Get a collection of shallow label references.
      * 
      * @param requestData 
      *            labelScope, name, owner, and itemLabelFilter
@@ -2050,7 +2040,7 @@ public abstract class TfvcHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("a5d9bd7f-b661-4d0e-b9be-d9c16affae54"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         addModelAsQueryParams(queryParameters, requestData);
@@ -2067,7 +2057,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get changes included in a shelveset.
+     * Get changes included in a shelveset.
      * 
      * @param shelvesetId 
      *            Shelveset&#039;s unique ID
@@ -2083,7 +2073,7 @@ public abstract class TfvcHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("dbaf075b-0445-4c34-9e5b-82292f856522"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("shelvesetId", shelvesetId); //$NON-NLS-1$
@@ -2100,7 +2090,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get a single deep shelveset.
+     * Get a single deep shelveset.
      * 
      * @param shelvesetId 
      *            Shelveset&#039;s unique ID
@@ -2113,7 +2103,7 @@ public abstract class TfvcHttpClientBase
         final TfvcShelvesetRequestData requestData) { 
 
         final UUID locationId = UUID.fromString("e36d44fb-e907-4b0a-b194-f83f1ed32ad3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("shelvesetId", shelvesetId); //$NON-NLS-1$
@@ -2129,7 +2119,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Return a collection of shallow shelveset references.
+     * Return a collection of shallow shelveset references.
      * 
      * @param requestData 
      *            name, owner, and maxCommentLength
@@ -2145,7 +2135,7 @@ public abstract class TfvcHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("e36d44fb-e907-4b0a-b194-f83f1ed32ad3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         addModelAsQueryParams(queryParameters, requestData);
@@ -2162,7 +2152,7 @@ public abstract class TfvcHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get work items associated with a shelveset.
+     * Get work items associated with a shelveset.
      * 
      * @param shelvesetId 
      *            Shelveset&#039;s unique ID
@@ -2171,7 +2161,7 @@ public abstract class TfvcHttpClientBase
     public ArrayList<AssociatedWorkItem> getShelvesetWorkItems(final String shelvesetId) { 
 
         final UUID locationId = UUID.fromString("a7a0c1c1-373e-425a-b031-a519474d743d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("shelvesetId", shelvesetId); //$NON-NLS-1$

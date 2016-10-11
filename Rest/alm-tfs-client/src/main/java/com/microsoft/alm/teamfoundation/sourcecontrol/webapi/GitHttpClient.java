@@ -305,7 +305,7 @@ public class GitHttpClient extends GitHttpClientBase {
      */
     public List<GitRef> getRefs(final String repositoryId) {
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId", true); //$NON-NLS-1$
-        return super.getRefs(repositoryId, null, null);
+        return super.getRefs(repositoryId, null, null, null);
     }
 
     /**
@@ -317,7 +317,7 @@ public class GitHttpClient extends GitHttpClientBase {
      */
     public List<GitRef> getRefs(final String repositoryId, final boolean includeLinks) {
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId"); //$NON-NLS-1$
-        return super.getRefs(repositoryId, null, includeLinks);
+        return super.getRefs(repositoryId, null, includeLinks, null);
     }
 
     /**
@@ -329,7 +329,7 @@ public class GitHttpClient extends GitHttpClientBase {
      */
     public List<GitRef> getRefs(final String repositoryId, final String refType) {
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId"); //$NON-NLS-1$
-        return super.getRefs(repositoryId, refType, null);
+        return super.getRefs(repositoryId, refType, null, null);
     }
 
     /**
@@ -343,7 +343,7 @@ public class GitHttpClient extends GitHttpClientBase {
     public List<GitRef> getRefs(final String repositoryId, final String refType, final boolean includeLinks) {
         ArgumentUtility.checkStringForNullOrEmpty(repositoryId, "repositoryId"); //$NON-NLS-1$
         ArgumentUtility.checkStringForNullOrEmpty(refType, "refType", true); //$NON-NLS-1$
-        return super.getRefs(repositoryId, refType, includeLinks);
+        return super.getRefs(repositoryId, refType, includeLinks, null);
     }
 
     /**
@@ -353,7 +353,7 @@ public class GitHttpClient extends GitHttpClientBase {
      * @return List&lt;GitRef&gt;
      */
     public List<GitRef> getRefs(final UUID repositoryId) {
-        return super.getRefs(repositoryId, null, null);
+        return super.getRefs(repositoryId, null, null, null);
     }
 
     /**
@@ -365,7 +365,7 @@ public class GitHttpClient extends GitHttpClientBase {
      */
     public List<GitRef> getRefs(final UUID repositoryId, final boolean includeLinks) {
         ArgumentUtility.checkForEmptyGuid(repositoryId, "repositoryId"); //$NON-NLS-1$
-        return super.getRefs(repositoryId, null, includeLinks);
+        return super.getRefs(repositoryId, null, includeLinks, null);
     }
 
     /**
@@ -377,7 +377,7 @@ public class GitHttpClient extends GitHttpClientBase {
      */
     public List<GitRef> getRefs(final UUID repositoryId, final String refType) {
         ArgumentUtility.checkForEmptyGuid(repositoryId, "repositoryId"); //$NON-NLS-1$
-        return super.getRefs(repositoryId, refType, null);
+        return super.getRefs(repositoryId, refType, null, null);
     }
 
     /**
@@ -391,7 +391,7 @@ public class GitHttpClient extends GitHttpClientBase {
     public List<GitRef> getRefs(final UUID repositoryId, final String refType, final boolean includeLinks) {
         ArgumentUtility.checkForEmptyGuid(repositoryId, "repositoryId"); //$NON-NLS-1$
         ArgumentUtility.checkStringForNullOrEmpty(refType, "refType", true); //$NON-NLS-1$
-        return super.getRefs(repositoryId, refType, includeLinks);
+        return super.getRefs(repositoryId, refType, includeLinks, null);
     }
 
     /**

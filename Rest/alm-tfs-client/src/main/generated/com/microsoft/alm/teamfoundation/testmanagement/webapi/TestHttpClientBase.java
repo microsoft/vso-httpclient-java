@@ -96,7 +96,7 @@ public abstract class TestHttpClientBase
     /**
     * Create a new instance of TestHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
@@ -112,8 +112,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
-     * 
      * @param project 
      *            Project ID or project name
      * @param runId 
@@ -134,7 +132,7 @@ public abstract class TestHttpClientBase
         final String actionPath) { 
 
         final UUID locationId = UUID.fromString("eaf40c31-ff84-4062-aafd-d5664be11a37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -153,8 +151,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
-     * 
      * @param project 
      *            Project ID
      * @param runId 
@@ -175,7 +171,7 @@ public abstract class TestHttpClientBase
         final String actionPath) { 
 
         final UUID locationId = UUID.fromString("eaf40c31-ff84-4062-aafd-d5664be11a37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1916,8 +1912,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
-     * 
      * @param project 
      *            Project ID or project name
      * @param runId 
@@ -1938,7 +1932,7 @@ public abstract class TestHttpClientBase
         final Boolean includeActionResults) { 
 
         final UUID locationId = UUID.fromString("73eb9074-3446-4c44-8296-2f811950ff8d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1960,8 +1954,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
-     * 
      * @param project 
      *            Project ID
      * @param runId 
@@ -1982,7 +1974,7 @@ public abstract class TestHttpClientBase
         final Boolean includeActionResults) { 
 
         final UUID locationId = UUID.fromString("73eb9074-3446-4c44-8296-2f811950ff8d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2004,8 +1996,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
-     * 
      * @param project 
      *            Project ID or project name
      * @param runId 
@@ -2023,7 +2013,7 @@ public abstract class TestHttpClientBase
         final Boolean includeActionResults) { 
 
         final UUID locationId = UUID.fromString("73eb9074-3446-4c44-8296-2f811950ff8d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2044,8 +2034,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
-     * 
      * @param project 
      *            Project ID
      * @param runId 
@@ -2063,7 +2051,7 @@ public abstract class TestHttpClientBase
         final Boolean includeActionResults) { 
 
         final UUID locationId = UUID.fromString("73eb9074-3446-4c44-8296-2f811950ff8d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2142,8 +2130,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
-     * 
      * @param project 
      *            Project ID or project name
      * @param runId 
@@ -2164,7 +2150,7 @@ public abstract class TestHttpClientBase
         final String paramName) { 
 
         final UUID locationId = UUID.fromString("7c69810d-3354-4af3-844a-180bd25db08a"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2186,8 +2172,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
-     * 
      * @param project 
      *            Project ID
      * @param runId 
@@ -2208,7 +2192,7 @@ public abstract class TestHttpClientBase
         final String paramName) { 
 
         final UUID locationId = UUID.fromString("7c69810d-3354-4af3-844a-180bd25db08a"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2230,8 +2214,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param testPlan 
      *            
      * @param project 
@@ -2243,7 +2225,7 @@ public abstract class TestHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("51712106-7278-4208-8563-1c96f40cf5e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2260,8 +2242,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param testPlan 
      *            
      * @param project 
@@ -2273,7 +2253,7 @@ public abstract class TestHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("51712106-7278-4208-8563-1c96f40cf5e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2290,8 +2270,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param planId 
@@ -2302,7 +2280,7 @@ public abstract class TestHttpClientBase
         final int planId) { 
 
         final UUID locationId = UUID.fromString("51712106-7278-4208-8563-1c96f40cf5e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2318,8 +2296,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param planId 
@@ -2330,7 +2306,7 @@ public abstract class TestHttpClientBase
         final int planId) { 
 
         final UUID locationId = UUID.fromString("51712106-7278-4208-8563-1c96f40cf5e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2346,8 +2322,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param planId 
@@ -2359,7 +2333,7 @@ public abstract class TestHttpClientBase
         final int planId) { 
 
         final UUID locationId = UUID.fromString("51712106-7278-4208-8563-1c96f40cf5e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2375,8 +2349,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param planId 
@@ -2388,7 +2360,7 @@ public abstract class TestHttpClientBase
         final int planId) { 
 
         final UUID locationId = UUID.fromString("51712106-7278-4208-8563-1c96f40cf5e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2404,8 +2376,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param owner 
@@ -2429,7 +2399,7 @@ public abstract class TestHttpClientBase
         final Boolean filterActivePlans) { 
 
         final UUID locationId = UUID.fromString("51712106-7278-4208-8563-1c96f40cf5e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2452,8 +2422,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param owner 
@@ -2477,7 +2445,7 @@ public abstract class TestHttpClientBase
         final Boolean filterActivePlans) { 
 
         final UUID locationId = UUID.fromString("51712106-7278-4208-8563-1c96f40cf5e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2500,8 +2468,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param planUpdateModel 
      *            
      * @param project 
@@ -2516,7 +2482,7 @@ public abstract class TestHttpClientBase
         final int planId) { 
 
         final UUID locationId = UUID.fromString("51712106-7278-4208-8563-1c96f40cf5e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2534,8 +2500,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param planUpdateModel 
      *            
      * @param project 
@@ -2550,7 +2514,7 @@ public abstract class TestHttpClientBase
         final int planId) { 
 
         final UUID locationId = UUID.fromString("51712106-7278-4208-8563-1c96f40cf5e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2568,8 +2532,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param planId 
@@ -2590,7 +2552,7 @@ public abstract class TestHttpClientBase
         final String witFields) { 
 
         final UUID locationId = UUID.fromString("3bcfd5c8-be62-488e-b1da-b8289ce9299c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2612,8 +2574,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param planId 
@@ -2634,7 +2594,7 @@ public abstract class TestHttpClientBase
         final String witFields) { 
 
         final UUID locationId = UUID.fromString("3bcfd5c8-be62-488e-b1da-b8289ce9299c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2656,8 +2616,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param planId 
@@ -2693,7 +2651,7 @@ public abstract class TestHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("3bcfd5c8-be62-488e-b1da-b8289ce9299c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2720,8 +2678,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param planId 
@@ -2757,7 +2713,7 @@ public abstract class TestHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("3bcfd5c8-be62-488e-b1da-b8289ce9299c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2784,8 +2740,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param pointUpdateModel 
      *            
      * @param project 
@@ -2806,7 +2760,7 @@ public abstract class TestHttpClientBase
         final String pointIds) { 
 
         final UUID locationId = UUID.fromString("3bcfd5c8-be62-488e-b1da-b8289ce9299c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2826,8 +2780,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param pointUpdateModel 
      *            
      * @param project 
@@ -2848,7 +2800,7 @@ public abstract class TestHttpClientBase
         final String pointIds) { 
 
         final UUID locationId = UUID.fromString("3bcfd5c8-be62-488e-b1da-b8289ce9299c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3176,8 +3128,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.4]
-     * 
      * @param results 
      *            
      * @param project 
@@ -3192,7 +3142,7 @@ public abstract class TestHttpClientBase
         final int runId) { 
 
         final UUID locationId = UUID.fromString("4637d869-3a76-4468-8057-0bb02aa385cf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3210,8 +3160,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.4]
-     * 
      * @param results 
      *            
      * @param project 
@@ -3226,7 +3174,7 @@ public abstract class TestHttpClientBase
         final int runId) { 
 
         final UUID locationId = UUID.fromString("4637d869-3a76-4468-8057-0bb02aa385cf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3244,90 +3192,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.4]
-     * 
-     * @param result 
-     *            
-     * @param project 
-     *            Project ID or project name
-     * @param runId 
-     *            
-     * @param resultIds 
-     *            
-     * @return ArrayList&lt;TestCaseResult&gt;
-     */
-    public ArrayList<TestCaseResult> bulkUpdateTestResults(
-        final TestCaseResult result, 
-        final String project, 
-        final int runId, 
-        final List<Integer> resultIds) { 
-
-        final UUID locationId = UUID.fromString("4637d869-3a76-4468-8057-0bb02aa385cf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.4"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("runId", runId); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.addIfNotNull("resultIds", resultIds); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               result,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               queryParameters,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestCaseResult>>() {});
-    }
-
-    /** 
-     * [Preview API 3.0-preview.4]
-     * 
-     * @param result 
-     *            
-     * @param project 
-     *            Project ID
-     * @param runId 
-     *            
-     * @param resultIds 
-     *            
-     * @return ArrayList&lt;TestCaseResult&gt;
-     */
-    public ArrayList<TestCaseResult> bulkUpdateTestResults(
-        final TestCaseResult result, 
-        final UUID project, 
-        final int runId, 
-        final List<Integer> resultIds) { 
-
-        final UUID locationId = UUID.fromString("4637d869-3a76-4468-8057-0bb02aa385cf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.4"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("runId", runId); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.addIfNotNull("resultIds", resultIds); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               result,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               queryParameters,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TestCaseResult>>() {});
-    }
-
-    /** 
-     * [Preview API 3.0-preview.4]
-     * 
      * @param project 
      *            Project ID or project name
      * @param runId 
@@ -3345,7 +3209,7 @@ public abstract class TestHttpClientBase
         final ResultDetails detailsToInclude) { 
 
         final UUID locationId = UUID.fromString("4637d869-3a76-4468-8057-0bb02aa385cf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3366,8 +3230,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.4]
-     * 
      * @param project 
      *            Project ID
      * @param runId 
@@ -3385,7 +3247,7 @@ public abstract class TestHttpClientBase
         final ResultDetails detailsToInclude) { 
 
         final UUID locationId = UUID.fromString("4637d869-3a76-4468-8057-0bb02aa385cf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3406,8 +3268,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.4]
-     * 
      * @param project 
      *            Project ID or project name
      * @param runId 
@@ -3428,7 +3288,7 @@ public abstract class TestHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("4637d869-3a76-4468-8057-0bb02aa385cf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3450,8 +3310,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.4]
-     * 
      * @param project 
      *            Project ID
      * @param runId 
@@ -3472,7 +3330,7 @@ public abstract class TestHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("4637d869-3a76-4468-8057-0bb02aa385cf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3494,8 +3352,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.4]
-     * 
      * @param results 
      *            
      * @param project 
@@ -3510,7 +3366,7 @@ public abstract class TestHttpClientBase
         final int runId) { 
 
         final UUID locationId = UUID.fromString("4637d869-3a76-4468-8057-0bb02aa385cf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3528,8 +3384,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.4]
-     * 
      * @param results 
      *            
      * @param project 
@@ -3544,7 +3398,7 @@ public abstract class TestHttpClientBase
         final int runId) { 
 
         final UUID locationId = UUID.fromString("4637d869-3a76-4468-8057-0bb02aa385cf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4000,8 +3854,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param runId 
@@ -4013,7 +3865,7 @@ public abstract class TestHttpClientBase
         final int runId) { 
 
         final UUID locationId = UUID.fromString("0a42c424-d764-4a16-a2d5-5c85f87d0ae8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4029,8 +3881,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param runId 
@@ -4042,7 +3892,7 @@ public abstract class TestHttpClientBase
         final int runId) { 
 
         final UUID locationId = UUID.fromString("0a42c424-d764-4a16-a2d5-5c85f87d0ae8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4058,8 +3908,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param testRun 
      *            
      * @param project 
@@ -4071,7 +3919,7 @@ public abstract class TestHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("cadb3810-d47d-4a3c-a234-fe5f3be50138"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4088,8 +3936,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param testRun 
      *            
      * @param project 
@@ -4101,7 +3947,7 @@ public abstract class TestHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("cadb3810-d47d-4a3c-a234-fe5f3be50138"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4118,8 +3964,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param runId 
@@ -4130,7 +3974,7 @@ public abstract class TestHttpClientBase
         final int runId) { 
 
         final UUID locationId = UUID.fromString("cadb3810-d47d-4a3c-a234-fe5f3be50138"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4146,8 +3990,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param runId 
@@ -4158,7 +4000,7 @@ public abstract class TestHttpClientBase
         final int runId) { 
 
         final UUID locationId = UUID.fromString("cadb3810-d47d-4a3c-a234-fe5f3be50138"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4174,8 +4016,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param runId 
@@ -4187,7 +4027,7 @@ public abstract class TestHttpClientBase
         final int runId) { 
 
         final UUID locationId = UUID.fromString("cadb3810-d47d-4a3c-a234-fe5f3be50138"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4203,8 +4043,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param runId 
@@ -4216,7 +4054,7 @@ public abstract class TestHttpClientBase
         final int runId) { 
 
         final UUID locationId = UUID.fromString("cadb3810-d47d-4a3c-a234-fe5f3be50138"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4232,8 +4070,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param buildUri 
@@ -4266,7 +4102,7 @@ public abstract class TestHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("cadb3810-d47d-4a3c-a234-fe5f3be50138"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4292,8 +4128,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param buildUri 
@@ -4326,7 +4160,7 @@ public abstract class TestHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("cadb3810-d47d-4a3c-a234-fe5f3be50138"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4352,8 +4186,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param runUpdateModel 
      *            
      * @param project 
@@ -4368,7 +4200,7 @@ public abstract class TestHttpClientBase
         final int runId) { 
 
         final UUID locationId = UUID.fromString("cadb3810-d47d-4a3c-a234-fe5f3be50138"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4386,8 +4218,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param runUpdateModel 
      *            
      * @param project 
@@ -4402,7 +4232,7 @@ public abstract class TestHttpClientBase
         final int runId) { 
 
         final UUID locationId = UUID.fromString("cadb3810-d47d-4a3c-a234-fe5f3be50138"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5002,8 +4832,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param planId 
@@ -5021,7 +4849,7 @@ public abstract class TestHttpClientBase
         final String testCaseIds) { 
 
         final UUID locationId = UUID.fromString("a4a1ec1c-b03f-41ca-8857-704594ecf58e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5039,8 +4867,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param planId 
@@ -5058,7 +4884,7 @@ public abstract class TestHttpClientBase
         final String testCaseIds) { 
 
         final UUID locationId = UUID.fromString("a4a1ec1c-b03f-41ca-8857-704594ecf58e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5076,8 +4902,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param planId 
@@ -5095,7 +4919,7 @@ public abstract class TestHttpClientBase
         final int testCaseIds) { 
 
         final UUID locationId = UUID.fromString("a4a1ec1c-b03f-41ca-8857-704594ecf58e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5113,8 +4937,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param planId 
@@ -5132,7 +4954,7 @@ public abstract class TestHttpClientBase
         final int testCaseIds) { 
 
         final UUID locationId = UUID.fromString("a4a1ec1c-b03f-41ca-8857-704594ecf58e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5150,8 +4972,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param planId 
@@ -5166,7 +4986,7 @@ public abstract class TestHttpClientBase
         final int suiteId) { 
 
         final UUID locationId = UUID.fromString("a4a1ec1c-b03f-41ca-8857-704594ecf58e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5183,8 +5003,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param planId 
@@ -5199,7 +5017,7 @@ public abstract class TestHttpClientBase
         final int suiteId) { 
 
         final UUID locationId = UUID.fromString("a4a1ec1c-b03f-41ca-8857-704594ecf58e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5216,8 +5034,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param planId 
@@ -5234,7 +5050,7 @@ public abstract class TestHttpClientBase
         final String testCaseIds) { 
 
         final UUID locationId = UUID.fromString("a4a1ec1c-b03f-41ca-8857-704594ecf58e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5252,8 +5068,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param planId 
@@ -5270,7 +5084,7 @@ public abstract class TestHttpClientBase
         final String testCaseIds) { 
 
         final UUID locationId = UUID.fromString("a4a1ec1c-b03f-41ca-8857-704594ecf58e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5288,8 +5102,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param testSuite 
      *            
      * @param project 
@@ -5307,7 +5119,7 @@ public abstract class TestHttpClientBase
         final int suiteId) { 
 
         final UUID locationId = UUID.fromString("7b7619a0-cb54-4ab3-bf22-194056f45dd1"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5326,8 +5138,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param testSuite 
      *            
      * @param project 
@@ -5345,7 +5155,7 @@ public abstract class TestHttpClientBase
         final int suiteId) { 
 
         final UUID locationId = UUID.fromString("7b7619a0-cb54-4ab3-bf22-194056f45dd1"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5364,8 +5174,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param planId 
@@ -5379,7 +5187,7 @@ public abstract class TestHttpClientBase
         final int suiteId) { 
 
         final UUID locationId = UUID.fromString("7b7619a0-cb54-4ab3-bf22-194056f45dd1"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5396,8 +5204,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param planId 
@@ -5411,7 +5217,7 @@ public abstract class TestHttpClientBase
         final int suiteId) { 
 
         final UUID locationId = UUID.fromString("7b7619a0-cb54-4ab3-bf22-194056f45dd1"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5428,8 +5234,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param planId 
@@ -5447,7 +5251,7 @@ public abstract class TestHttpClientBase
         final Boolean includeChildSuites) { 
 
         final UUID locationId = UUID.fromString("7b7619a0-cb54-4ab3-bf22-194056f45dd1"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5468,8 +5272,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param planId 
@@ -5487,7 +5289,7 @@ public abstract class TestHttpClientBase
         final Boolean includeChildSuites) { 
 
         final UUID locationId = UUID.fromString("7b7619a0-cb54-4ab3-bf22-194056f45dd1"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5508,8 +5310,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param planId 
@@ -5533,7 +5333,7 @@ public abstract class TestHttpClientBase
         final Boolean asTreeView) { 
 
         final UUID locationId = UUID.fromString("7b7619a0-cb54-4ab3-bf22-194056f45dd1"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5556,8 +5356,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param planId 
@@ -5581,7 +5379,7 @@ public abstract class TestHttpClientBase
         final Boolean asTreeView) { 
 
         final UUID locationId = UUID.fromString("7b7619a0-cb54-4ab3-bf22-194056f45dd1"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5604,8 +5402,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param suiteUpdateModel 
      *            
      * @param project 
@@ -5623,7 +5419,7 @@ public abstract class TestHttpClientBase
         final int suiteId) { 
 
         final UUID locationId = UUID.fromString("7b7619a0-cb54-4ab3-bf22-194056f45dd1"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5642,8 +5438,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param suiteUpdateModel 
      *            
      * @param project 
@@ -5661,7 +5455,7 @@ public abstract class TestHttpClientBase
         final int suiteId) { 
 
         final UUID locationId = UUID.fromString("7b7619a0-cb54-4ab3-bf22-194056f45dd1"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5680,8 +5474,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param testCaseId 
      *            
      * @return ArrayList&lt;TestSuite&gt;
@@ -5689,7 +5481,7 @@ public abstract class TestHttpClientBase
     public ArrayList<TestSuite> getSuitesByTestCaseId(final int testCaseId) { 
 
         final UUID locationId = UUID.fromString("09a6167b-e969-4775-9247-b94cf3819caf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.put("testCaseId", String.valueOf(testCaseId)); //$NON-NLS-1$
@@ -5704,8 +5496,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param testSettings 
      *            
      * @param project 
@@ -5717,7 +5507,7 @@ public abstract class TestHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("8133ce14-962f-42af-a5f9-6aa9defcb9c8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5734,8 +5524,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param testSettings 
      *            
      * @param project 
@@ -5747,7 +5535,7 @@ public abstract class TestHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("8133ce14-962f-42af-a5f9-6aa9defcb9c8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5764,8 +5552,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID or project name
      * @param testSettingsId 
@@ -5776,7 +5562,7 @@ public abstract class TestHttpClientBase
         final int testSettingsId) { 
 
         final UUID locationId = UUID.fromString("8133ce14-962f-42af-a5f9-6aa9defcb9c8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5792,8 +5578,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID
      * @param testSettingsId 
@@ -5804,7 +5588,7 @@ public abstract class TestHttpClientBase
         final int testSettingsId) { 
 
         final UUID locationId = UUID.fromString("8133ce14-962f-42af-a5f9-6aa9defcb9c8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5820,8 +5604,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID or project name
      * @param testSettingsId 
@@ -5833,7 +5615,7 @@ public abstract class TestHttpClientBase
         final int testSettingsId) { 
 
         final UUID locationId = UUID.fromString("8133ce14-962f-42af-a5f9-6aa9defcb9c8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5849,8 +5631,6 @@ public abstract class TestHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID
      * @param testSettingsId 
@@ -5862,7 +5642,7 @@ public abstract class TestHttpClientBase
         final int testSettingsId) { 
 
         final UUID locationId = UUID.fromString("8133ce14-962f-42af-a5f9-6aa9defcb9c8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$

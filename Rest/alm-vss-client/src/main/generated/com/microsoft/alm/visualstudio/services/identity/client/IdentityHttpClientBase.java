@@ -57,7 +57,7 @@ public abstract class IdentityHttpClientBase
     /**
     * Create a new instance of IdentityHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
@@ -73,8 +73,6 @@ public abstract class IdentityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param container 
      *            
      * @return ArrayList&lt;Identity&gt;
@@ -82,7 +80,7 @@ public abstract class IdentityHttpClientBase
     public ArrayList<Identity> createGroups(final ObjectNode container) { 
 
         final UUID locationId = UUID.fromString("5966283b-4196-4d57-9211-1b68f41ec1c2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -95,15 +93,13 @@ public abstract class IdentityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param groupId 
      *            
      */
     public void deleteGroup(final String groupId) { 
 
         final UUID locationId = UUID.fromString("5966283b-4196-4d57-9211-1b68f41ec1c2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("groupId", groupId); //$NON-NLS-1$
@@ -118,8 +114,6 @@ public abstract class IdentityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param scopeIds 
      *            
      * @param recurse 
@@ -137,7 +131,7 @@ public abstract class IdentityHttpClientBase
         final String properties) { 
 
         final UUID locationId = UUID.fromString("5966283b-4196-4d57-9211-1b68f41ec1c2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("scopeIds", scopeIds); //$NON-NLS-1$
@@ -155,8 +149,6 @@ public abstract class IdentityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param identitySequenceId 
      *            
      * @param groupSequenceId 
@@ -171,7 +163,7 @@ public abstract class IdentityHttpClientBase
         final UUID scopeId) { 
 
         final UUID locationId = UUID.fromString("28010c54-d0c0-4c89-a5b0-1c9e188b9fb7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.put("identitySequenceId", String.valueOf(identitySequenceId)); //$NON-NLS-1$
@@ -188,8 +180,6 @@ public abstract class IdentityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param descriptors 
      *            
      * @param identityIds 
@@ -219,7 +209,7 @@ public abstract class IdentityHttpClientBase
         final ReadIdentitiesOptions options) { 
 
         final UUID locationId = UUID.fromString("28010c54-d0c0-4c89-a5b0-1c9e188b9fb7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("descriptors", descriptors); //$NON-NLS-1$
@@ -241,8 +231,6 @@ public abstract class IdentityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param scopeId 
      *            
      * @param queryMembership 
@@ -257,7 +245,7 @@ public abstract class IdentityHttpClientBase
         final String properties) { 
 
         final UUID locationId = UUID.fromString("28010c54-d0c0-4c89-a5b0-1c9e188b9fb7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("scopeId", scopeId); //$NON-NLS-1$
@@ -274,8 +262,6 @@ public abstract class IdentityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param identityId 
      *            
      * @param queryMembership 
@@ -290,7 +276,7 @@ public abstract class IdentityHttpClientBase
         final String properties) { 
 
         final UUID locationId = UUID.fromString("28010c54-d0c0-4c89-a5b0-1c9e188b9fb7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("identityId", identityId); //$NON-NLS-1$
@@ -310,8 +296,6 @@ public abstract class IdentityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param identities 
      *            
      * @return ArrayList&lt;IdentityUpdateData&gt;
@@ -319,7 +303,7 @@ public abstract class IdentityHttpClientBase
     public ArrayList<IdentityUpdateData> updateIdentities(final VssJsonCollectionWrapper<List<Identity>> identities) { 
 
         final UUID locationId = UUID.fromString("28010c54-d0c0-4c89-a5b0-1c9e188b9fb7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
                                                                locationId,
@@ -332,8 +316,6 @@ public abstract class IdentityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param identity 
      *            
      * @param identityId 
@@ -344,7 +326,7 @@ public abstract class IdentityHttpClientBase
         final UUID identityId) { 
 
         final UUID locationId = UUID.fromString("28010c54-d0c0-4c89-a5b0-1c9e188b9fb7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("identityId", identityId); //$NON-NLS-1$
@@ -361,8 +343,6 @@ public abstract class IdentityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param frameworkIdentityInfo 
      *            
      * @return Identity
@@ -370,7 +350,7 @@ public abstract class IdentityHttpClientBase
     public Identity createIdentity(final FrameworkIdentityInfo frameworkIdentityInfo) { 
 
         final UUID locationId = UUID.fromString("dd55f0eb-6ea2-4fe4-9ebe-919e7dd1dfb4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
                                                                locationId,
@@ -429,14 +409,12 @@ public abstract class IdentityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @return IdentitySelf
      */
     public IdentitySelf getSelf() { 
 
         final UUID locationId = UUID.fromString("4bb02b5b-c120-4be2-b68e-21f7c50a4b82"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,

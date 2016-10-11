@@ -48,7 +48,7 @@ public abstract class ChatHttpClientBase
     /**
     * Create a new instance of ChatHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
@@ -64,7 +64,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Delete a given chat message
+     * Delete a given chat message
      * 
      * @param roomId 
      *            Id of the room
@@ -76,7 +76,7 @@ public abstract class ChatHttpClientBase
         final int messageId) { 
 
         final UUID locationId = UUID.fromString("7d11c820-4bdc-4bca-8957-9d74e32cdd20"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("roomId", roomId); //$NON-NLS-1$
@@ -92,7 +92,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve a listing of all chat messages in a given room
+     * Retrieve a listing of all chat messages in a given room
      * 
      * @param roomId 
      *            Id of the room
@@ -101,7 +101,7 @@ public abstract class ChatHttpClientBase
     public ArrayList<Message> getChatRoomMessages(final int roomId) { 
 
         final UUID locationId = UUID.fromString("7d11c820-4bdc-4bca-8957-9d74e32cdd20"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("roomId", roomId); //$NON-NLS-1$
@@ -116,7 +116,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve information on a single chat message
+     * Retrieve information on a single chat message
      * 
      * @param roomId 
      *            Id of the room
@@ -129,7 +129,7 @@ public abstract class ChatHttpClientBase
         final int messageId) { 
 
         final UUID locationId = UUID.fromString("7d11c820-4bdc-4bca-8957-9d74e32cdd20"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("roomId", roomId); //$NON-NLS-1$
@@ -145,7 +145,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Post message to a room
+     * Post message to a room
      * 
      * @param messageUpdate 
      *            Content of the message to post
@@ -158,7 +158,7 @@ public abstract class ChatHttpClientBase
         final int roomId) { 
 
         final UUID locationId = UUID.fromString("7d11c820-4bdc-4bca-8957-9d74e32cdd20"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("roomId", roomId); //$NON-NLS-1$
@@ -175,7 +175,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Update a given chat message
+     * Update a given chat message
      * 
      * @param messageUpdate 
      *            New message content
@@ -191,7 +191,7 @@ public abstract class ChatHttpClientBase
         final int messageId) { 
 
         final UUID locationId = UUID.fromString("7d11c820-4bdc-4bca-8957-9d74e32cdd20"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("roomId", roomId); //$NON-NLS-1$
@@ -209,7 +209,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Create a single chat room
+     * Create a single chat room
      * 
      * @param roomUpdate 
      *            Information to create the room
@@ -218,7 +218,7 @@ public abstract class ChatHttpClientBase
     public Room createChatRoom(final RoomData roomUpdate) { 
 
         final UUID locationId = UUID.fromString("3d0e7ee0-a6c9-497e-9a2c-23b687e860e2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -231,7 +231,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Delete a given chat room
+     * Delete a given chat room
      * 
      * @param roomId 
      *            Id of the room
@@ -239,7 +239,7 @@ public abstract class ChatHttpClientBase
     public void deleteChatRoom(final int roomId) { 
 
         final UUID locationId = UUID.fromString("3d0e7ee0-a6c9-497e-9a2c-23b687e860e2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("roomId", roomId); //$NON-NLS-1$
@@ -254,14 +254,12 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @return ArrayList&lt;Room&gt;
      */
     public ArrayList<Room> getRooms() { 
 
         final UUID locationId = UUID.fromString("3d0e7ee0-a6c9-497e-9a2c-23b687e860e2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -272,7 +270,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve information on a single chat room
+     * Retrieve information on a single chat room
      * 
      * @param roomId 
      *            Id of the room to retrieve
@@ -281,7 +279,7 @@ public abstract class ChatHttpClientBase
     public Room getChatRoomById(final int roomId) { 
 
         final UUID locationId = UUID.fromString("3d0e7ee0-a6c9-497e-9a2c-23b687e860e2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("roomId", roomId); //$NON-NLS-1$
@@ -296,7 +294,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Update information on a single chat room
+     * Update information on a single chat room
      * 
      * @param roomUpdate 
      *            Room information
@@ -309,7 +307,7 @@ public abstract class ChatHttpClientBase
         final int roomId) { 
 
         final UUID locationId = UUID.fromString("3d0e7ee0-a6c9-497e-9a2c-23b687e860e2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("roomId", roomId); //$NON-NLS-1$
@@ -326,7 +324,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve a listing of all chat users
+     * Retrieve a listing of all chat users
      * 
      * @param roomId 
      *            Id of the room
@@ -335,7 +333,7 @@ public abstract class ChatHttpClientBase
     public ArrayList<User> getChatRoomUsers(final int roomId) { 
 
         final UUID locationId = UUID.fromString("01408881-1a9a-4cc9-981d-9333e354e9d9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("roomId", roomId); //$NON-NLS-1$
@@ -350,7 +348,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve information on a single chat user
+     * Retrieve information on a single chat user
      * 
      * @param roomId 
      *            Id of the room
@@ -363,7 +361,7 @@ public abstract class ChatHttpClientBase
         final UUID userId) { 
 
         final UUID locationId = UUID.fromString("01408881-1a9a-4cc9-981d-9333e354e9d9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("roomId", roomId); //$NON-NLS-1$
@@ -379,7 +377,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Joins a user to a given room
+     * Joins a user to a given room
      * 
      * @param userUpdate 
      *            user model information
@@ -394,7 +392,7 @@ public abstract class ChatHttpClientBase
         final UUID userId) { 
 
         final UUID locationId = UUID.fromString("01408881-1a9a-4cc9-981d-9333e354e9d9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("roomId", roomId); //$NON-NLS-1$
@@ -412,7 +410,7 @@ public abstract class ChatHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Leaves a user from a given room
+     * Leaves a user from a given room
      * 
      * @param roomId 
      *            Id of the room
@@ -424,7 +422,7 @@ public abstract class ChatHttpClientBase
         final UUID userId) { 
 
         final UUID locationId = UUID.fromString("01408881-1a9a-4cc9-981d-9333e354e9d9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("roomId", roomId); //$NON-NLS-1$

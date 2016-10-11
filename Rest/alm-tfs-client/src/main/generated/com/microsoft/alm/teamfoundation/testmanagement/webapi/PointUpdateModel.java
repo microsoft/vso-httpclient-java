@@ -15,9 +15,37 @@
 
 package com.microsoft.alm.teamfoundation.testmanagement.webapi;
 
+import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
 /** 
  */
 public class PointUpdateModel {
 
+    private String outcome;
+    private boolean resetToActive;
+    private IdentityRef tester;
+
+    public String getOutcome() {
+        return outcome;
+    }
+
+    public void setOutcome(final String outcome) {
+        this.outcome = outcome;
+    }
+
+    public boolean getResetToActive() {
+        return resetToActive;
+    }
+
+    public void setResetToActive(final boolean resetToActive) {
+        this.resetToActive = resetToActive;
+    }
+
+    public IdentityRef getTester() {
+        return tester;
+    }
+
+    public void setTester(final IdentityRef tester) {
+        this.tester = tester;
+    }
 }

@@ -23,9 +23,11 @@ import java.util.UUID;
 public class WebSessionToken {
 
     private UUID appId;
+    private String extensionName;
     private boolean force;
     private String name;
     private String namedTokenId;
+    private String publisherName;
     private String token;
     private DelegatedAppTokenType tokenType;
     private Date validTo;
@@ -36,6 +38,14 @@ public class WebSessionToken {
 
     public void setAppId(final UUID appId) {
         this.appId = appId;
+    }
+
+    public String getExtensionName() {
+        return extensionName;
+    }
+
+    public void setExtensionName(final String extensionName) {
+        this.extensionName = extensionName;
     }
 
     public boolean getForce() {
@@ -60,6 +70,14 @@ public class WebSessionToken {
 
     public void setNamedTokenId(final String namedTokenId) {
         this.namedTokenId = namedTokenId;
+    }
+
+    public String getPublisherName() {
+        return publisherName;
+    }
+
+    public void setPublisherName(final String publisherName) {
+        this.publisherName = publisherName;
     }
 
     public String getToken() {

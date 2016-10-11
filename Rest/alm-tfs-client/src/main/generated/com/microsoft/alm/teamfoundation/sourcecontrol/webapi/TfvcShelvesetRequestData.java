@@ -21,11 +21,11 @@ package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 public class TfvcShelvesetRequestData {
 
     /**
-    * Whether to include policyOverride and notes
+    * Whether to include policyOverride and notes Only applies when requesting a single deep shelveset
     */
     private boolean includeDetails;
     /**
-    * Whether to include the _links field on the shallow references
+    * Whether to include the _links field on the shallow references. Does not apply when requesting a single deep shelveset object. Links will always be included in the deep shelveset.
     */
     private boolean includeLinks;
     /**
@@ -50,28 +50,28 @@ public class TfvcShelvesetRequestData {
     private String owner;
 
     /**
-    * Whether to include policyOverride and notes
+    * Whether to include policyOverride and notes Only applies when requesting a single deep shelveset
     */
     public boolean getIncludeDetails() {
         return includeDetails;
     }
 
     /**
-    * Whether to include policyOverride and notes
+    * Whether to include policyOverride and notes Only applies when requesting a single deep shelveset
     */
     public void setIncludeDetails(final boolean includeDetails) {
         this.includeDetails = includeDetails;
     }
 
     /**
-    * Whether to include the _links field on the shallow references
+    * Whether to include the _links field on the shallow references. Does not apply when requesting a single deep shelveset object. Links will always be included in the deep shelveset.
     */
     public boolean getIncludeLinks() {
         return includeLinks;
     }
 
     /**
-    * Whether to include the _links field on the shallow references
+    * Whether to include the _links field on the shallow references. Does not apply when requesting a single deep shelveset object. Links will always be included in the deep shelveset.
     */
     public void setIncludeLinks(final boolean includeLinks) {
         this.includeLinks = includeLinks;

@@ -18,6 +18,8 @@ package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 import java.util.ArrayList;
 
 /** 
+ * This is the deep shelveset class
+ * 
  */
 public class TfvcShelveset
     extends TfvcShelvesetRef {

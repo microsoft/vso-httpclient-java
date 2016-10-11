@@ -15,24 +15,32 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
 /** 
  */
 public class GitImportRequest {
 
-    private boolean createdNewRepo;
+    private ReferenceLinks _links;
     private GitImportStatusDetail detailedStatus;
     private int importRequestId;
+    /**
+    * Parameters for creating an import request
+    */
+    private GitImportRequestParameters parameters;
     private GitRepository repository;
-    private String sourceUrl;
     private GitAsyncOperationStatus status;
+    private String url;
 
-    public boolean getCreatedNewRepo() {
-        return createdNewRepo;
+    @JsonProperty("_links")
+    public ReferenceLinks getLinks() {
+        return _links;
     }
 
-    public void setCreatedNewRepo(final boolean createdNewRepo) {
-        this.createdNewRepo = createdNewRepo;
+    @JsonProperty("_links")
+    public void setLinks(final ReferenceLinks _links) {
+        this._links = _links;
     }
 
     public GitImportStatusDetail getDetailedStatus() {
@@ -51,6 +59,20 @@ public class GitImportRequest {
         this.importRequestId = importRequestId;
     }
 
+    /**
+    * Parameters for creating an import request
+    */
+    public GitImportRequestParameters getParameters() {
+        return parameters;
+    }
+
+    /**
+    * Parameters for creating an import request
+    */
+    public void setParameters(final GitImportRequestParameters parameters) {
+        this.parameters = parameters;
+    }
+
     public GitRepository getRepository() {
         return repository;
     }
@@ -59,19 +81,19 @@ public class GitImportRequest {
         this.repository = repository;
     }
 
-    public String getSourceUrl() {
-        return sourceUrl;
-    }
-
-    public void setSourceUrl(final String sourceUrl) {
-        this.sourceUrl = sourceUrl;
-    }
-
     public GitAsyncOperationStatus getStatus() {
         return status;
     }
 
     public void setStatus(final GitAsyncOperationStatus status) {
         this.status = status;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(final String url) {
+        this.url = url;
     }
 }

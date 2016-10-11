@@ -28,7 +28,6 @@ public class DataSourceBinding {
     private String resultSelector;
     private String resultTemplate;
     private String target;
-    private String transformationTemplate;
 
     public String getDataSourceName() {
         return dataSourceName;
@@ -84,13 +83,5 @@ public class DataSourceBinding {
 
     public void setTarget(final String target) {
         this.target = target;
-    }
-
-    public String getTransformationTemplate() {
-        return transformationTemplate;
-    }
-
-    public void setTransformationTemplate(final String transformationTemplate) {
-        this.transformationTemplate = transformationTemplate;
     }
 }

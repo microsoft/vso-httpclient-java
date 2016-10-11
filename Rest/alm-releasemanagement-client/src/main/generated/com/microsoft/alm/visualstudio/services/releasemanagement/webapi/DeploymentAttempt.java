@@ -26,6 +26,7 @@ import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 public class DeploymentAttempt {
 
     private int attempt;
+    private int deploymentId;
     /**
     * Error log to show any unexpected error that occurred during executing deploy step
     */
@@ -53,6 +54,14 @@ public class DeploymentAttempt {
 
     public void setAttempt(final int attempt) {
         this.attempt = attempt;
+    }
+
+    public int getDeploymentId() {
+        return deploymentId;
+    }
+
+    public void setDeploymentId(final int deploymentId) {
+        this.deploymentId = deploymentId;
     }
 
     /**

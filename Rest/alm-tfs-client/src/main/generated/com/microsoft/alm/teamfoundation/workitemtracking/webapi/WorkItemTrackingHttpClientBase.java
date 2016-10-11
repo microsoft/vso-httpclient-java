@@ -51,11 +51,14 @@ import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemC
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemDelete;
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemDeleteReference;
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemDeleteUpdate;
+import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemErrorPolicy;
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemExpand;
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemField;
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemHistory;
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemQueryResult;
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemRelationType;
+import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemTemplate;
+import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemTemplateReference;
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemType;
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemTypeCategory;
 import com.microsoft.alm.teamfoundation.workitemtracking.webapi.models.WorkItemTypeTemplate;
@@ -76,7 +79,7 @@ public abstract class WorkItemTrackingHttpClientBase
     /**
     * Create a new instance of WorkItemTrackingHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
@@ -92,7 +95,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Creates an attachment.
+     * Creates an attachment.
      * 
      * @param uploadStream 
      *            The stream to upload
@@ -108,7 +111,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String uploadType) { 
 
         final UUID locationId = UUID.fromString("e07b5fa4-1499-494d-a496-64b860fd64ff"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("fileName", fileName); //$NON-NLS-1$
@@ -126,7 +129,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns an attachment
+     * Returns an attachment
      * 
      * @param id 
      *            
@@ -139,7 +142,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("e07b5fa4-1499-494d-a496-64b860fd64ff"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -158,7 +161,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns an attachment
+     * Returns an attachment
      * 
      * @param id 
      *            
@@ -171,7 +174,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("e07b5fa4-1499-494d-a496-64b860fd64ff"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -190,8 +193,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param depth 
@@ -203,7 +204,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer depth) { 
 
         final UUID locationId = UUID.fromString("a70579d1-f53a-48ee-a5be-7be8659023b9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -222,8 +223,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param depth 
@@ -235,7 +234,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer depth) { 
 
         final UUID locationId = UUID.fromString("a70579d1-f53a-48ee-a5be-7be8659023b9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -254,8 +253,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param postedNode 
      *            
      * @param project 
@@ -273,7 +270,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String path) { 
 
         final UUID locationId = UUID.fromString("5a172953-1b41-49d3-840a-33f79c3ce89f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -292,8 +289,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param postedNode 
      *            
      * @param project 
@@ -311,7 +306,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String path) { 
 
         final UUID locationId = UUID.fromString("5a172953-1b41-49d3-840a-33f79c3ce89f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -330,8 +325,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param structureGroup 
@@ -348,7 +341,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer reclassifyId) { 
 
         final UUID locationId = UUID.fromString("5a172953-1b41-49d3-840a-33f79c3ce89f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -369,8 +362,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param structureGroup 
@@ -387,7 +378,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer reclassifyId) { 
 
         final UUID locationId = UUID.fromString("5a172953-1b41-49d3-840a-33f79c3ce89f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -408,8 +399,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param structureGroup 
@@ -427,7 +416,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer depth) { 
 
         final UUID locationId = UUID.fromString("5a172953-1b41-49d3-840a-33f79c3ce89f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -448,8 +437,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param structureGroup 
@@ -467,7 +454,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer depth) { 
 
         final UUID locationId = UUID.fromString("5a172953-1b41-49d3-840a-33f79c3ce89f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -488,8 +475,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param postedNode 
      *            
      * @param project 
@@ -507,7 +492,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String path) { 
 
         final UUID locationId = UUID.fromString("5a172953-1b41-49d3-840a-33f79c3ce89f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -526,8 +511,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param postedNode 
      *            
      * @param project 
@@ -545,7 +528,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String path) { 
 
         final UUID locationId = UUID.fromString("5a172953-1b41-49d3-840a-33f79c3ce89f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -633,7 +616,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Gets information on a specific field.
+     * Gets information on a specific field.
      * 
      * @param field 
      *            Field name
@@ -642,7 +625,7 @@ public abstract class WorkItemTrackingHttpClientBase
     public WorkItemField getField(final String field) { 
 
         final UUID locationId = UUID.fromString("b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("field", field); //$NON-NLS-1$
@@ -657,7 +640,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns information for all fields.
+     * Returns information for all fields.
      * 
      * @param expand 
      *            Use ExtensionFields to include extension fields, otherwise exclude them. Unless the feature flag for this parameter is enabled, extension fields are always included.
@@ -666,7 +649,7 @@ public abstract class WorkItemTrackingHttpClientBase
     public ArrayList<WorkItemField> getFields(final GetFieldsExpand expand) { 
 
         final UUID locationId = UUID.fromString("b51fd764-e5c2-4b9b-aaf7-3395cf4bdd94"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("$expand", expand); //$NON-NLS-1$
@@ -681,7 +664,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns history of all revision for a given work item ID
+     * Returns history of all revision for a given work item ID
      * 
      * @param id 
      *            
@@ -697,7 +680,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("f74eba29-47a1-4152-9381-84040aced527"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -717,7 +700,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns the history value of particular revision
+     * Returns the history value of particular revision
      * 
      * @param id 
      *            
@@ -730,7 +713,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final int revisionNumber) { 
 
         final UUID locationId = UUID.fromString("f74eba29-47a1-4152-9381-84040aced527"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -746,7 +729,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Creates a query, or moves a query.
+     * Creates a query, or moves a query.
      * 
      * @param postedQuery 
      *            The query to create.
@@ -762,7 +745,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String query) { 
 
         final UUID locationId = UUID.fromString("a67d190c-c41f-424b-814d-0e906f659301"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -780,7 +763,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Creates a query, or moves a query.
+     * Creates a query, or moves a query.
      * 
      * @param postedQuery 
      *            The query to create.
@@ -796,7 +779,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String query) { 
 
         final UUID locationId = UUID.fromString("a67d190c-c41f-424b-814d-0e906f659301"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -814,8 +797,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @param query 
@@ -826,7 +807,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String query) { 
 
         final UUID locationId = UUID.fromString("a67d190c-c41f-424b-814d-0e906f659301"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -842,8 +823,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @param query 
@@ -854,7 +833,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String query) { 
 
         final UUID locationId = UUID.fromString("a67d190c-c41f-424b-814d-0e906f659301"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -870,7 +849,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Retrieves all queries the user has access to in the current project
+     * Retrieves all queries the user has access to in the current project
      * 
      * @param project 
      *            Project ID or project name
@@ -889,7 +868,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean includeDeleted) { 
 
         final UUID locationId = UUID.fromString("a67d190c-c41f-424b-814d-0e906f659301"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -910,7 +889,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Retrieves all queries the user has access to in the current project
+     * Retrieves all queries the user has access to in the current project
      * 
      * @param project 
      *            Project ID
@@ -929,7 +908,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean includeDeleted) { 
 
         final UUID locationId = UUID.fromString("a67d190c-c41f-424b-814d-0e906f659301"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -950,7 +929,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Retrieves a single query by project and either id or path
+     * Retrieves a single query by project and either id or path
      * 
      * @param project 
      *            Project ID or project name
@@ -972,7 +951,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean includeDeleted) { 
 
         final UUID locationId = UUID.fromString("a67d190c-c41f-424b-814d-0e906f659301"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -994,7 +973,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Retrieves a single query by project and either id or path
+     * Retrieves a single query by project and either id or path
      * 
      * @param project 
      *            Project ID
@@ -1016,7 +995,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean includeDeleted) { 
 
         final UUID locationId = UUID.fromString("a67d190c-c41f-424b-814d-0e906f659301"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1038,8 +1017,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param queryUpdate 
      *            
      * @param project 
@@ -1057,7 +1034,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean undeleteDescendants) { 
 
         final UUID locationId = UUID.fromString("a67d190c-c41f-424b-814d-0e906f659301"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1079,8 +1056,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param queryUpdate 
      *            
      * @param project 
@@ -1098,7 +1073,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean undeleteDescendants) { 
 
         final UUID locationId = UUID.fromString("a67d190c-c41f-424b-814d-0e906f659301"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1533,7 +1508,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns a fully hydrated work item for the requested revision
+     * Returns a fully hydrated work item for the requested revision
      * 
      * @param id 
      *            
@@ -1549,7 +1524,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final WorkItemExpand expand) { 
 
         final UUID locationId = UUID.fromString("a00c85a5-80fa-4565-99c3-bcd2181434bb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -1569,7 +1544,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns the list of fully hydrated work item revisions, paged.
+     * Returns the list of fully hydrated work item revisions, paged.
      * 
      * @param id 
      *            
@@ -1588,7 +1563,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final WorkItemExpand expand) { 
 
         final UUID locationId = UUID.fromString("a00c85a5-80fa-4565-99c3-bcd2181434bb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -1609,7 +1584,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Validates the fields values.
+     * Validates the fields values.
      * 
      * @param ruleEngineInput 
      *            
@@ -1617,7 +1592,7 @@ public abstract class WorkItemTrackingHttpClientBase
     public void evaluateRulesOnField(final FieldsToEvaluate ruleEngineInput) { 
 
         final UUID locationId = UUID.fromString("1a3a1536-dca6-4509-b9c3-dd9bb2981506"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -1630,7 +1605,353 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns a single update for a work item
+     * [Preview API 3.0-preview.1] Creates a template
+     * 
+     * @param template 
+     *            Template contents
+     * @param project 
+     *            Project ID or project name
+     * @param team 
+     *            Team ID or team name
+     * @return WorkItemTemplate
+     */
+    public WorkItemTemplate createTemplate(
+        final WorkItemTemplate template, 
+        final String project, 
+        final String team) { 
+
+        final UUID locationId = UUID.fromString("6a90345f-a676-4969-afce-8e163e1d5642"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               template,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, WorkItemTemplate.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Creates a template
+     * 
+     * @param template 
+     *            Template contents
+     * @param project 
+     *            Project ID
+     * @param team 
+     *            Team ID
+     * @return WorkItemTemplate
+     */
+    public WorkItemTemplate createTemplate(
+        final WorkItemTemplate template, 
+        final UUID project, 
+        final UUID team) { 
+
+        final UUID locationId = UUID.fromString("6a90345f-a676-4969-afce-8e163e1d5642"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               template,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, WorkItemTemplate.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Gets template
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param team 
+     *            Team ID or team name
+     * @param workitemtypename 
+     *            Optional, When specified returns templates for given Work item type.
+     * @return ArrayList&lt;WorkItemTemplateReference&gt;
+     */
+    public ArrayList<WorkItemTemplateReference> getTemplates(
+        final String project, 
+        final String team, 
+        final String workitemtypename) { 
+
+        final UUID locationId = UUID.fromString("6a90345f-a676-4969-afce-8e163e1d5642"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotEmpty("workitemtypename", workitemtypename); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemTemplateReference>>() {});
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Gets template
+     * 
+     * @param project 
+     *            Project ID
+     * @param team 
+     *            Team ID
+     * @param workitemtypename 
+     *            Optional, When specified returns templates for given Work item type.
+     * @return ArrayList&lt;WorkItemTemplateReference&gt;
+     */
+    public ArrayList<WorkItemTemplateReference> getTemplates(
+        final UUID project, 
+        final UUID team, 
+        final String workitemtypename) { 
+
+        final UUID locationId = UUID.fromString("6a90345f-a676-4969-afce-8e163e1d5642"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotEmpty("workitemtypename", workitemtypename); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<WorkItemTemplateReference>>() {});
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Deletes the template with given id
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param team 
+     *            Team ID or team name
+     * @param templateId 
+     *            Template id
+     */
+    public void deleteTemplate(
+        final String project, 
+        final String team, 
+        final UUID templateId) { 
+
+        final UUID locationId = UUID.fromString("fb10264a-8836-48a0-8033-1b0ccd2748d5"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+        routeValues.put("templateId", templateId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        super.sendRequest(httpRequest);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Deletes the template with given id
+     * 
+     * @param project 
+     *            Project ID
+     * @param team 
+     *            Team ID
+     * @param templateId 
+     *            Template id
+     */
+    public void deleteTemplate(
+        final UUID project, 
+        final UUID team, 
+        final UUID templateId) { 
+
+        final UUID locationId = UUID.fromString("fb10264a-8836-48a0-8033-1b0ccd2748d5"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+        routeValues.put("templateId", templateId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        super.sendRequest(httpRequest);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Gets the template with specified id
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param team 
+     *            Team ID or team name
+     * @param templateId 
+     *            Template Id
+     * @return WorkItemTemplate
+     */
+    public WorkItemTemplate getTemplate(
+        final String project, 
+        final String team, 
+        final UUID templateId) { 
+
+        final UUID locationId = UUID.fromString("fb10264a-8836-48a0-8033-1b0ccd2748d5"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+        routeValues.put("templateId", templateId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, WorkItemTemplate.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Gets the template with specified id
+     * 
+     * @param project 
+     *            Project ID
+     * @param team 
+     *            Team ID
+     * @param templateId 
+     *            Template Id
+     * @return WorkItemTemplate
+     */
+    public WorkItemTemplate getTemplate(
+        final UUID project, 
+        final UUID team, 
+        final UUID templateId) { 
+
+        final UUID locationId = UUID.fromString("fb10264a-8836-48a0-8033-1b0ccd2748d5"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+        routeValues.put("templateId", templateId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, WorkItemTemplate.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Replace template contents
+     * 
+     * @param templateContent 
+     *            Template contents to replace with
+     * @param project 
+     *            Project ID or project name
+     * @param team 
+     *            Team ID or team name
+     * @param templateId 
+     *            Template id
+     * @return WorkItemTemplate
+     */
+    public WorkItemTemplate replaceTemplate(
+        final WorkItemTemplate templateContent, 
+        final String project, 
+        final String team, 
+        final UUID templateId) { 
+
+        final UUID locationId = UUID.fromString("fb10264a-8836-48a0-8033-1b0ccd2748d5"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+        routeValues.put("templateId", templateId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               templateContent,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, WorkItemTemplate.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1] Replace template contents
+     * 
+     * @param templateContent 
+     *            Template contents to replace with
+     * @param project 
+     *            Project ID
+     * @param team 
+     *            Team ID
+     * @param templateId 
+     *            Template id
+     * @return WorkItemTemplate
+     */
+    public WorkItemTemplate replaceTemplate(
+        final WorkItemTemplate templateContent, 
+        final UUID project, 
+        final UUID team, 
+        final UUID templateId) { 
+
+        final UUID locationId = UUID.fromString("fb10264a-8836-48a0-8033-1b0ccd2748d5"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("team", team); //$NON-NLS-1$
+        routeValues.put("templateId", templateId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               templateContent,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, WorkItemTemplate.class);
+    }
+
+    /** 
+     * Returns a single update for a work item
      * 
      * @param id 
      *            
@@ -1643,7 +1964,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final int updateNumber) { 
 
         final UUID locationId = UUID.fromString("6570bf97-d02c-4a91-8d93-3abe9895b1a9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -1659,7 +1980,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns a the deltas between work item revisions
+     * Returns a the deltas between work item revisions
      * 
      * @param id 
      *            
@@ -1675,7 +1996,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("6570bf97-d02c-4a91-8d93-3abe9895b1a9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -1695,7 +2016,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Gets the results of the query.
+     * Gets the results of the query.
      * 
      * @param wiql 
      *            The query containing the wiql.
@@ -1711,7 +2032,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("1a9c53f7-f243-4447-b110-35ef023636e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("timePrecision", timePrecision); //$NON-NLS-1$
@@ -1729,7 +2050,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Gets the results of the query.
+     * Gets the results of the query.
      * 
      * @param wiql 
      *            The query containing the wiql.
@@ -1748,7 +2069,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("1a9c53f7-f243-4447-b110-35ef023636e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1770,7 +2091,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Gets the results of the query.
+     * Gets the results of the query.
      * 
      * @param wiql 
      *            The query containing the wiql.
@@ -1789,7 +2110,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("1a9c53f7-f243-4447-b110-35ef023636e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1811,7 +2132,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Gets the results of the query.
+     * Gets the results of the query.
      * 
      * @param wiql 
      *            The query containing the wiql.
@@ -1833,7 +2154,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("1a9c53f7-f243-4447-b110-35ef023636e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1856,7 +2177,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Gets the results of the query.
+     * Gets the results of the query.
      * 
      * @param wiql 
      *            The query containing the wiql.
@@ -1878,7 +2199,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("1a9c53f7-f243-4447-b110-35ef023636e4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1901,7 +2222,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Gets the results of the query by id.
+     * Gets the results of the query by id.
      * 
      * @param project 
      *            Project ID or project name
@@ -1920,7 +2241,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean timePrecision) { 
 
         final UUID locationId = UUID.fromString("a02355f5-5f8a-4671-8e32-369d23aac83d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1941,7 +2262,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Gets the results of the query by id.
+     * Gets the results of the query by id.
      * 
      * @param project 
      *            Project ID
@@ -1960,7 +2281,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean timePrecision) { 
 
         final UUID locationId = UUID.fromString("a02355f5-5f8a-4671-8e32-369d23aac83d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1981,7 +2302,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Gets the results of the query by id.
+     * Gets the results of the query by id.
      * 
      * @param project 
      *            Project ID or project name
@@ -1997,7 +2318,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean timePrecision) { 
 
         final UUID locationId = UUID.fromString("a02355f5-5f8a-4671-8e32-369d23aac83d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2017,7 +2338,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Gets the results of the query by id.
+     * Gets the results of the query by id.
      * 
      * @param project 
      *            Project ID
@@ -2033,7 +2354,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean timePrecision) { 
 
         final UUID locationId = UUID.fromString("a02355f5-5f8a-4671-8e32-369d23aac83d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2053,7 +2374,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Gets the results of the query by id.
+     * Gets the results of the query by id.
      * 
      * @param id 
      *            The query id.
@@ -2066,7 +2387,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean timePrecision) { 
 
         final UUID locationId = UUID.fromString("a02355f5-5f8a-4671-8e32-369d23aac83d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -2085,7 +2406,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Get a batch of work item links
+     * Get a batch of work item links
      * 
      * @param project 
      *            Project ID or project name
@@ -2104,7 +2425,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Date startDateTime) { 
 
         final UUID locationId = UUID.fromString("b5b5b6d0-0308-40a1-b3f4-b9bb3c66878f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2125,7 +2446,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Get a batch of work item links
+     * Get a batch of work item links
      * 
      * @param project 
      *            Project ID
@@ -2144,7 +2465,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Date startDateTime) { 
 
         final UUID locationId = UUID.fromString("b5b5b6d0-0308-40a1-b3f4-b9bb3c66878f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2165,7 +2486,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Get a batch of work item links
+     * Get a batch of work item links
      * 
      * @param types 
      *            A list of types to filter the results to specific work item types. Omit this parameter to get work item links of all work item types.
@@ -2181,7 +2502,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Date startDateTime) { 
 
         final UUID locationId = UUID.fromString("b5b5b6d0-0308-40a1-b3f4-b9bb3c66878f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("types", types); //$NON-NLS-1$
@@ -2198,7 +2519,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Gets the work item relation types.
+     * Gets the work item relation types.
      * 
      * @param relation 
      *            
@@ -2207,7 +2528,7 @@ public abstract class WorkItemTrackingHttpClientBase
     public WorkItemRelationType getRelationType(final String relation) { 
 
         final UUID locationId = UUID.fromString("f5d33bc9-5b49-4a3c-a9bd-f3cd46dd2165"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("relation", relation); //$NON-NLS-1$
@@ -2222,14 +2543,12 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @return ArrayList&lt;WorkItemRelationType&gt;
      */
     public ArrayList<WorkItemRelationType> getRelationTypes() { 
 
         final UUID locationId = UUID.fromString("f5d33bc9-5b49-4a3c-a9bd-f3cd46dd2165"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -2240,7 +2559,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Get a batch of work item revisions with the option of including deleted items
+     * Get a batch of work item revisions with the option of including deleted items
      * 
      * @param project 
      *            Project ID or project name
@@ -2277,7 +2596,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final ReportingRevisionsExpand expand) { 
 
         final UUID locationId = UUID.fromString("f828fe59-dd87-495d-a17c-7a8d6211ca6c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2304,7 +2623,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Get a batch of work item revisions with the option of including deleted items
+     * Get a batch of work item revisions with the option of including deleted items
      * 
      * @param project 
      *            Project ID
@@ -2341,7 +2660,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final ReportingRevisionsExpand expand) { 
 
         final UUID locationId = UUID.fromString("f828fe59-dd87-495d-a17c-7a8d6211ca6c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2368,7 +2687,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Get a batch of work item revisions with the option of including deleted items
+     * Get a batch of work item revisions with the option of including deleted items
      * 
      * @param fields 
      *            A list of fields to return in work item revisions. Omit this parameter to get all reportable fields.
@@ -2402,7 +2721,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final ReportingRevisionsExpand expand) { 
 
         final UUID locationId = UUID.fromString("f828fe59-dd87-495d-a17c-7a8d6211ca6c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("fields", fields); //$NON-NLS-1$
@@ -2425,7 +2744,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Get a batch of work item revisions
+     * Get a batch of work item revisions
      * 
      * @param filter 
      *            An object that contains request settings: field filter, type filter, identity format
@@ -2444,7 +2763,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final ReportingRevisionsExpand expand) { 
 
         final UUID locationId = UUID.fromString("f828fe59-dd87-495d-a17c-7a8d6211ca6c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("continuationToken", continuationToken); //$NON-NLS-1$
@@ -2463,7 +2782,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Get a batch of work item revisions
+     * Get a batch of work item revisions
      * 
      * @param filter 
      *            An object that contains request settings: field filter, type filter, identity format
@@ -2485,7 +2804,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final ReportingRevisionsExpand expand) { 
 
         final UUID locationId = UUID.fromString("f828fe59-dd87-495d-a17c-7a8d6211ca6c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2508,7 +2827,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Get a batch of work item revisions
+     * Get a batch of work item revisions
      * 
      * @param filter 
      *            An object that contains request settings: field filter, type filter, identity format
@@ -2530,7 +2849,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final ReportingRevisionsExpand expand) { 
 
         final UUID locationId = UUID.fromString("f828fe59-dd87-495d-a17c-7a8d6211ca6c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2553,8 +2872,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param id 
      *            
      * @param destroy 
@@ -2566,7 +2883,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean destroy) { 
 
         final UUID locationId = UUID.fromString("72c7ddf8-2cdc-4f60-90cd-ab71c14a399b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -2585,7 +2902,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns a single work item
+     * Returns a single work item
      * 
      * @param id 
      *            
@@ -2604,7 +2921,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final WorkItemExpand expand) { 
 
         final UUID locationId = UUID.fromString("72c7ddf8-2cdc-4f60-90cd-ab71c14a399b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -2625,7 +2942,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns a list of work items
+     * Returns a list of work items
      * 
      * @param ids 
      *            
@@ -2635,22 +2952,26 @@ public abstract class WorkItemTrackingHttpClientBase
      *            
      * @param expand 
      *            
+     * @param errorPolicy 
+     *            
      * @return ArrayList&lt;WorkItem&gt;
      */
     public ArrayList<WorkItem> getWorkItems(
         final List<Integer> ids, 
         final List<String> fields, 
         final Date asOf, 
-        final WorkItemExpand expand) { 
+        final WorkItemExpand expand, 
+        final WorkItemErrorPolicy errorPolicy) { 
 
         final UUID locationId = UUID.fromString("72c7ddf8-2cdc-4f60-90cd-ab71c14a399b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("ids", ids); //$NON-NLS-1$
         queryParameters.addIfNotNull("fields", fields); //$NON-NLS-1$
         queryParameters.addIfNotNull("asOf", asOf); //$NON-NLS-1$
         queryParameters.addIfNotNull("$expand", expand); //$NON-NLS-1$
+        queryParameters.addIfNotNull("errorPolicy", errorPolicy); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -2662,8 +2983,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param document 
      *            
      * @param id 
@@ -2681,7 +3000,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean bypassRules) { 
 
         final UUID locationId = UUID.fromString("72c7ddf8-2cdc-4f60-90cd-ab71c14a399b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -2703,8 +3022,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param document 
      *            
      * @param project 
@@ -2725,7 +3042,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean bypassRules) { 
 
         final UUID locationId = UUID.fromString("62d3d110-0047-428c-ad3c-4fe872c91c74"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2748,8 +3065,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param document 
      *            
      * @param project 
@@ -2770,7 +3085,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean bypassRules) { 
 
         final UUID locationId = UUID.fromString("62d3d110-0047-428c-ad3c-4fe872c91c74"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2793,7 +3108,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns a single work item from a template
+     * Returns a single work item from a template
      * 
      * @param project 
      *            Project ID or project name
@@ -2815,7 +3130,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final WorkItemExpand expand) { 
 
         final UUID locationId = UUID.fromString("62d3d110-0047-428c-ad3c-4fe872c91c74"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2837,7 +3152,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns a single work item from a template
+     * Returns a single work item from a template
      * 
      * @param project 
      *            Project ID
@@ -2859,7 +3174,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final WorkItemExpand expand) { 
 
         final UUID locationId = UUID.fromString("62d3d110-0047-428c-ad3c-4fe872c91c74"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2881,8 +3196,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @return ArrayList&lt;WorkItemTypeCategory&gt;
@@ -2890,7 +3203,7 @@ public abstract class WorkItemTrackingHttpClientBase
     public ArrayList<WorkItemTypeCategory> getWorkItemTypeCategories(final String project) { 
 
         final UUID locationId = UUID.fromString("9b9f5734-36c8-415e-ba67-f83b45c31408"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2905,8 +3218,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @return ArrayList&lt;WorkItemTypeCategory&gt;
@@ -2914,7 +3225,7 @@ public abstract class WorkItemTrackingHttpClientBase
     public ArrayList<WorkItemTypeCategory> getWorkItemTypeCategories(final UUID project) { 
 
         final UUID locationId = UUID.fromString("9b9f5734-36c8-415e-ba67-f83b45c31408"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2929,7 +3240,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns a the deltas between work item revisions
+     * Returns a the deltas between work item revisions
      * 
      * @param project 
      *            Project ID or project name
@@ -2942,7 +3253,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String category) { 
 
         final UUID locationId = UUID.fromString("9b9f5734-36c8-415e-ba67-f83b45c31408"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2958,7 +3269,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns a the deltas between work item revisions
+     * Returns a the deltas between work item revisions
      * 
      * @param project 
      *            Project ID
@@ -2971,7 +3282,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String category) { 
 
         final UUID locationId = UUID.fromString("9b9f5734-36c8-415e-ba67-f83b45c31408"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2987,7 +3298,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns a the deltas between work item revisions
+     * Returns a the deltas between work item revisions
      * 
      * @param project 
      *            Project ID or project name
@@ -3000,7 +3311,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String type) { 
 
         final UUID locationId = UUID.fromString("7c8d7a76-4a09-43e8-b5df-bd792f4ac6aa"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3016,7 +3327,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Returns a the deltas between work item revisions
+     * Returns a the deltas between work item revisions
      * 
      * @param project 
      *            Project ID
@@ -3029,7 +3340,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String type) { 
 
         final UUID locationId = UUID.fromString("7c8d7a76-4a09-43e8-b5df-bd792f4ac6aa"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3045,8 +3356,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID or project name
      * @return ArrayList&lt;WorkItemType&gt;
@@ -3054,7 +3363,7 @@ public abstract class WorkItemTrackingHttpClientBase
     public ArrayList<WorkItemType> getWorkItemTypes(final String project) { 
 
         final UUID locationId = UUID.fromString("7c8d7a76-4a09-43e8-b5df-bd792f4ac6aa"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3069,8 +3378,6 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
-     * 
      * @param project 
      *            Project ID
      * @return ArrayList&lt;WorkItemType&gt;
@@ -3078,7 +3385,7 @@ public abstract class WorkItemTrackingHttpClientBase
     public ArrayList<WorkItemType> getWorkItemTypes(final UUID project) { 
 
         final UUID locationId = UUID.fromString("7c8d7a76-4a09-43e8-b5df-bd792f4ac6aa"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3093,7 +3400,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Returns the dependent fields for the corresponding workitem type and fieldname
+     * Returns the dependent fields for the corresponding workitem type and fieldname
      * 
      * @param project 
      *            Project ID or project name
@@ -3109,7 +3416,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String field) { 
 
         final UUID locationId = UUID.fromString("bd293ce5-3d25-4192-8e67-e8092e879efb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3126,7 +3433,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Returns the dependent fields for the corresponding workitem type and fieldname
+     * Returns the dependent fields for the corresponding workitem type and fieldname
      * 
      * @param project 
      *            Project ID
@@ -3142,7 +3449,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String field) { 
 
         final UUID locationId = UUID.fromString("bd293ce5-3d25-4192-8e67-e8092e879efb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3159,7 +3466,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Export work item type
+     * Export work item type
      * 
      * @param project 
      *            Project ID or project name
@@ -3175,7 +3482,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean exportGlobalLists) { 
 
         final UUID locationId = UUID.fromString("8637ac8b-5eb6-4f90-b3f7-4f2ff576a459"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3195,7 +3502,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Export work item type
+     * Export work item type
      * 
      * @param project 
      *            Project ID
@@ -3211,7 +3518,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean exportGlobalLists) { 
 
         final UUID locationId = UUID.fromString("8637ac8b-5eb6-4f90-b3f7-4f2ff576a459"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3231,7 +3538,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Export work item type
+     * Export work item type
      * 
      * @param type 
      *            
@@ -3244,7 +3551,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final Boolean exportGlobalLists) { 
 
         final UUID locationId = UUID.fromString("8637ac8b-5eb6-4f90-b3f7-4f2ff576a459"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("type", type); //$NON-NLS-1$
@@ -3263,7 +3570,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Add/updates a work item type
+     * Add/updates a work item type
      * 
      * @param updateModel 
      *            
@@ -3272,7 +3579,7 @@ public abstract class WorkItemTrackingHttpClientBase
     public ProvisioningResult updateWorkItemTypeDefinition(final WorkItemTypeTemplateUpdateModel updateModel) { 
 
         final UUID locationId = UUID.fromString("8637ac8b-5eb6-4f90-b3f7-4f2ff576a459"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -3285,7 +3592,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Add/updates a work item type
+     * Add/updates a work item type
      * 
      * @param updateModel 
      *            
@@ -3298,7 +3605,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("8637ac8b-5eb6-4f90-b3f7-4f2ff576a459"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3315,7 +3622,7 @@ public abstract class WorkItemTrackingHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Add/updates a work item type
+     * Add/updates a work item type
      * 
      * @param updateModel 
      *            
@@ -3328,7 +3635,7 @@ public abstract class WorkItemTrackingHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("8637ac8b-5eb6-4f90-b3f7-4f2ff576a459"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$

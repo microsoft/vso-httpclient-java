@@ -21,6 +21,8 @@ import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
 /** 
+ * This is the shallow shelveset class
+ * 
  */
 public class TfvcShelvesetRef {
 

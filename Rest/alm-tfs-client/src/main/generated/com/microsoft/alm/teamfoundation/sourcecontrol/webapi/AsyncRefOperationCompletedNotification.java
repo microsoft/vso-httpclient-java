@@ -21,4 +21,13 @@ package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 public class AsyncRefOperationCompletedNotification
     extends AsyncGitOperationNotification {
 
+    private String newRefName;
+
+    public String getNewRefName() {
+        return newRefName;
+    }
+
+    public void setNewRefName(final String newRefName) {
+        this.newRefName = newRefName;
+    }
 }

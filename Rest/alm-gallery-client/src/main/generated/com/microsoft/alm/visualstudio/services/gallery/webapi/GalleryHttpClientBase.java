@@ -34,6 +34,7 @@ import com.microsoft.alm.visualstudio.services.gallery.webapi.acquisitionoption.
 import com.microsoft.alm.visualstudio.services.gallery.webapi.acquisitionrequest.ExtensionAcquisitionRequest;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.AzurePublisher;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.AzureRestApiRequestModel;
+import com.microsoft.alm.visualstudio.services.gallery.webapi.CategoriesResult;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.ExtensionCategory;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.ExtensionPackage;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.ExtensionQuery;
@@ -41,6 +42,7 @@ import com.microsoft.alm.visualstudio.services.gallery.webapi.ExtensionQueryFlag
 import com.microsoft.alm.visualstudio.services.gallery.webapi.ExtensionQueryResult;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.ExtensionStatisticUpdate;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.PublishedExtension;
+import com.microsoft.alm.visualstudio.services.gallery.webapi.PublishedExtensionFlags;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.Publisher;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.PublisherQuery;
 import com.microsoft.alm.visualstudio.services.gallery.webapi.PublisherQueryResult;
@@ -62,7 +64,7 @@ public abstract class GalleryHttpClientBase
     /**
     * Create a new instance of GalleryHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
@@ -478,6 +480,42 @@ public abstract class GalleryHttpClientBase
     /** 
      * [Preview API 3.0-preview.1]
      * 
+     * @param categoryName 
+     *            
+     * @param languages 
+     *            
+     * @param product 
+     *            
+     * @return CategoriesResult
+     */
+    public CategoriesResult getCategoryDetails(
+        final String categoryName, 
+        final String languages, 
+        final String product) { 
+
+        final UUID locationId = UUID.fromString("75d3c04d-84d2-4973-acd2-22627587dabc"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("categoryName", categoryName); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotEmpty("languages", languages); //$NON-NLS-1$
+        queryParameters.addIfNotEmpty("product", product); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, CategoriesResult.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1]
+     * 
      * @param publisherName 
      *            
      * @param extensionName 
@@ -795,6 +833,42 @@ public abstract class GalleryHttpClientBase
                                                                apiVersion,
                                                                extensionPackage,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, PublishedExtension.class);
+    }
+
+    /** 
+     * [Preview API 3.0-preview.1]
+     * 
+     * @param publisherName 
+     *            
+     * @param extensionName 
+     *            
+     * @param flags 
+     *            
+     * @return PublishedExtension
+     */
+    public PublishedExtension updateExtensionProperties(
+        final String publisherName, 
+        final String extensionName, 
+        final PublishedExtensionFlags flags) { 
+
+        final UUID locationId = UUID.fromString("e11ea35a-16fe-4b80-ab11-c4cab88a0966"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("publisherName", publisherName); //$NON-NLS-1$
+        routeValues.put("extensionName", extensionName); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("flags", flags); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, PublishedExtension.class);
@@ -1129,6 +1203,38 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
+     * [Preview API 3.0-preview.1] Deletes a review
+     * 
+     * @param pubName 
+     *            Name of the pubilsher who published the extension
+     * @param extName 
+     *            Name of the extension
+     * @param reviewId 
+     *            Id of the review which needs to be updated
+     */
+    public void deleteReview(
+        final String pubName, 
+        final String extName, 
+        final long reviewId) { 
+
+        final UUID locationId = UUID.fromString("e6e85b9d-aa70-40e6-aa28-d0fbf40b91a3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("pubName", pubName); //$NON-NLS-1$
+        routeValues.put("extName", extName); //$NON-NLS-1$
+        routeValues.put("reviewId", reviewId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        super.sendRequest(httpRequest);
+    }
+
+    /** 
      * [Preview API 3.0-preview.1] Updates or Flags a review
      * 
      * @param reviewPatch 
@@ -1137,7 +1243,7 @@ public abstract class GalleryHttpClientBase
      *            Name of the pubilsher who published the extension
      * @param extName 
      *            Name of the extension
-     * @param resourceId 
+     * @param reviewId 
      *            Id of the review which needs to be updated
      * @return ReviewPatch
      */
@@ -1145,7 +1251,7 @@ public abstract class GalleryHttpClientBase
         final ReviewPatch reviewPatch, 
         final String pubName, 
         final String extName, 
-        final long resourceId) { 
+        final long reviewId) { 
 
         final UUID locationId = UUID.fromString("e6e85b9d-aa70-40e6-aa28-d0fbf40b91a3"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -1153,7 +1259,7 @@ public abstract class GalleryHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("pubName", pubName); //$NON-NLS-1$
         routeValues.put("extName", extName); //$NON-NLS-1$
-        routeValues.put("resourceId", resourceId); //$NON-NLS-1$
+        routeValues.put("reviewId", reviewId); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
                                                                locationId,

@@ -23,7 +23,7 @@ import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
 /** 
  */
-public class GitPullRequestComment {
+public class Comment {
 
     private ReferenceLinks _links;
     /**
@@ -33,7 +33,7 @@ public class GitPullRequestComment {
     /**
     * Determines what kind of comment when it was created.
     */
-    private GitPullRequestCommentType commentType;
+    private CommentType commentType;
     /**
     * The comment&#039;s content.
     */
@@ -50,6 +50,10 @@ public class GitPullRequestComment {
     * The date a comment was last updated.
     */
     private Date lastUpdatedDate;
+    /**
+    * The pull request comment id of the parent comment. This is used for replies
+    */
+    private short parentCommentId;
     /**
     * The date a comment was first published.
     */
@@ -86,14 +90,14 @@ public class GitPullRequestComment {
     /**
     * Determines what kind of comment when it was created.
     */
-    public GitPullRequestCommentType getCommentType() {
+    public CommentType getCommentType() {
         return commentType;
     }
 
     /**
     * Determines what kind of comment when it was created.
     */
-    public void setCommentType(final GitPullRequestCommentType commentType) {
+    public void setCommentType(final CommentType commentType) {
         this.commentType = commentType;
     }
 
@@ -153,6 +157,20 @@ public class GitPullRequestComment {
     */
     public void setLastUpdatedDate(final Date lastUpdatedDate) {
         this.lastUpdatedDate = lastUpdatedDate;
+    }
+
+    /**
+    * The pull request comment id of the parent comment. This is used for replies
+    */
+    public short getParentCommentId() {
+        return parentCommentId;
+    }
+
+    /**
+    * The pull request comment id of the parent comment. This is used for replies
+    */
+    public void setParentCommentId(final short parentCommentId) {
+        this.parentCommentId = parentCommentId;
     }
 
     /**

@@ -16,6 +16,7 @@
 package com.microsoft.alm.visualstudio.services.forminput;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /** 
@@ -56,6 +57,14 @@ public class InputDescriptor {
     * Localized name which can be shown as a label for the subscription input
     */
     private String name;
+    /**
+    * Custom properties for the input which can be used by the service provider
+    */
+    private HashMap<String, Object> properties;
+    /**
+    * Underlying data type for the input value.  When this value is specified, InputMode, Validation and Values are optional.
+    */
+    private String type;
     /**
     * Gets whether this input is included in the default generated action description.
     */
@@ -185,6 +194,34 @@ public class InputDescriptor {
     */
     public void setName(final String name) {
         this.name = name;
+    }
+
+    /**
+    * Custom properties for the input which can be used by the service provider
+    */
+    public HashMap<String, Object> getProperties() {
+        return properties;
+    }
+
+    /**
+    * Custom properties for the input which can be used by the service provider
+    */
+    public void setProperties(final HashMap<String, Object> properties) {
+        this.properties = properties;
+    }
+
+    /**
+    * Underlying data type for the input value.  When this value is specified, InputMode, Validation and Values are optional.
+    */
+    public String getType() {
+        return type;
+    }
+
+    /**
+    * Underlying data type for the input value.  When this value is specified, InputMode, Validation and Values are optional.
+    */
+    public void setType(final String type) {
+        this.type = type;
     }
 
     /**

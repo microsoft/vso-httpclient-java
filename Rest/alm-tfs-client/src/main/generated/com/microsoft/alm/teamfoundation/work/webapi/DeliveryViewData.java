@@ -17,6 +17,8 @@ package com.microsoft.alm.teamfoundation.work.webapi;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.UUID;
 
 /** 
  * Data contract for Data of Delivery View
@@ -25,40 +27,94 @@ import java.util.Date;
 public class DeliveryViewData
     extends PlanViewData {
 
+    /**
+    * Work item child id to parenet id map
+    */
+    private HashMap<Integer, Integer> childIdToParentIdMap;
+    /**
+    * The end date of the delivery view data
+    */
     private Date endDate;
-    private ArrayList<String> fieldReferenceNames;
+    /**
+    * The start date for the delivery view data
+    */
     private Date startDate;
+    /**
+    * All the team data
+    */
     private ArrayList<TimelineTeamData> teams;
+    /**
+    * Work Item Types configured for the team.
+    */
+    private HashMap<UUID, ArrayList<String>> workItemTypes;
 
+    /**
+    * Work item child id to parenet id map
+    */
+    public HashMap<Integer, Integer> getChildIdToParentIdMap() {
+        return childIdToParentIdMap;
+    }
+
+    /**
+    * Work item child id to parenet id map
+    */
+    public void setChildIdToParentIdMap(final HashMap<Integer, Integer> childIdToParentIdMap) {
+        this.childIdToParentIdMap = childIdToParentIdMap;
+    }
+
+    /**
+    * The end date of the delivery view data
+    */
     public Date getEndDate() {
         return endDate;
     }
 
+    /**
+    * The end date of the delivery view data
+    */
     public void setEndDate(final Date endDate) {
         this.endDate = endDate;
     }
 
-    public ArrayList<String> getFieldReferenceNames() {
-        return fieldReferenceNames;
-    }
-
-    public void setFieldReferenceNames(final ArrayList<String> fieldReferenceNames) {
-        this.fieldReferenceNames = fieldReferenceNames;
-    }
-
+    /**
+    * The start date for the delivery view data
+    */
     public Date getStartDate() {
         return startDate;
     }
 
+    /**
+    * The start date for the delivery view data
+    */
     public void setStartDate(final Date startDate) {
         this.startDate = startDate;
     }
 
+    /**
+    * All the team data
+    */
     public ArrayList<TimelineTeamData> getTeams() {
         return teams;
     }
 
+    /**
+    * All the team data
+    */
     public void setTeams(final ArrayList<TimelineTeamData> teams) {
         this.teams = teams;
+    }
+
+    /**
+    * Work Item Types configured for the team.
+    */
+    public HashMap<UUID, ArrayList<String>> getWorkItemTypes() {
+        return workItemTypes;
+    }
+
+    /**
+    * Work Item Types configured for the team.
+    */
+    public void setWorkItemTypes(final HashMap<UUID, ArrayList<String>> workItemTypes) {
+        this.workItemTypes = workItemTypes;
     }
 }

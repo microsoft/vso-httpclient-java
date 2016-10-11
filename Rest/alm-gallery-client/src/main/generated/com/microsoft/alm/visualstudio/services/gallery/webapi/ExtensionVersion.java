@@ -25,6 +25,7 @@ public class ExtensionVersion {
 
     private String assetUri;
     private ArrayList<ExtensionBadge> badges;
+    private String fallbackAssetUri;
     private ArrayList<ExtensionFile> files;
     private ExtensionVersionFlags flags;
     private Date lastUpdated;
@@ -47,6 +48,14 @@ public class ExtensionVersion {
 
     public void setBadges(final ArrayList<ExtensionBadge> badges) {
         this.badges = badges;
+    }
+
+    public String getFallbackAssetUri() {
+        return fallbackAssetUri;
+    }
+
+    public void setFallbackAssetUri(final String fallbackAssetUri) {
+        this.fallbackAssetUri = fallbackAssetUri;
     }
 
     public ArrayList<ExtensionFile> getFiles() {

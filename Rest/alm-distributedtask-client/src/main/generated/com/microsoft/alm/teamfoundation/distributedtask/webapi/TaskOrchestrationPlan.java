@@ -26,6 +26,7 @@ public class TaskOrchestrationPlan
     private PlanEnvironment environment;
     private Date finishTime;
     private TaskOrchestrationContainer implementation;
+    private String planGroup;
     private UUID requestedById;
     private UUID requestedForId;
     private TaskResult result;
@@ -56,6 +57,14 @@ public class TaskOrchestrationPlan
 
     public void setImplementation(final TaskOrchestrationContainer implementation) {
         this.implementation = implementation;
+    }
+
+    public String getPlanGroup() {
+        return planGroup;
+    }
+
+    public void setPlanGroup(final String planGroup) {
+        this.planGroup = planGroup;
     }
 
     public UUID getRequestedById() {

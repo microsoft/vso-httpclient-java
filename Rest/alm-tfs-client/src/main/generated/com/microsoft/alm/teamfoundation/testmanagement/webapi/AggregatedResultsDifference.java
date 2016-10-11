@@ -22,6 +22,7 @@ public class AggregatedResultsDifference {
 
     private String increaseInDuration;
     private int increaseInFailures;
+    private int increaseInOtherTests;
     private int increaseInPassedTests;
     private int increaseInTotalTests;
 
@@ -39,6 +40,14 @@ public class AggregatedResultsDifference {
 
     public void setIncreaseInFailures(final int increaseInFailures) {
         this.increaseInFailures = increaseInFailures;
+    }
+
+    public int getIncreaseInOtherTests() {
+        return increaseInOtherTests;
+    }
+
+    public void setIncreaseInOtherTests(final int increaseInOtherTests) {
+        this.increaseInOtherTests = increaseInOtherTests;
     }
 
     public int getIncreaseInPassedTests() {
