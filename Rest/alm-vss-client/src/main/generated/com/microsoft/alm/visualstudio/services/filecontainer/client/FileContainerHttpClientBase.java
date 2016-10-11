@@ -46,7 +46,7 @@ public abstract class FileContainerHttpClientBase
     /**
     * Create a new instance of FileContainerHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl

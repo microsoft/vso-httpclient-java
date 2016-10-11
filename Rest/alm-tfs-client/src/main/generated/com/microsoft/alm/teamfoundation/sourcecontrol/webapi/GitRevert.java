@@ -15,35 +15,13 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
 /** 
  */
-public class GitRevert {
+public class GitRevert
+    extends GitAsyncRefOperation {
 
-    private ReferenceLinks _links;
-    private GitAsyncRefOperationParameters parameters;
     private int revertId;
-    private String url;
-
-    @JsonProperty("_links")
-    public ReferenceLinks getLinks() {
-        return _links;
-    }
-
-    @JsonProperty("_links")
-    public void setLinks(final ReferenceLinks _links) {
-        this._links = _links;
-    }
-
-    public GitAsyncRefOperationParameters getParameters() {
-        return parameters;
-    }
-
-    public void setParameters(final GitAsyncRefOperationParameters parameters) {
-        this.parameters = parameters;
-    }
 
     public int getRevertId() {
         return revertId;
@@ -51,13 +29,5 @@ public class GitRevert {
 
     public void setRevertId(final int revertId) {
         this.revertId = revertId;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(final String url) {
-        this.url = url;
     }
 }

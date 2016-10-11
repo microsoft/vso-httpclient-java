@@ -23,7 +23,7 @@ public enum TestSessionSource {
     /**
     * Source of test session uncertain as it is stale
     */
-    UNKONOWN(0),
+    UNKNOWN(0),
     /**
     * The session was created from Microsoft Test Manager exploratory desktop tool.
     */
@@ -40,6 +40,14 @@ public enum TestSessionSource {
     * The session was created from browser extension.
     */
     FEEDBACK_WEB(4),
+    /**
+    * The session was created from web access using Microsoft Test Manager exploratory desktop tool.
+    */
+    X_T_DESKTOP2(5),
+    /**
+    * To show sessions from all supported sources.
+    */
+    SESSION_INSIGHTS_FOR_ALL(6),
     ;
 
     private int value;
@@ -56,8 +64,8 @@ public enum TestSessionSource {
     public String toString() {
         final String name = super.toString();
 
-        if (name.equals("UNKONOWN")) { //$NON-NLS-1$
-            return "unkonown"; //$NON-NLS-1$
+        if (name.equals("UNKNOWN")) { //$NON-NLS-1$
+            return "unknown"; //$NON-NLS-1$
         }
 
         if (name.equals("X_T_DESKTOP")) { //$NON-NLS-1$
@@ -74,6 +82,14 @@ public enum TestSessionSource {
 
         if (name.equals("FEEDBACK_WEB")) { //$NON-NLS-1$
             return "feedbackWeb"; //$NON-NLS-1$
+        }
+
+        if (name.equals("X_T_DESKTOP2")) { //$NON-NLS-1$
+            return "xTDesktop2"; //$NON-NLS-1$
+        }
+
+        if (name.equals("SESSION_INSIGHTS_FOR_ALL")) { //$NON-NLS-1$
+            return "sessionInsightsForAll"; //$NON-NLS-1$
         }
 
         return null;

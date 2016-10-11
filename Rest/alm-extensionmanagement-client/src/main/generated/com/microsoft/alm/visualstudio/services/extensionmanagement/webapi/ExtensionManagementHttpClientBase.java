@@ -54,7 +54,7 @@ public abstract class ExtensionManagementHttpClientBase
     /**
     * Create a new instance of ExtensionManagementHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl

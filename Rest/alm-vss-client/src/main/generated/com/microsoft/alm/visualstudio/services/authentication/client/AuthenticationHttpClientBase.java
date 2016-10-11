@@ -42,7 +42,7 @@ public abstract class AuthenticationHttpClientBase
     /**
     * Create a new instance of AuthenticationHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl

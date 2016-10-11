@@ -26,19 +26,10 @@ import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.DeployPh
 @JsonSerialize(using = DeployPhaseSerializer.class)
 public class DeployPhase {
 
-    private ControlOptions controlOptions;
     private String name;
     private DeployPhaseTypes phaseType;
     private int rank;
     private ArrayList<WorkflowTask> workflowTasks;
-
-    public ControlOptions getControlOptions() {
-        return controlOptions;
-    }
-
-    public void setControlOptions(final ControlOptions controlOptions) {
-        this.controlOptions = controlOptions;
-    }
 
     public String getName() {
         return name;

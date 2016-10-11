@@ -42,7 +42,7 @@ public abstract class CustomerIntelligenceHttpClientBase
     /**
     * Create a new instance of CustomerIntelligenceHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl

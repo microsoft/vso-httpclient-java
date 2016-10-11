@@ -45,7 +45,7 @@ public abstract class PolicyHttpClientBase
     /**
     * Create a new instance of PolicyHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
@@ -61,8 +61,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param configuration 
      *            
      * @param project 
@@ -77,7 +75,7 @@ public abstract class PolicyHttpClientBase
         final Integer configurationId) { 
 
         final UUID locationId = UUID.fromString("dad91cbe-d183-45f8-9c6e-9c1164472121"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -95,8 +93,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param configuration 
      *            
      * @param project 
@@ -111,7 +107,7 @@ public abstract class PolicyHttpClientBase
         final Integer configurationId) { 
 
         final UUID locationId = UUID.fromString("dad91cbe-d183-45f8-9c6e-9c1164472121"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -129,8 +125,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID or project name
      * @param configurationId 
@@ -141,7 +135,7 @@ public abstract class PolicyHttpClientBase
         final int configurationId) { 
 
         final UUID locationId = UUID.fromString("dad91cbe-d183-45f8-9c6e-9c1164472121"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -157,8 +151,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID
      * @param configurationId 
@@ -169,7 +161,7 @@ public abstract class PolicyHttpClientBase
         final int configurationId) { 
 
         final UUID locationId = UUID.fromString("dad91cbe-d183-45f8-9c6e-9c1164472121"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -185,8 +177,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID or project name
      * @param configurationId 
@@ -198,7 +188,7 @@ public abstract class PolicyHttpClientBase
         final int configurationId) { 
 
         final UUID locationId = UUID.fromString("dad91cbe-d183-45f8-9c6e-9c1164472121"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -214,8 +204,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID
      * @param configurationId 
@@ -227,7 +215,7 @@ public abstract class PolicyHttpClientBase
         final int configurationId) { 
 
         final UUID locationId = UUID.fromString("dad91cbe-d183-45f8-9c6e-9c1164472121"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -243,8 +231,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID or project name
      * @return ArrayList&lt;PolicyConfiguration&gt;
@@ -252,7 +238,7 @@ public abstract class PolicyHttpClientBase
     public ArrayList<PolicyConfiguration> getPolicyConfigurations(final String project) { 
 
         final UUID locationId = UUID.fromString("dad91cbe-d183-45f8-9c6e-9c1164472121"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -267,8 +253,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID
      * @return ArrayList&lt;PolicyConfiguration&gt;
@@ -276,7 +260,7 @@ public abstract class PolicyHttpClientBase
     public ArrayList<PolicyConfiguration> getPolicyConfigurations(final UUID project) { 
 
         final UUID locationId = UUID.fromString("dad91cbe-d183-45f8-9c6e-9c1164472121"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -291,8 +275,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param configuration 
      *            
      * @param project 
@@ -307,7 +289,7 @@ public abstract class PolicyHttpClientBase
         final int configurationId) { 
 
         final UUID locationId = UUID.fromString("dad91cbe-d183-45f8-9c6e-9c1164472121"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -325,8 +307,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param configuration 
      *            
      * @param project 
@@ -341,7 +321,7 @@ public abstract class PolicyHttpClientBase
         final int configurationId) { 
 
         final UUID locationId = UUID.fromString("dad91cbe-d183-45f8-9c6e-9c1164472121"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -563,8 +543,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID or project name
      * @param configurationId 
@@ -579,7 +557,7 @@ public abstract class PolicyHttpClientBase
         final int revisionId) { 
 
         final UUID locationId = UUID.fromString("fe1e68a2-60d3-43cb-855b-85e41ae97c95"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -596,8 +574,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID
      * @param configurationId 
@@ -612,7 +588,7 @@ public abstract class PolicyHttpClientBase
         final int revisionId) { 
 
         final UUID locationId = UUID.fromString("fe1e68a2-60d3-43cb-855b-85e41ae97c95"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -629,8 +605,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID or project name
      * @param configurationId 
@@ -648,7 +622,7 @@ public abstract class PolicyHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("fe1e68a2-60d3-43cb-855b-85e41ae97c95"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -669,8 +643,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID
      * @param configurationId 
@@ -688,7 +660,7 @@ public abstract class PolicyHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("fe1e68a2-60d3-43cb-855b-85e41ae97c95"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -709,8 +681,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID or project name
      * @param typeId 
@@ -722,7 +692,7 @@ public abstract class PolicyHttpClientBase
         final UUID typeId) { 
 
         final UUID locationId = UUID.fromString("44096322-2d3d-466a-bb30-d1b7de69f61f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -738,8 +708,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID
      * @param typeId 
@@ -751,7 +719,7 @@ public abstract class PolicyHttpClientBase
         final UUID typeId) { 
 
         final UUID locationId = UUID.fromString("44096322-2d3d-466a-bb30-d1b7de69f61f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -767,8 +735,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID or project name
      * @return ArrayList&lt;PolicyType&gt;
@@ -776,7 +742,7 @@ public abstract class PolicyHttpClientBase
     public ArrayList<PolicyType> getPolicyTypes(final String project) { 
 
         final UUID locationId = UUID.fromString("44096322-2d3d-466a-bb30-d1b7de69f61f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -791,8 +757,6 @@ public abstract class PolicyHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param project 
      *            Project ID
      * @return ArrayList&lt;PolicyType&gt;
@@ -800,7 +764,7 @@ public abstract class PolicyHttpClientBase
     public ArrayList<PolicyType> getPolicyTypes(final UUID project) { 
 
         final UUID locationId = UUID.fromString("44096322-2d3d-466a-bb30-d1b7de69f61f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$

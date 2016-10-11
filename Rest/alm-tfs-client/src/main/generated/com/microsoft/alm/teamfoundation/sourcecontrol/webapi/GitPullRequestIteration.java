@@ -34,6 +34,7 @@ public class GitPullRequestIteration {
     private String description;
     private boolean hasMoreCommits;
     private int id;
+    private GitPushRef push;
     private GitCommitRef sourceRefCommit;
     private GitCommitRef targetRefCommit;
     private Date updatedDate;
@@ -110,6 +111,14 @@ public class GitPullRequestIteration {
 
     public void setId(final int id) {
         this.id = id;
+    }
+
+    public GitPushRef getPush() {
+        return push;
+    }
+
+    public void setPush(final GitPushRef push) {
+        this.push = push;
     }
 
     public GitCommitRef getSourceRefCommit() {

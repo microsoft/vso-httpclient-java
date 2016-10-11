@@ -25,29 +25,9 @@ public class GitPullRequestCommentThreadContext {
     */
     private int changeTrackingId;
     /**
-    * File path relative to the root of the repository. It&#039;s up to the client to use any path format.
-    */
-    private String filePath;
-    /**
     * Specify comparing iteration Ids when a comment thread is added while comparing 2 iterations.
     */
     private CommentIterationContext iterationContext;
-    /**
-    * Position of last character of the comment in left file.
-    */
-    private CommentPosition leftFileEnd;
-    /**
-    * Position of first character of the comment in left file.
-    */
-    private CommentPosition leftFileStart;
-    /**
-    * Position of last character of the comment in right file.
-    */
-    private CommentPosition rightFileEnd;
-    /**
-    * Position of first character of the comment in right file.
-    */
-    private CommentPosition rightFileStart;
     /**
     * The criteria used to track this thread. If this property is filled out when the thread is returned, then the thread has been tracked from its original location using the given criteria.
     */
@@ -68,20 +48,6 @@ public class GitPullRequestCommentThreadContext {
     }
 
     /**
-    * File path relative to the root of the repository. It&amp;#039;s up to the client to use any path format.
-    */
-    public String getFilePath() {
-        return filePath;
-    }
-
-    /**
-    * File path relative to the root of the repository. It&amp;#039;s up to the client to use any path format.
-    */
-    public void setFilePath(final String filePath) {
-        this.filePath = filePath;
-    }
-
-    /**
     * Specify comparing iteration Ids when a comment thread is added while comparing 2 iterations.
     */
     public CommentIterationContext getIterationContext() {
@@ -93,62 +59,6 @@ public class GitPullRequestCommentThreadContext {
     */
     public void setIterationContext(final CommentIterationContext iterationContext) {
         this.iterationContext = iterationContext;
-    }
-
-    /**
-    * Position of last character of the comment in left file.
-    */
-    public CommentPosition getLeftFileEnd() {
-        return leftFileEnd;
-    }
-
-    /**
-    * Position of last character of the comment in left file.
-    */
-    public void setLeftFileEnd(final CommentPosition leftFileEnd) {
-        this.leftFileEnd = leftFileEnd;
-    }
-
-    /**
-    * Position of first character of the comment in left file.
-    */
-    public CommentPosition getLeftFileStart() {
-        return leftFileStart;
-    }
-
-    /**
-    * Position of first character of the comment in left file.
-    */
-    public void setLeftFileStart(final CommentPosition leftFileStart) {
-        this.leftFileStart = leftFileStart;
-    }
-
-    /**
-    * Position of last character of the comment in right file.
-    */
-    public CommentPosition getRightFileEnd() {
-        return rightFileEnd;
-    }
-
-    /**
-    * Position of last character of the comment in right file.
-    */
-    public void setRightFileEnd(final CommentPosition rightFileEnd) {
-        this.rightFileEnd = rightFileEnd;
-    }
-
-    /**
-    * Position of first character of the comment in right file.
-    */
-    public CommentPosition getRightFileStart() {
-        return rightFileStart;
-    }
-
-    /**
-    * Position of first character of the comment in right file.
-    */
-    public void setRightFileStart(final CommentPosition rightFileStart) {
-        this.rightFileStart = rightFileStart;
     }
 
     /**

@@ -31,6 +31,7 @@ public class GitStatus {
     private String description;
     private GitStatusState state;
     private String targetUrl;
+    private Date updatedDate;
 
     @JsonProperty("_links")
     public ReferenceLinks getLinks() {
@@ -88,5 +89,13 @@ public class GitStatus {
 
     public void setTargetUrl(final String targetUrl) {
         this.targetUrl = targetUrl;
+    }
+
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(final Date updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }

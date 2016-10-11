@@ -34,6 +34,7 @@ public enum DeploymentOperationStatus {
     PHASE_FAILED(1024),
     CANCELED(2048),
     PHASE_CANCELED(4096),
+    MANUAL_INTERVENTION_PENDING(8192),
     ;
 
     private int value;
@@ -104,6 +105,10 @@ public enum DeploymentOperationStatus {
 
         if (name.equals("PHASE_CANCELED")) { //$NON-NLS-1$
             return "phaseCanceled"; //$NON-NLS-1$
+        }
+
+        if (name.equals("MANUAL_INTERVENTION_PENDING")) { //$NON-NLS-1$
+            return "manualInterventionPending"; //$NON-NLS-1$
         }
 
         return null;

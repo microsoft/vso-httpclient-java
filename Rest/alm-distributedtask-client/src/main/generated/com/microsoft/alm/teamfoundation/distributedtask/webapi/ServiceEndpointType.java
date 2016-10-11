@@ -15,7 +15,9 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
+import java.net.URI;
 import java.util.ArrayList;
+import com.microsoft.alm.visualstudio.services.forminput.InputDescriptor;
 
 /** 
  */
@@ -28,6 +30,8 @@ public class ServiceEndpointType {
     private EndpointUrl endpointUrl;
     private HelpLink helpLink;
     private String helpMarkDown;
+    private URI iconUrl;
+    private ArrayList<InputDescriptor> inputDescriptors;
     private String name;
 
     public ArrayList<ServiceEndpointAuthenticationScheme> getAuthenticationSchemes() {
@@ -84,6 +88,22 @@ public class ServiceEndpointType {
 
     public void setHelpMarkDown(final String helpMarkDown) {
         this.helpMarkDown = helpMarkDown;
+    }
+
+    public URI getIconUrl() {
+        return iconUrl;
+    }
+
+    public void setIconUrl(final URI iconUrl) {
+        this.iconUrl = iconUrl;
+    }
+
+    public ArrayList<InputDescriptor> getInputDescriptors() {
+        return inputDescriptors;
+    }
+
+    public void setInputDescriptors(final ArrayList<InputDescriptor> inputDescriptors) {
+        this.inputDescriptors = inputDescriptors;
     }
 
     public String getName() {

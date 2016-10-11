@@ -52,7 +52,7 @@ public abstract class ProfileHttpClientBase
     /**
     * Create a new instance of ProfileHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
@@ -377,7 +377,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Lookup up country/region based on provided IPv4, null if using the remote IPv4 address.
+     * Lookup up country/region based on provided IPv4, null if using the remote IPv4 address.
      * 
      * @param ipaddress 
      *            IPv4 address to be used for reverse lookup, null if using RemoteIPAddress in request context
@@ -386,7 +386,7 @@ public abstract class ProfileHttpClientBase
     public GeoRegion getGeoRegion(final String ipaddress) { 
 
         final UUID locationId = UUID.fromString("3bcda9c0-3078-48a5-a1e0-83bd05931ad0"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("ipaddress", ipaddress); //$NON-NLS-1$
@@ -401,7 +401,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3] Create profile
+     * Create profile
      * 
      * @param createProfileContext 
      *            Context for profile creation
@@ -414,7 +414,7 @@ public abstract class ProfileHttpClientBase
         final Boolean autoCreate) { 
 
         final UUID locationId = UUID.fromString("f83735dc-483f-4238-a291-d45f6080a9af"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("autoCreate", autoCreate); //$NON-NLS-1$
@@ -431,8 +431,6 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
-     * 
      * @param id 
      *            
      * @param details 
@@ -456,7 +454,7 @@ public abstract class ProfileHttpClientBase
         final Boolean forceRefresh) { 
 
         final UUID locationId = UUID.fromString("f83735dc-483f-4238-a291-d45f6080a9af"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -479,7 +477,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3] Update profile
+     * Update profile
      * 
      * @param profile 
      *            Update profile
@@ -491,7 +489,7 @@ public abstract class ProfileHttpClientBase
         final String id) { 
 
         final UUID locationId = UUID.fromString("f83735dc-483f-4238-a291-d45f6080a9af"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$

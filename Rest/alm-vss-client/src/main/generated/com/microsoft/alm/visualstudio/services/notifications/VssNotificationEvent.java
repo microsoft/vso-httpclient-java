@@ -13,7 +13,7 @@
 *   https://vsowiki.com/index.php?title=Rest_Client_Generation
 */
 
-package com.microsoft.alm.visualstudio.services.webapi;
+package com.microsoft.alm.visualstudio.services.notifications;
 
 import java.util.ArrayList;
 
@@ -39,6 +39,10 @@ public class VssNotificationEvent {
     * Required: The name of the event.  This event must be registered in the context it is being fired.
     */
     private String eventType;
+    /**
+    * Optional: A list of scopes which are are relevant to the event.
+    */
+    private ArrayList<EventScope> scopes;
 
     /**
     * Optional: A list of actors which are additional identities with corresponding roles that are relevant to the event.
@@ -94,5 +98,19 @@ public class VssNotificationEvent {
     */
     public void setEventType(final String eventType) {
         this.eventType = eventType;
+    }
+
+    /**
+    * Optional: A list of scopes which are are relevant to the event.
+    */
+    public ArrayList<EventScope> getScopes() {
+        return scopes;
+    }
+
+    /**
+    * Optional: A list of scopes which are are relevant to the event.
+    */
+    public void setScopes(final ArrayList<EventScope> scopes) {
+        this.scopes = scopes;
     }
 }

@@ -17,6 +17,7 @@ package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
 import java.util.ArrayList;
 import java.util.Date;
+import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.conditions.Condition;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.ShallowReference;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
@@ -25,6 +26,7 @@ import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 public class Deployment {
 
     private int attempt;
+    private ArrayList<Condition> conditions;
     private int definitionEnvironmentId;
     private DeploymentStatus deploymentStatus;
     private int id;
@@ -38,6 +40,7 @@ public class Deployment {
     private ShallowReference releaseDefinition;
     private ShallowReference releaseEnvironment;
     private IdentityRef requestedBy;
+    private Date scheduledDeploymentTime;
     private Date startedOn;
 
     public int getAttempt() {
@@ -46,6 +49,14 @@ public class Deployment {
 
     public void setAttempt(final int attempt) {
         this.attempt = attempt;
+    }
+
+    public ArrayList<Condition> getConditions() {
+        return conditions;
+    }
+
+    public void setConditions(final ArrayList<Condition> conditions) {
+        this.conditions = conditions;
     }
 
     public int getDefinitionEnvironmentId() {
@@ -150,6 +161,14 @@ public class Deployment {
 
     public void setRequestedBy(final IdentityRef requestedBy) {
         this.requestedBy = requestedBy;
+    }
+
+    public Date getScheduledDeploymentTime() {
+        return scheduledDeploymentTime;
+    }
+
+    public void setScheduledDeploymentTime(final Date scheduledDeploymentTime) {
+        this.scheduledDeploymentTime = scheduledDeploymentTime;
     }
 
     public Date getStartedOn() {

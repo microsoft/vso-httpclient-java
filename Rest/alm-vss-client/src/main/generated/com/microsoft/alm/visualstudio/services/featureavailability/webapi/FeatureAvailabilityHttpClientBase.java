@@ -44,7 +44,7 @@ public abstract class FeatureAvailabilityHttpClientBase
     /**
     * Create a new instance of FeatureAvailabilityHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
@@ -241,13 +241,16 @@ public abstract class FeatureAvailabilityHttpClientBase
      *            
      * @param checkFeatureExists 
      *            Checks if the feature exists before setting the state
+     * @param setAtApplicationLevelAlso 
+     *            
      * @return FeatureFlag
      */
     public FeatureFlag updateFeatureFlag(
         final FeatureFlagPatch state, 
         final String name, 
         final String userEmail, 
-        final Boolean checkFeatureExists) { 
+        final Boolean checkFeatureExists, 
+        final Boolean setAtApplicationLevelAlso) { 
 
         final UUID locationId = UUID.fromString("3e2b80f8-9e6f-441e-8393-005610692d9c"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
@@ -258,6 +261,7 @@ public abstract class FeatureAvailabilityHttpClientBase
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("userEmail", userEmail); //$NON-NLS-1$
         queryParameters.addIfNotNull("checkFeatureExists", checkFeatureExists); //$NON-NLS-1$
+        queryParameters.addIfNotNull("setAtApplicationLevelAlso", setAtApplicationLevelAlso); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
                                                                locationId,

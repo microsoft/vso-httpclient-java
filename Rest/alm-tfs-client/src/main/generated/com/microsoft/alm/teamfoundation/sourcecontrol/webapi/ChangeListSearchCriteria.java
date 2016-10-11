@@ -15,6 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
+import java.util.ArrayList;
 
 /** 
  * Criteria used in a search for change lists
@@ -43,9 +44,13 @@ public class ChangeListSearchCriteria {
     */
     private String fromVersion;
     /**
-    * Path of item to search under
+    * Path of item to search under. If the itemPaths memebr is used then it will take precedence over this.
     */
     private String itemPath;
+    /**
+    * List of item paths to search under. If this member is used then itemPath will be ignored.
+    */
+    private ArrayList<String> itemPaths;
     /**
     * Version of the items to search
     */
@@ -142,17 +147,31 @@ public class ChangeListSearchCriteria {
     }
 
     /**
-    * Path of item to search under
+    * Path of item to search under. If the itemPaths memebr is used then it will take precedence over this.
     */
     public String getItemPath() {
         return itemPath;
     }
 
     /**
-    * Path of item to search under
+    * Path of item to search under. If the itemPaths memebr is used then it will take precedence over this.
     */
     public void setItemPath(final String itemPath) {
         this.itemPath = itemPath;
+    }
+
+    /**
+    * List of item paths to search under. If this member is used then itemPath will be ignored.
+    */
+    public ArrayList<String> getItemPaths() {
+        return itemPaths;
+    }
+
+    /**
+    * List of item paths to search under. If this member is used then itemPath will be ignored.
+    */
+    public void setItemPaths(final ArrayList<String> itemPaths) {
+        this.itemPaths = itemPaths;
     }
 
     /**

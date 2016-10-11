@@ -15,7 +15,6 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
-import java.util.Date;
 
 /** 
  * This class contains the metadata of a service/extension posting status. Status can be associated with a pull request or an iteration.
@@ -25,7 +24,6 @@ public class GitPullRequestStatus
     extends GitStatus {
 
     private int iterationId;
-    private Date updatedDate;
 
     public int getIterationId() {
         return iterationId;
@@ -33,13 +31,5 @@ public class GitPullRequestStatus
 
     public void setIterationId(final int iterationId) {
         this.iterationId = iterationId;
-    }
-
-    public Date getUpdatedDate() {
-        return updatedDate;
-    }
-
-    public void setUpdatedDate(final Date updatedDate) {
-        this.updatedDate = updatedDate;
     }
 }

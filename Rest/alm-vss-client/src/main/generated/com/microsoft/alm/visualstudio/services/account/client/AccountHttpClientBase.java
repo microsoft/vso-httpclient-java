@@ -46,7 +46,7 @@ public abstract class AccountHttpClientBase
     /**
     * Create a new instance of AccountHttpClientBase
     *
-    * @param jaxrsClient
+    * @param clientHandler
     *            a DefaultRestClientHandler initialized with an instance of a JAX-RS Client implementation or
     *            a TEERestClientHamdler initialized with TEE HTTP client implementation
     * @param baseUrl
@@ -62,8 +62,6 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param accountId 
      *            
      * @return UUID
@@ -71,7 +69,7 @@ public abstract class AccountHttpClientBase
     public UUID deleteAccount(final UUID accountId) { 
 
         final UUID locationId = UUID.fromString("6468322a-cb4d-43a3-84ad-be573301bbb3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("accountId", accountId); //$NON-NLS-1$
@@ -86,8 +84,6 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param info 
      *            
      * @param usePrecreated 
@@ -99,7 +95,7 @@ public abstract class AccountHttpClientBase
         final Boolean usePrecreated) { 
 
         final UUID locationId = UUID.fromString("229a6a53-b428-4ffb-a835-e8f36b5b4b1e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("usePrecreated", usePrecreated); //$NON-NLS-1$
@@ -116,8 +112,6 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param accountId 
      *            
      * @param properties 
@@ -129,7 +123,7 @@ public abstract class AccountHttpClientBase
         final String properties) { 
 
         final UUID locationId = UUID.fromString("229a6a53-b428-4ffb-a835-e8f36b5b4b1e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("accountId", accountId); //$NON-NLS-1$
@@ -148,8 +142,6 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param creatorId 
      *            
      * @param ownerId 
@@ -173,7 +165,7 @@ public abstract class AccountHttpClientBase
         final Boolean includeDisabledAccounts) { 
 
         final UUID locationId = UUID.fromString("229a6a53-b428-4ffb-a835-e8f36b5b4b1e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("creatorId", creatorId); //$NON-NLS-1$
@@ -193,8 +185,6 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
      * @param account 
      *            
      * @param accountId 
@@ -205,7 +195,7 @@ public abstract class AccountHttpClientBase
         final UUID accountId) { 
 
         final UUID locationId = UUID.fromString("229a6a53-b428-4ffb-a835-e8f36b5b4b1e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("accountId", accountId); //$NON-NLS-1$

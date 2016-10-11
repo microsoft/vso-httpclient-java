@@ -26,6 +26,7 @@ public class PackageMetadata {
     * A direct link to download the package.
     */
     private String downloadUrl;
+    private String filename;
     /**
     * MD5 hash as a base64 string
     */
@@ -58,6 +59,14 @@ public class PackageMetadata {
     */
     public void setDownloadUrl(final String downloadUrl) {
         this.downloadUrl = downloadUrl;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(final String filename) {
+        this.filename = filename;
     }
 
     /**

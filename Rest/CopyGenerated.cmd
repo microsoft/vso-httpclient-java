@@ -3,7 +3,7 @@ set GENERATED_SOURCE=%1
 
 if "%GENERATED_SOURCE%" == "" goto :usage
 if "%GENERATED_SOURCE%" == "/?" goto :usage
-if "%GENERATED_SOURCE%" == "/h" goto "usage
+if "%GENERATED_SOURCE%" == "/h" goto :usage
 if "%GENERATED_SOURCE%" == "/help" goto :usage
 
 set GENERATED_TARGET=%~f2

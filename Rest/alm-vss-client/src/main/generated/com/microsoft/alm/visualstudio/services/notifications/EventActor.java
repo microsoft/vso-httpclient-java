@@ -13,7 +13,7 @@
 *   https://vsowiki.com/index.php?title=Rest_Client_Generation
 */
 
-package com.microsoft.alm.visualstudio.services.webapi;
+package com.microsoft.alm.visualstudio.services.notifications;
 
 import java.util.UUID;
 

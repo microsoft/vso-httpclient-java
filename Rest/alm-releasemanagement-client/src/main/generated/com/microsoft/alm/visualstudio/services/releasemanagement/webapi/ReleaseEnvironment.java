@@ -53,7 +53,6 @@ public class ReleaseEnvironment {
     private ShallowReference releaseDefinition;
     private String releaseDescription;
     private int releaseId;
-    private HashMap<String, String> runOptions;
     private Date scheduledDeploymentTime;
     private ArrayList<ReleaseSchedule> schedules;
     private EnvironmentStatus status;
@@ -244,14 +243,6 @@ public class ReleaseEnvironment {
 
     public void setReleaseId(final int releaseId) {
         this.releaseId = releaseId;
-    }
-
-    public HashMap<String, String> getRunOptions() {
-        return runOptions;
-    }
-
-    public void setRunOptions(final HashMap<String, String> runOptions) {
-        this.runOptions = runOptions;
     }
 
     public Date getScheduledDeploymentTime() {

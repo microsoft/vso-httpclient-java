@@ -18,7 +18,8 @@ package com.microsoft.alm.teamfoundation.workitemtracking.webapi.models;
 
 /** 
  */
-public class WorkItemTypeFieldInstance {
+public class WorkItemTypeFieldInstance
+    extends WorkItemFieldReference {
 
     private boolean alwaysRequired;
     private WorkItemFieldReference field;

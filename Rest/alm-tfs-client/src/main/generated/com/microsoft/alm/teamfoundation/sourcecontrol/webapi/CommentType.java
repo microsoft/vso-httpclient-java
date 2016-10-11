@@ -18,7 +18,7 @@ package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
 /** 
  */
-public enum GitPullRequestCommentType {
+public enum CommentType {
 
     /**
     * The comment type is not known.
@@ -40,7 +40,7 @@ public enum GitPullRequestCommentType {
 
     private int value;
 
-    private GitPullRequestCommentType(final int value) {
+    private CommentType(final int value) {
         this.value = value;
     }
 

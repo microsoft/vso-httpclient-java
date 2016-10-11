@@ -60,6 +60,10 @@ public enum PublishedExtensionFlags {
     * The Preview flag indicates that the extension is still under preview (not yet of &amp;quot;release&amp;quot; quality). These extensions may be decorated differently in the gallery and may have different policies applied to them.
     */
     PREVIEW(2048),
+    /**
+    * The Unpublished flag indicates that the extension can&amp;#039;t be installed/downloaded. Users who have installed such an extension can continue to use the extension.
+    */
+    UNPUBLISHED(4096),
     ;
 
     private int value;
@@ -114,6 +118,10 @@ public enum PublishedExtensionFlags {
 
         if (name.equals("PREVIEW")) { //$NON-NLS-1$
             return "preview"; //$NON-NLS-1$
+        }
+
+        if (name.equals("UNPUBLISHED")) { //$NON-NLS-1$
+            return "unpublished"; //$NON-NLS-1$
         }
 
         return null;

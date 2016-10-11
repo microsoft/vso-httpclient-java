@@ -65,6 +65,10 @@ public enum ExtensionQueryFlags {
     */
     INCLUDE_LATEST_VERSION_ONLY(512),
     /**
+    * This flag switches the asset uri to use GetAssetByName instead of CDN When this is used, values of base asset uri and base asset uri fallback are switched When this is used, source of asset files are pointed to Gallery service always even if CDN is available
+    */
+    USE_FALLBACK_ASSET_URI(1024),
+    /**
     * AllAttributes is designed to be a mask that defines all sub-elements of the extension should be returned.  NOTE: This is not actually All flags. This is now locked to the set defined since changing this enum would be a breaking change and would change the behavior of anyone using it. Try not to use this value when making calls to the service, instead be explicit about the options required.
     */
     ALL_ATTRIBUTES(479),
@@ -126,6 +130,10 @@ public enum ExtensionQueryFlags {
 
         if (name.equals("INCLUDE_LATEST_VERSION_ONLY")) { //$NON-NLS-1$
             return "includeLatestVersionOnly"; //$NON-NLS-1$
+        }
+
+        if (name.equals("USE_FALLBACK_ASSET_URI")) { //$NON-NLS-1$
+            return "useFallbackAssetUri"; //$NON-NLS-1$
         }
 
         if (name.equals("ALL_ATTRIBUTES")) { //$NON-NLS-1$

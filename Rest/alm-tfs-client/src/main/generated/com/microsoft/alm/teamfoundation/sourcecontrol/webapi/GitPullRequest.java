@@ -42,13 +42,13 @@ public class GitPullRequest {
     private GitCommitRef lastMergeTargetCommit;
     private UUID mergeId;
     private PullRequestAsyncStatus mergeStatus;
-    private boolean newDiscussionFormat;
     private int pullRequestId;
     private String remoteUrl;
     private GitRepository repository;
     private IdentityRefWithVote[] reviewers;
     private String sourceRefName;
     private PullRequestStatus status;
+    private boolean supportsIterations;
     private String targetRefName;
     private String title;
     private String url;
@@ -184,14 +184,6 @@ public class GitPullRequest {
         this.mergeStatus = mergeStatus;
     }
 
-    public boolean getNewDiscussionFormat() {
-        return newDiscussionFormat;
-    }
-
-    public void setNewDiscussionFormat(final boolean newDiscussionFormat) {
-        this.newDiscussionFormat = newDiscussionFormat;
-    }
-
     public int getPullRequestId() {
         return pullRequestId;
     }
@@ -238,6 +230,14 @@ public class GitPullRequest {
 
     public void setStatus(final PullRequestStatus status) {
         this.status = status;
+    }
+
+    public boolean getSupportsIterations() {
+        return supportsIterations;
+    }
+
+    public void setSupportsIterations(final boolean supportsIterations) {
+        this.supportsIterations = supportsIterations;
     }
 
     public String getTargetRefName() {
