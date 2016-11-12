@@ -64,6 +64,10 @@ public enum PublishedExtensionFlags {
     * The Unpublished flag indicates that the extension can&amp;#039;t be installed/downloaded. Users who have installed such an extension can continue to use the extension.
     */
     UNPUBLISHED(4096),
+    /**
+    * The Trial flag indicates that the extension is in Trial version. The flag is right now being used only with respec to Visual Studio extensions.
+    */
+    TRIAL(8192),
     ;
 
     private int value;
@@ -122,6 +126,10 @@ public enum PublishedExtensionFlags {
 
         if (name.equals("UNPUBLISHED")) { //$NON-NLS-1$
             return "unpublished"; //$NON-NLS-1$
+        }
+
+        if (name.equals("TRIAL")) { //$NON-NLS-1$
+            return "trial"; //$NON-NLS-1$
         }
 
         return null;

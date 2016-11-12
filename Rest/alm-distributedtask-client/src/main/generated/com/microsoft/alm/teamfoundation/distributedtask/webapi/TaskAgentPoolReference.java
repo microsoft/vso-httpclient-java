@@ -23,6 +23,10 @@ public class TaskAgentPoolReference {
 
     private int id;
     private String name;
+    /**
+    * Gets or sets the type of the pool
+    */
+    private TaskAgentPoolType poolType;
     private UUID scope;
 
     public int getId() {
@@ -39,6 +43,20 @@ public class TaskAgentPoolReference {
 
     public void setName(final String name) {
         this.name = name;
+    }
+
+    /**
+    * Gets or sets the type of the pool
+    */
+    public TaskAgentPoolType getPoolType() {
+        return poolType;
+    }
+
+    /**
+    * Gets or sets the type of the pool
+    */
+    public void setPoolType(final TaskAgentPoolType poolType) {
+        this.poolType = poolType;
     }
 
     public UUID getScope() {

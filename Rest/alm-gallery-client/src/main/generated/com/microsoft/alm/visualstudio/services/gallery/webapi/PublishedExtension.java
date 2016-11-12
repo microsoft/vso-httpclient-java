@@ -24,6 +24,7 @@ import java.util.UUID;
 public class PublishedExtension {
 
     private ArrayList<String> categories;
+    private ExtensionDeploymentTechnology deploymentType;
     private String displayName;
     private UUID extensionId;
     private String extensionName;
@@ -52,6 +53,14 @@ public class PublishedExtension {
 
     public void setCategories(final ArrayList<String> categories) {
         this.categories = categories;
+    }
+
+    public ExtensionDeploymentTechnology getDeploymentType() {
+        return deploymentType;
+    }
+
+    public void setDeploymentType(final ExtensionDeploymentTechnology deploymentType) {
+        this.deploymentType = deploymentType;
     }
 
     public String getDisplayName() {

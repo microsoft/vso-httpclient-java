@@ -40,7 +40,9 @@ import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitCommit;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitCommitChanges;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitCommitDiffs;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitCommitRef;
+import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitConflict;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitDeletedRepository;
+import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitImportRequest;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitItem;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitItemRequestData;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequest;
@@ -64,6 +66,8 @@ import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitRevert;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitStatus;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitSuggestion;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitTargetVersionDescriptor;
+import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitTreeDiff;
+import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitTreeDiffResponse;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitTreeRef;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitVersionDescriptor;
 import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.IdentityRefWithVote;
@@ -99,7 +103,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param project 
      *            Project ID or project name
@@ -121,7 +125,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -143,7 +147,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param project 
      *            Project ID or project name
@@ -165,7 +169,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -187,7 +191,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param project 
      *            Project ID
@@ -209,7 +213,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -231,7 +235,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param project 
      *            Project ID
@@ -253,7 +257,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -275,7 +279,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param repositoryId 
      *            
@@ -294,7 +298,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -315,7 +319,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param repositoryId 
      *            
@@ -334,7 +338,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -355,7 +359,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param project 
      *            Project ID or project name
@@ -377,7 +381,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -399,7 +403,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param project 
      *            Project ID or project name
@@ -421,7 +425,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -443,7 +447,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param project 
      *            Project ID
@@ -465,7 +469,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -487,7 +491,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param project 
      *            Project ID
@@ -509,7 +513,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -531,7 +535,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param repositoryId 
      *            
@@ -550,7 +554,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -571,7 +575,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param repositoryId 
      *            
@@ -590,7 +594,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -611,7 +615,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets one or more blobs in a zip file download.
+     * [Preview API 3.1-preview.1] Gets one or more blobs in a zip file download.
      * 
      * @param blobIds 
      *            
@@ -627,7 +631,7 @@ public abstract class GitHttpClientBase
         final String filename) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -648,7 +652,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets one or more blobs in a zip file download.
+     * [Preview API 3.1-preview.1] Gets one or more blobs in a zip file download.
      * 
      * @param blobIds 
      *            
@@ -664,7 +668,7 @@ public abstract class GitHttpClientBase
         final String filename) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -685,7 +689,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets one or more blobs in a zip file download.
+     * [Preview API 3.1-preview.1] Gets one or more blobs in a zip file download.
      * 
      * @param blobIds 
      *            
@@ -704,48 +708,7 @@ public abstract class GitHttpClientBase
         final String filename) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.addIfNotEmpty("filename", filename); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               blobIds,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               queryParameters,
-                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
-
-        return super.sendRequest(httpRequest, InputStream.class);
-    }
-
-    /** 
-     * Gets one or more blobs in a zip file download.
-     * 
-     * @param blobIds 
-     *            
-     * @param project 
-     *            Project ID or project name
-     * @param repositoryId 
-     *            
-     * @param filename 
-     *            
-     * @return InputStream
-     */
-    public InputStream getBlobsZip(
-        final List<String> blobIds, 
-        final String project, 
-        final UUID repositoryId, 
-        final String filename) { 
-
-        final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -767,12 +730,12 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets one or more blobs in a zip file download.
+     * [Preview API 3.1-preview.1] Gets one or more blobs in a zip file download.
      * 
      * @param blobIds 
      *            
      * @param project 
-     *            Project ID
+     *            Project ID or project name
      * @param repositoryId 
      *            
      * @param filename 
@@ -781,12 +744,12 @@ public abstract class GitHttpClientBase
      */
     public InputStream getBlobsZip(
         final List<String> blobIds, 
-        final UUID project, 
-        final String repositoryId, 
+        final String project, 
+        final UUID repositoryId, 
         final String filename) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -808,7 +771,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets one or more blobs in a zip file download.
+     * [Preview API 3.1-preview.1] Gets one or more blobs in a zip file download.
      * 
      * @param blobIds 
      *            
@@ -823,11 +786,11 @@ public abstract class GitHttpClientBase
     public InputStream getBlobsZip(
         final List<String> blobIds, 
         final UUID project, 
-        final UUID repositoryId, 
+        final String repositoryId, 
         final String filename) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -849,7 +812,48 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets one or more blobs in a zip file download.
+     * 
+     * @param blobIds 
+     *            
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param filename 
+     *            
+     * @return InputStream
+     */
+    public InputStream getBlobsZip(
+        final List<String> blobIds, 
+        final UUID project, 
+        final UUID repositoryId, 
+        final String filename) { 
+
+        final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotEmpty("filename", filename); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               blobIds,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_ZIP_TYPE);
+
+        return super.sendRequest(httpRequest, InputStream.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param project 
      *            Project ID or project name
@@ -871,7 +875,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -893,7 +897,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param project 
      *            Project ID or project name
@@ -915,7 +919,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -937,7 +941,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param project 
      *            Project ID
@@ -959,7 +963,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -981,7 +985,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param project 
      *            Project ID
@@ -1003,7 +1007,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1025,7 +1029,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param repositoryId 
      *            
@@ -1044,7 +1048,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -1065,7 +1069,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Gets a single blob.
+     * [Preview API 3.1-preview.1] Gets a single blob.
      * 
      * @param repositoryId 
      *            
@@ -1084,7 +1088,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("7b28e929-2c99-405d-9c5c-6167a06e6816"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -1105,7 +1109,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics about a single branch.
+     * [Preview API 3.1-preview.1] Retrieve statistics about a single branch.
      * 
      * @param project 
      *            Project ID or project name
@@ -1124,7 +1128,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor baseVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1145,7 +1149,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics about a single branch.
+     * [Preview API 3.1-preview.1] Retrieve statistics about a single branch.
      * 
      * @param project 
      *            Project ID or project name
@@ -1164,7 +1168,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor baseVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1185,7 +1189,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics about a single branch.
+     * [Preview API 3.1-preview.1] Retrieve statistics about a single branch.
      * 
      * @param project 
      *            Project ID
@@ -1204,7 +1208,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor baseVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1225,7 +1229,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics about a single branch.
+     * [Preview API 3.1-preview.1] Retrieve statistics about a single branch.
      * 
      * @param project 
      *            Project ID
@@ -1244,7 +1248,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor baseVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1265,7 +1269,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics about a single branch.
+     * [Preview API 3.1-preview.1] Retrieve statistics about a single branch.
      * 
      * @param repositoryId 
      *            Friendly name or guid of repository
@@ -1281,7 +1285,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor baseVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -1301,7 +1305,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics about a single branch.
+     * [Preview API 3.1-preview.1] Retrieve statistics about a single branch.
      * 
      * @param repositoryId 
      *            Friendly name or guid of repository
@@ -1317,7 +1321,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor baseVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -1337,7 +1341,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics about all branches within a repository.
+     * [Preview API 3.1-preview.1] Retrieve statistics about all branches within a repository.
      * 
      * @param project 
      *            Project ID or project name
@@ -1353,7 +1357,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor baseVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1373,7 +1377,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics about all branches within a repository.
+     * [Preview API 3.1-preview.1] Retrieve statistics about all branches within a repository.
      * 
      * @param project 
      *            Project ID or project name
@@ -1389,7 +1393,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor baseVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1409,7 +1413,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics about all branches within a repository.
+     * [Preview API 3.1-preview.1] Retrieve statistics about all branches within a repository.
      * 
      * @param project 
      *            Project ID
@@ -1425,7 +1429,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor baseVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1445,7 +1449,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics about all branches within a repository.
+     * [Preview API 3.1-preview.1] Retrieve statistics about all branches within a repository.
      * 
      * @param project 
      *            Project ID
@@ -1461,7 +1465,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor baseVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1481,7 +1485,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics about all branches within a repository.
+     * [Preview API 3.1-preview.1] Retrieve statistics about all branches within a repository.
      * 
      * @param repositoryId 
      *            Friendly name or guid of repository
@@ -1494,7 +1498,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor baseVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -1513,7 +1517,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics about all branches within a repository.
+     * [Preview API 3.1-preview.1] Retrieve statistics about all branches within a repository.
      * 
      * @param repositoryId 
      *            Friendly name or guid of repository
@@ -1526,7 +1530,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor baseVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -1545,7 +1549,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics for multiple commits
+     * [Preview API 3.1-preview.1] Retrieve statistics for multiple commits
      * 
      * @param searchCriteria 
      *            
@@ -1558,7 +1562,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -1575,7 +1579,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics for multiple commits
+     * [Preview API 3.1-preview.1] Retrieve statistics for multiple commits
      * 
      * @param searchCriteria 
      *            
@@ -1588,7 +1592,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -1605,7 +1609,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics for multiple commits
+     * [Preview API 3.1-preview.1] Retrieve statistics for multiple commits
      * 
      * @param searchCriteria 
      *            
@@ -1621,7 +1625,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1639,7 +1643,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics for multiple commits
+     * [Preview API 3.1-preview.1] Retrieve statistics for multiple commits
      * 
      * @param searchCriteria 
      *            
@@ -1655,7 +1659,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1673,7 +1677,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics for multiple commits
+     * [Preview API 3.1-preview.1] Retrieve statistics for multiple commits
      * 
      * @param searchCriteria 
      *            
@@ -1689,7 +1693,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1707,7 +1711,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve statistics for multiple commits
+     * [Preview API 3.1-preview.1] Retrieve statistics for multiple commits
      * 
      * @param searchCriteria 
      *            
@@ -1723,7 +1727,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("d5b216de-d8d5-4d32-ae76-51df755b16d3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1741,7 +1745,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve changes for a particular commit.
+     * [Preview API 3.1-preview.1] Retrieve changes for a particular commit.
      * 
      * @param project 
      *            Project ID or project name
@@ -1763,7 +1767,7 @@ public abstract class GitHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("5bf884f5-3e07-42e9-afb8-1b872267bf16"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1785,7 +1789,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve changes for a particular commit.
+     * [Preview API 3.1-preview.1] Retrieve changes for a particular commit.
      * 
      * @param project 
      *            Project ID or project name
@@ -1807,7 +1811,7 @@ public abstract class GitHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("5bf884f5-3e07-42e9-afb8-1b872267bf16"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1829,7 +1833,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve changes for a particular commit.
+     * [Preview API 3.1-preview.1] Retrieve changes for a particular commit.
      * 
      * @param project 
      *            Project ID
@@ -1851,7 +1855,7 @@ public abstract class GitHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("5bf884f5-3e07-42e9-afb8-1b872267bf16"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1873,7 +1877,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve changes for a particular commit.
+     * [Preview API 3.1-preview.1] Retrieve changes for a particular commit.
      * 
      * @param project 
      *            Project ID
@@ -1895,7 +1899,7 @@ public abstract class GitHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("5bf884f5-3e07-42e9-afb8-1b872267bf16"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1917,7 +1921,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve changes for a particular commit.
+     * [Preview API 3.1-preview.1] Retrieve changes for a particular commit.
      * 
      * @param commitId 
      *            The id of the commit.
@@ -1936,7 +1940,7 @@ public abstract class GitHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("5bf884f5-3e07-42e9-afb8-1b872267bf16"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("commitId", commitId); //$NON-NLS-1$
@@ -1957,7 +1961,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve changes for a particular commit.
+     * [Preview API 3.1-preview.1] Retrieve changes for a particular commit.
      * 
      * @param commitId 
      *            The id of the commit.
@@ -1976,7 +1980,7 @@ public abstract class GitHttpClientBase
         final Integer skip) { 
 
         final UUID locationId = UUID.fromString("5bf884f5-3e07-42e9-afb8-1b872267bf16"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("commitId", commitId); //$NON-NLS-1$
@@ -1997,7 +2001,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param cherryPickToCreate 
      *            
@@ -2013,7 +2017,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("033bad68-9a14-43d1-90e0-59cb8856fef6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2031,7 +2035,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param cherryPickToCreate 
      *            
@@ -2047,7 +2051,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("033bad68-9a14-43d1-90e0-59cb8856fef6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2065,7 +2069,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param cherryPickToCreate 
      *            
@@ -2081,7 +2085,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("033bad68-9a14-43d1-90e0-59cb8856fef6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2099,7 +2103,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param cherryPickToCreate 
      *            
@@ -2115,7 +2119,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("033bad68-9a14-43d1-90e0-59cb8856fef6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2133,7 +2137,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -2149,7 +2153,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("033bad68-9a14-43d1-90e0-59cb8856fef6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2166,7 +2170,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -2182,7 +2186,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("033bad68-9a14-43d1-90e0-59cb8856fef6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2199,7 +2203,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -2215,7 +2219,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("033bad68-9a14-43d1-90e0-59cb8856fef6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2232,7 +2236,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -2248,7 +2252,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("033bad68-9a14-43d1-90e0-59cb8856fef6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2265,7 +2269,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -2281,7 +2285,7 @@ public abstract class GitHttpClientBase
         final String refName) { 
 
         final UUID locationId = UUID.fromString("033bad68-9a14-43d1-90e0-59cb8856fef6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2301,7 +2305,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -2317,7 +2321,7 @@ public abstract class GitHttpClientBase
         final String refName) { 
 
         final UUID locationId = UUID.fromString("033bad68-9a14-43d1-90e0-59cb8856fef6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2337,7 +2341,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -2353,7 +2357,7 @@ public abstract class GitHttpClientBase
         final String refName) { 
 
         final UUID locationId = UUID.fromString("033bad68-9a14-43d1-90e0-59cb8856fef6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2373,7 +2377,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -2389,7 +2393,7 @@ public abstract class GitHttpClientBase
         final String refName) { 
 
         final UUID locationId = UUID.fromString("033bad68-9a14-43d1-90e0-59cb8856fef6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2409,7 +2413,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get differences in committed items between two commits.
+     * [Preview API 3.1-preview.1] Get differences in committed items between two commits.
      * 
      * @param project 
      *            Project ID or project name
@@ -2437,7 +2441,7 @@ public abstract class GitHttpClientBase
         final GitTargetVersionDescriptor targetVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("615588d5-c0c7-4b88-88f8-e625306446e8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2461,7 +2465,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get differences in committed items between two commits.
+     * [Preview API 3.1-preview.1] Get differences in committed items between two commits.
      * 
      * @param project 
      *            Project ID or project name
@@ -2489,7 +2493,7 @@ public abstract class GitHttpClientBase
         final GitTargetVersionDescriptor targetVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("615588d5-c0c7-4b88-88f8-e625306446e8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2513,7 +2517,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get differences in committed items between two commits.
+     * [Preview API 3.1-preview.1] Get differences in committed items between two commits.
      * 
      * @param project 
      *            Project ID
@@ -2541,7 +2545,7 @@ public abstract class GitHttpClientBase
         final GitTargetVersionDescriptor targetVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("615588d5-c0c7-4b88-88f8-e625306446e8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2565,7 +2569,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get differences in committed items between two commits.
+     * [Preview API 3.1-preview.1] Get differences in committed items between two commits.
      * 
      * @param project 
      *            Project ID
@@ -2593,7 +2597,7 @@ public abstract class GitHttpClientBase
         final GitTargetVersionDescriptor targetVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("615588d5-c0c7-4b88-88f8-e625306446e8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2617,7 +2621,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get differences in committed items between two commits.
+     * [Preview API 3.1-preview.1] Get differences in committed items between two commits.
      * 
      * @param repositoryId 
      *            Friendly name or guid of repository
@@ -2642,7 +2646,7 @@ public abstract class GitHttpClientBase
         final GitTargetVersionDescriptor targetVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("615588d5-c0c7-4b88-88f8-e625306446e8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -2665,7 +2669,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get differences in committed items between two commits.
+     * [Preview API 3.1-preview.1] Get differences in committed items between two commits.
      * 
      * @param repositoryId 
      *            Friendly name or guid of repository
@@ -2690,7 +2694,7 @@ public abstract class GitHttpClientBase
         final GitTargetVersionDescriptor targetVersionDescriptor) { 
 
         final UUID locationId = UUID.fromString("615588d5-c0c7-4b88-88f8-e625306446e8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -2713,7 +2717,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a particular commit.
+     * [Preview API 3.1-preview.1] Retrieve a particular commit.
      * 
      * @param project 
      *            Project ID or project name
@@ -2732,7 +2736,7 @@ public abstract class GitHttpClientBase
         final Integer changeCount) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2753,7 +2757,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a particular commit.
+     * [Preview API 3.1-preview.1] Retrieve a particular commit.
      * 
      * @param project 
      *            Project ID or project name
@@ -2772,7 +2776,7 @@ public abstract class GitHttpClientBase
         final Integer changeCount) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2793,7 +2797,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a particular commit.
+     * [Preview API 3.1-preview.1] Retrieve a particular commit.
      * 
      * @param project 
      *            Project ID
@@ -2812,7 +2816,7 @@ public abstract class GitHttpClientBase
         final Integer changeCount) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2833,7 +2837,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a particular commit.
+     * [Preview API 3.1-preview.1] Retrieve a particular commit.
      * 
      * @param project 
      *            Project ID
@@ -2852,7 +2856,7 @@ public abstract class GitHttpClientBase
         final Integer changeCount) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2873,7 +2877,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a particular commit.
+     * [Preview API 3.1-preview.1] Retrieve a particular commit.
      * 
      * @param commitId 
      *            The id of the commit.
@@ -2889,7 +2893,7 @@ public abstract class GitHttpClientBase
         final Integer changeCount) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("commitId", commitId); //$NON-NLS-1$
@@ -2909,7 +2913,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a particular commit.
+     * [Preview API 3.1-preview.1] Retrieve a particular commit.
      * 
      * @param commitId 
      *            The id of the commit.
@@ -2925,7 +2929,7 @@ public abstract class GitHttpClientBase
         final Integer changeCount) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("commitId", commitId); //$NON-NLS-1$
@@ -2945,7 +2949,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git commits for a project
+     * [Preview API 3.1-preview.1] Retrieve git commits for a project
      * 
      * @param project 
      *            Project ID or project name
@@ -2967,7 +2971,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2989,7 +2993,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git commits for a project
+     * [Preview API 3.1-preview.1] Retrieve git commits for a project
      * 
      * @param project 
      *            Project ID or project name
@@ -3011,7 +3015,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3033,7 +3037,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git commits for a project
+     * [Preview API 3.1-preview.1] Retrieve git commits for a project
      * 
      * @param project 
      *            Project ID
@@ -3055,7 +3059,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3077,7 +3081,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git commits for a project
+     * [Preview API 3.1-preview.1] Retrieve git commits for a project
      * 
      * @param project 
      *            Project ID
@@ -3099,7 +3103,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3121,7 +3125,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git commits for a project
+     * [Preview API 3.1-preview.1] Retrieve git commits for a project
      * 
      * @param repositoryId 
      *            The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
@@ -3140,7 +3144,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -3161,7 +3165,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git commits for a project
+     * [Preview API 3.1-preview.1] Retrieve git commits for a project
      * 
      * @param repositoryId 
      *            The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
@@ -3180,7 +3184,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -3201,7 +3205,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a list of commits associated with a particular push.
+     * [Preview API 3.1-preview.1] Retrieve a list of commits associated with a particular push.
      * 
      * @param project 
      *            Project ID or project name
@@ -3226,7 +3230,7 @@ public abstract class GitHttpClientBase
         final Boolean includeLinks) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3249,7 +3253,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a list of commits associated with a particular push.
+     * [Preview API 3.1-preview.1] Retrieve a list of commits associated with a particular push.
      * 
      * @param project 
      *            Project ID or project name
@@ -3274,7 +3278,7 @@ public abstract class GitHttpClientBase
         final Boolean includeLinks) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3297,7 +3301,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a list of commits associated with a particular push.
+     * [Preview API 3.1-preview.1] Retrieve a list of commits associated with a particular push.
      * 
      * @param project 
      *            Project ID
@@ -3322,7 +3326,7 @@ public abstract class GitHttpClientBase
         final Boolean includeLinks) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3345,7 +3349,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a list of commits associated with a particular push.
+     * [Preview API 3.1-preview.1] Retrieve a list of commits associated with a particular push.
      * 
      * @param project 
      *            Project ID
@@ -3370,7 +3374,7 @@ public abstract class GitHttpClientBase
         final Boolean includeLinks) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3393,7 +3397,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a list of commits associated with a particular push.
+     * [Preview API 3.1-preview.1] Retrieve a list of commits associated with a particular push.
      * 
      * @param repositoryId 
      *            The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
@@ -3415,7 +3419,7 @@ public abstract class GitHttpClientBase
         final Boolean includeLinks) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -3437,7 +3441,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a list of commits associated with a particular push.
+     * [Preview API 3.1-preview.1] Retrieve a list of commits associated with a particular push.
      * 
      * @param repositoryId 
      *            The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
@@ -3459,7 +3463,7 @@ public abstract class GitHttpClientBase
         final Boolean includeLinks) { 
 
         final UUID locationId = UUID.fromString("c2570c3b-5b3f-41b8-98bf-5407bfde8d58"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -3481,7 +3485,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git commits for a project
+     * [Preview API 3.1-preview.1] Retrieve git commits for a project
      * 
      * @param searchCriteria 
      *            Search options
@@ -3503,7 +3507,7 @@ public abstract class GitHttpClientBase
         final Boolean includeStatuses) { 
 
         final UUID locationId = UUID.fromString("6400dfb2-0bcb-462b-b992-5a57f8f1416c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -3526,7 +3530,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git commits for a project
+     * [Preview API 3.1-preview.1] Retrieve git commits for a project
      * 
      * @param searchCriteria 
      *            Search options
@@ -3548,7 +3552,7 @@ public abstract class GitHttpClientBase
         final Boolean includeStatuses) { 
 
         final UUID locationId = UUID.fromString("6400dfb2-0bcb-462b-b992-5a57f8f1416c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -3571,7 +3575,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git commits for a project
+     * [Preview API 3.1-preview.1] Retrieve git commits for a project
      * 
      * @param searchCriteria 
      *            Search options
@@ -3596,7 +3600,7 @@ public abstract class GitHttpClientBase
         final Boolean includeStatuses) { 
 
         final UUID locationId = UUID.fromString("6400dfb2-0bcb-462b-b992-5a57f8f1416c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3620,7 +3624,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git commits for a project
+     * [Preview API 3.1-preview.1] Retrieve git commits for a project
      * 
      * @param searchCriteria 
      *            Search options
@@ -3645,7 +3649,7 @@ public abstract class GitHttpClientBase
         final Boolean includeStatuses) { 
 
         final UUID locationId = UUID.fromString("6400dfb2-0bcb-462b-b992-5a57f8f1416c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3669,7 +3673,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git commits for a project
+     * [Preview API 3.1-preview.1] Retrieve git commits for a project
      * 
      * @param searchCriteria 
      *            Search options
@@ -3694,7 +3698,7 @@ public abstract class GitHttpClientBase
         final Boolean includeStatuses) { 
 
         final UUID locationId = UUID.fromString("6400dfb2-0bcb-462b-b992-5a57f8f1416c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3718,7 +3722,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git commits for a project
+     * [Preview API 3.1-preview.1] Retrieve git commits for a project
      * 
      * @param searchCriteria 
      *            Search options
@@ -3743,7 +3747,7 @@ public abstract class GitHttpClientBase
         final Boolean includeStatuses) { 
 
         final UUID locationId = UUID.fromString("6400dfb2-0bcb-462b-b992-5a57f8f1416c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3767,7 +3771,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve deleted git repositories.
+     * [Preview API 3.1-preview.1] Retrieve deleted git repositories.
      * 
      * @param project 
      *            Project ID or project name
@@ -3776,7 +3780,7 @@ public abstract class GitHttpClientBase
     public ArrayList<GitDeletedRepository> getDeletedRepositories(final String project) { 
 
         final UUID locationId = UUID.fromString("2b6869c4-cb25-42b5-b7a3-0d3e6be0a11a"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3791,7 +3795,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve deleted git repositories.
+     * [Preview API 3.1-preview.1] Retrieve deleted git repositories.
      * 
      * @param project 
      *            Project ID
@@ -3800,7 +3804,7 @@ public abstract class GitHttpClientBase
     public ArrayList<GitDeletedRepository> getDeletedRepositories(final UUID project) { 
 
         final UUID locationId = UUID.fromString("2b6869c4-cb25-42b5-b7a3-0d3e6be0a11a"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3815,7 +3819,599 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Create an import request
+     * 
+     * @param importRequest 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param validateParameters 
+     *            
+     * @return GitImportRequest
+     */
+    public GitImportRequest createImportRequest(
+        final GitImportRequest importRequest, 
+        final String project, 
+        final String repositoryId, 
+        final Boolean validateParameters) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("validateParameters", validateParameters); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               importRequest,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitImportRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Create an import request
+     * 
+     * @param importRequest 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param validateParameters 
+     *            
+     * @return GitImportRequest
+     */
+    public GitImportRequest createImportRequest(
+        final GitImportRequest importRequest, 
+        final String project, 
+        final UUID repositoryId, 
+        final Boolean validateParameters) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("validateParameters", validateParameters); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               importRequest,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitImportRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Create an import request
+     * 
+     * @param importRequest 
+     *            
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param validateParameters 
+     *            
+     * @return GitImportRequest
+     */
+    public GitImportRequest createImportRequest(
+        final GitImportRequest importRequest, 
+        final UUID project, 
+        final String repositoryId, 
+        final Boolean validateParameters) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("validateParameters", validateParameters); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               importRequest,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitImportRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Create an import request
+     * 
+     * @param importRequest 
+     *            
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param validateParameters 
+     *            
+     * @return GitImportRequest
+     */
+    public GitImportRequest createImportRequest(
+        final GitImportRequest importRequest, 
+        final UUID project, 
+        final UUID repositoryId, 
+        final Boolean validateParameters) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("validateParameters", validateParameters); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               importRequest,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitImportRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve a particular import request
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param importRequestId 
+     *            
+     * @return GitImportRequest
+     */
+    public GitImportRequest getImportRequest(
+        final String project, 
+        final String repositoryId, 
+        final int importRequestId) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("importRequestId", importRequestId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitImportRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve a particular import request
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param importRequestId 
+     *            
+     * @return GitImportRequest
+     */
+    public GitImportRequest getImportRequest(
+        final String project, 
+        final UUID repositoryId, 
+        final int importRequestId) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("importRequestId", importRequestId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitImportRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve a particular import request
+     * 
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param importRequestId 
+     *            
+     * @return GitImportRequest
+     */
+    public GitImportRequest getImportRequest(
+        final UUID project, 
+        final String repositoryId, 
+        final int importRequestId) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("importRequestId", importRequestId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitImportRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve a particular import request
+     * 
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param importRequestId 
+     *            
+     * @return GitImportRequest
+     */
+    public GitImportRequest getImportRequest(
+        final UUID project, 
+        final UUID repositoryId, 
+        final int importRequestId) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("importRequestId", importRequestId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitImportRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve import requests for a repository
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param includeAbandoned 
+     *            
+     * @return ArrayList&lt;GitImportRequest&gt;
+     */
+    public ArrayList<GitImportRequest> queryImportRequests(
+        final String project, 
+        final String repositoryId, 
+        final Boolean includeAbandoned) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("includeAbandoned", includeAbandoned); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitImportRequest>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve import requests for a repository
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param includeAbandoned 
+     *            
+     * @return ArrayList&lt;GitImportRequest&gt;
+     */
+    public ArrayList<GitImportRequest> queryImportRequests(
+        final String project, 
+        final UUID repositoryId, 
+        final Boolean includeAbandoned) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("includeAbandoned", includeAbandoned); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitImportRequest>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve import requests for a repository
+     * 
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param includeAbandoned 
+     *            
+     * @return ArrayList&lt;GitImportRequest&gt;
+     */
+    public ArrayList<GitImportRequest> queryImportRequests(
+        final UUID project, 
+        final String repositoryId, 
+        final Boolean includeAbandoned) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("includeAbandoned", includeAbandoned); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitImportRequest>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve import requests for a repository
+     * 
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param includeAbandoned 
+     *            
+     * @return ArrayList&lt;GitImportRequest&gt;
+     */
+    public ArrayList<GitImportRequest> queryImportRequests(
+        final UUID project, 
+        final UUID repositoryId, 
+        final Boolean includeAbandoned) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("includeAbandoned", includeAbandoned); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitImportRequest>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Update an import request
+     * 
+     * @param importRequestToUpdate 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param importRequestId 
+     *            
+     * @return GitImportRequest
+     */
+    public GitImportRequest updateImportRequest(
+        final GitImportRequest importRequestToUpdate, 
+        final String project, 
+        final String repositoryId, 
+        final int importRequestId) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("importRequestId", importRequestId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               importRequestToUpdate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitImportRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Update an import request
+     * 
+     * @param importRequestToUpdate 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param importRequestId 
+     *            
+     * @return GitImportRequest
+     */
+    public GitImportRequest updateImportRequest(
+        final GitImportRequest importRequestToUpdate, 
+        final String project, 
+        final UUID repositoryId, 
+        final int importRequestId) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("importRequestId", importRequestId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               importRequestToUpdate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitImportRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Update an import request
+     * 
+     * @param importRequestToUpdate 
+     *            
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param importRequestId 
+     *            
+     * @return GitImportRequest
+     */
+    public GitImportRequest updateImportRequest(
+        final GitImportRequest importRequestToUpdate, 
+        final UUID project, 
+        final String repositoryId, 
+        final int importRequestId) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("importRequestId", importRequestId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               importRequestToUpdate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitImportRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Update an import request
+     * 
+     * @param importRequestToUpdate 
+     *            
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param importRequestId 
+     *            
+     * @return GitImportRequest
+     */
+    public GitImportRequest updateImportRequest(
+        final GitImportRequest importRequestToUpdate, 
+        final UUID project, 
+        final UUID repositoryId, 
+        final int importRequestId) { 
+
+        final UUID locationId = UUID.fromString("01828ddc-3600-4a41-8633-99b3a73a0eb3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("importRequestId", importRequestId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               importRequestToUpdate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitImportRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -3849,7 +4445,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3875,7 +4471,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -3909,7 +4505,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3935,7 +4531,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -3969,7 +4565,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -3995,7 +4591,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -4029,7 +4625,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4055,7 +4651,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param repositoryId 
      *            
@@ -4086,7 +4682,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -4111,7 +4707,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param repositoryId 
      *            
@@ -4142,7 +4738,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -4167,7 +4763,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -4201,7 +4797,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4227,7 +4823,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -4261,7 +4857,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4287,7 +4883,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -4321,7 +4917,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4347,7 +4943,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -4381,7 +4977,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4407,7 +5003,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param repositoryId 
      *            
@@ -4438,7 +5034,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -4463,7 +5059,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param repositoryId 
      *            
@@ -4494,7 +5090,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -4519,7 +5115,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -4553,7 +5149,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4579,7 +5175,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -4613,7 +5209,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4639,7 +5235,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -4673,7 +5269,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4699,7 +5295,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -4733,7 +5329,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4759,7 +5355,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param repositoryId 
      *            
@@ -4790,7 +5386,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -4815,7 +5411,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param repositoryId 
      *            
@@ -4846,7 +5442,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -4871,7 +5467,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -4905,7 +5501,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4931,7 +5527,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -4965,7 +5561,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -4991,7 +5587,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -5025,7 +5621,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5051,7 +5647,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -5085,7 +5681,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5111,7 +5707,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param repositoryId 
      *            
@@ -5142,7 +5738,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -5167,7 +5763,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param repositoryId 
      *            
@@ -5198,7 +5794,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -5223,7 +5819,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -5257,7 +5853,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5283,7 +5879,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID or project name
@@ -5317,7 +5913,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5343,7 +5939,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -5377,7 +5973,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5403,7 +5999,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param project 
      *            Project ID
@@ -5437,7 +6033,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5463,7 +6059,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param repositoryId 
      *            
@@ -5494,7 +6090,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -5519,7 +6115,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
+     * [Preview API 3.1-preview.1] Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn&#039;t apply to zipped content which is always returned as a download.
      * 
      * @param repositoryId 
      *            
@@ -5550,7 +6146,7 @@ public abstract class GitHttpClientBase
         final GitVersionDescriptor versionDescriptor) { 
 
         final UUID locationId = UUID.fromString("fb93c0db-47ed-4a31-8c20-47552878fb44"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -5575,7 +6171,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
+     * [Preview API 3.1-preview.1] Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
      * 
      * @param requestData 
      *            
@@ -5588,7 +6184,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("630fd2e4-fb88-4f85-ad21-13f3fd1fbca9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -5605,7 +6201,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
+     * [Preview API 3.1-preview.1] Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
      * 
      * @param requestData 
      *            
@@ -5618,7 +6214,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("630fd2e4-fb88-4f85-ad21-13f3fd1fbca9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -5635,7 +6231,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
+     * [Preview API 3.1-preview.1] Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
      * 
      * @param requestData 
      *            
@@ -5651,7 +6247,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("630fd2e4-fb88-4f85-ad21-13f3fd1fbca9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5669,7 +6265,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
+     * [Preview API 3.1-preview.1] Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
      * 
      * @param requestData 
      *            
@@ -5685,7 +6281,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("630fd2e4-fb88-4f85-ad21-13f3fd1fbca9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5703,7 +6299,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
+     * [Preview API 3.1-preview.1] Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
      * 
      * @param requestData 
      *            
@@ -5719,7 +6315,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("630fd2e4-fb88-4f85-ad21-13f3fd1fbca9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5737,7 +6333,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
+     * [Preview API 3.1-preview.1] Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path
      * 
      * @param requestData 
      *            
@@ -5753,7 +6349,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("630fd2e4-fb88-4f85-ad21-13f3fd1fbca9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5771,7 +6367,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get the commits for an iteration.
+     * [Preview API 3.1-preview.1] Get the commits for an iteration.
      * 
      * @param repositoryId 
      *            
@@ -5787,7 +6383,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("e7ea0883-095f-4926-b5fb-f24691c26fb9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -5804,7 +6400,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get the commits for an iteration.
+     * [Preview API 3.1-preview.1] Get the commits for an iteration.
      * 
      * @param repositoryId 
      *            
@@ -5820,7 +6416,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("e7ea0883-095f-4926-b5fb-f24691c26fb9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -5837,7 +6433,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get the commits for an iteration.
+     * [Preview API 3.1-preview.1] Get the commits for an iteration.
      * 
      * @param project 
      *            Project ID or project name
@@ -5856,7 +6452,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("e7ea0883-095f-4926-b5fb-f24691c26fb9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5874,7 +6470,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get the commits for an iteration.
+     * [Preview API 3.1-preview.1] Get the commits for an iteration.
      * 
      * @param project 
      *            Project ID or project name
@@ -5893,7 +6489,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("e7ea0883-095f-4926-b5fb-f24691c26fb9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5911,7 +6507,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get the commits for an iteration.
+     * [Preview API 3.1-preview.1] Get the commits for an iteration.
      * 
      * @param project 
      *            Project ID
@@ -5930,7 +6526,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("e7ea0883-095f-4926-b5fb-f24691c26fb9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5948,7 +6544,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get the commits for an iteration.
+     * [Preview API 3.1-preview.1] Get the commits for an iteration.
      * 
      * @param project 
      *            Project ID
@@ -5967,7 +6563,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("e7ea0883-095f-4926-b5fb-f24691c26fb9"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -5985,7 +6581,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve pull request&#039;s commits
+     * [Preview API 3.1-preview.1] Retrieve pull request&#039;s commits
      * 
      * @param repositoryId 
      *            
@@ -5998,7 +6594,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("52823034-34a8-4576-922c-8d8b77e9e4c4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -6014,7 +6610,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve pull request&#039;s commits
+     * [Preview API 3.1-preview.1] Retrieve pull request&#039;s commits
      * 
      * @param repositoryId 
      *            
@@ -6027,7 +6623,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("52823034-34a8-4576-922c-8d8b77e9e4c4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -6043,7 +6639,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve pull request&#039;s commits
+     * [Preview API 3.1-preview.1] Retrieve pull request&#039;s commits
      * 
      * @param project 
      *            Project ID or project name
@@ -6059,7 +6655,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("52823034-34a8-4576-922c-8d8b77e9e4c4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6076,7 +6672,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve pull request&#039;s commits
+     * [Preview API 3.1-preview.1] Retrieve pull request&#039;s commits
      * 
      * @param project 
      *            Project ID or project name
@@ -6092,7 +6688,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("52823034-34a8-4576-922c-8d8b77e9e4c4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6109,7 +6705,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve pull request&#039;s commits
+     * [Preview API 3.1-preview.1] Retrieve pull request&#039;s commits
      * 
      * @param project 
      *            Project ID
@@ -6125,7 +6721,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("52823034-34a8-4576-922c-8d8b77e9e4c4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6142,7 +6738,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve pull request&#039;s commits
+     * [Preview API 3.1-preview.1] Retrieve pull request&#039;s commits
      * 
      * @param project 
      *            Project ID
@@ -6158,7 +6754,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("52823034-34a8-4576-922c-8d8b77e9e4c4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6175,6 +6771,746 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1] Retrieve one conflict for a pull request by ID
+     * 
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param conflictId 
+     *            
+     * @return GitConflict
+     */
+    public GitConflict getPullRequestConflict(
+        final String repositoryId, 
+        final int pullRequestId, 
+        final int conflictId) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("conflictId", conflictId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitConflict.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve one conflict for a pull request by ID
+     * 
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param conflictId 
+     *            
+     * @return GitConflict
+     */
+    public GitConflict getPullRequestConflict(
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final int conflictId) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("conflictId", conflictId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitConflict.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve one conflict for a pull request by ID
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param conflictId 
+     *            
+     * @return GitConflict
+     */
+    public GitConflict getPullRequestConflict(
+        final String project, 
+        final String repositoryId, 
+        final int pullRequestId, 
+        final int conflictId) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("conflictId", conflictId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitConflict.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve one conflict for a pull request by ID
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param conflictId 
+     *            
+     * @return GitConflict
+     */
+    public GitConflict getPullRequestConflict(
+        final String project, 
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final int conflictId) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("conflictId", conflictId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitConflict.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve one conflict for a pull request by ID
+     * 
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param conflictId 
+     *            
+     * @return GitConflict
+     */
+    public GitConflict getPullRequestConflict(
+        final UUID project, 
+        final String repositoryId, 
+        final int pullRequestId, 
+        final int conflictId) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("conflictId", conflictId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitConflict.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve one conflict for a pull request by ID
+     * 
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param conflictId 
+     *            
+     * @return GitConflict
+     */
+    public GitConflict getPullRequestConflict(
+        final UUID project, 
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final int conflictId) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("conflictId", conflictId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitConflict.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve all conflicts for a pull request
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param skip 
+     *            
+     * @param top 
+     *            
+     * @param includeObsolete 
+     *            
+     * @return ArrayList&lt;GitConflict&gt;
+     */
+    public ArrayList<GitConflict> getPullRequestConflicts(
+        final String project, 
+        final String repositoryId, 
+        final int pullRequestId, 
+        final Integer skip, 
+        final Integer top, 
+        final Boolean includeObsolete) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
+        queryParameters.addIfNotNull("includeObsolete", includeObsolete); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitConflict>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve all conflicts for a pull request
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param skip 
+     *            
+     * @param top 
+     *            
+     * @param includeObsolete 
+     *            
+     * @return ArrayList&lt;GitConflict&gt;
+     */
+    public ArrayList<GitConflict> getPullRequestConflicts(
+        final String project, 
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final Integer skip, 
+        final Integer top, 
+        final Boolean includeObsolete) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
+        queryParameters.addIfNotNull("includeObsolete", includeObsolete); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitConflict>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve all conflicts for a pull request
+     * 
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param skip 
+     *            
+     * @param top 
+     *            
+     * @param includeObsolete 
+     *            
+     * @return ArrayList&lt;GitConflict&gt;
+     */
+    public ArrayList<GitConflict> getPullRequestConflicts(
+        final UUID project, 
+        final String repositoryId, 
+        final int pullRequestId, 
+        final Integer skip, 
+        final Integer top, 
+        final Boolean includeObsolete) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
+        queryParameters.addIfNotNull("includeObsolete", includeObsolete); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitConflict>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve all conflicts for a pull request
+     * 
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param skip 
+     *            
+     * @param top 
+     *            
+     * @param includeObsolete 
+     *            
+     * @return ArrayList&lt;GitConflict&gt;
+     */
+    public ArrayList<GitConflict> getPullRequestConflicts(
+        final UUID project, 
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final Integer skip, 
+        final Integer top, 
+        final Boolean includeObsolete) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
+        queryParameters.addIfNotNull("includeObsolete", includeObsolete); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitConflict>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve all conflicts for a pull request
+     * 
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param skip 
+     *            
+     * @param top 
+     *            
+     * @param includeObsolete 
+     *            
+     * @return ArrayList&lt;GitConflict&gt;
+     */
+    public ArrayList<GitConflict> getPullRequestConflicts(
+        final String repositoryId, 
+        final int pullRequestId, 
+        final Integer skip, 
+        final Integer top, 
+        final Boolean includeObsolete) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
+        queryParameters.addIfNotNull("includeObsolete", includeObsolete); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitConflict>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Retrieve all conflicts for a pull request
+     * 
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param skip 
+     *            
+     * @param top 
+     *            
+     * @param includeObsolete 
+     *            
+     * @return ArrayList&lt;GitConflict&gt;
+     */
+    public ArrayList<GitConflict> getPullRequestConflicts(
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final Integer skip, 
+        final Integer top, 
+        final Boolean includeObsolete) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("$skip", skip); //$NON-NLS-1$
+        queryParameters.addIfNotNull("$top", top); //$NON-NLS-1$
+        queryParameters.addIfNotNull("includeObsolete", includeObsolete); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitConflict>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Update merge conflict resolution
+     * 
+     * @param conflict 
+     *            
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param conflictId 
+     *            
+     * @return GitConflict
+     */
+    public GitConflict updatePullRequestConflict(
+        final GitConflict conflict, 
+        final String repositoryId, 
+        final int pullRequestId, 
+        final int conflictId) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("conflictId", conflictId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               conflict,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitConflict.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Update merge conflict resolution
+     * 
+     * @param conflict 
+     *            
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param conflictId 
+     *            
+     * @return GitConflict
+     */
+    public GitConflict updatePullRequestConflict(
+        final GitConflict conflict, 
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final int conflictId) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("conflictId", conflictId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               conflict,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitConflict.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Update merge conflict resolution
+     * 
+     * @param conflict 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param conflictId 
+     *            
+     * @return GitConflict
+     */
+    public GitConflict updatePullRequestConflict(
+        final GitConflict conflict, 
+        final String project, 
+        final String repositoryId, 
+        final int pullRequestId, 
+        final int conflictId) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("conflictId", conflictId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               conflict,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitConflict.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Update merge conflict resolution
+     * 
+     * @param conflict 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param conflictId 
+     *            
+     * @return GitConflict
+     */
+    public GitConflict updatePullRequestConflict(
+        final GitConflict conflict, 
+        final String project, 
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final int conflictId) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("conflictId", conflictId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               conflict,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitConflict.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Update merge conflict resolution
+     * 
+     * @param conflict 
+     *            
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param conflictId 
+     *            
+     * @return GitConflict
+     */
+    public GitConflict updatePullRequestConflict(
+        final GitConflict conflict, 
+        final UUID project, 
+        final String repositoryId, 
+        final int pullRequestId, 
+        final int conflictId) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("conflictId", conflictId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               conflict,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitConflict.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Update merge conflict resolution
+     * 
+     * @param conflict 
+     *            
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param conflictId 
+     *            
+     * @return GitConflict
+     */
+    public GitConflict updatePullRequestConflict(
+        final GitConflict conflict, 
+        final UUID project, 
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final int conflictId) { 
+
+        final UUID locationId = UUID.fromString("d840fb74-bbef-42d3-b250-564604c054a4"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("conflictId", conflictId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               conflict,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitConflict.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param repositoryId 
@@ -6201,7 +7537,7 @@ public abstract class GitHttpClientBase
         final Integer compareTo) { 
 
         final UUID locationId = UUID.fromString("4216bdcf-b6b1-4d59-8b82-c34cc183fc8b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6225,6 +7561,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param repositoryId 
@@ -6251,7 +7589,7 @@ public abstract class GitHttpClientBase
         final Integer compareTo) { 
 
         final UUID locationId = UUID.fromString("4216bdcf-b6b1-4d59-8b82-c34cc183fc8b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6275,6 +7613,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param repositoryId 
@@ -6301,7 +7641,7 @@ public abstract class GitHttpClientBase
         final Integer compareTo) { 
 
         final UUID locationId = UUID.fromString("4216bdcf-b6b1-4d59-8b82-c34cc183fc8b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6325,6 +7665,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param repositoryId 
@@ -6351,7 +7693,7 @@ public abstract class GitHttpClientBase
         final Integer compareTo) { 
 
         final UUID locationId = UUID.fromString("4216bdcf-b6b1-4d59-8b82-c34cc183fc8b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6375,6 +7717,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @param pullRequestId 
@@ -6398,7 +7742,7 @@ public abstract class GitHttpClientBase
         final Integer compareTo) { 
 
         final UUID locationId = UUID.fromString("4216bdcf-b6b1-4d59-8b82-c34cc183fc8b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -6421,6 +7765,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @param pullRequestId 
@@ -6444,7 +7790,7 @@ public abstract class GitHttpClientBase
         final Integer compareTo) { 
 
         final UUID locationId = UUID.fromString("4216bdcf-b6b1-4d59-8b82-c34cc183fc8b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -6467,6 +7813,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @param pullRequestId 
@@ -6481,7 +7829,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("d43911ee-6958-46b0-a42b-8445b8a0d004"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -6498,6 +7846,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @param pullRequestId 
@@ -6512,7 +7862,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("d43911ee-6958-46b0-a42b-8445b8a0d004"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -6529,6 +7879,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param repositoryId 
@@ -6546,7 +7898,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("d43911ee-6958-46b0-a42b-8445b8a0d004"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6564,6 +7916,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param repositoryId 
@@ -6581,7 +7935,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("d43911ee-6958-46b0-a42b-8445b8a0d004"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6599,6 +7953,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param repositoryId 
@@ -6616,7 +7972,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("d43911ee-6958-46b0-a42b-8445b8a0d004"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6634,6 +7990,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param repositoryId 
@@ -6651,7 +8009,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("d43911ee-6958-46b0-a42b-8445b8a0d004"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6669,6 +8027,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param repositoryId 
@@ -6686,7 +8046,7 @@ public abstract class GitHttpClientBase
         final Boolean includeCommits) { 
 
         final UUID locationId = UUID.fromString("d43911ee-6958-46b0-a42b-8445b8a0d004"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6707,6 +8067,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param repositoryId 
@@ -6724,7 +8086,7 @@ public abstract class GitHttpClientBase
         final Boolean includeCommits) { 
 
         final UUID locationId = UUID.fromString("d43911ee-6958-46b0-a42b-8445b8a0d004"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6745,6 +8107,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param repositoryId 
@@ -6762,7 +8126,7 @@ public abstract class GitHttpClientBase
         final Boolean includeCommits) { 
 
         final UUID locationId = UUID.fromString("d43911ee-6958-46b0-a42b-8445b8a0d004"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6783,6 +8147,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param repositoryId 
@@ -6800,7 +8166,7 @@ public abstract class GitHttpClientBase
         final Boolean includeCommits) { 
 
         final UUID locationId = UUID.fromString("d43911ee-6958-46b0-a42b-8445b8a0d004"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6821,6 +8187,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @param pullRequestId 
@@ -6835,7 +8203,7 @@ public abstract class GitHttpClientBase
         final Boolean includeCommits) { 
 
         final UUID locationId = UUID.fromString("d43911ee-6958-46b0-a42b-8445b8a0d004"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -6855,6 +8223,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @param pullRequestId 
@@ -6869,7 +8239,7 @@ public abstract class GitHttpClientBase
         final Boolean includeCommits) { 
 
         final UUID locationId = UUID.fromString("d43911ee-6958-46b0-a42b-8445b8a0d004"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -6889,7 +8259,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query for pull requests
+     * [Preview API 3.1-preview.1] Query for pull requests
      * 
      * @param queries 
      *            
@@ -6902,7 +8272,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("b3a6eebe-9cf0-49ea-b6cb-1a4c5f5007b0"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -6919,7 +8289,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query for pull requests
+     * [Preview API 3.1-preview.1] Query for pull requests
      * 
      * @param queries 
      *            
@@ -6932,7 +8302,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("b3a6eebe-9cf0-49ea-b6cb-1a4c5f5007b0"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -6949,7 +8319,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query for pull requests
+     * [Preview API 3.1-preview.1] Query for pull requests
      * 
      * @param queries 
      *            
@@ -6965,7 +8335,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("b3a6eebe-9cf0-49ea-b6cb-1a4c5f5007b0"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -6983,7 +8353,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query for pull requests
+     * [Preview API 3.1-preview.1] Query for pull requests
      * 
      * @param queries 
      *            
@@ -6999,7 +8369,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("b3a6eebe-9cf0-49ea-b6cb-1a4c5f5007b0"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7017,7 +8387,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query for pull requests
+     * [Preview API 3.1-preview.1] Query for pull requests
      * 
      * @param queries 
      *            
@@ -7033,7 +8403,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("b3a6eebe-9cf0-49ea-b6cb-1a4c5f5007b0"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7051,7 +8421,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query for pull requests
+     * [Preview API 3.1-preview.1] Query for pull requests
      * 
      * @param queries 
      *            
@@ -7067,7 +8437,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("b3a6eebe-9cf0-49ea-b6cb-1a4c5f5007b0"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7085,7 +8455,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds a reviewer to a git pull request
+     * [Preview API 3.1-preview.1] Adds a reviewer to a git pull request
      * 
      * @param reviewer 
      *            
@@ -7104,7 +8474,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -7123,7 +8493,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds a reviewer to a git pull request
+     * [Preview API 3.1-preview.1] Adds a reviewer to a git pull request
      * 
      * @param reviewer 
      *            
@@ -7142,7 +8512,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -7161,7 +8531,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds a reviewer to a git pull request
+     * [Preview API 3.1-preview.1] Adds a reviewer to a git pull request
      * 
      * @param reviewer 
      *            
@@ -7183,49 +8553,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
-        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
-        routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               reviewer,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, IdentityRefWithVote.class);
-    }
-
-    /** 
-     * Adds a reviewer to a git pull request
-     * 
-     * @param reviewer 
-     *            
-     * @param project 
-     *            Project ID or project name
-     * @param repositoryId 
-     *            
-     * @param pullRequestId 
-     *            
-     * @param reviewerId 
-     *            
-     * @return IdentityRefWithVote
-     */
-    public IdentityRefWithVote createPullRequestReviewer(
-        final IdentityRefWithVote reviewer, 
-        final String project, 
-        final UUID repositoryId, 
-        final int pullRequestId, 
-        final String reviewerId) { 
-
-        final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7245,7 +8573,49 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds a reviewer to a git pull request
+     * [Preview API 3.1-preview.1] Adds a reviewer to a git pull request
+     * 
+     * @param reviewer 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param reviewerId 
+     *            
+     * @return IdentityRefWithVote
+     */
+    public IdentityRefWithVote createPullRequestReviewer(
+        final IdentityRefWithVote reviewer, 
+        final String project, 
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final String reviewerId) { 
+
+        final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("reviewerId", reviewerId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewer,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, IdentityRefWithVote.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Adds a reviewer to a git pull request
      * 
      * @param reviewer 
      *            
@@ -7267,7 +8637,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7287,7 +8657,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds a reviewer to a git pull request
+     * [Preview API 3.1-preview.1] Adds a reviewer to a git pull request
      * 
      * @param reviewer 
      *            
@@ -7309,7 +8679,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7329,7 +8699,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds reviewers to a git pull request
+     * [Preview API 3.1-preview.1] Adds reviewers to a git pull request
      * 
      * @param reviewers 
      *            
@@ -7345,7 +8715,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -7363,7 +8733,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds reviewers to a git pull request
+     * [Preview API 3.1-preview.1] Adds reviewers to a git pull request
      * 
      * @param reviewers 
      *            
@@ -7379,7 +8749,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -7397,7 +8767,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds reviewers to a git pull request
+     * [Preview API 3.1-preview.1] Adds reviewers to a git pull request
      * 
      * @param reviewers 
      *            
@@ -7416,45 +8786,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
-        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               reviewers,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
-    }
-
-    /** 
-     * Adds reviewers to a git pull request
-     * 
-     * @param reviewers 
-     *            
-     * @param project 
-     *            Project ID or project name
-     * @param repositoryId 
-     *            
-     * @param pullRequestId 
-     *            
-     * @return ArrayList&lt;IdentityRefWithVote&gt;
-     */
-    public ArrayList<IdentityRefWithVote> createPullRequestReviewers(
-        final IdentityRef[] reviewers, 
-        final String project, 
-        final UUID repositoryId, 
-        final int pullRequestId) { 
-
-        final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7473,12 +8805,12 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds reviewers to a git pull request
+     * [Preview API 3.1-preview.1] Adds reviewers to a git pull request
      * 
      * @param reviewers 
      *            
      * @param project 
-     *            Project ID
+     *            Project ID or project name
      * @param repositoryId 
      *            
      * @param pullRequestId 
@@ -7487,12 +8819,12 @@ public abstract class GitHttpClientBase
      */
     public ArrayList<IdentityRefWithVote> createPullRequestReviewers(
         final IdentityRef[] reviewers, 
-        final UUID project, 
-        final String repositoryId, 
+        final String project, 
+        final UUID repositoryId, 
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7511,7 +8843,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds reviewers to a git pull request
+     * [Preview API 3.1-preview.1] Adds reviewers to a git pull request
      * 
      * @param reviewers 
      *            
@@ -7526,11 +8858,11 @@ public abstract class GitHttpClientBase
     public ArrayList<IdentityRefWithVote> createPullRequestReviewers(
         final IdentityRef[] reviewers, 
         final UUID project, 
-        final UUID repositoryId, 
+        final String repositoryId, 
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7549,7 +8881,45 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds reviewers to a git pull request
+     * [Preview API 3.1-preview.1] Adds reviewers to a git pull request
+     * 
+     * @param reviewers 
+     *            
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @return ArrayList&lt;IdentityRefWithVote&gt;
+     */
+    public ArrayList<IdentityRefWithVote> createPullRequestReviewers(
+        final IdentityRef[] reviewers, 
+        final UUID project, 
+        final UUID repositoryId, 
+        final int pullRequestId) { 
+
+        final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               reviewers,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<IdentityRefWithVote>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Adds reviewers to a git pull request
      * 
      * @param repositoryId 
      *            
@@ -7564,7 +8934,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -7581,7 +8951,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds reviewers to a git pull request
+     * [Preview API 3.1-preview.1] Adds reviewers to a git pull request
      * 
      * @param repositoryId 
      *            
@@ -7596,7 +8966,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -7613,7 +8983,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds reviewers to a git pull request
+     * [Preview API 3.1-preview.1] Adds reviewers to a git pull request
      * 
      * @param project 
      *            Project ID or project name
@@ -7631,7 +9001,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7649,7 +9019,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds reviewers to a git pull request
+     * [Preview API 3.1-preview.1] Adds reviewers to a git pull request
      * 
      * @param project 
      *            Project ID or project name
@@ -7667,7 +9037,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7685,7 +9055,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds reviewers to a git pull request
+     * [Preview API 3.1-preview.1] Adds reviewers to a git pull request
      * 
      * @param project 
      *            Project ID
@@ -7703,7 +9073,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7721,7 +9091,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Adds reviewers to a git pull request
+     * [Preview API 3.1-preview.1] Adds reviewers to a git pull request
      * 
      * @param project 
      *            Project ID
@@ -7739,7 +9109,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7757,7 +9127,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a reviewer from a pull request
+     * [Preview API 3.1-preview.1] Retrieve a reviewer from a pull request
      * 
      * @param repositoryId 
      *            
@@ -7773,7 +9143,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -7790,7 +9160,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a reviewer from a pull request
+     * [Preview API 3.1-preview.1] Retrieve a reviewer from a pull request
      * 
      * @param repositoryId 
      *            
@@ -7806,7 +9176,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -7823,7 +9193,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a reviewer from a pull request
+     * [Preview API 3.1-preview.1] Retrieve a reviewer from a pull request
      * 
      * @param project 
      *            Project ID or project name
@@ -7842,7 +9212,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7860,7 +9230,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a reviewer from a pull request
+     * [Preview API 3.1-preview.1] Retrieve a reviewer from a pull request
      * 
      * @param project 
      *            Project ID or project name
@@ -7879,7 +9249,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7897,7 +9267,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a reviewer from a pull request
+     * [Preview API 3.1-preview.1] Retrieve a reviewer from a pull request
      * 
      * @param project 
      *            Project ID
@@ -7916,7 +9286,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7934,7 +9304,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a reviewer from a pull request
+     * [Preview API 3.1-preview.1] Retrieve a reviewer from a pull request
      * 
      * @param project 
      *            Project ID
@@ -7953,7 +9323,7 @@ public abstract class GitHttpClientBase
         final String reviewerId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -7971,7 +9341,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request reviewers
+     * [Preview API 3.1-preview.1] Retrieve a pull request reviewers
      * 
      * @param repositoryId 
      *            
@@ -7984,7 +9354,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -8000,7 +9370,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request reviewers
+     * [Preview API 3.1-preview.1] Retrieve a pull request reviewers
      * 
      * @param repositoryId 
      *            
@@ -8013,7 +9383,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -8029,7 +9399,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request reviewers
+     * [Preview API 3.1-preview.1] Retrieve a pull request reviewers
      * 
      * @param project 
      *            Project ID or project name
@@ -8045,7 +9415,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8062,7 +9432,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request reviewers
+     * [Preview API 3.1-preview.1] Retrieve a pull request reviewers
      * 
      * @param project 
      *            Project ID or project name
@@ -8078,7 +9448,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8095,7 +9465,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request reviewers
+     * [Preview API 3.1-preview.1] Retrieve a pull request reviewers
      * 
      * @param project 
      *            Project ID
@@ -8111,7 +9481,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8128,7 +9498,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request reviewers
+     * [Preview API 3.1-preview.1] Retrieve a pull request reviewers
      * 
      * @param project 
      *            Project ID
@@ -8144,7 +9514,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("4b6702c7-aa35-4b89-9c96-b9abf6d3e540"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8161,7 +9531,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request using it&#039;s ID
+     * [Preview API 3.1-preview.1] Get a pull request using it&#039;s ID
      * 
      * @param pullRequestId 
      *            the Id of the pull request
@@ -8170,7 +9540,7 @@ public abstract class GitHttpClientBase
     public GitPullRequest getPullRequestById(final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("01a46dea-7d46-4d40-bc84-319e7c260d99"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
@@ -8185,7 +9555,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query pull requests by project
+     * [Preview API 3.1-preview.1] Query pull requests by project
      * 
      * @param project 
      *            Project ID or project name
@@ -8207,7 +9577,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("a5d28130-9cd2-40fa-9f08-902e7daa9efb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8229,7 +9599,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query pull requests by project
+     * [Preview API 3.1-preview.1] Query pull requests by project
      * 
      * @param project 
      *            Project ID
@@ -8251,7 +9621,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("a5d28130-9cd2-40fa-9f08-902e7daa9efb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8273,7 +9643,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a git pull request
+     * [Preview API 3.1-preview.1] Create a git pull request
      * 
      * @param gitPullRequestToCreate 
      *            
@@ -8286,7 +9656,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -8303,7 +9673,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a git pull request
+     * [Preview API 3.1-preview.1] Create a git pull request
      * 
      * @param gitPullRequestToCreate 
      *            
@@ -8316,7 +9686,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -8333,7 +9703,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a git pull request
+     * [Preview API 3.1-preview.1] Create a git pull request
      * 
      * @param gitPullRequestToCreate 
      *            
@@ -8349,7 +9719,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8367,7 +9737,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a git pull request
+     * [Preview API 3.1-preview.1] Create a git pull request
      * 
      * @param gitPullRequestToCreate 
      *            
@@ -8383,7 +9753,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8401,7 +9771,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a git pull request
+     * [Preview API 3.1-preview.1] Create a git pull request
      * 
      * @param gitPullRequestToCreate 
      *            
@@ -8417,7 +9787,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8435,7 +9805,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a git pull request
+     * [Preview API 3.1-preview.1] Create a git pull request
      * 
      * @param gitPullRequestToCreate 
      *            
@@ -8451,7 +9821,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8469,7 +9839,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request
+     * [Preview API 3.1-preview.1] Retrieve a pull request
      * 
      * @param project 
      *            Project ID or project name
@@ -8500,7 +9870,7 @@ public abstract class GitHttpClientBase
         final Boolean includeWorkItemRefs) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8525,7 +9895,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request
+     * [Preview API 3.1-preview.1] Retrieve a pull request
      * 
      * @param project 
      *            Project ID or project name
@@ -8556,7 +9926,7 @@ public abstract class GitHttpClientBase
         final Boolean includeWorkItemRefs) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8581,7 +9951,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request
+     * [Preview API 3.1-preview.1] Retrieve a pull request
      * 
      * @param project 
      *            Project ID
@@ -8612,7 +9982,7 @@ public abstract class GitHttpClientBase
         final Boolean includeWorkItemRefs) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8637,7 +10007,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request
+     * [Preview API 3.1-preview.1] Retrieve a pull request
      * 
      * @param project 
      *            Project ID
@@ -8668,7 +10038,7 @@ public abstract class GitHttpClientBase
         final Boolean includeWorkItemRefs) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8693,7 +10063,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request
+     * [Preview API 3.1-preview.1] Retrieve a pull request
      * 
      * @param repositoryId 
      *            
@@ -8721,7 +10091,7 @@ public abstract class GitHttpClientBase
         final Boolean includeWorkItemRefs) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -8745,7 +10115,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request
+     * [Preview API 3.1-preview.1] Retrieve a pull request
      * 
      * @param repositoryId 
      *            
@@ -8773,7 +10143,7 @@ public abstract class GitHttpClientBase
         final Boolean includeWorkItemRefs) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -8797,7 +10167,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query for pull requests
+     * [Preview API 3.1-preview.1] Query for pull requests
      * 
      * @param project 
      *            Project ID or project name
@@ -8822,7 +10192,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8845,7 +10215,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query for pull requests
+     * [Preview API 3.1-preview.1] Query for pull requests
      * 
      * @param project 
      *            Project ID or project name
@@ -8870,7 +10240,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8893,7 +10263,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query for pull requests
+     * [Preview API 3.1-preview.1] Query for pull requests
      * 
      * @param project 
      *            Project ID
@@ -8918,7 +10288,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8941,7 +10311,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query for pull requests
+     * [Preview API 3.1-preview.1] Query for pull requests
      * 
      * @param project 
      *            Project ID
@@ -8966,7 +10336,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -8989,7 +10359,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query for pull requests
+     * [Preview API 3.1-preview.1] Query for pull requests
      * 
      * @param repositoryId 
      *            
@@ -9011,7 +10381,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -9033,7 +10403,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Query for pull requests
+     * [Preview API 3.1-preview.1] Query for pull requests
      * 
      * @param repositoryId 
      *            
@@ -9055,7 +10425,7 @@ public abstract class GitHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -9077,7 +10447,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Updates a pull request
+     * [Preview API 3.1-preview.1] Updates a pull request
      * 
      * @param gitPullRequestToUpdate 
      *            
@@ -9093,7 +10463,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -9111,7 +10481,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Updates a pull request
+     * [Preview API 3.1-preview.1] Updates a pull request
      * 
      * @param gitPullRequestToUpdate 
      *            
@@ -9127,7 +10497,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -9145,7 +10515,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Updates a pull request
+     * [Preview API 3.1-preview.1] Updates a pull request
      * 
      * @param gitPullRequestToUpdate 
      *            
@@ -9164,45 +10534,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
-        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               gitPullRequestToUpdate,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, GitPullRequest.class);
-    }
-
-    /** 
-     * Updates a pull request
-     * 
-     * @param gitPullRequestToUpdate 
-     *            
-     * @param project 
-     *            Project ID or project name
-     * @param repositoryId 
-     *            
-     * @param pullRequestId 
-     *            
-     * @return GitPullRequest
-     */
-    public GitPullRequest updatePullRequest(
-        final GitPullRequest gitPullRequestToUpdate, 
-        final String project, 
-        final UUID repositoryId, 
-        final int pullRequestId) { 
-
-        final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9221,12 +10553,12 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Updates a pull request
+     * [Preview API 3.1-preview.1] Updates a pull request
      * 
      * @param gitPullRequestToUpdate 
      *            
      * @param project 
-     *            Project ID
+     *            Project ID or project name
      * @param repositoryId 
      *            
      * @param pullRequestId 
@@ -9235,12 +10567,12 @@ public abstract class GitHttpClientBase
      */
     public GitPullRequest updatePullRequest(
         final GitPullRequest gitPullRequestToUpdate, 
-        final UUID project, 
-        final String repositoryId, 
+        final String project, 
+        final UUID repositoryId, 
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9259,7 +10591,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Updates a pull request
+     * [Preview API 3.1-preview.1] Updates a pull request
      * 
      * @param gitPullRequestToUpdate 
      *            
@@ -9274,11 +10606,11 @@ public abstract class GitHttpClientBase
     public GitPullRequest updatePullRequest(
         final GitPullRequest gitPullRequestToUpdate, 
         final UUID project, 
-        final UUID repositoryId, 
+        final String repositoryId, 
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9297,7 +10629,45 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Create a pull request iteration status
+     * [Preview API 3.1-preview.1] Updates a pull request
+     * 
+     * @param gitPullRequestToUpdate 
+     *            
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @return GitPullRequest
+     */
+    public GitPullRequest updatePullRequest(
+        final GitPullRequest gitPullRequestToUpdate, 
+        final UUID project, 
+        final UUID repositoryId, 
+        final int pullRequestId) { 
+
+        final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToUpdate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitPullRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Create a pull request iteration status
      * 
      * @param status 
      *            
@@ -9316,7 +10686,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -9335,7 +10705,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Create a pull request iteration status
+     * [Preview API 3.1-preview.1] Create a pull request iteration status
      * 
      * @param status 
      *            
@@ -9354,7 +10724,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -9373,7 +10743,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Create a pull request iteration status
+     * [Preview API 3.1-preview.1] Create a pull request iteration status
      * 
      * @param status 
      *            
@@ -9395,7 +10765,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9415,7 +10785,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Create a pull request iteration status
+     * [Preview API 3.1-preview.1] Create a pull request iteration status
      * 
      * @param status 
      *            
@@ -9437,7 +10807,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9457,7 +10827,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Create a pull request iteration status
+     * [Preview API 3.1-preview.1] Create a pull request iteration status
      * 
      * @param status 
      *            
@@ -9479,7 +10849,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9499,7 +10869,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Create a pull request iteration status
+     * [Preview API 3.1-preview.1] Create a pull request iteration status
      * 
      * @param status 
      *            
@@ -9521,7 +10891,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9541,7 +10911,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get the specific pull request iteration status.
+     * [Preview API 3.1-preview.1] Get the specific pull request iteration status.
      * 
      * @param repositoryId 
      *            
@@ -9560,7 +10930,7 @@ public abstract class GitHttpClientBase
         final int statusId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -9578,7 +10948,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get the specific pull request iteration status.
+     * [Preview API 3.1-preview.1] Get the specific pull request iteration status.
      * 
      * @param repositoryId 
      *            
@@ -9597,7 +10967,7 @@ public abstract class GitHttpClientBase
         final int statusId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -9615,7 +10985,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get the specific pull request iteration status.
+     * [Preview API 3.1-preview.1] Get the specific pull request iteration status.
      * 
      * @param project 
      *            Project ID or project name
@@ -9637,7 +11007,7 @@ public abstract class GitHttpClientBase
         final int statusId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9656,7 +11026,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get the specific pull request iteration status.
+     * [Preview API 3.1-preview.1] Get the specific pull request iteration status.
      * 
      * @param project 
      *            Project ID or project name
@@ -9678,7 +11048,7 @@ public abstract class GitHttpClientBase
         final int statusId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9697,7 +11067,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get the specific pull request iteration status.
+     * [Preview API 3.1-preview.1] Get the specific pull request iteration status.
      * 
      * @param project 
      *            Project ID
@@ -9719,7 +11089,7 @@ public abstract class GitHttpClientBase
         final int statusId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9738,7 +11108,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get the specific pull request iteration status.
+     * [Preview API 3.1-preview.1] Get the specific pull request iteration status.
      * 
      * @param project 
      *            Project ID
@@ -9760,7 +11130,7 @@ public abstract class GitHttpClientBase
         final int statusId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9779,7 +11149,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get all the statuses associated with a pull request iteration.
+     * [Preview API 3.1-preview.1] Get all the statuses associated with a pull request iteration.
      * 
      * @param repositoryId 
      *            
@@ -9795,7 +11165,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -9812,7 +11182,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get all the statuses associated with a pull request iteration.
+     * [Preview API 3.1-preview.1] Get all the statuses associated with a pull request iteration.
      * 
      * @param repositoryId 
      *            
@@ -9828,7 +11198,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -9845,7 +11215,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get all the statuses associated with a pull request iteration.
+     * [Preview API 3.1-preview.1] Get all the statuses associated with a pull request iteration.
      * 
      * @param project 
      *            Project ID or project name
@@ -9864,7 +11234,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9882,7 +11252,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get all the statuses associated with a pull request iteration.
+     * [Preview API 3.1-preview.1] Get all the statuses associated with a pull request iteration.
      * 
      * @param project 
      *            Project ID or project name
@@ -9901,7 +11271,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9919,7 +11289,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get all the statuses associated with a pull request iteration.
+     * [Preview API 3.1-preview.1] Get all the statuses associated with a pull request iteration.
      * 
      * @param project 
      *            Project ID
@@ -9938,7 +11308,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9956,7 +11326,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get all the statuses associated with a pull request iteration.
+     * [Preview API 3.1-preview.1] Get all the statuses associated with a pull request iteration.
      * 
      * @param project 
      *            Project ID
@@ -9975,7 +11345,7 @@ public abstract class GitHttpClientBase
         final int iterationId) { 
 
         final UUID locationId = UUID.fromString("75cf11c5-979f-4038-a76e-058a06adf2bf"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -9993,7 +11363,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Create a pull request status
+     * [Preview API 3.1-preview.1] Create a pull request status
      * 
      * @param status 
      *            
@@ -10009,7 +11379,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -10027,7 +11397,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Create a pull request status
+     * [Preview API 3.1-preview.1] Create a pull request status
      * 
      * @param status 
      *            
@@ -10043,7 +11413,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -10061,7 +11431,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Create a pull request status
+     * [Preview API 3.1-preview.1] Create a pull request status
      * 
      * @param status 
      *            
@@ -10080,45 +11450,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
-        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               status,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, GitPullRequestStatus.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1] Create a pull request status
-     * 
-     * @param status 
-     *            
-     * @param project 
-     *            Project ID or project name
-     * @param repositoryId 
-     *            
-     * @param pullRequestId 
-     *            
-     * @return GitPullRequestStatus
-     */
-    public GitPullRequestStatus createPullRequestStatus(
-        final GitPullRequestStatus status, 
-        final String project, 
-        final UUID repositoryId, 
-        final int pullRequestId) { 
-
-        final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10137,12 +11469,12 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Create a pull request status
+     * [Preview API 3.1-preview.1] Create a pull request status
      * 
      * @param status 
      *            
      * @param project 
-     *            Project ID
+     *            Project ID or project name
      * @param repositoryId 
      *            
      * @param pullRequestId 
@@ -10151,12 +11483,12 @@ public abstract class GitHttpClientBase
      */
     public GitPullRequestStatus createPullRequestStatus(
         final GitPullRequestStatus status, 
-        final UUID project, 
-        final String repositoryId, 
+        final String project, 
+        final UUID repositoryId, 
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10175,7 +11507,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Create a pull request status
+     * [Preview API 3.1-preview.1] Create a pull request status
      * 
      * @param status 
      *            
@@ -10190,11 +11522,11 @@ public abstract class GitHttpClientBase
     public GitPullRequestStatus createPullRequestStatus(
         final GitPullRequestStatus status, 
         final UUID project, 
-        final UUID repositoryId, 
+        final String repositoryId, 
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10213,7 +11545,45 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get the specific pull request status.
+     * [Preview API 3.1-preview.1] Create a pull request status
+     * 
+     * @param status 
+     *            
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @return GitPullRequestStatus
+     */
+    public GitPullRequestStatus createPullRequestStatus(
+        final GitPullRequestStatus status, 
+        final UUID project, 
+        final UUID repositoryId, 
+        final int pullRequestId) { 
+
+        final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               status,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitPullRequestStatus.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Get the specific pull request status.
      * 
      * @param repositoryId 
      *            
@@ -10229,7 +11599,7 @@ public abstract class GitHttpClientBase
         final int statusId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -10246,7 +11616,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get the specific pull request status.
+     * [Preview API 3.1-preview.1] Get the specific pull request status.
      * 
      * @param repositoryId 
      *            
@@ -10262,7 +11632,7 @@ public abstract class GitHttpClientBase
         final int statusId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -10279,7 +11649,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get the specific pull request status.
+     * [Preview API 3.1-preview.1] Get the specific pull request status.
      * 
      * @param project 
      *            Project ID or project name
@@ -10298,7 +11668,7 @@ public abstract class GitHttpClientBase
         final int statusId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10316,7 +11686,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get the specific pull request status.
+     * [Preview API 3.1-preview.1] Get the specific pull request status.
      * 
      * @param project 
      *            Project ID or project name
@@ -10335,7 +11705,7 @@ public abstract class GitHttpClientBase
         final int statusId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10353,7 +11723,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get the specific pull request status.
+     * [Preview API 3.1-preview.1] Get the specific pull request status.
      * 
      * @param project 
      *            Project ID
@@ -10372,7 +11742,7 @@ public abstract class GitHttpClientBase
         final int statusId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10390,7 +11760,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get the specific pull request status.
+     * [Preview API 3.1-preview.1] Get the specific pull request status.
      * 
      * @param project 
      *            Project ID
@@ -10409,7 +11779,7 @@ public abstract class GitHttpClientBase
         final int statusId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10427,7 +11797,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get all the statuses associated with a pull request.
+     * [Preview API 3.1-preview.1] Get all the statuses associated with a pull request.
      * 
      * @param repositoryId 
      *            
@@ -10440,7 +11810,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -10456,7 +11826,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get all the statuses associated with a pull request.
+     * [Preview API 3.1-preview.1] Get all the statuses associated with a pull request.
      * 
      * @param repositoryId 
      *            
@@ -10469,7 +11839,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -10485,7 +11855,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get all the statuses associated with a pull request.
+     * [Preview API 3.1-preview.1] Get all the statuses associated with a pull request.
      * 
      * @param project 
      *            Project ID or project name
@@ -10501,7 +11871,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10518,7 +11888,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get all the statuses associated with a pull request.
+     * [Preview API 3.1-preview.1] Get all the statuses associated with a pull request.
      * 
      * @param project 
      *            Project ID or project name
@@ -10534,7 +11904,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10551,7 +11921,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get all the statuses associated with a pull request.
+     * [Preview API 3.1-preview.1] Get all the statuses associated with a pull request.
      * 
      * @param project 
      *            Project ID
@@ -10567,7 +11937,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10584,7 +11954,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Get all the statuses associated with a pull request.
+     * [Preview API 3.1-preview.1] Get all the statuses associated with a pull request.
      * 
      * @param project 
      *            Project ID
@@ -10600,7 +11970,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("b5f6bb4f-8d1e-4d79-8d11-4c9172c99c35"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10617,7 +11987,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a pull request review comment
+     * [Preview API 3.1-preview.1] Create a pull request review comment
      * 
      * @param comment 
      *            
@@ -10636,7 +12006,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -10655,7 +12025,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a pull request review comment
+     * [Preview API 3.1-preview.1] Create a pull request review comment
      * 
      * @param comment 
      *            
@@ -10674,7 +12044,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -10693,7 +12063,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a pull request review comment
+     * [Preview API 3.1-preview.1] Create a pull request review comment
      * 
      * @param comment 
      *            
@@ -10715,49 +12085,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
-        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
-        routeValues.put("threadId", threadId); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               comment,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, Comment.class);
-    }
-
-    /** 
-     * Create a pull request review comment
-     * 
-     * @param comment 
-     *            
-     * @param project 
-     *            Project ID or project name
-     * @param repositoryId 
-     *            
-     * @param pullRequestId 
-     *            
-     * @param threadId 
-     *            
-     * @return Comment
-     */
-    public Comment createComment(
-        final Comment comment, 
-        final String project, 
-        final UUID repositoryId, 
-        final int pullRequestId, 
-        final int threadId) { 
-
-        final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10777,7 +12105,49 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a pull request review comment
+     * [Preview API 3.1-preview.1] Create a pull request review comment
+     * 
+     * @param comment 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param pullRequestId 
+     *            
+     * @param threadId 
+     *            
+     * @return Comment
+     */
+    public Comment createComment(
+        final Comment comment, 
+        final String project, 
+        final UUID repositoryId, 
+        final int pullRequestId, 
+        final int threadId) { 
+
+        final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        routeValues.put("pullRequestId", pullRequestId); //$NON-NLS-1$
+        routeValues.put("threadId", threadId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               comment,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, Comment.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Create a pull request review comment
      * 
      * @param comment 
      *            
@@ -10799,7 +12169,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10819,7 +12189,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a pull request review comment
+     * [Preview API 3.1-preview.1] Create a pull request review comment
      * 
      * @param comment 
      *            
@@ -10841,7 +12211,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10861,7 +12231,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Delete a pull request comment by id for a pull request
+     * [Preview API 3.1-preview.1] Delete a pull request comment by id for a pull request
      * 
      * @param repositoryId 
      *            
@@ -10879,7 +12249,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -10897,7 +12267,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Delete a pull request comment by id for a pull request
+     * [Preview API 3.1-preview.1] Delete a pull request comment by id for a pull request
      * 
      * @param repositoryId 
      *            
@@ -10915,7 +12285,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -10933,7 +12303,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Delete a pull request comment by id for a pull request
+     * [Preview API 3.1-preview.1] Delete a pull request comment by id for a pull request
      * 
      * @param project 
      *            Project ID or project name
@@ -10954,7 +12324,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -10973,7 +12343,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Delete a pull request comment by id for a pull request
+     * [Preview API 3.1-preview.1] Delete a pull request comment by id for a pull request
      * 
      * @param project 
      *            Project ID or project name
@@ -10994,7 +12364,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11013,7 +12383,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Delete a pull request comment by id for a pull request
+     * [Preview API 3.1-preview.1] Delete a pull request comment by id for a pull request
      * 
      * @param project 
      *            Project ID
@@ -11034,7 +12404,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11053,7 +12423,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Delete a pull request comment by id for a pull request
+     * [Preview API 3.1-preview.1] Delete a pull request comment by id for a pull request
      * 
      * @param project 
      *            Project ID
@@ -11074,7 +12444,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11093,7 +12463,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request comment by id for a pull request
+     * [Preview API 3.1-preview.1] Get a pull request comment by id for a pull request
      * 
      * @param repositoryId 
      *            
@@ -11112,7 +12482,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -11130,7 +12500,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request comment by id for a pull request
+     * [Preview API 3.1-preview.1] Get a pull request comment by id for a pull request
      * 
      * @param repositoryId 
      *            
@@ -11149,7 +12519,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -11167,7 +12537,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request comment by id for a pull request
+     * [Preview API 3.1-preview.1] Get a pull request comment by id for a pull request
      * 
      * @param project 
      *            Project ID or project name
@@ -11189,7 +12559,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11208,7 +12578,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request comment by id for a pull request
+     * [Preview API 3.1-preview.1] Get a pull request comment by id for a pull request
      * 
      * @param project 
      *            Project ID or project name
@@ -11230,7 +12600,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11249,7 +12619,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request comment by id for a pull request
+     * [Preview API 3.1-preview.1] Get a pull request comment by id for a pull request
      * 
      * @param project 
      *            Project ID
@@ -11271,7 +12641,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11290,7 +12660,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request comment by id for a pull request
+     * [Preview API 3.1-preview.1] Get a pull request comment by id for a pull request
      * 
      * @param project 
      *            Project ID
@@ -11312,7 +12682,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11331,7 +12701,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get all pull request comments in a thread.
+     * [Preview API 3.1-preview.1] Get all pull request comments in a thread.
      * 
      * @param repositoryId 
      *            
@@ -11347,7 +12717,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -11364,7 +12734,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get all pull request comments in a thread.
+     * [Preview API 3.1-preview.1] Get all pull request comments in a thread.
      * 
      * @param repositoryId 
      *            
@@ -11380,7 +12750,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -11397,7 +12767,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get all pull request comments in a thread.
+     * [Preview API 3.1-preview.1] Get all pull request comments in a thread.
      * 
      * @param project 
      *            Project ID or project name
@@ -11416,7 +12786,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11434,7 +12804,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get all pull request comments in a thread.
+     * [Preview API 3.1-preview.1] Get all pull request comments in a thread.
      * 
      * @param project 
      *            Project ID or project name
@@ -11453,7 +12823,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11471,7 +12841,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get all pull request comments in a thread.
+     * [Preview API 3.1-preview.1] Get all pull request comments in a thread.
      * 
      * @param project 
      *            Project ID
@@ -11490,7 +12860,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11508,7 +12878,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get all pull request comments in a thread.
+     * [Preview API 3.1-preview.1] Get all pull request comments in a thread.
      * 
      * @param project 
      *            Project ID
@@ -11527,7 +12897,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11545,7 +12915,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Update a pull request review comment thread
+     * [Preview API 3.1-preview.1] Update a pull request review comment thread
      * 
      * @param comment 
      *            
@@ -11567,7 +12937,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -11587,7 +12957,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Update a pull request review comment thread
+     * [Preview API 3.1-preview.1] Update a pull request review comment thread
      * 
      * @param comment 
      *            
@@ -11609,7 +12979,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -11629,7 +12999,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Update a pull request review comment thread
+     * [Preview API 3.1-preview.1] Update a pull request review comment thread
      * 
      * @param comment 
      *            
@@ -11654,7 +13024,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11675,7 +13045,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Update a pull request review comment thread
+     * [Preview API 3.1-preview.1] Update a pull request review comment thread
      * 
      * @param comment 
      *            
@@ -11700,7 +13070,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11721,7 +13091,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Update a pull request review comment thread
+     * [Preview API 3.1-preview.1] Update a pull request review comment thread
      * 
      * @param comment 
      *            
@@ -11746,7 +13116,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11767,7 +13137,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Update a pull request review comment thread
+     * [Preview API 3.1-preview.1] Update a pull request review comment thread
      * 
      * @param comment 
      *            
@@ -11792,7 +13162,7 @@ public abstract class GitHttpClientBase
         final int commentId) { 
 
         final UUID locationId = UUID.fromString("965a3ec7-5ed8-455a-bdcb-835a5ea7fe7b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11813,7 +13183,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a pull request review comment thread
+     * [Preview API 3.1-preview.1] Create a pull request review comment thread
      * 
      * @param commentThread 
      *            
@@ -11829,7 +13199,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -11847,7 +13217,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a pull request review comment thread
+     * [Preview API 3.1-preview.1] Create a pull request review comment thread
      * 
      * @param commentThread 
      *            
@@ -11863,7 +13233,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -11881,7 +13251,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a pull request review comment thread
+     * [Preview API 3.1-preview.1] Create a pull request review comment thread
      * 
      * @param commentThread 
      *            
@@ -11900,7 +13270,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11919,7 +13289,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a pull request review comment thread
+     * [Preview API 3.1-preview.1] Create a pull request review comment thread
      * 
      * @param commentThread 
      *            
@@ -11938,7 +13308,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11957,7 +13327,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a pull request review comment thread
+     * [Preview API 3.1-preview.1] Create a pull request review comment thread
      * 
      * @param commentThread 
      *            
@@ -11976,7 +13346,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -11995,7 +13365,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a pull request review comment thread
+     * [Preview API 3.1-preview.1] Create a pull request review comment thread
      * 
      * @param commentThread 
      *            
@@ -12014,7 +13384,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12033,7 +13403,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request comment thread by id for a pull request
+     * [Preview API 3.1-preview.1] Get a pull request comment thread by id for a pull request
      * 
      * @param project 
      *            Project ID or project name
@@ -12058,7 +13428,7 @@ public abstract class GitHttpClientBase
         final Integer baseIteration) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12081,7 +13451,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request comment thread by id for a pull request
+     * [Preview API 3.1-preview.1] Get a pull request comment thread by id for a pull request
      * 
      * @param project 
      *            Project ID or project name
@@ -12106,7 +13476,7 @@ public abstract class GitHttpClientBase
         final Integer baseIteration) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12129,7 +13499,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request comment thread by id for a pull request
+     * [Preview API 3.1-preview.1] Get a pull request comment thread by id for a pull request
      * 
      * @param project 
      *            Project ID
@@ -12154,7 +13524,7 @@ public abstract class GitHttpClientBase
         final Integer baseIteration) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12177,7 +13547,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request comment thread by id for a pull request
+     * [Preview API 3.1-preview.1] Get a pull request comment thread by id for a pull request
      * 
      * @param project 
      *            Project ID
@@ -12202,7 +13572,7 @@ public abstract class GitHttpClientBase
         final Integer baseIteration) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12225,7 +13595,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request comment thread by id for a pull request
+     * [Preview API 3.1-preview.1] Get a pull request comment thread by id for a pull request
      * 
      * @param repositoryId 
      *            
@@ -12247,7 +13617,7 @@ public abstract class GitHttpClientBase
         final Integer baseIteration) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -12269,7 +13639,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get a pull request comment thread by id for a pull request
+     * [Preview API 3.1-preview.1] Get a pull request comment thread by id for a pull request
      * 
      * @param repositoryId 
      *            
@@ -12291,7 +13661,7 @@ public abstract class GitHttpClientBase
         final Integer baseIteration) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -12313,7 +13683,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get all pull request comment threads.
+     * [Preview API 3.1-preview.1] Get all pull request comment threads.
      * 
      * @param project 
      *            Project ID or project name
@@ -12335,7 +13705,7 @@ public abstract class GitHttpClientBase
         final Integer baseIteration) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12357,7 +13727,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get all pull request comment threads.
+     * [Preview API 3.1-preview.1] Get all pull request comment threads.
      * 
      * @param project 
      *            Project ID or project name
@@ -12379,7 +13749,7 @@ public abstract class GitHttpClientBase
         final Integer baseIteration) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12401,7 +13771,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get all pull request comment threads.
+     * [Preview API 3.1-preview.1] Get all pull request comment threads.
      * 
      * @param project 
      *            Project ID
@@ -12423,7 +13793,7 @@ public abstract class GitHttpClientBase
         final Integer baseIteration) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12445,7 +13815,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get all pull request comment threads.
+     * [Preview API 3.1-preview.1] Get all pull request comment threads.
      * 
      * @param project 
      *            Project ID
@@ -12467,7 +13837,7 @@ public abstract class GitHttpClientBase
         final Integer baseIteration) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12489,7 +13859,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get all pull request comment threads.
+     * [Preview API 3.1-preview.1] Get all pull request comment threads.
      * 
      * @param repositoryId 
      *            
@@ -12508,7 +13878,7 @@ public abstract class GitHttpClientBase
         final Integer baseIteration) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -12529,7 +13899,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Get all pull request comment threads.
+     * [Preview API 3.1-preview.1] Get all pull request comment threads.
      * 
      * @param repositoryId 
      *            
@@ -12548,7 +13918,7 @@ public abstract class GitHttpClientBase
         final Integer baseIteration) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -12569,7 +13939,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Update a pull request review comment thread
+     * [Preview API 3.1-preview.1] Update a pull request review comment thread
      * 
      * @param commentThread 
      *            
@@ -12588,7 +13958,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -12607,7 +13977,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Update a pull request review comment thread
+     * [Preview API 3.1-preview.1] Update a pull request review comment thread
      * 
      * @param commentThread 
      *            
@@ -12626,7 +13996,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -12645,7 +14015,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Update a pull request review comment thread
+     * [Preview API 3.1-preview.1] Update a pull request review comment thread
      * 
      * @param commentThread 
      *            
@@ -12667,7 +14037,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12687,7 +14057,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Update a pull request review comment thread
+     * [Preview API 3.1-preview.1] Update a pull request review comment thread
      * 
      * @param commentThread 
      *            
@@ -12709,7 +14079,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12729,7 +14099,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Update a pull request review comment thread
+     * [Preview API 3.1-preview.1] Update a pull request review comment thread
      * 
      * @param commentThread 
      *            
@@ -12751,7 +14121,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12771,7 +14141,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Update a pull request review comment thread
+     * [Preview API 3.1-preview.1] Update a pull request review comment thread
      * 
      * @param commentThread 
      *            
@@ -12793,7 +14163,7 @@ public abstract class GitHttpClientBase
         final int threadId) { 
 
         final UUID locationId = UUID.fromString("ab6e2e5d-a0b7-4153-b64a-a4efe0d49449"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12813,7 +14183,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request work items
+     * [Preview API 3.1-preview.1] Retrieve a pull request work items
      * 
      * @param repositoryId 
      *            
@@ -12826,7 +14196,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("0a637fcc-5370-4ce8-b0e8-98091f5f9482"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -12842,7 +14212,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request work items
+     * [Preview API 3.1-preview.1] Retrieve a pull request work items
      * 
      * @param repositoryId 
      *            
@@ -12855,7 +14225,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("0a637fcc-5370-4ce8-b0e8-98091f5f9482"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -12871,7 +14241,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request work items
+     * [Preview API 3.1-preview.1] Retrieve a pull request work items
      * 
      * @param project 
      *            Project ID or project name
@@ -12887,7 +14257,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("0a637fcc-5370-4ce8-b0e8-98091f5f9482"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12904,7 +14274,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request work items
+     * [Preview API 3.1-preview.1] Retrieve a pull request work items
      * 
      * @param project 
      *            Project ID or project name
@@ -12920,7 +14290,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("0a637fcc-5370-4ce8-b0e8-98091f5f9482"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12937,7 +14307,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request work items
+     * [Preview API 3.1-preview.1] Retrieve a pull request work items
      * 
      * @param project 
      *            Project ID
@@ -12953,7 +14323,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("0a637fcc-5370-4ce8-b0e8-98091f5f9482"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -12970,7 +14340,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a pull request work items
+     * [Preview API 3.1-preview.1] Retrieve a pull request work items
      * 
      * @param project 
      *            Project ID
@@ -12986,7 +14356,7 @@ public abstract class GitHttpClientBase
         final int pullRequestId) { 
 
         final UUID locationId = UUID.fromString("0a637fcc-5370-4ce8-b0e8-98091f5f9482"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13003,7 +14373,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Push changes to the repository.
+     * [Preview API 3.1-preview.2] Push changes to the repository.
      * 
      * @param push 
      *            
@@ -13016,7 +14386,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -13033,7 +14403,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Push changes to the repository.
+     * [Preview API 3.1-preview.2] Push changes to the repository.
      * 
      * @param push 
      *            
@@ -13046,7 +14416,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -13063,7 +14433,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Push changes to the repository.
+     * [Preview API 3.1-preview.2] Push changes to the repository.
      * 
      * @param push 
      *            
@@ -13079,7 +14449,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13097,7 +14467,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Push changes to the repository.
+     * [Preview API 3.1-preview.2] Push changes to the repository.
      * 
      * @param push 
      *            
@@ -13113,7 +14483,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13131,7 +14501,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Push changes to the repository.
+     * [Preview API 3.1-preview.2] Push changes to the repository.
      * 
      * @param push 
      *            
@@ -13147,7 +14517,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13165,7 +14535,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Push changes to the repository.
+     * [Preview API 3.1-preview.2] Push changes to the repository.
      * 
      * @param push 
      *            
@@ -13181,7 +14551,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13199,7 +14569,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a particular push.
+     * [Preview API 3.1-preview.2] Retrieve a particular push.
      * 
      * @param project 
      *            Project ID or project name
@@ -13221,7 +14591,7 @@ public abstract class GitHttpClientBase
         final Boolean includeRefUpdates) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13243,7 +14613,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a particular push.
+     * [Preview API 3.1-preview.2] Retrieve a particular push.
      * 
      * @param project 
      *            Project ID or project name
@@ -13265,7 +14635,7 @@ public abstract class GitHttpClientBase
         final Boolean includeRefUpdates) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13287,7 +14657,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a particular push.
+     * [Preview API 3.1-preview.2] Retrieve a particular push.
      * 
      * @param project 
      *            Project ID
@@ -13309,7 +14679,7 @@ public abstract class GitHttpClientBase
         final Boolean includeRefUpdates) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13331,7 +14701,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a particular push.
+     * [Preview API 3.1-preview.2] Retrieve a particular push.
      * 
      * @param project 
      *            Project ID
@@ -13353,7 +14723,7 @@ public abstract class GitHttpClientBase
         final Boolean includeRefUpdates) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13375,7 +14745,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a particular push.
+     * [Preview API 3.1-preview.2] Retrieve a particular push.
      * 
      * @param repositoryId 
      *            The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
@@ -13394,7 +14764,7 @@ public abstract class GitHttpClientBase
         final Boolean includeRefUpdates) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -13415,7 +14785,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve a particular push.
+     * [Preview API 3.1-preview.2] Retrieve a particular push.
      * 
      * @param repositoryId 
      *            The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
@@ -13434,7 +14804,7 @@ public abstract class GitHttpClientBase
         final Boolean includeRefUpdates) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -13455,7 +14825,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieves pushes associated with the specified repository.
+     * [Preview API 3.1-preview.2] Retrieves pushes associated with the specified repository.
      * 
      * @param project 
      *            Project ID or project name
@@ -13477,7 +14847,7 @@ public abstract class GitHttpClientBase
         final GitPushSearchCriteria searchCriteria) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13499,7 +14869,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieves pushes associated with the specified repository.
+     * [Preview API 3.1-preview.2] Retrieves pushes associated with the specified repository.
      * 
      * @param project 
      *            Project ID or project name
@@ -13521,7 +14891,7 @@ public abstract class GitHttpClientBase
         final GitPushSearchCriteria searchCriteria) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13543,7 +14913,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieves pushes associated with the specified repository.
+     * [Preview API 3.1-preview.2] Retrieves pushes associated with the specified repository.
      * 
      * @param project 
      *            Project ID
@@ -13565,7 +14935,7 @@ public abstract class GitHttpClientBase
         final GitPushSearchCriteria searchCriteria) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13587,7 +14957,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieves pushes associated with the specified repository.
+     * [Preview API 3.1-preview.2] Retrieves pushes associated with the specified repository.
      * 
      * @param project 
      *            Project ID
@@ -13609,7 +14979,7 @@ public abstract class GitHttpClientBase
         final GitPushSearchCriteria searchCriteria) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13631,7 +15001,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieves pushes associated with the specified repository.
+     * [Preview API 3.1-preview.2] Retrieves pushes associated with the specified repository.
      * 
      * @param repositoryId 
      *            The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
@@ -13650,7 +15020,7 @@ public abstract class GitHttpClientBase
         final GitPushSearchCriteria searchCriteria) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -13671,7 +15041,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieves pushes associated with the specified repository.
+     * [Preview API 3.1-preview.2] Retrieves pushes associated with the specified repository.
      * 
      * @param repositoryId 
      *            The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
@@ -13690,7 +15060,7 @@ public abstract class GitHttpClientBase
         final GitPushSearchCriteria searchCriteria) { 
 
         final UUID locationId = UUID.fromString("ea98d07b-3c87-4971-8ede-a613694ffb55"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -13711,7 +15081,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Lock or unlock a ref.
+     * [Preview API 3.1-preview.1] Lock or unlock a ref.
      * 
      * @param refLockRequest 
      *            
@@ -13726,7 +15096,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("32863ac0-6a8a-4d9f-8afe-ba293b93ec3c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13744,7 +15114,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Lock or unlock a ref.
+     * [Preview API 3.1-preview.1] Lock or unlock a ref.
      * 
      * @param refLockRequest 
      *            
@@ -13759,7 +15129,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("32863ac0-6a8a-4d9f-8afe-ba293b93ec3c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13777,7 +15147,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Lock or unlock a ref.
+     * [Preview API 3.1-preview.1] Lock or unlock a ref.
      * 
      * @param refLockRequest 
      *            
@@ -13792,7 +15162,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("32863ac0-6a8a-4d9f-8afe-ba293b93ec3c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13810,7 +15180,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Lock or unlock a ref.
+     * [Preview API 3.1-preview.1] Lock or unlock a ref.
      * 
      * @param refLockRequest 
      *            
@@ -13825,7 +15195,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("32863ac0-6a8a-4d9f-8afe-ba293b93ec3c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13843,7 +15213,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Queries the provided repository for its refs and returns them.
+     * [Preview API 3.1-preview.1] Queries the provided repository for its refs and returns them.
      * 
      * @param project 
      *            Project ID or project name
@@ -13865,7 +15235,7 @@ public abstract class GitHttpClientBase
         final Boolean latestStatusesOnly) { 
 
         final UUID locationId = UUID.fromString("2d874a60-a811-4f62-9c9f-963a6ea0a55b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13887,7 +15257,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Queries the provided repository for its refs and returns them.
+     * [Preview API 3.1-preview.1] Queries the provided repository for its refs and returns them.
      * 
      * @param project 
      *            Project ID or project name
@@ -13909,7 +15279,7 @@ public abstract class GitHttpClientBase
         final Boolean latestStatusesOnly) { 
 
         final UUID locationId = UUID.fromString("2d874a60-a811-4f62-9c9f-963a6ea0a55b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13931,7 +15301,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Queries the provided repository for its refs and returns them.
+     * [Preview API 3.1-preview.1] Queries the provided repository for its refs and returns them.
      * 
      * @param project 
      *            Project ID
@@ -13953,7 +15323,7 @@ public abstract class GitHttpClientBase
         final Boolean latestStatusesOnly) { 
 
         final UUID locationId = UUID.fromString("2d874a60-a811-4f62-9c9f-963a6ea0a55b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -13975,7 +15345,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Queries the provided repository for its refs and returns them.
+     * [Preview API 3.1-preview.1] Queries the provided repository for its refs and returns them.
      * 
      * @param project 
      *            Project ID
@@ -13997,7 +15367,7 @@ public abstract class GitHttpClientBase
         final Boolean latestStatusesOnly) { 
 
         final UUID locationId = UUID.fromString("2d874a60-a811-4f62-9c9f-963a6ea0a55b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14019,7 +15389,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Queries the provided repository for its refs and returns them.
+     * [Preview API 3.1-preview.1] Queries the provided repository for its refs and returns them.
      * 
      * @param repositoryId 
      *            The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
@@ -14038,7 +15408,7 @@ public abstract class GitHttpClientBase
         final Boolean latestStatusesOnly) { 
 
         final UUID locationId = UUID.fromString("2d874a60-a811-4f62-9c9f-963a6ea0a55b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -14059,7 +15429,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Queries the provided repository for its refs and returns them.
+     * [Preview API 3.1-preview.1] Queries the provided repository for its refs and returns them.
      * 
      * @param repositoryId 
      *            The id or friendly name of the repository. To use the friendly name, projectId must also be specified.
@@ -14078,7 +15448,7 @@ public abstract class GitHttpClientBase
         final Boolean latestStatusesOnly) { 
 
         final UUID locationId = UUID.fromString("2d874a60-a811-4f62-9c9f-963a6ea0a55b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -14099,7 +15469,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Creates or updates refs with the given information
+     * [Preview API 3.1-preview.1] Creates or updates refs with the given information
      * 
      * @param refUpdates 
      *            List of ref updates to attempt to perform
@@ -14115,7 +15485,7 @@ public abstract class GitHttpClientBase
         final String projectId) { 
 
         final UUID locationId = UUID.fromString("2d874a60-a811-4f62-9c9f-963a6ea0a55b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -14136,7 +15506,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Creates or updates refs with the given information
+     * [Preview API 3.1-preview.1] Creates or updates refs with the given information
      * 
      * @param refUpdates 
      *            List of ref updates to attempt to perform
@@ -14152,7 +15522,7 @@ public abstract class GitHttpClientBase
         final String projectId) { 
 
         final UUID locationId = UUID.fromString("2d874a60-a811-4f62-9c9f-963a6ea0a55b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -14173,7 +15543,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Creates or updates refs with the given information
+     * [Preview API 3.1-preview.1] Creates or updates refs with the given information
      * 
      * @param refUpdates 
      *            List of ref updates to attempt to perform
@@ -14192,7 +15562,7 @@ public abstract class GitHttpClientBase
         final String projectId) { 
 
         final UUID locationId = UUID.fromString("2d874a60-a811-4f62-9c9f-963a6ea0a55b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14214,7 +15584,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Creates or updates refs with the given information
+     * [Preview API 3.1-preview.1] Creates or updates refs with the given information
      * 
      * @param refUpdates 
      *            List of ref updates to attempt to perform
@@ -14233,7 +15603,7 @@ public abstract class GitHttpClientBase
         final String projectId) { 
 
         final UUID locationId = UUID.fromString("2d874a60-a811-4f62-9c9f-963a6ea0a55b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14255,7 +15625,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Creates or updates refs with the given information
+     * [Preview API 3.1-preview.1] Creates or updates refs with the given information
      * 
      * @param refUpdates 
      *            List of ref updates to attempt to perform
@@ -14274,7 +15644,7 @@ public abstract class GitHttpClientBase
         final String projectId) { 
 
         final UUID locationId = UUID.fromString("2d874a60-a811-4f62-9c9f-963a6ea0a55b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14296,7 +15666,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Creates or updates refs with the given information
+     * [Preview API 3.1-preview.1] Creates or updates refs with the given information
      * 
      * @param refUpdates 
      *            List of ref updates to attempt to perform
@@ -14315,7 +15685,7 @@ public abstract class GitHttpClientBase
         final String projectId) { 
 
         final UUID locationId = UUID.fromString("2d874a60-a811-4f62-9c9f-963a6ea0a55b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14337,7 +15707,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Creates a ref favorite
+     * [Preview API 3.1-preview.1] Creates a ref favorite
      * 
      * @param favorite 
      *            
@@ -14350,7 +15720,7 @@ public abstract class GitHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("876f70af-5792-485a-a1c7-d0a7b2f42bbb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14367,7 +15737,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Creates a ref favorite
+     * [Preview API 3.1-preview.1] Creates a ref favorite
      * 
      * @param favorite 
      *            
@@ -14380,7 +15750,7 @@ public abstract class GitHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("876f70af-5792-485a-a1c7-d0a7b2f42bbb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14397,7 +15767,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -14409,7 +15779,7 @@ public abstract class GitHttpClientBase
         final int favoriteId) { 
 
         final UUID locationId = UUID.fromString("876f70af-5792-485a-a1c7-d0a7b2f42bbb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14425,7 +15795,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -14437,7 +15807,7 @@ public abstract class GitHttpClientBase
         final int favoriteId) { 
 
         final UUID locationId = UUID.fromString("876f70af-5792-485a-a1c7-d0a7b2f42bbb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14453,7 +15823,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -14466,7 +15836,7 @@ public abstract class GitHttpClientBase
         final int favoriteId) { 
 
         final UUID locationId = UUID.fromString("876f70af-5792-485a-a1c7-d0a7b2f42bbb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14482,7 +15852,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -14495,7 +15865,7 @@ public abstract class GitHttpClientBase
         final int favoriteId) { 
 
         final UUID locationId = UUID.fromString("876f70af-5792-485a-a1c7-d0a7b2f42bbb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14511,7 +15881,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Gets the refs favorites for a repo and an identity.
+     * [Preview API 3.1-preview.1] Gets the refs favorites for a repo and an identity.
      * 
      * @param project 
      *            Project ID or project name
@@ -14527,7 +15897,7 @@ public abstract class GitHttpClientBase
         final String identityId) { 
 
         final UUID locationId = UUID.fromString("876f70af-5792-485a-a1c7-d0a7b2f42bbb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14547,7 +15917,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Gets the refs favorites for a repo and an identity.
+     * [Preview API 3.1-preview.1] Gets the refs favorites for a repo and an identity.
      * 
      * @param project 
      *            Project ID
@@ -14563,7 +15933,7 @@ public abstract class GitHttpClientBase
         final String identityId) { 
 
         final UUID locationId = UUID.fromString("876f70af-5792-485a-a1c7-d0a7b2f42bbb"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14583,7 +15953,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a git repository
+     * [Preview API 3.1-preview.1] Create a git repository
      * 
      * @param gitRepositoryToCreate 
      *            
@@ -14592,7 +15962,7 @@ public abstract class GitHttpClientBase
     public GitRepository createRepository(final GitRepository gitRepositoryToCreate) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -14605,7 +15975,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a git repository
+     * [Preview API 3.1-preview.1] Create a git repository
      * 
      * @param gitRepositoryToCreate 
      *            
@@ -14618,7 +15988,7 @@ public abstract class GitHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14635,7 +16005,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Create a git repository
+     * [Preview API 3.1-preview.1] Create a git repository
      * 
      * @param gitRepositoryToCreate 
      *            
@@ -14648,7 +16018,7 @@ public abstract class GitHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14665,7 +16035,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Delete a git repository
+     * [Preview API 3.1-preview.1] Delete a git repository
      * 
      * @param repositoryId 
      *            
@@ -14673,7 +16043,7 @@ public abstract class GitHttpClientBase
     public void deleteRepository(final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -14688,7 +16058,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Delete a git repository
+     * [Preview API 3.1-preview.1] Delete a git repository
      * 
      * @param project 
      *            Project ID or project name
@@ -14700,7 +16070,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14716,7 +16086,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Delete a git repository
+     * [Preview API 3.1-preview.1] Delete a git repository
      * 
      * @param project 
      *            Project ID
@@ -14728,7 +16098,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14744,26 +16114,30 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git repositories.
+     * [Preview API 3.1-preview.1] Retrieve git repositories.
      * 
      * @param project 
      *            Project ID or project name
      * @param includeLinks 
      *            
+     * @param includeAllUrls 
+     *            
      * @return ArrayList&lt;GitRepository&gt;
      */
     public ArrayList<GitRepository> getRepositories(
         final String project, 
-        final Boolean includeLinks) { 
+        final Boolean includeLinks, 
+        final Boolean includeAllUrls) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
+        queryParameters.addIfNotNull("includeAllUrls", includeAllUrls); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -14776,26 +16150,30 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git repositories.
+     * [Preview API 3.1-preview.1] Retrieve git repositories.
      * 
      * @param project 
      *            Project ID
      * @param includeLinks 
      *            
+     * @param includeAllUrls 
+     *            
      * @return ArrayList&lt;GitRepository&gt;
      */
     public ArrayList<GitRepository> getRepositories(
         final UUID project, 
-        final Boolean includeLinks) { 
+        final Boolean includeLinks, 
+        final Boolean includeAllUrls) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
+        queryParameters.addIfNotNull("includeAllUrls", includeAllUrls); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -14808,19 +16186,24 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Retrieve git repositories.
+     * [Preview API 3.1-preview.1] Retrieve git repositories.
      * 
      * @param includeLinks 
      *            
+     * @param includeAllUrls 
+     *            
      * @return ArrayList&lt;GitRepository&gt;
      */
-    public ArrayList<GitRepository> getRepositories(final Boolean includeLinks) { 
+    public ArrayList<GitRepository> getRepositories(
+        final Boolean includeLinks, 
+        final Boolean includeAllUrls) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeLinks", includeLinks); //$NON-NLS-1$
+        queryParameters.addIfNotNull("includeAllUrls", includeAllUrls); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -14832,6 +16215,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @return GitRepository
@@ -14839,7 +16224,7 @@ public abstract class GitHttpClientBase
     public GitRepository getRepository(final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -14854,6 +16239,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @return GitRepository
@@ -14861,7 +16248,7 @@ public abstract class GitHttpClientBase
     public GitRepository getRepository(final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -14876,6 +16263,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param repositoryId 
@@ -14887,7 +16276,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14903,6 +16292,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param repositoryId 
@@ -14914,7 +16305,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14930,6 +16321,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param repositoryId 
@@ -14941,7 +16334,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14957,6 +16350,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param repositoryId 
@@ -14968,7 +16363,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -14984,7 +16379,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Updates the Git repository with the single populated change in the specified repository information.
+     * [Preview API 3.1-preview.1] Updates the Git repository with the single populated change in the specified repository information.
      * 
      * @param newRepositoryInfo 
      *            
@@ -14997,7 +16392,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -15014,7 +16409,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * Updates the Git repository with the single populated change in the specified repository information.
+     * [Preview API 3.1-preview.1] Updates the Git repository with the single populated change in the specified repository information.
      * 
      * @param newRepositoryInfo 
      *            
@@ -15030,41 +16425,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               newRepositoryInfo,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, GitRepository.class);
-    }
-
-    /** 
-     * Updates the Git repository with the single populated change in the specified repository information.
-     * 
-     * @param newRepositoryInfo 
-     *            
-     * @param project 
-     *            Project ID
-     * @param repositoryId 
-     *            
-     * @return GitRepository
-     */
-    public GitRepository updateRepository(
-        final GitRepository newRepositoryInfo, 
-        final UUID project, 
-        final UUID repositoryId) { 
-
-        final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15082,7 +16443,41 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1] Updates the Git repository with the single populated change in the specified repository information.
+     * 
+     * @param newRepositoryInfo 
+     *            
+     * @param project 
+     *            Project ID
+     * @param repositoryId 
+     *            
+     * @return GitRepository
+     */
+    public GitRepository updateRepository(
+        final GitRepository newRepositoryInfo, 
+        final UUID project, 
+        final UUID repositoryId) { 
+
+        final UUID locationId = UUID.fromString("225f7195-f9c7-4d14-ab28-a83f7ff77e1f"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               newRepositoryInfo,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitRepository.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
      * 
      * @param revertToCreate 
      *            
@@ -15098,7 +16493,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("bc866058-5449-4715-9cf1-a510b6ff193c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15116,7 +16511,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param revertToCreate 
      *            
@@ -15132,7 +16527,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("bc866058-5449-4715-9cf1-a510b6ff193c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15150,7 +16545,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param revertToCreate 
      *            
@@ -15166,7 +16561,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("bc866058-5449-4715-9cf1-a510b6ff193c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15184,7 +16579,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param revertToCreate 
      *            
@@ -15200,7 +16595,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("bc866058-5449-4715-9cf1-a510b6ff193c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15218,7 +16613,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -15234,7 +16629,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("bc866058-5449-4715-9cf1-a510b6ff193c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15251,7 +16646,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -15267,7 +16662,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("bc866058-5449-4715-9cf1-a510b6ff193c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15284,7 +16679,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -15300,7 +16695,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("bc866058-5449-4715-9cf1-a510b6ff193c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15317,7 +16712,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -15333,7 +16728,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("bc866058-5449-4715-9cf1-a510b6ff193c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15350,7 +16745,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -15366,7 +16761,7 @@ public abstract class GitHttpClientBase
         final String refName) { 
 
         final UUID locationId = UUID.fromString("bc866058-5449-4715-9cf1-a510b6ff193c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15386,7 +16781,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -15402,7 +16797,7 @@ public abstract class GitHttpClientBase
         final String refName) { 
 
         final UUID locationId = UUID.fromString("bc866058-5449-4715-9cf1-a510b6ff193c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15422,7 +16817,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -15438,7 +16833,7 @@ public abstract class GitHttpClientBase
         final String refName) { 
 
         final UUID locationId = UUID.fromString("bc866058-5449-4715-9cf1-a510b6ff193c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15458,7 +16853,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -15474,7 +16869,7 @@ public abstract class GitHttpClientBase
         final String refName) { 
 
         final UUID locationId = UUID.fromString("bc866058-5449-4715-9cf1-a510b6ff193c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15494,6 +16889,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param gitCommitStatusToCreate 
      *            
      * @param commitId 
@@ -15508,7 +16905,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("428dd4fb-fda5-4722-af02-9313b80305da"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("commitId", commitId); //$NON-NLS-1$
@@ -15526,6 +16923,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param gitCommitStatusToCreate 
      *            
      * @param commitId 
@@ -15540,7 +16939,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("428dd4fb-fda5-4722-af02-9313b80305da"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("commitId", commitId); //$NON-NLS-1$
@@ -15558,6 +16957,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param gitCommitStatusToCreate 
      *            
      * @param project 
@@ -15575,7 +16976,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("428dd4fb-fda5-4722-af02-9313b80305da"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15594,6 +16995,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param gitCommitStatusToCreate 
      *            
      * @param project 
@@ -15611,7 +17014,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("428dd4fb-fda5-4722-af02-9313b80305da"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15630,6 +17033,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param gitCommitStatusToCreate 
      *            
      * @param project 
@@ -15647,7 +17052,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("428dd4fb-fda5-4722-af02-9313b80305da"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15666,6 +17071,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param gitCommitStatusToCreate 
      *            
      * @param project 
@@ -15683,7 +17090,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("428dd4fb-fda5-4722-af02-9313b80305da"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15702,6 +17109,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param commitId 
@@ -15725,7 +17134,7 @@ public abstract class GitHttpClientBase
         final Boolean latestOnly) { 
 
         final UUID locationId = UUID.fromString("428dd4fb-fda5-4722-af02-9313b80305da"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15748,6 +17157,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param commitId 
@@ -15771,7 +17182,7 @@ public abstract class GitHttpClientBase
         final Boolean latestOnly) { 
 
         final UUID locationId = UUID.fromString("428dd4fb-fda5-4722-af02-9313b80305da"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15794,6 +17205,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param commitId 
@@ -15817,7 +17230,7 @@ public abstract class GitHttpClientBase
         final Boolean latestOnly) { 
 
         final UUID locationId = UUID.fromString("428dd4fb-fda5-4722-af02-9313b80305da"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15840,6 +17253,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param commitId 
@@ -15863,7 +17278,7 @@ public abstract class GitHttpClientBase
         final Boolean latestOnly) { 
 
         final UUID locationId = UUID.fromString("428dd4fb-fda5-4722-af02-9313b80305da"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -15886,6 +17301,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param commitId 
      *            
      * @param repositoryId 
@@ -15906,7 +17323,7 @@ public abstract class GitHttpClientBase
         final Boolean latestOnly) { 
 
         final UUID locationId = UUID.fromString("428dd4fb-fda5-4722-af02-9313b80305da"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("commitId", commitId); //$NON-NLS-1$
@@ -15928,6 +17345,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param commitId 
      *            
      * @param repositoryId 
@@ -15948,7 +17367,7 @@ public abstract class GitHttpClientBase
         final Boolean latestOnly) { 
 
         final UUID locationId = UUID.fromString("428dd4fb-fda5-4722-af02-9313b80305da"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("commitId", commitId); //$NON-NLS-1$
@@ -15970,7 +17389,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve a set of suggestions (including a pull request suggestion).
+     * [Preview API 3.1-preview.1] Retrieve a set of suggestions (including a pull request suggestion).
      * 
      * @param repositoryId 
      *            
@@ -15979,7 +17398,7 @@ public abstract class GitHttpClientBase
     public ArrayList<GitSuggestion> getSuggestions(final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("9393b4fb-4445-4919-972b-9ad16f442d83"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -15994,7 +17413,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve a set of suggestions (including a pull request suggestion).
+     * [Preview API 3.1-preview.1] Retrieve a set of suggestions (including a pull request suggestion).
      * 
      * @param repositoryId 
      *            
@@ -16003,7 +17422,7 @@ public abstract class GitHttpClientBase
     public ArrayList<GitSuggestion> getSuggestions(final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("9393b4fb-4445-4919-972b-9ad16f442d83"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -16018,7 +17437,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve a set of suggestions (including a pull request suggestion).
+     * [Preview API 3.1-preview.1] Retrieve a set of suggestions (including a pull request suggestion).
      * 
      * @param project 
      *            Project ID or project name
@@ -16031,7 +17450,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("9393b4fb-4445-4919-972b-9ad16f442d83"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -16047,7 +17466,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve a set of suggestions (including a pull request suggestion).
+     * [Preview API 3.1-preview.1] Retrieve a set of suggestions (including a pull request suggestion).
      * 
      * @param project 
      *            Project ID or project name
@@ -16060,7 +17479,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("9393b4fb-4445-4919-972b-9ad16f442d83"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -16076,7 +17495,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve a set of suggestions (including a pull request suggestion).
+     * [Preview API 3.1-preview.1] Retrieve a set of suggestions (including a pull request suggestion).
      * 
      * @param project 
      *            Project ID
@@ -16089,7 +17508,7 @@ public abstract class GitHttpClientBase
         final String repositoryId) { 
 
         final UUID locationId = UUID.fromString("9393b4fb-4445-4919-972b-9ad16f442d83"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -16105,7 +17524,7 @@ public abstract class GitHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve a set of suggestions (including a pull request suggestion).
+     * [Preview API 3.1-preview.1] Retrieve a set of suggestions (including a pull request suggestion).
      * 
      * @param project 
      *            Project ID
@@ -16118,7 +17537,7 @@ public abstract class GitHttpClientBase
         final UUID repositoryId) { 
 
         final UUID locationId = UUID.fromString("9393b4fb-4445-4919-972b-9ad16f442d83"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -16134,6 +17553,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param repositoryId 
@@ -16157,7 +17578,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("729f6437-6f92-44ec-8bee-273a7111063c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -16180,6 +17601,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param repositoryId 
@@ -16203,7 +17626,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("729f6437-6f92-44ec-8bee-273a7111063c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -16226,6 +17649,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param repositoryId 
@@ -16249,7 +17674,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("729f6437-6f92-44ec-8bee-273a7111063c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -16272,6 +17697,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param repositoryId 
@@ -16295,7 +17722,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("729f6437-6f92-44ec-8bee-273a7111063c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -16318,6 +17745,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @param sha1 
@@ -16338,7 +17767,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("729f6437-6f92-44ec-8bee-273a7111063c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -16360,6 +17789,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @param sha1 
@@ -16380,7 +17811,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("729f6437-6f92-44ec-8bee-273a7111063c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -16402,6 +17833,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param repositoryId 
@@ -16425,7 +17858,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("729f6437-6f92-44ec-8bee-273a7111063c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -16448,6 +17881,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID or project name
      * @param repositoryId 
@@ -16471,7 +17906,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("729f6437-6f92-44ec-8bee-273a7111063c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -16494,6 +17929,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param repositoryId 
@@ -16517,7 +17954,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("729f6437-6f92-44ec-8bee-273a7111063c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -16540,6 +17977,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param project 
      *            Project ID
      * @param repositoryId 
@@ -16563,7 +18002,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("729f6437-6f92-44ec-8bee-273a7111063c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -16586,6 +18025,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @param sha1 
@@ -16606,7 +18047,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("729f6437-6f92-44ec-8bee-273a7111063c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
@@ -16628,6 +18069,8 @@ public abstract class GitHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param repositoryId 
      *            
      * @param sha1 
@@ -16648,7 +18091,7 @@ public abstract class GitHttpClientBase
         final String fileName) { 
 
         final UUID locationId = UUID.fromString("729f6437-6f92-44ec-8bee-273a7111063c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$

@@ -24,6 +24,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TimelineTeamData {
 
     /**
+    * Backlog matching the mapped backlog associated with this team.
+    */
+    private BacklogLevel backlog;
+    /**
     * The field reference names of the work item data
     */
     private ArrayList<String> fieldReferenceNames;
@@ -48,6 +52,10 @@ public class TimelineTeamData {
     */
     private String orderByField;
     /**
+    * The field reference names of the partially paged work items, such as ID, WorkItemType
+    */
+    private ArrayList<String> partiallyPagedFieldReferenceNames;
+    /**
     * The project id the team belongs team
     */
     private UUID projectId;
@@ -71,6 +79,20 @@ public class TimelineTeamData {
     * Colors for the work item types.
     */
     private ArrayList<WorkItemColor> workItemTypeColors;
+
+    /**
+    * Backlog matching the mapped backlog associated with this team.
+    */
+    public BacklogLevel getBacklog() {
+        return backlog;
+    }
+
+    /**
+    * Backlog matching the mapped backlog associated with this team.
+    */
+    public void setBacklog(final BacklogLevel backlog) {
+        this.backlog = backlog;
+    }
 
     /**
     * The field reference names of the work item data
@@ -156,6 +178,20 @@ public class TimelineTeamData {
     */
     public void setOrderByField(final String orderByField) {
         this.orderByField = orderByField;
+    }
+
+    /**
+    * The field reference names of the partially paged work items, such as ID, WorkItemType
+    */
+    public ArrayList<String> getPartiallyPagedFieldReferenceNames() {
+        return partiallyPagedFieldReferenceNames;
+    }
+
+    /**
+    * The field reference names of the partially paged work items, such as ID, WorkItemType
+    */
+    public void setPartiallyPagedFieldReferenceNames(final ArrayList<String> partiallyPagedFieldReferenceNames) {
+        this.partiallyPagedFieldReferenceNames = partiallyPagedFieldReferenceNames;
     }
 
     /**

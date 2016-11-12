@@ -15,6 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.build.webapi;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 /** 
@@ -24,6 +25,7 @@ public class BuildDefinitionTemplate {
     private boolean canDelete;
     private String category;
     private String description;
+    private HashMap<String, String> icons;
     private UUID iconTaskId;
     private String id;
     private String name;
@@ -51,6 +53,14 @@ public class BuildDefinitionTemplate {
 
     public void setDescription(final String description) {
         this.description = description;
+    }
+
+    public HashMap<String, String> getIcons() {
+        return icons;
+    }
+
+    public void setIcons(final HashMap<String, String> icons) {
+        this.icons = icons;
     }
 
     public UUID getIconTaskId() {

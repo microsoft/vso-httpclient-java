@@ -25,6 +25,7 @@ public enum SupportedIdeType {
     APP_CODE(2),
     C_LION(3),
     DATA_GRIP(4),
+    ECLIPSE(13),
     INTELLI_J(5),
     M_P_S(6),
     PHP_STORM(7),
@@ -67,6 +68,10 @@ public enum SupportedIdeType {
 
         if (name.equals("DATA_GRIP")) { //$NON-NLS-1$
             return "dataGrip"; //$NON-NLS-1$
+        }
+
+        if (name.equals("ECLIPSE")) { //$NON-NLS-1$
+            return "eclipse"; //$NON-NLS-1$
         }
 
         if (name.equals("INTELLI_J")) { //$NON-NLS-1$

@@ -62,7 +62,7 @@ public class InputDescriptor {
     */
     private HashMap<String, Object> properties;
     /**
-    * Underlying data type for the input value.  When this value is specified, InputMode, Validation and Values are optional.
+    * Underlying data type for the input value. When this value is specified, InputMode, Validation and Values are optional.
     */
     private String type;
     /**
@@ -211,14 +211,14 @@ public class InputDescriptor {
     }
 
     /**
-    * Underlying data type for the input value.  When this value is specified, InputMode, Validation and Values are optional.
+    * Underlying data type for the input value. When this value is specified, InputMode, Validation and Values are optional.
     */
     public String getType() {
         return type;
     }
 
     /**
-    * Underlying data type for the input value.  When this value is specified, InputMode, Validation and Values are optional.
+    * Underlying data type for the input value. When this value is specified, InputMode, Validation and Values are optional.
     */
     public void setType(final String type) {
         this.type = type;

@@ -32,6 +32,7 @@ public class TaskOrchestrationContainer
     private ArrayList<TaskOrchestrationItem> children;
     private boolean continueOnError;
     private HashMap<String, String> data;
+    private int maxConcurrency;
     private boolean parallel;
     private TaskOrchestrationContainer rollback;
 
@@ -57,6 +58,14 @@ public class TaskOrchestrationContainer
 
     public void setData(final HashMap<String, String> data) {
         this.data = data;
+    }
+
+    public int getMaxConcurrency() {
+        return maxConcurrency;
+    }
+
+    public void setMaxConcurrency(final int maxConcurrency) {
+        this.maxConcurrency = maxConcurrency;
     }
 
     public boolean getParallel() {

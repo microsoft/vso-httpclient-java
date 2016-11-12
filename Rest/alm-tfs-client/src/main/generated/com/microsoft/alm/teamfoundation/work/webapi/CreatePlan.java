@@ -21,6 +21,10 @@ package com.microsoft.alm.teamfoundation.work.webapi;
 public class CreatePlan {
 
     /**
+    * Description of the plan
+    */
+    private String description;
+    /**
     * Name of the plan to create.
     */
     private String name;
@@ -32,6 +36,20 @@ public class CreatePlan {
     * Type of plan to create.
     */
     private PlanType type;
+
+    /**
+    * Description of the plan
+    */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+    * Description of the plan
+    */
+    public void setDescription(final String description) {
+        this.description = description;
+    }
 
     /**
     * Name of the plan to create.

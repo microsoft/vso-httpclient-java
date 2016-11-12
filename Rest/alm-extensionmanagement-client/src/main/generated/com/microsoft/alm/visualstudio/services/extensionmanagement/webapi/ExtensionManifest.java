@@ -45,9 +45,17 @@ public class ExtensionManifest {
     */
     private ExtensionEventCallbackCollection eventCallbacks;
     /**
+    * Secondary location that can be used as base for other relative uri&#039;s defined in extension
+    */
+    private String fallbackBaseUri;
+    /**
     * Language Culture Name set by the Gallery
     */
     private String language;
+    /**
+    * How this extension behaves with respect to licensing
+    */
+    private ExtensionLicensing licensing;
     /**
     * Version of the extension manifest format/content
     */
@@ -132,6 +140,20 @@ public class ExtensionManifest {
     }
 
     /**
+    * Secondary location that can be used as base for other relative uri&amp;#039;s defined in extension
+    */
+    public String getFallbackBaseUri() {
+        return fallbackBaseUri;
+    }
+
+    /**
+    * Secondary location that can be used as base for other relative uri&amp;#039;s defined in extension
+    */
+    public void setFallbackBaseUri(final String fallbackBaseUri) {
+        this.fallbackBaseUri = fallbackBaseUri;
+    }
+
+    /**
     * Language Culture Name set by the Gallery
     */
     public String getLanguage() {
@@ -143,6 +165,20 @@ public class ExtensionManifest {
     */
     public void setLanguage(final String language) {
         this.language = language;
+    }
+
+    /**
+    * How this extension behaves with respect to licensing
+    */
+    public ExtensionLicensing getLicensing() {
+        return licensing;
+    }
+
+    /**
+    * How this extension behaves with respect to licensing
+    */
+    public void setLicensing(final ExtensionLicensing licensing) {
+        this.licensing = licensing;
     }
 
     /**

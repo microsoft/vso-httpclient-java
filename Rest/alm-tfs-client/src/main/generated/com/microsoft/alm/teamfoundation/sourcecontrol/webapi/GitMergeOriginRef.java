@@ -18,16 +18,6 @@ package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
 /** 
  */
-public class GitImportOperationNotification
-    extends AsyncGitOperationNotification {
+public class GitMergeOriginRef {
 
-    private GitImportStatusDetail statusDetail;
-
-    public GitImportStatusDetail getStatusDetail() {
-        return statusDetail;
-    }
-
-    public void setStatusDetail(final GitImportStatusDetail statusDetail) {
-        this.statusDetail = statusDetail;
-    }
 }

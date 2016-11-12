@@ -62,7 +62,7 @@ public abstract class FileContainerHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
+     * [Preview API 3.1-preview.3]
      * 
      * @param uploadStream 
      *            The stream to upload
@@ -78,7 +78,7 @@ public abstract class FileContainerHttpClientBase
         final String itemPath) { 
 
         final UUID locationId = UUID.fromString("e4f5c81e-e250-447b-9fef-bd48471bea5e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("containerId", containerId); //$NON-NLS-1$
@@ -99,7 +99,7 @@ public abstract class FileContainerHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3] Creates the specified item in the container referenced container.
+     * [Preview API 3.1-preview.3] Creates the specified item in the container referenced container.
      * 
      * @param uploadStream 
      *            The stream to upload
@@ -118,7 +118,7 @@ public abstract class FileContainerHttpClientBase
         final UUID scope) { 
 
         final UUID locationId = UUID.fromString("e4f5c81e-e250-447b-9fef-bd48471bea5e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("containerId", containerId); //$NON-NLS-1$
@@ -140,7 +140,7 @@ public abstract class FileContainerHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
+     * [Preview API 3.1-preview.3]
      * 
      * @param items 
      *            
@@ -153,7 +153,7 @@ public abstract class FileContainerHttpClientBase
         final int containerId) { 
 
         final UUID locationId = UUID.fromString("e4f5c81e-e250-447b-9fef-bd48471bea5e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("containerId", containerId); //$NON-NLS-1$
@@ -170,7 +170,7 @@ public abstract class FileContainerHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3] Creates the specified items in in the referenced container.
+     * [Preview API 3.1-preview.3] Creates the specified items in in the referenced container.
      * 
      * @param items 
      *            
@@ -186,7 +186,7 @@ public abstract class FileContainerHttpClientBase
         final UUID scope) { 
 
         final UUID locationId = UUID.fromString("e4f5c81e-e250-447b-9fef-bd48471bea5e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("containerId", containerId); //$NON-NLS-1$
@@ -207,7 +207,7 @@ public abstract class FileContainerHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3] Deletes the specified items in a container.
+     * [Preview API 3.1-preview.3] Deletes the specified items in a container.
      * 
      * @param containerId 
      *            Container Id.
@@ -219,7 +219,7 @@ public abstract class FileContainerHttpClientBase
         final String itemPath) { 
 
         final UUID locationId = UUID.fromString("e4f5c81e-e250-447b-9fef-bd48471bea5e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("containerId", containerId); //$NON-NLS-1$
@@ -238,7 +238,7 @@ public abstract class FileContainerHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3] Deletes the specified items in a container.
+     * [Preview API 3.1-preview.3] Deletes the specified items in a container.
      * 
      * @param containerId 
      *            Container Id.
@@ -253,7 +253,7 @@ public abstract class FileContainerHttpClientBase
         final UUID scope) { 
 
         final UUID locationId = UUID.fromString("e4f5c81e-e250-447b-9fef-bd48471bea5e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("containerId", containerId); //$NON-NLS-1$
@@ -273,7 +273,7 @@ public abstract class FileContainerHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3] Gets containers filtered by a comma separated list of artifact uris, if not specified returns all containers
+     * [Preview API 3.1-preview.3] Gets containers filtered by a comma separated list of artifact uris, if not specified returns all containers
      * 
      * @param artifactUris 
      *            
@@ -282,7 +282,7 @@ public abstract class FileContainerHttpClientBase
     public ArrayList<FileContainer> getContainers(final String artifactUris) { 
 
         final UUID locationId = UUID.fromString("e4f5c81e-e250-447b-9fef-bd48471bea5e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("artifactUris", artifactUris); //$NON-NLS-1$
@@ -297,7 +297,7 @@ public abstract class FileContainerHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3] Gets containers filtered by a comma separated list of artifact uris within the same scope, if not specified returns all containers
+     * [Preview API 3.1-preview.3] Gets containers filtered by a comma separated list of artifact uris within the same scope, if not specified returns all containers
      * 
      * @param scope 
      *            A guid representing the scope of the container. This is often the project id.
@@ -310,7 +310,7 @@ public abstract class FileContainerHttpClientBase
         final String artifactUris) { 
 
         final UUID locationId = UUID.fromString("e4f5c81e-e250-447b-9fef-bd48471bea5e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("scope", scope); //$NON-NLS-1$
@@ -326,7 +326,7 @@ public abstract class FileContainerHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
+     * [Preview API 3.1-preview.3]
      * 
      * @param containerId 
      *            
@@ -354,7 +354,7 @@ public abstract class FileContainerHttpClientBase
         final Boolean isShallow) { 
 
         final UUID locationId = UUID.fromString("e4f5c81e-e250-447b-9fef-bd48471bea5e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("containerId", containerId); //$NON-NLS-1$
@@ -378,7 +378,7 @@ public abstract class FileContainerHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.3]
+     * [Preview API 3.1-preview.3]
      * 
      * @param containerId 
      *            
@@ -409,7 +409,7 @@ public abstract class FileContainerHttpClientBase
         final Boolean isShallow) { 
 
         final UUID locationId = UUID.fromString("e4f5c81e-e250-447b-9fef-bd48471bea5e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("containerId", containerId); //$NON-NLS-1$
@@ -422,38 +422,6 @@ public abstract class FileContainerHttpClientBase
         queryParameters.addIfNotEmpty("downloadFileName", downloadFileName); //$NON-NLS-1$
         queryParameters.addIfNotNull("includeDownloadTickets", includeDownloadTickets); //$NON-NLS-1$
         queryParameters.addIfNotNull("isShallow", isShallow); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               queryParameters,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, new TypeReference<ArrayList<FileContainerItem>>() {});
-    }
-
-    /** 
-     * [Preview API 3.0-preview.3] Allow browsing of file ,the contentDisposition is inline and Content-Type is determined by FileExtension
-     * 
-     * @param container 
-     *            
-     * @param itemPath 
-     *            The path to the item of interest
-     * @return ArrayList&lt;FileContainerItem&gt;
-     */
-    public ArrayList<FileContainerItem> browseItems(
-        final long container, 
-        final String itemPath) { 
-
-        final UUID locationId = UUID.fromString("e71a64ac-b2b5-4230-a4c0-dad657cf97e2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.3"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("container", container); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.addIfNotEmpty("itemPath", itemPath); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,

@@ -62,7 +62,7 @@ public abstract class LocationHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] This was copied and adapted from TeamFoundationConnectionService.Connect()
+     * [Preview API 3.1-preview.1] This was copied and adapted from TeamFoundationConnectionService.Connect()
      * 
      * @param connectOptions 
      *            
@@ -78,7 +78,7 @@ public abstract class LocationHttpClientBase
         final Integer lastChangeId64) { 
 
         final UUID locationId = UUID.fromString("00d9565f-ed9c-4a06-9a50-00e7896ccab4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("connectOptions", connectOptions); //$NON-NLS-1$
@@ -95,7 +95,7 @@ public abstract class LocationHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param serviceType 
      *            
@@ -107,7 +107,7 @@ public abstract class LocationHttpClientBase
         final UUID identifier) { 
 
         final UUID locationId = UUID.fromString("d810a47d-f4f4-4a62-a03f-fa1860585c4c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("serviceType", serviceType); //$NON-NLS-1$
@@ -123,7 +123,7 @@ public abstract class LocationHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param serviceType 
      *            
@@ -139,7 +139,7 @@ public abstract class LocationHttpClientBase
         final Boolean allowFaultIn) { 
 
         final UUID locationId = UUID.fromString("d810a47d-f4f4-4a62-a03f-fa1860585c4c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("serviceType", serviceType); //$NON-NLS-1$
@@ -159,7 +159,7 @@ public abstract class LocationHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param serviceType 
      *            
@@ -168,7 +168,7 @@ public abstract class LocationHttpClientBase
     public ArrayList<ServiceDefinition> getServiceDefinitions(final String serviceType) { 
 
         final UUID locationId = UUID.fromString("d810a47d-f4f4-4a62-a03f-fa1860585c4c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("serviceType", serviceType); //$NON-NLS-1$
@@ -183,7 +183,7 @@ public abstract class LocationHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param serviceDefinitions 
      *            
@@ -191,36 +191,13 @@ public abstract class LocationHttpClientBase
     public void updateServiceDefinitions(final VssJsonCollectionWrapper<List<ServiceDefinition>> serviceDefinitions) { 
 
         final UUID locationId = UUID.fromString("d810a47d-f4f4-4a62-a03f-fa1860585c4c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
                                                                locationId,
                                                                apiVersion,
                                                                serviceDefinitions,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        super.sendRequest(httpRequest);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1]
-     * 
-     * @param hostId 
-     *            
-     */
-    public void updateSpsServiceDefinition(final UUID hostId) { 
-
-        final UUID locationId = UUID.fromString("df5f298a-4e06-4815-a13e-6ce90a37efa4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("hostId", hostId); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE);
 
         super.sendRequest(httpRequest);

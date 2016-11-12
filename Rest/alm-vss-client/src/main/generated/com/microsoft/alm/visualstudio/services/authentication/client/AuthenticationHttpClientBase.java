@@ -58,7 +58,7 @@ public abstract class AuthenticationHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param sessionToken 
      *            
@@ -67,7 +67,7 @@ public abstract class AuthenticationHttpClientBase
     public WebSessionToken createSessionToken(final WebSessionToken sessionToken) { 
 
         final UUID locationId = UUID.fromString("11420b6b-3324-490a-848d-b8aafdb906ba"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,

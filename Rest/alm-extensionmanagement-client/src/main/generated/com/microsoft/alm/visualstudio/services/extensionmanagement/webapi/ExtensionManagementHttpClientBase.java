@@ -70,7 +70,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param itemId 
      *            
@@ -86,7 +86,7 @@ public abstract class ExtensionManagementHttpClientBase
         final Boolean isFreeOrTrialInstall) { 
 
         final UUID locationId = UUID.fromString("288dff58-d13b-468e-9671-0fb754e9398c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("itemId", itemId); //$NON-NLS-1$
@@ -103,7 +103,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param acquisitionRequest 
      *            
@@ -112,7 +112,7 @@ public abstract class ExtensionManagementHttpClientBase
     public ExtensionAcquisitionRequest requestAcquisition(final ExtensionAcquisitionRequest acquisitionRequest) { 
 
         final UUID locationId = UUID.fromString("da616457-eed3-4672-92d7-18d21f5c1658"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -125,7 +125,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -141,7 +141,7 @@ public abstract class ExtensionManagementHttpClientBase
         final UUID registrationId) { 
 
         final UUID locationId = UUID.fromString("f21cfc80-d2d2-4248-98bb-7820c74c4606"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -158,7 +158,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param doc 
      *            
@@ -183,7 +183,7 @@ public abstract class ExtensionManagementHttpClientBase
         final String collectionName) { 
 
         final UUID locationId = UUID.fromString("bbe06c18-1c8b-4fcd-b9c6-1535aaab8749"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -204,7 +204,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -228,7 +228,7 @@ public abstract class ExtensionManagementHttpClientBase
         final String documentId) { 
 
         final UUID locationId = UUID.fromString("bbe06c18-1c8b-4fcd-b9c6-1535aaab8749"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -248,7 +248,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -273,7 +273,7 @@ public abstract class ExtensionManagementHttpClientBase
         final String documentId) { 
 
         final UUID locationId = UUID.fromString("bbe06c18-1c8b-4fcd-b9c6-1535aaab8749"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -293,7 +293,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -315,7 +315,7 @@ public abstract class ExtensionManagementHttpClientBase
         final String collectionName) { 
 
         final UUID locationId = UUID.fromString("bbe06c18-1c8b-4fcd-b9c6-1535aaab8749"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -334,7 +334,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param doc 
      *            
@@ -359,7 +359,7 @@ public abstract class ExtensionManagementHttpClientBase
         final String collectionName) { 
 
         final UUID locationId = UUID.fromString("bbe06c18-1c8b-4fcd-b9c6-1535aaab8749"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -380,7 +380,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param doc 
      *            
@@ -405,7 +405,7 @@ public abstract class ExtensionManagementHttpClientBase
         final String collectionName) { 
 
         final UUID locationId = UUID.fromString("bbe06c18-1c8b-4fcd-b9c6-1535aaab8749"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -426,7 +426,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param collectionQuery 
      *            
@@ -442,7 +442,7 @@ public abstract class ExtensionManagementHttpClientBase
         final String extensionName) { 
 
         final UUID locationId = UUID.fromString("56c331f1-ce53-4318-adfd-4db5c52a7a2e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -460,7 +460,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param includeDisabled 
      *            
@@ -476,7 +476,7 @@ public abstract class ExtensionManagementHttpClientBase
         final Boolean includeInstallationIssues) { 
 
         final UUID locationId = UUID.fromString("92755d3d-9a8a-42b3-8a4d-87359fe5aa93"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeDisabled", includeDisabled); //$NON-NLS-1$
@@ -493,7 +493,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param query 
      *            
@@ -502,7 +502,7 @@ public abstract class ExtensionManagementHttpClientBase
     public ArrayList<InstalledExtension> queryExtensions(final InstalledExtensionQuery query) { 
 
         final UUID locationId = UUID.fromString("046c980f-1345-4ce2-bf85-b46d10ff4cfd"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -515,7 +515,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param includeDisabledExtensions 
      *            
@@ -534,7 +534,7 @@ public abstract class ExtensionManagementHttpClientBase
         final Boolean includeInstallationIssues) { 
 
         final UUID locationId = UUID.fromString("275424d0-c844-4fe2-bda6-04933a1357d8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeDisabledExtensions", includeDisabledExtensions); //$NON-NLS-1$
@@ -552,7 +552,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param extension 
      *            
@@ -561,7 +561,7 @@ public abstract class ExtensionManagementHttpClientBase
     public InstalledExtension updateInstalledExtension(final InstalledExtension extension) { 
 
         final UUID locationId = UUID.fromString("275424d0-c844-4fe2-bda6-04933a1357d8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
                                                                locationId,
@@ -574,7 +574,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -590,7 +590,7 @@ public abstract class ExtensionManagementHttpClientBase
         final List<String> assetTypes) { 
 
         final UUID locationId = UUID.fromString("fb0da285-f23e-4b56-8b53-3ef5f9f6de66"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -610,7 +610,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -626,7 +626,7 @@ public abstract class ExtensionManagementHttpClientBase
         final String version) { 
 
         final UUID locationId = UUID.fromString("fb0da285-f23e-4b56-8b53-3ef5f9f6de66"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -643,7 +643,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -661,7 +661,7 @@ public abstract class ExtensionManagementHttpClientBase
         final String reasonCode) { 
 
         final UUID locationId = UUID.fromString("fb0da285-f23e-4b56-8b53-3ef5f9f6de66"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -682,7 +682,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param userId 
      *            
@@ -691,7 +691,7 @@ public abstract class ExtensionManagementHttpClientBase
     public UserExtensionPolicy getPolicies(final String userId) { 
 
         final UUID locationId = UUID.fromString("e5cc8c09-407b-4867-8319-2ae3338cbf6f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("userId", userId); //$NON-NLS-1$
@@ -706,7 +706,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param rejectMessage 
      *            
@@ -728,7 +728,7 @@ public abstract class ExtensionManagementHttpClientBase
         final ExtensionRequestState state) { 
 
         final UUID locationId = UUID.fromString("aa93e1f3-511c-4364-8b9c-eb98818f2e0b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -751,14 +751,14 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @return ArrayList&lt;RequestedExtension&gt;
      */
     public ArrayList<RequestedExtension> getRequests() { 
 
         final UUID locationId = UUID.fromString("216b978f-b164-424e-ada2-b77561e842b7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -769,7 +769,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param rejectMessage 
      *            
@@ -788,7 +788,7 @@ public abstract class ExtensionManagementHttpClientBase
         final ExtensionRequestState state) { 
 
         final UUID locationId = UUID.fromString("ba93e1f3-511c-4364-8b9c-eb98818f2e0b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -810,7 +810,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -822,7 +822,7 @@ public abstract class ExtensionManagementHttpClientBase
         final String extensionName) { 
 
         final UUID locationId = UUID.fromString("f5afca1e-a728-4294-aa2d-4af0173431b5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -838,7 +838,7 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -854,7 +854,7 @@ public abstract class ExtensionManagementHttpClientBase
         final String requestMessage) { 
 
         final UUID locationId = UUID.fromString("f5afca1e-a728-4294-aa2d-4af0173431b5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -872,14 +872,14 @@ public abstract class ExtensionManagementHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @return String
      */
     public String getToken() { 
 
         final UUID locationId = UUID.fromString("3a2e24ed-1d6f-4cb2-9f3b-45a96bbfaf50"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,

@@ -23,6 +23,7 @@ public enum ConditionType {
     UNDEFINED(0),
     EVENT(1),
     ENVIRONMENT_STATE(2),
+    ARTIFACT(4),
     ;
 
     private int value;
@@ -49,6 +50,10 @@ public enum ConditionType {
 
         if (name.equals("ENVIRONMENT_STATE")) { //$NON-NLS-1$
             return "environmentState"; //$NON-NLS-1$
+        }
+
+        if (name.equals("ARTIFACT")) { //$NON-NLS-1$
+            return "artifact"; //$NON-NLS-1$
         }
 
         return null;

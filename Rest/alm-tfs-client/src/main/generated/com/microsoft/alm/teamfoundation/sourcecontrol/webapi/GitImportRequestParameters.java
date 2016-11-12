@@ -15,6 +15,7 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
+import java.util.UUID;
 
 /** 
  * Parameters for creating an import request
@@ -23,26 +24,30 @@ package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 public class GitImportRequestParameters {
 
     /**
-    * Basic Authentication details
+    * Option to delete service endpoint when import is done
     */
-    private GitImportBasicAuthenticationParameters basicAuthentication;
+    private boolean deleteServiceEndpointAfterImportIsDone;
     /**
     * Source for importing git repository
     */
     private GitImportGitSource gitSource;
+    /**
+    * Service Endpoint for connection to external endpoint
+    */
+    private UUID serviceEndpointId;
 
     /**
-    * Basic Authentication details
+    * Option to delete service endpoint when import is done
     */
-    public GitImportBasicAuthenticationParameters getBasicAuthentication() {
-        return basicAuthentication;
+    public boolean getDeleteServiceEndpointAfterImportIsDone() {
+        return deleteServiceEndpointAfterImportIsDone;
     }
 
     /**
-    * Basic Authentication details
+    * Option to delete service endpoint when import is done
     */
-    public void setBasicAuthentication(final GitImportBasicAuthenticationParameters basicAuthentication) {
-        this.basicAuthentication = basicAuthentication;
+    public void setDeleteServiceEndpointAfterImportIsDone(final boolean deleteServiceEndpointAfterImportIsDone) {
+        this.deleteServiceEndpointAfterImportIsDone = deleteServiceEndpointAfterImportIsDone;
     }
 
     /**
@@ -57,5 +62,19 @@ public class GitImportRequestParameters {
     */
     public void setGitSource(final GitImportGitSource gitSource) {
         this.gitSource = gitSource;
+    }
+
+    /**
+    * Service Endpoint for connection to external endpoint
+    */
+    public UUID getServiceEndpointId() {
+        return serviceEndpointId;
+    }
+
+    /**
+    * Service Endpoint for connection to external endpoint
+    */
+    public void setServiceEndpointId(final UUID serviceEndpointId) {
+        this.serviceEndpointId = serviceEndpointId;
     }
 }

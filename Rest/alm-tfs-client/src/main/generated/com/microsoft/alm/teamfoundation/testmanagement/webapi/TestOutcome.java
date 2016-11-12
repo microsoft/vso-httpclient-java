@@ -76,7 +76,11 @@ public enum TestOutcome {
     * Test is currently executing. Added this for TCM charts
     */
     IN_PROGRESS(13),
-    MAX_VALUE(13),
+    /**
+    * Test is not impacted. Added fot TIA.
+    */
+    NOT_IMPACTED(14),
+    MAX_VALUE(14),
     ;
 
     private int value;
@@ -147,6 +151,10 @@ public enum TestOutcome {
 
         if (name.equals("IN_PROGRESS")) { //$NON-NLS-1$
             return "inProgress"; //$NON-NLS-1$
+        }
+
+        if (name.equals("NOT_IMPACTED")) { //$NON-NLS-1$
+            return "notImpacted"; //$NON-NLS-1$
         }
 
         if (name.equals("MAX_VALUE")) { //$NON-NLS-1$

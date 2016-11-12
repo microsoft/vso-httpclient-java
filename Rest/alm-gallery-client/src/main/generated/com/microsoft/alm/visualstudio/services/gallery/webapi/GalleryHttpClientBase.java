@@ -80,7 +80,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param extensionId 
      *            
@@ -92,7 +92,7 @@ public abstract class GalleryHttpClientBase
         final String accountName) { 
 
         final UUID locationId = UUID.fromString("1f19631b-a0b4-4a03-89c2-d79785d24360"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("extensionId", extensionId); //$NON-NLS-1$
@@ -108,7 +108,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param extensionId 
      *            
@@ -120,7 +120,7 @@ public abstract class GalleryHttpClientBase
         final String accountName) { 
 
         final UUID locationId = UUID.fromString("1f19631b-a0b4-4a03-89c2-d79785d24360"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("extensionId", extensionId); //$NON-NLS-1$
@@ -136,7 +136,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -151,7 +151,7 @@ public abstract class GalleryHttpClientBase
         final String accountName) { 
 
         final UUID locationId = UUID.fromString("a1e66d8f-f5de-4d16-8309-91a4e015ee46"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -168,7 +168,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -183,7 +183,7 @@ public abstract class GalleryHttpClientBase
         final String accountName) { 
 
         final UUID locationId = UUID.fromString("a1e66d8f-f5de-4d16-8309-91a4e015ee46"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -200,7 +200,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param itemId 
      *            
@@ -219,7 +219,7 @@ public abstract class GalleryHttpClientBase
         final Boolean isFreeOrTrialInstall) { 
 
         final UUID locationId = UUID.fromString("9d0a0105-075e-4760-aa15-8bcf54d1bd7d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("itemId", itemId); //$NON-NLS-1$
@@ -240,7 +240,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param acquisitionRequest 
      *            
@@ -249,7 +249,7 @@ public abstract class GalleryHttpClientBase
     public ExtensionAcquisitionRequest requestAcquisition(final ExtensionAcquisitionRequest acquisitionRequest) { 
 
         final UUID locationId = UUID.fromString("3adb1f2d-e328-446e-be73-9f6d98071c45"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -262,7 +262,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -287,7 +287,7 @@ public abstract class GalleryHttpClientBase
         final Boolean acceptDefault) { 
 
         final UUID locationId = UUID.fromString("7529171f-a002-4180-93ba-685f358a0482"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -310,7 +310,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param extensionId 
      *            
@@ -332,7 +332,7 @@ public abstract class GalleryHttpClientBase
         final Boolean acceptDefault) { 
 
         final UUID locationId = UUID.fromString("5d545f3d-ef47-488b-8be3-f5ee1517856c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("extensionId", extensionId); //$NON-NLS-1$
@@ -354,7 +354,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -376,7 +376,7 @@ public abstract class GalleryHttpClientBase
         final String accountToken) { 
 
         final UUID locationId = UUID.fromString("506aff36-2622-4f70-8063-77cce6366d20"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -398,7 +398,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -411,7 +411,7 @@ public abstract class GalleryHttpClientBase
         final String azurePublisherId) { 
 
         final UUID locationId = UUID.fromString("efd202a6-9d87-4ebc-9229-d2b8ae2fdb6d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -430,7 +430,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -439,7 +439,7 @@ public abstract class GalleryHttpClientBase
     public AzurePublisher queryAssociatedAzurePublisher(final String publisherName) { 
 
         final UUID locationId = UUID.fromString("efd202a6-9d87-4ebc-9229-d2b8ae2fdb6d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -454,7 +454,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param languages 
      *            
@@ -463,7 +463,7 @@ public abstract class GalleryHttpClientBase
     public ArrayList<String> getCategories(final String languages) { 
 
         final UUID locationId = UUID.fromString("e0a5a71e-3ac3-43a0-ae7d-0bb5c3046a2a"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("languages", languages); //$NON-NLS-1$
@@ -478,7 +478,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param categoryName 
      *            
@@ -494,7 +494,7 @@ public abstract class GalleryHttpClientBase
         final String product) { 
 
         final UUID locationId = UUID.fromString("75d3c04d-84d2-4973-acd2-22627587dabc"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("categoryName", categoryName); //$NON-NLS-1$
@@ -514,7 +514,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -530,7 +530,7 @@ public abstract class GalleryHttpClientBase
         final String version) { 
 
         final UUID locationId = UUID.fromString("e905ad6a-3f1f-4d08-9f6d-7d357ff8b7d0"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -547,7 +547,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param extensionQuery 
      *            
@@ -560,7 +560,7 @@ public abstract class GalleryHttpClientBase
         final String accountToken) { 
 
         final UUID locationId = UUID.fromString("eb9d5ee1-6d43-456b-b80e-8a96fbc014b6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("accountToken", accountToken); //$NON-NLS-1$
@@ -577,7 +577,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param extensionPackage 
      *            
@@ -586,7 +586,7 @@ public abstract class GalleryHttpClientBase
     public PublishedExtension createExtension(final ExtensionPackage extensionPackage) { 
 
         final UUID locationId = UUID.fromString("a41192c8-9525-4b58-bc86-179fa549d80d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -599,7 +599,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param extensionId 
      *            
@@ -611,7 +611,7 @@ public abstract class GalleryHttpClientBase
         final String version) { 
 
         final UUID locationId = UUID.fromString("a41192c8-9525-4b58-bc86-179fa549d80d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("extensionId", extensionId); //$NON-NLS-1$
@@ -630,7 +630,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param extensionId 
      *            
@@ -646,7 +646,7 @@ public abstract class GalleryHttpClientBase
         final ExtensionQueryFlags flags) { 
 
         final UUID locationId = UUID.fromString("a41192c8-9525-4b58-bc86-179fa549d80d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("extensionId", extensionId); //$NON-NLS-1$
@@ -666,7 +666,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param extensionPackage 
      *            
@@ -679,7 +679,7 @@ public abstract class GalleryHttpClientBase
         final UUID extensionId) { 
 
         final UUID locationId = UUID.fromString("a41192c8-9525-4b58-bc86-179fa549d80d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("extensionId", extensionId); //$NON-NLS-1$
@@ -696,7 +696,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param extensionPackage 
      *            
@@ -709,7 +709,7 @@ public abstract class GalleryHttpClientBase
         final String publisherName) { 
 
         final UUID locationId = UUID.fromString("e11ea35a-16fe-4b80-ab11-c4cab88a0966"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -726,7 +726,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -741,7 +741,7 @@ public abstract class GalleryHttpClientBase
         final String version) { 
 
         final UUID locationId = UUID.fromString("e11ea35a-16fe-4b80-ab11-c4cab88a0966"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -761,7 +761,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -783,7 +783,7 @@ public abstract class GalleryHttpClientBase
         final String accountToken) { 
 
         final UUID locationId = UUID.fromString("e11ea35a-16fe-4b80-ab11-c4cab88a0966"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -805,7 +805,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param extensionPackage 
      *            
@@ -821,7 +821,7 @@ public abstract class GalleryHttpClientBase
         final String extensionName) { 
 
         final UUID locationId = UUID.fromString("e11ea35a-16fe-4b80-ab11-c4cab88a0966"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -839,7 +839,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -855,7 +855,7 @@ public abstract class GalleryHttpClientBase
         final PublishedExtensionFlags flags) { 
 
         final UUID locationId = UUID.fromString("e11ea35a-16fe-4b80-ab11-c4cab88a0966"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -875,7 +875,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param azureRestApiRequestModel 
      *            
@@ -883,7 +883,7 @@ public abstract class GalleryHttpClientBase
     public void extensionValidator(final AzureRestApiRequestModel azureRestApiRequestModel) { 
 
         final UUID locationId = UUID.fromString("05e8a5e1-8c59-4c2c-8856-0ff087d1a844"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -896,51 +896,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
-     * 
-     * @param publisherName 
-     *            
-     * @param extensionName 
-     *            
-     * @param version 
-     *            
-     * @param accountToken 
-     *            
-     * @param acceptDefault 
-     *            
-     * @return InputStream
-     */
-    public InputStream getPackage(
-        final String publisherName, 
-        final String extensionName, 
-        final String version, 
-        final String accountToken, 
-        final Boolean acceptDefault) { 
-
-        final UUID locationId = UUID.fromString("7cb576f8-1cae-4c4b-b7b1-e4af5759e965"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("publisherName", publisherName); //$NON-NLS-1$
-        routeValues.put("extensionName", extensionName); //$NON-NLS-1$
-        routeValues.put("version", version); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.addIfNotEmpty("accountToken", accountToken); //$NON-NLS-1$
-        queryParameters.addIfNotNull("acceptDefault", acceptDefault); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               queryParameters,
-                                                               VssMediaTypes.APPLICATION_OCTET_STREAM_TYPE);
-
-        return super.sendRequest(httpRequest, InputStream.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -968,7 +924,7 @@ public abstract class GalleryHttpClientBase
         final Boolean acceptDefault) { 
 
         final UUID locationId = UUID.fromString("364415a1-0077-4a41-a7a0-06edd4497492"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -992,7 +948,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherQuery 
      *            
@@ -1001,7 +957,7 @@ public abstract class GalleryHttpClientBase
     public PublisherQueryResult queryPublishers(final PublisherQuery publisherQuery) { 
 
         final UUID locationId = UUID.fromString("2ad6ee0a-b53f-4034-9d1d-d009fda1212e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -1014,7 +970,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisher 
      *            
@@ -1023,7 +979,7 @@ public abstract class GalleryHttpClientBase
     public Publisher createPublisher(final Publisher publisher) { 
 
         final UUID locationId = UUID.fromString("4ddec66a-e4f6-4f5d-999e-9e77710d7ff4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -1036,7 +992,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -1044,7 +1000,7 @@ public abstract class GalleryHttpClientBase
     public void deletePublisher(final String publisherName) { 
 
         final UUID locationId = UUID.fromString("4ddec66a-e4f6-4f5d-999e-9e77710d7ff4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -1059,7 +1015,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -1072,7 +1028,7 @@ public abstract class GalleryHttpClientBase
         final Integer flags) { 
 
         final UUID locationId = UUID.fromString("4ddec66a-e4f6-4f5d-999e-9e77710d7ff4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -1091,7 +1047,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisher 
      *            
@@ -1104,7 +1060,7 @@ public abstract class GalleryHttpClientBase
         final String publisherName) { 
 
         final UUID locationId = UUID.fromString("4ddec66a-e4f6-4f5d-999e-9e77710d7ff4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -1121,7 +1077,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Returns a list of reviews associated with an extension
+     * [Preview API 3.1-preview.1] Returns a list of reviews associated with an extension
      * 
      * @param publisherName 
      *            Name of the publisher who published the extension
@@ -1146,7 +1102,7 @@ public abstract class GalleryHttpClientBase
         final Date afterDate) { 
 
         final UUID locationId = UUID.fromString("5b3f819f-f247-42ad-8c00-dd9ab9ab246d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$
@@ -1169,7 +1125,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Creates a new review for an extension
+     * [Preview API 3.1-preview.1] Creates a new review for an extension
      * 
      * @param review 
      *            Review to be created for the extension
@@ -1185,7 +1141,7 @@ public abstract class GalleryHttpClientBase
         final String extName) { 
 
         final UUID locationId = UUID.fromString("e6e85b9d-aa70-40e6-aa28-d0fbf40b91a3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("pubName", pubName); //$NON-NLS-1$
@@ -1203,7 +1159,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Deletes a review
+     * [Preview API 3.1-preview.1] Deletes a review
      * 
      * @param pubName 
      *            Name of the pubilsher who published the extension
@@ -1218,7 +1174,7 @@ public abstract class GalleryHttpClientBase
         final long reviewId) { 
 
         final UUID locationId = UUID.fromString("e6e85b9d-aa70-40e6-aa28-d0fbf40b91a3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("pubName", pubName); //$NON-NLS-1$
@@ -1235,7 +1191,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Updates or Flags a review
+     * [Preview API 3.1-preview.1] Updates or Flags a review
      * 
      * @param reviewPatch 
      *            ReviewPatch object which contains the changes to be applied to the review
@@ -1254,7 +1210,7 @@ public abstract class GalleryHttpClientBase
         final long reviewId) { 
 
         final UUID locationId = UUID.fromString("e6e85b9d-aa70-40e6-aa28-d0fbf40b91a3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("pubName", pubName); //$NON-NLS-1$
@@ -1273,7 +1229,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param category 
      *            
@@ -1282,7 +1238,7 @@ public abstract class GalleryHttpClientBase
     public ExtensionCategory createCategory(final ExtensionCategory category) { 
 
         final UUID locationId = UUID.fromString("476531a3-7024-4516-a76a-ed64d3008ad6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -1295,7 +1251,89 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1] Get all setting entries for the given user/all-users scope
+     * 
+     * @param userScope 
+     *            User-Scope at which to get the value. Should be &quot;me&quot; for the current user or &quot;host&quot; for all users.
+     * @return HashMap&lt;String, Object&gt;
+     */
+    public HashMap<String, Object> getGalleryUserSettings(final String userScope) { 
+
+        final UUID locationId = UUID.fromString("9b75ece3-7960-401c-848b-148ac01ca350"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("userScope", userScope); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<HashMap<String, Object>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Get all setting entries for the given user/all-users scope
+     * 
+     * @param userScope 
+     *            User-Scope at which to get the value. Should be &quot;me&quot; for the current user or &quot;host&quot; for all users.
+     * @param key 
+     *            Optional key under which to filter all the entries
+     * @return HashMap&lt;String, Object&gt;
+     */
+    public HashMap<String, Object> getGalleryUserSettings(
+        final String userScope, 
+        final String key) { 
+
+        final UUID locationId = UUID.fromString("9b75ece3-7960-401c-848b-148ac01ca350"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("userScope", userScope); //$NON-NLS-1$
+        routeValues.put("key", key); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<HashMap<String, Object>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Set all setting entries for the given user/all-users scope
+     * 
+     * @param entries 
+     *            A key-value pair of all settings that need to be set
+     * @param userScope 
+     *            User-Scope at which to get the value. Should be &quot;me&quot; for the current user or &quot;host&quot; for all users.
+     */
+    public void setGalleryUserSettings(
+        final Map<String, Object> entries, 
+        final String userScope) { 
+
+        final UUID locationId = UUID.fromString("9b75ece3-7960-401c-848b-148ac01ca350"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("userScope", userScope); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               entries,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        super.sendRequest(httpRequest);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
      * 
      * @param keyType 
      *            
@@ -1307,7 +1345,7 @@ public abstract class GalleryHttpClientBase
         final Integer expireCurrentSeconds) { 
 
         final UUID locationId = UUID.fromString("92ed5cf4-c38b-465a-9059-2f2fb7c624b5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("keyType", keyType); //$NON-NLS-1$
@@ -1326,7 +1364,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param keyType 
      *            
@@ -1335,7 +1373,7 @@ public abstract class GalleryHttpClientBase
     public String getSigningKey(final String keyType) { 
 
         final UUID locationId = UUID.fromString("92ed5cf4-c38b-465a-9059-2f2fb7c624b5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("keyType", keyType); //$NON-NLS-1$
@@ -1350,7 +1388,7 @@ public abstract class GalleryHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param extensionStatisticsUpdate 
      *            
@@ -1365,7 +1403,7 @@ public abstract class GalleryHttpClientBase
         final String extensionName) { 
 
         final UUID locationId = UUID.fromString("a0ea3204-11e9-422d-a9ca-45851cc41400"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$

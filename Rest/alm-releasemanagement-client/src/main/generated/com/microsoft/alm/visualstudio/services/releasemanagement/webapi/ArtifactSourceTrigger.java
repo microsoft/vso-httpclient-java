@@ -15,6 +15,7 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi;
 
+import java.util.ArrayList;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.JsonDeserializer;
@@ -31,6 +32,7 @@ public class ArtifactSourceTrigger
     * Artifact source alias for Artifact Source trigger type
     */
     private String artifactAlias;
+    private ArrayList<ArtifactFilter> triggerConditions;
 
     /**
     * Artifact source alias for Artifact Source trigger type
@@ -44,5 +46,13 @@ public class ArtifactSourceTrigger
     */
     public void setArtifactAlias(final String artifactAlias) {
         this.artifactAlias = artifactAlias;
+    }
+
+    public ArrayList<ArtifactFilter> getTriggerConditions() {
+        return triggerConditions;
+    }
+
+    public void setTriggerConditions(final ArrayList<ArtifactFilter> triggerConditions) {
+        this.triggerConditions = triggerConditions;
     }
 }

@@ -28,6 +28,10 @@ public class CategoryConfiguration {
     */
     private String name;
     /**
+    * Category Reference Name
+    */
+    private String referenceName;
+    /**
     * Work item types for the backlog category
     */
     private WorkItemTypeReference[] workItemTypes;
@@ -44,6 +48,20 @@ public class CategoryConfiguration {
     */
     public void setName(final String name) {
         this.name = name;
+    }
+
+    /**
+    * Category Reference Name
+    */
+    public String getReferenceName() {
+        return referenceName;
+    }
+
+    /**
+    * Category Reference Name
+    */
+    public void setReferenceName(final String referenceName) {
+        this.referenceName = referenceName;
     }
 
     /**

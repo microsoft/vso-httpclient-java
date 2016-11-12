@@ -15,27 +15,37 @@
 
 package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 
+import java.util.ArrayList;
 
 /** 
  */
 public class GitImportStatusDetail {
 
-    private String message;
-    private String subStatus;
+    private ArrayList<String> allSteps;
+    private int currentStep;
+    private String errorMessage;
 
-    public String getMessage() {
-        return message;
+    public ArrayList<String> getAllSteps() {
+        return allSteps;
     }
 
-    public void setMessage(final String message) {
-        this.message = message;
+    public void setAllSteps(final ArrayList<String> allSteps) {
+        this.allSteps = allSteps;
     }
 
-    public String getSubStatus() {
-        return subStatus;
+    public int getCurrentStep() {
+        return currentStep;
     }
 
-    public void setSubStatus(final String subStatus) {
-        this.subStatus = subStatus;
+    public void setCurrentStep(final int currentStep) {
+        this.currentStep = currentStep;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(final String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 }

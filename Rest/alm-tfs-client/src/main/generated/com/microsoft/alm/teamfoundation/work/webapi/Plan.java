@@ -25,13 +25,33 @@ import java.util.UUID;
 public class Plan {
 
     /**
+    * Card settings such as fields and rules
+    */
+    private CardSettings cardSettings;
+    /**
+    * Identity when the plan was created. Default to Empty Guid for the existing records before upgrading to ScaledAgileViewComponent4, which means we do not know the identity that created this resource.
+    */
+    private UUID createdBy;
+    /**
     * Date when the plan was created
     */
     private Date createdDate;
     /**
+    * Description of the plan
+    */
+    private String description;
+    /**
     * Id of the plan
     */
     private UUID id;
+    /**
+    * Identity when the plan was last modified.  Default to Empty Guid for the existing records before upgrading to ScaledAgileViewComponent4, which means we do not know the identity that last modified this resource.
+    */
+    private UUID modifiedBy;
+    /**
+    * Date when the plan was last modified. Default to CreatedDate when the plan is first created.
+    */
+    private Date modifiedDate;
     /**
     * Name of the plan
     */
@@ -45,6 +65,10 @@ public class Plan {
     */
     private Object properties;
     /**
+    * Revision of the plan. Used to safeguard users from overwriting each other&#039;s changes.
+    */
+    private int revision;
+    /**
     * Type of the plan
     */
     private PlanType type;
@@ -52,6 +76,34 @@ public class Plan {
     * The resource url to locate the plan via rest api
     */
     private String url;
+
+    /**
+    * Card settings such as fields and rules
+    */
+    public CardSettings getCardSettings() {
+        return cardSettings;
+    }
+
+    /**
+    * Card settings such as fields and rules
+    */
+    public void setCardSettings(final CardSettings cardSettings) {
+        this.cardSettings = cardSettings;
+    }
+
+    /**
+    * Identity when the plan was created. Default to Empty Guid for the existing records before upgrading to ScaledAgileViewComponent4, which means we do not know the identity that created this resource.
+    */
+    public UUID getCreatedBy() {
+        return createdBy;
+    }
+
+    /**
+    * Identity when the plan was created. Default to Empty Guid for the existing records before upgrading to ScaledAgileViewComponent4, which means we do not know the identity that created this resource.
+    */
+    public void setCreatedBy(final UUID createdBy) {
+        this.createdBy = createdBy;
+    }
 
     /**
     * Date when the plan was created
@@ -68,6 +120,20 @@ public class Plan {
     }
 
     /**
+    * Description of the plan
+    */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+    * Description of the plan
+    */
+    public void setDescription(final String description) {
+        this.description = description;
+    }
+
+    /**
     * Id of the plan
     */
     public UUID getId() {
@@ -79,6 +145,34 @@ public class Plan {
     */
     public void setId(final UUID id) {
         this.id = id;
+    }
+
+    /**
+    * Identity when the plan was last modified.  Default to Empty Guid for the existing records before upgrading to ScaledAgileViewComponent4, which means we do not know the identity that last modified this resource.
+    */
+    public UUID getModifiedBy() {
+        return modifiedBy;
+    }
+
+    /**
+    * Identity when the plan was last modified.  Default to Empty Guid for the existing records before upgrading to ScaledAgileViewComponent4, which means we do not know the identity that last modified this resource.
+    */
+    public void setModifiedBy(final UUID modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    /**
+    * Date when the plan was last modified. Default to CreatedDate when the plan is first created.
+    */
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    /**
+    * Date when the plan was last modified. Default to CreatedDate when the plan is first created.
+    */
+    public void setModifiedDate(final Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
     /**
@@ -121,6 +215,20 @@ public class Plan {
     */
     public void setProperties(final Object properties) {
         this.properties = properties;
+    }
+
+    /**
+    * Revision of the plan. Used to safeguard users from overwriting each other&amp;#039;s changes.
+    */
+    public int getRevision() {
+        return revision;
+    }
+
+    /**
+    * Revision of the plan. Used to safeguard users from overwriting each other&amp;#039;s changes.
+    */
+    public void setRevision(final int revision) {
+        this.revision = revision;
     }
 
     /**

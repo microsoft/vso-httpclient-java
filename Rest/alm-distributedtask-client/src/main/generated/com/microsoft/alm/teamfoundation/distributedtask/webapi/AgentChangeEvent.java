@@ -23,6 +23,7 @@ public class AgentChangeEvent {
 
     private TaskAgent agent;
     private String eventType;
+    private TaskAgentPoolReference pool;
     private int poolId;
     private Date timeStamp;
 
@@ -40,6 +41,14 @@ public class AgentChangeEvent {
 
     public void setEventType(final String eventType) {
         this.eventType = eventType;
+    }
+
+    public TaskAgentPoolReference getPool() {
+        return pool;
+    }
+
+    public void setPool(final TaskAgentPoolReference pool) {
+        this.pool = pool;
     }
 
     public int getPoolId() {

@@ -30,6 +30,7 @@ public class ManualIntervention {
     private int id;
     private String instructions;
     private Date modifiedOn;
+    private String name;
     private ShallowReference release;
     private ShallowReference releaseDefinition;
     private ShallowReference releaseEnvironment;
@@ -83,6 +84,14 @@ public class ManualIntervention {
 
     public void setModifiedOn(final Date modifiedOn) {
         this.modifiedOn = modifiedOn;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(final String name) {
+        this.name = name;
     }
 
     public ShallowReference getRelease() {

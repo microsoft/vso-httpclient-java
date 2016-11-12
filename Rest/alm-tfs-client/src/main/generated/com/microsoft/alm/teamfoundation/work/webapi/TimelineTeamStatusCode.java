@@ -36,6 +36,10 @@ public enum TimelineTeamStatusCode {
     * Maximum number of team fields (ie Area paths) have been exceeded. No team data will be returned for this team.
     */
     MAX_TEAM_FIELDS_EXCEEDED(3),
+    /**
+    * Backlog does not exist or is missing crucial information.
+    */
+    BACKLOG_IN_ERROR(4),
     ;
 
     private int value;
@@ -66,6 +70,10 @@ public enum TimelineTeamStatusCode {
 
         if (name.equals("MAX_TEAM_FIELDS_EXCEEDED")) { //$NON-NLS-1$
             return "maxTeamFieldsExceeded"; //$NON-NLS-1$
+        }
+
+        if (name.equals("BACKLOG_IN_ERROR")) { //$NON-NLS-1$
+            return "backlogInError"; //$NON-NLS-1$
         }
 
         return null;

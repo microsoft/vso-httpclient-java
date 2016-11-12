@@ -11,7 +11,7 @@
     <parent>
         <groupId>com.microsoft.alm</groupId>
         <artifactId>alm-http-client</artifactId>
-        <version>15.105.0-SNAPSHOT</version>
+        <version>15.108.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>alm-extensionmanagement-client</artifactId>

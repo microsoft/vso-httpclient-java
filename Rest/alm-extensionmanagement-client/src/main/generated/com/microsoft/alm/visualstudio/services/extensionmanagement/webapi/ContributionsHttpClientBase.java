@@ -61,7 +61,7 @@ public abstract class ContributionsHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param query 
      *            
@@ -70,7 +70,7 @@ public abstract class ContributionsHttpClientBase
     public DataProviderResult queryDataProviders(final DataProviderQuery query) { 
 
         final UUID locationId = UUID.fromString("738368db-35ee-4b85-9f94-77ed34af2b0d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -83,7 +83,7 @@ public abstract class ContributionsHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param contributionIds 
      *            
@@ -99,7 +99,7 @@ public abstract class ContributionsHttpClientBase
         final List<String> assetTypes) { 
 
         final UUID locationId = UUID.fromString("2648442b-fd63-4b9a-902f-0c913510f139"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("contributionIds", contributionIds); //$NON-NLS-1$
@@ -116,7 +116,7 @@ public abstract class ContributionsHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param publisherName 
      *            
@@ -132,7 +132,7 @@ public abstract class ContributionsHttpClientBase
         final List<String> assetTypes) { 
 
         final UUID locationId = UUID.fromString("3e2f6668-0798-4dcb-b592-bfe2fa57fde2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("publisherName", publisherName); //$NON-NLS-1$

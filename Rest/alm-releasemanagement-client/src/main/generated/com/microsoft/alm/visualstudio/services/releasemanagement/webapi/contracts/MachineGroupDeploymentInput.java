@@ -15,13 +15,15 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
+import java.util.ArrayList;
 
 /** 
  */
 public class MachineGroupDeploymentInput
-    extends AgentDeploymentInput {
+    extends DeploymentInput {
 
     private int healthPercent;
+    private ArrayList<String> tags;
 
     public int getHealthPercent() {
         return healthPercent;
@@ -29,5 +31,13 @@ public class MachineGroupDeploymentInput
 
     public void setHealthPercent(final int healthPercent) {
         this.healthPercent = healthPercent;
+    }
+
+    public ArrayList<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(final ArrayList<String> tags) {
+        this.tags = tags;
     }
 }

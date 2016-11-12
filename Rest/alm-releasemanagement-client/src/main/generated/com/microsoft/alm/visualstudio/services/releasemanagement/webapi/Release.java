@@ -20,6 +20,7 @@ import java.util.Date;
 import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.Artifact;
+import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.ProjectReference;
 import com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts.ShallowReference;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
@@ -43,6 +44,7 @@ public class Release {
     private Date modifiedOn;
     private String name;
     private String poolName;
+    private ProjectReference projectReference;
     private ReleaseReason reason;
     private ShallowReference releaseDefinition;
     private String releaseNameFormat;
@@ -170,6 +172,14 @@ public class Release {
 
     public void setPoolName(final String poolName) {
         this.poolName = poolName;
+    }
+
+    public ProjectReference getProjectReference() {
+        return projectReference;
+    }
+
+    public void setProjectReference(final ProjectReference projectReference) {
+        this.projectReference = projectReference;
     }
 
     public ReleaseReason getReason() {

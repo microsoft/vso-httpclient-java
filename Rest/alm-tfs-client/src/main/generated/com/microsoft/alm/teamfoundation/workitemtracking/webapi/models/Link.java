@@ -23,7 +23,6 @@ public class Link {
 
     private HashMap<String, Object> attributes;
     private String rel;
-    private String title;
     private String url;
 
     public HashMap<String, Object> getAttributes() {
@@ -40,14 +39,6 @@ public class Link {
 
     public void setRel(final String rel) {
         this.rel = rel;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(final String title) {
-        this.title = title;
     }
 
     public String getUrl() {

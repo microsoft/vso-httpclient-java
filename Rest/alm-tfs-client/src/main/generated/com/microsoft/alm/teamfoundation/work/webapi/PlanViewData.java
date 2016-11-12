@@ -25,6 +25,7 @@ public class PlanViewData {
 
     private UUID id;
     private String name;
+    private int revision;
 
     public UUID getId() {
         return id;
@@ -40,5 +41,13 @@ public class PlanViewData {
 
     public void setName(final String name) {
         this.name = name;
+    }
+
+    public int getRevision() {
+        return revision;
+    }
+
+    public void setRevision(final int revision) {
+        this.revision = revision;
     }
 }
