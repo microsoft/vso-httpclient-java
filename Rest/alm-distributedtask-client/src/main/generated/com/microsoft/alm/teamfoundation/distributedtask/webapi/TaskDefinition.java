@@ -48,6 +48,7 @@ public class TaskDefinition {
     private String name;
     private String packageLocation;
     private String packageType;
+    private ArrayList<String> runsOn;
     private boolean serverOwned;
     private ArrayList<TaskSourceDefinition> sourceDefinitions;
     private String sourceLocation;
@@ -244,6 +245,14 @@ public class TaskDefinition {
 
     public void setPackageType(final String packageType) {
         this.packageType = packageType;
+    }
+
+    public ArrayList<String> getRunsOn() {
+        return runsOn;
+    }
+
+    public void setRunsOn(final ArrayList<String> runsOn) {
+        this.runsOn = runsOn;
     }
 
     public boolean getServerOwned() {

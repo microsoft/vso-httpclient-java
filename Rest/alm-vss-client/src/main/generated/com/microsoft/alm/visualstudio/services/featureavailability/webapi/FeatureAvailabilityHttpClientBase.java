@@ -60,14 +60,14 @@ public abstract class FeatureAvailabilityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @return ArrayList&lt;FeatureFlag&gt;
      */
     public ArrayList<FeatureFlag> getAllFeatureFlags() { 
 
         final UUID locationId = UUID.fromString("3e2b80f8-9e6f-441e-8393-005610692d9c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -78,7 +78,7 @@ public abstract class FeatureAvailabilityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve a listing of all feature flags and their current states for a user
+     * [Preview API 3.1-preview.1] Retrieve a listing of all feature flags and their current states for a user
      * 
      * @param userEmail 
      *            The email of the user to check
@@ -87,7 +87,7 @@ public abstract class FeatureAvailabilityHttpClientBase
     public ArrayList<FeatureFlag> getAllFeatureFlags(final String userEmail) { 
 
         final UUID locationId = UUID.fromString("3e2b80f8-9e6f-441e-8393-005610692d9c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("userEmail", userEmail); //$NON-NLS-1$
@@ -102,7 +102,7 @@ public abstract class FeatureAvailabilityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve information on a single feature flag and its current states
+     * [Preview API 3.1-preview.1] Retrieve information on a single feature flag and its current states
      * 
      * @param name 
      *            The name of the feature to retrieve
@@ -111,7 +111,7 @@ public abstract class FeatureAvailabilityHttpClientBase
     public FeatureFlag getFeatureFlagByName(final String name) { 
 
         final UUID locationId = UUID.fromString("3e2b80f8-9e6f-441e-8393-005610692d9c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("name", name); //$NON-NLS-1$
@@ -126,7 +126,7 @@ public abstract class FeatureAvailabilityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve information on a single feature flag and its current states for a user
+     * [Preview API 3.1-preview.1] Retrieve information on a single feature flag and its current states for a user
      * 
      * @param name 
      *            The name of the feature to retrieve
@@ -139,7 +139,7 @@ public abstract class FeatureAvailabilityHttpClientBase
         final String userEmail) { 
 
         final UUID locationId = UUID.fromString("3e2b80f8-9e6f-441e-8393-005610692d9c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("name", name); //$NON-NLS-1$
@@ -158,7 +158,7 @@ public abstract class FeatureAvailabilityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Retrieve information on a single feature flag and its current states for a user
+     * [Preview API 3.1-preview.1] Retrieve information on a single feature flag and its current states for a user
      * 
      * @param name 
      *            The name of the feature to retrieve
@@ -171,7 +171,7 @@ public abstract class FeatureAvailabilityHttpClientBase
         final UUID userId) { 
 
         final UUID locationId = UUID.fromString("3e2b80f8-9e6f-441e-8393-005610692d9c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("name", name); //$NON-NLS-1$
@@ -190,7 +190,7 @@ public abstract class FeatureAvailabilityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Change the state of an individual feature flag
+     * [Preview API 3.1-preview.1] Change the state of an individual feature flag
      * 
      * @param state 
      *            State that should be set
@@ -209,7 +209,7 @@ public abstract class FeatureAvailabilityHttpClientBase
         final Boolean setAtApplicationLevelAlso) { 
 
         final UUID locationId = UUID.fromString("3e2b80f8-9e6f-441e-8393-005610692d9c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("name", name); //$NON-NLS-1$
@@ -231,7 +231,7 @@ public abstract class FeatureAvailabilityHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1] Change the state of an individual feature flag for a name
+     * [Preview API 3.1-preview.1] Change the state of an individual feature flag for a name
      * 
      * @param state 
      *            State that should be set
@@ -253,7 +253,7 @@ public abstract class FeatureAvailabilityHttpClientBase
         final Boolean setAtApplicationLevelAlso) { 
 
         final UUID locationId = UUID.fromString("3e2b80f8-9e6f-441e-8393-005610692d9c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("name", name); //$NON-NLS-1$

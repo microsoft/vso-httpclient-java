@@ -15,73 +15,11 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
-import java.util.HashMap;
+import com.microsoft.alm.teamfoundation.distributedtask.common.contracts.DataSourceBindingBase;
 
 /** 
  */
-public class DataSourceBinding {
+public class DataSourceBinding
+    extends DataSourceBindingBase {
 
-    private String dataSourceName;
-    private String endpointId;
-    private String endpointUrl;
-    private HashMap<String, String> parameters;
-    private String resultSelector;
-    private String resultTemplate;
-    private String target;
-
-    public String getDataSourceName() {
-        return dataSourceName;
-    }
-
-    public void setDataSourceName(final String dataSourceName) {
-        this.dataSourceName = dataSourceName;
-    }
-
-    public String getEndpointId() {
-        return endpointId;
-    }
-
-    public void setEndpointId(final String endpointId) {
-        this.endpointId = endpointId;
-    }
-
-    public String getEndpointUrl() {
-        return endpointUrl;
-    }
-
-    public void setEndpointUrl(final String endpointUrl) {
-        this.endpointUrl = endpointUrl;
-    }
-
-    public HashMap<String, String> getParameters() {
-        return parameters;
-    }
-
-    public void setParameters(final HashMap<String, String> parameters) {
-        this.parameters = parameters;
-    }
-
-    public String getResultSelector() {
-        return resultSelector;
-    }
-
-    public void setResultSelector(final String resultSelector) {
-        this.resultSelector = resultSelector;
-    }
-
-    public String getResultTemplate() {
-        return resultTemplate;
-    }
-
-    public void setResultTemplate(final String resultTemplate) {
-        this.resultTemplate = resultTemplate;
-    }
-
-    public String getTarget() {
-        return target;
-    }
-
-    public void setTarget(final String target) {
-        this.target = target;
-    }
 }

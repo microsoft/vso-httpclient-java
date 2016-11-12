@@ -65,7 +65,7 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param scopeIdentifier 
      *            The project GUID to scope the request
@@ -84,7 +84,7 @@ public abstract class TaskHttpClientBase
         final String type) { 
 
         final UUID locationId = UUID.fromString("eb55e5d6-2f30-4295-b5ed-38da50b1fc52"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -102,7 +102,7 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param uploadStream 
      *            The stream to upload
@@ -133,7 +133,7 @@ public abstract class TaskHttpClientBase
         final String name) { 
 
         final UUID locationId = UUID.fromString("7898f959-9cdf-4096-b29e-7f293031629e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -156,7 +156,7 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param scopeIdentifier 
      *            The project GUID to scope the request
@@ -184,7 +184,7 @@ public abstract class TaskHttpClientBase
         final String name) { 
 
         final UUID locationId = UUID.fromString("7898f959-9cdf-4096-b29e-7f293031629e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -205,7 +205,7 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param scopeIdentifier 
      *            The project GUID to scope the request
@@ -233,7 +233,7 @@ public abstract class TaskHttpClientBase
         final String name) { 
 
         final UUID locationId = UUID.fromString("7898f959-9cdf-4096-b29e-7f293031629e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -254,7 +254,7 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param scopeIdentifier 
      *            The project GUID to scope the request
@@ -279,7 +279,7 @@ public abstract class TaskHttpClientBase
         final String type) { 
 
         final UUID locationId = UUID.fromString("7898f959-9cdf-4096-b29e-7f293031629e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -299,6 +299,8 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param lines 
      *            
      * @param scopeIdentifier 
@@ -321,7 +323,7 @@ public abstract class TaskHttpClientBase
         final UUID recordId) { 
 
         final UUID locationId = UUID.fromString("858983e4-19bd-4c5e-864c-507b59b58b12"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -342,6 +344,8 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param uploadStream 
      *            The stream to upload
      * @param scopeIdentifier 
@@ -362,7 +366,7 @@ public abstract class TaskHttpClientBase
         final int logId) { 
 
         final UUID locationId = UUID.fromString("46f5667d-263a-4684-91b1-dff7fdcf64e2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -382,6 +386,8 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param log 
      *            
      * @param scopeIdentifier 
@@ -399,7 +405,7 @@ public abstract class TaskHttpClientBase
         final UUID planId) { 
 
         final UUID locationId = UUID.fromString("46f5667d-263a-4684-91b1-dff7fdcf64e2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -418,6 +424,8 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param scopeIdentifier 
      *            The project GUID to scope the request
      * @param hubName 
@@ -441,7 +449,7 @@ public abstract class TaskHttpClientBase
         final Integer endLine) { 
 
         final UUID locationId = UUID.fromString("46f5667d-263a-4684-91b1-dff7fdcf64e2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -464,6 +472,8 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param scopeIdentifier 
      *            The project GUID to scope the request
      * @param hubName 
@@ -478,7 +488,7 @@ public abstract class TaskHttpClientBase
         final UUID planId) { 
 
         final UUID locationId = UUID.fromString("46f5667d-263a-4684-91b1-dff7fdcf64e2"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -495,6 +505,8 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param scopeIdentifier 
      *            The project GUID to scope the request
      * @param hubName 
@@ -509,7 +521,7 @@ public abstract class TaskHttpClientBase
         final UUID planId) { 
 
         final UUID locationId = UUID.fromString("5cecd946-d704-471e-a45f-3b4064fcfaba"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -526,6 +538,8 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param scopeIdentifier 
      *            The project GUID to scope the request
      * @param hubName 
@@ -546,7 +560,7 @@ public abstract class TaskHttpClientBase
         final Integer changeId) { 
 
         final UUID locationId = UUID.fromString("8893bc5b-35b2-4be7-83cb-99e683551db4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -568,6 +582,8 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param records 
      *            
      * @param scopeIdentifier 
@@ -588,7 +604,7 @@ public abstract class TaskHttpClientBase
         final UUID timelineId) { 
 
         final UUID locationId = UUID.fromString("8893bc5b-35b2-4be7-83cb-99e683551db4"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -608,6 +624,8 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param timeline 
      *            
      * @param scopeIdentifier 
@@ -625,7 +643,7 @@ public abstract class TaskHttpClientBase
         final UUID planId) { 
 
         final UUID locationId = UUID.fromString("83597576-cc2c-453c-bea6-2882ae6a1653"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -644,6 +662,8 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param scopeIdentifier 
      *            The project GUID to scope the request
      * @param hubName 
@@ -660,7 +680,7 @@ public abstract class TaskHttpClientBase
         final UUID timelineId) { 
 
         final UUID locationId = UUID.fromString("83597576-cc2c-453c-bea6-2882ae6a1653"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -678,6 +698,8 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param scopeIdentifier 
      *            The project GUID to scope the request
      * @param hubName 
@@ -701,7 +723,7 @@ public abstract class TaskHttpClientBase
         final Boolean includeRecords) { 
 
         final UUID locationId = UUID.fromString("83597576-cc2c-453c-bea6-2882ae6a1653"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$
@@ -724,6 +746,8 @@ public abstract class TaskHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param scopeIdentifier 
      *            The project GUID to scope the request
      * @param hubName 
@@ -738,7 +762,7 @@ public abstract class TaskHttpClientBase
         final UUID planId) { 
 
         final UUID locationId = UUID.fromString("83597576-cc2c-453c-bea6-2882ae6a1653"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("scopeIdentifier", scopeIdentifier); //$NON-NLS-1$

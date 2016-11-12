@@ -400,7 +400,7 @@ public class GitHttpClient extends GitHttpClientBase {
      * @return List&lt;GitRepository&gt;
      */
     public List<GitRepository> getRepositories() {
-        return super.getRepositories(null);
+        return super.getRepositories(null, null);
     }
 
     /**
@@ -410,7 +410,7 @@ public class GitHttpClient extends GitHttpClientBase {
      * @return List&lt;GitRepository&gt;
      */
     public List<GitRepository> getRepositories(final boolean includeLinks) {
-        return super.getRepositories(includeLinks);
+        return super.getRepositories(includeLinks, null);
     }
 
     /**
@@ -421,7 +421,7 @@ public class GitHttpClient extends GitHttpClientBase {
      */
     public List<GitRepository> getRepositories(final String project) {
         ArgumentUtility.checkStringForNullOrEmpty(project, "project", true); //$NON-NLS-1$
-        return super.getRepositories(project, null);
+        return super.getRepositories(project, null, null);
     }
 
     /**
@@ -433,6 +433,6 @@ public class GitHttpClient extends GitHttpClientBase {
      */
     public List<GitRepository> getRepositories(final String project, final boolean includeLinks) {
         ArgumentUtility.checkStringForNullOrEmpty(project, "project", true); //$NON-NLS-1$
-        return super.getRepositories(project, includeLinks);
+        return super.getRepositories(project, includeLinks, null);
     }
 }

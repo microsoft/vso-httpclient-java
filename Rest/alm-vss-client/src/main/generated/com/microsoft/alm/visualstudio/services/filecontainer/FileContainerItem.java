@@ -54,6 +54,10 @@ public class FileContainerItem {
     */
     private Byte[] fileHash;
     /**
+    * Id of the file content.
+    */
+    private int fileId;
+    /**
     * Length of the file. Zero if not of a file.
     */
     private long fileLength;
@@ -191,6 +195,20 @@ public class FileContainerItem {
     */
     public void setFileHash(final Byte[] fileHash) {
         this.fileHash = fileHash;
+    }
+
+    /**
+    * Id of the file content.
+    */
+    public int getFileId() {
+        return fileId;
+    }
+
+    /**
+    * Id of the file content.
+    */
+    public void setFileId(final int fileId) {
+        this.fileId = fileId;
     }
 
     /**

@@ -64,6 +64,8 @@ public abstract class SecurityHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param securityNamespaceId 
      *            
      * @param token 
@@ -78,7 +80,7 @@ public abstract class SecurityHttpClientBase
         final String descriptors) { 
 
         final UUID locationId = UUID.fromString("ac08c8ff-4323-4b08-af90-bcd018d380ce"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("securityNamespaceId", securityNamespaceId); //$NON-NLS-1$
@@ -98,6 +100,8 @@ public abstract class SecurityHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param container 
      *            
      * @param securityNamespaceId 
@@ -109,7 +113,7 @@ public abstract class SecurityHttpClientBase
         final UUID securityNamespaceId) { 
 
         final UUID locationId = UUID.fromString("ac08c8ff-4323-4b08-af90-bcd018d380ce"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("securityNamespaceId", securityNamespaceId); //$NON-NLS-1$
@@ -126,6 +130,8 @@ public abstract class SecurityHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param securityNamespaceId 
      *            
      * @param token 
@@ -146,7 +152,7 @@ public abstract class SecurityHttpClientBase
         final Boolean recurse) { 
 
         final UUID locationId = UUID.fromString("18a2ad18-7571-46ae-bec7-0c7da1495885"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("securityNamespaceId", securityNamespaceId); //$NON-NLS-1$
@@ -168,6 +174,8 @@ public abstract class SecurityHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param securityNamespaceId 
      *            
      * @param tokens 
@@ -182,7 +190,7 @@ public abstract class SecurityHttpClientBase
         final Boolean recurse) { 
 
         final UUID locationId = UUID.fromString("18a2ad18-7571-46ae-bec7-0c7da1495885"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("securityNamespaceId", securityNamespaceId); //$NON-NLS-1$
@@ -202,6 +210,8 @@ public abstract class SecurityHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param accessControlLists 
      *            
      * @param securityNamespaceId 
@@ -212,7 +222,7 @@ public abstract class SecurityHttpClientBase
         final UUID securityNamespaceId) { 
 
         final UUID locationId = UUID.fromString("18a2ad18-7571-46ae-bec7-0c7da1495885"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("securityNamespaceId", securityNamespaceId); //$NON-NLS-1$
@@ -229,7 +239,7 @@ public abstract class SecurityHttpClientBase
     }
 
     /** 
-     * Perform a batch of &quot;has permission&quot; checks. This methods does not aggregate the results nor does it shortcircut if one of the permissions evaluates to false.
+     * [Preview API 3.1-preview.1] Perform a batch of &quot;has permission&quot; checks. This methods does not aggregate the results nor does it shortcircut if one of the permissions evaluates to false.
      * 
      * @param evalBatch 
      *            
@@ -238,7 +248,7 @@ public abstract class SecurityHttpClientBase
     public PermissionEvaluationBatch hasPermissionsBatch(final PermissionEvaluationBatch evalBatch) { 
 
         final UUID locationId = UUID.fromString("cf1faa59-1b63-4448-bf04-13d981a46f5d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -251,6 +261,8 @@ public abstract class SecurityHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.2]
+     * 
      * @param securityNamespaceId 
      *            
      * @param permissions 
@@ -271,7 +283,7 @@ public abstract class SecurityHttpClientBase
         final String delimiter) { 
 
         final UUID locationId = UUID.fromString("dd3b8bd6-c7fc-4cbd-929a-933d9c011c9d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("securityNamespaceId", securityNamespaceId); //$NON-NLS-1$
@@ -293,6 +305,8 @@ public abstract class SecurityHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.2]
+     * 
      * @param securityNamespaceId 
      *            
      * @param permissions 
@@ -310,7 +324,7 @@ public abstract class SecurityHttpClientBase
         final String descriptor) { 
 
         final UUID locationId = UUID.fromString("dd3b8bd6-c7fc-4cbd-929a-933d9c011c9d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("securityNamespaceId", securityNamespaceId); //$NON-NLS-1$
@@ -331,6 +345,8 @@ public abstract class SecurityHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param securityNamespaceId 
      *            
      * @param localOnly 
@@ -342,7 +358,7 @@ public abstract class SecurityHttpClientBase
         final Boolean localOnly) { 
 
         final UUID locationId = UUID.fromString("ce7b9f95-fde9-4be8-a86d-83b366f0b87a"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("securityNamespaceId", securityNamespaceId); //$NON-NLS-1$
@@ -361,6 +377,8 @@ public abstract class SecurityHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param container 
      *            
      * @param securityNamespaceId 
@@ -371,7 +389,7 @@ public abstract class SecurityHttpClientBase
         final UUID securityNamespaceId) { 
 
         final UUID locationId = UUID.fromString("ce7b9f95-fde9-4be8-a86d-83b366f0b87a"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("securityNamespaceId", securityNamespaceId); //$NON-NLS-1$

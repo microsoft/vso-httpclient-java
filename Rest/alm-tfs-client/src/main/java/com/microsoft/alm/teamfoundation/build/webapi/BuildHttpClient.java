@@ -37,7 +37,7 @@ public class BuildHttpClient extends BuildHttpClientBase {
      * @return ArrayList&lt;BuildDefinitionReference&gt;
      */
     public ArrayList<BuildDefinitionReference> getDefinitions(final UUID projectId) {
-        return super.getDefinitions(projectId, null, null, null, null, null, null, null, null, null, null, null);
+        return super.getDefinitions(projectId, null, null, null, null, null, null, null, null, null, null, null, null);
     }
 
     /**

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class ArtifactVersion {
 
     private String alias;
+    private BuildVersion defaultVersion;
     private String errorMessage;
     private String sourceId;
     private ArrayList<BuildVersion> versions;
@@ -32,6 +33,14 @@ public class ArtifactVersion {
 
     public void setAlias(final String alias) {
         this.alias = alias;
+    }
+
+    public BuildVersion getDefaultVersion() {
+        return defaultVersion;
+    }
+
+    public void setDefaultVersion(final BuildVersion defaultVersion) {
+        this.defaultVersion = defaultVersion;
     }
 
     public String getErrorMessage() {

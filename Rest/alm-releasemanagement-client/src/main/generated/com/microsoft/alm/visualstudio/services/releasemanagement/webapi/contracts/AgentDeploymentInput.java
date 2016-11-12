@@ -15,56 +15,19 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
-import java.util.ArrayList;
 
 /** 
  */
 public class AgentDeploymentInput
-    extends BaseDeploymentInput {
+    extends DeploymentInput {
 
-    private ArrayList<Demand> demands;
-    private boolean enableAccessToken;
-    private int queueId;
-    private boolean skipArtifactsDownload;
-    private int timeoutInMinutes;
+    private ExecutionInput parallelExecution;
 
-    public ArrayList<Demand> getDemands() {
-        return demands;
+    public ExecutionInput getParallelExecution() {
+        return parallelExecution;
     }
 
-    public void setDemands(final ArrayList<Demand> demands) {
-        this.demands = demands;
-    }
-
-    public boolean getEnableAccessToken() {
-        return enableAccessToken;
-    }
-
-    public void setEnableAccessToken(final boolean enableAccessToken) {
-        this.enableAccessToken = enableAccessToken;
-    }
-
-    public int getQueueId() {
-        return queueId;
-    }
-
-    public void setQueueId(final int queueId) {
-        this.queueId = queueId;
-    }
-
-    public boolean getSkipArtifactsDownload() {
-        return skipArtifactsDownload;
-    }
-
-    public void setSkipArtifactsDownload(final boolean skipArtifactsDownload) {
-        this.skipArtifactsDownload = skipArtifactsDownload;
-    }
-
-    public int getTimeoutInMinutes() {
-        return timeoutInMinutes;
-    }
-
-    public void setTimeoutInMinutes(final int timeoutInMinutes) {
-        this.timeoutInMinutes = timeoutInMinutes;
+    public void setParallelExecution(final ExecutionInput parallelExecution) {
+        this.parallelExecution = parallelExecution;
     }
 }

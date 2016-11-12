@@ -58,7 +58,7 @@ public abstract class CustomerIntelligenceHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param events 
      *            
@@ -66,7 +66,7 @@ public abstract class CustomerIntelligenceHttpClientBase
     public void publishEvents(final CustomerIntelligenceEvent[] events) { 
 
         final UUID locationId = UUID.fromString("b5cc35c2-ff2b-491d-a085-24b6e9f396fd"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,

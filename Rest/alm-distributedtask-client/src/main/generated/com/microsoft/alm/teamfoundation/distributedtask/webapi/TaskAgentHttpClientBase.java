@@ -31,7 +31,9 @@ import com.microsoft.alm.client.VssRestClientHandler;
 import com.microsoft.alm.client.VssRestRequest;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.AzureSubscriptionQueryResult;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.DataSourceBinding;
-import com.microsoft.alm.teamfoundation.distributedtask.webapi.MetaTaskDefinition;
+import com.microsoft.alm.teamfoundation.distributedtask.webapi.DeploymentMachine;
+import com.microsoft.alm.teamfoundation.distributedtask.webapi.DeploymentMachineGroup;
+import com.microsoft.alm.teamfoundation.distributedtask.webapi.MachineGroupActionFilter;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.PackageMetadata;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.ServiceEndpoint;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.ServiceEndpointRequest;
@@ -41,6 +43,8 @@ import com.microsoft.alm.teamfoundation.distributedtask.webapi.TaskAgent;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.TaskAgentJobRequest;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.TaskAgentMessage;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.TaskAgentPool;
+import com.microsoft.alm.teamfoundation.distributedtask.webapi.TaskAgentPoolActionFilter;
+import com.microsoft.alm.teamfoundation.distributedtask.webapi.TaskAgentPoolType;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.TaskAgentQueue;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.TaskAgentQueueActionFilter;
 import com.microsoft.alm.teamfoundation.distributedtask.webapi.TaskAgentSession;
@@ -79,6 +83,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param agent 
      *            
      * @param poolId 
@@ -90,7 +96,7 @@ public abstract class TaskAgentHttpClientBase
         final int poolId) { 
 
         final UUID locationId = UUID.fromString("e298ef32-5878-4cab-993c-043836571f42"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -107,6 +113,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param agentId 
@@ -117,7 +125,7 @@ public abstract class TaskAgentHttpClientBase
         final int agentId) { 
 
         final UUID locationId = UUID.fromString("e298ef32-5878-4cab-993c-043836571f42"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -133,6 +141,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param agentId 
@@ -153,7 +163,7 @@ public abstract class TaskAgentHttpClientBase
         final List<String> propertyFilters) { 
 
         final UUID locationId = UUID.fromString("e298ef32-5878-4cab-993c-043836571f42"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -175,6 +185,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param agentName 
@@ -198,7 +210,7 @@ public abstract class TaskAgentHttpClientBase
         final List<String> demands) { 
 
         final UUID locationId = UUID.fromString("e298ef32-5878-4cab-993c-043836571f42"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -221,6 +233,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param agent 
      *            
      * @param poolId 
@@ -235,7 +249,7 @@ public abstract class TaskAgentHttpClientBase
         final int agentId) { 
 
         final UUID locationId = UUID.fromString("e298ef32-5878-4cab-993c-043836571f42"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -253,6 +267,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param agent 
      *            
      * @param poolId 
@@ -267,7 +283,7 @@ public abstract class TaskAgentHttpClientBase
         final int agentId) { 
 
         final UUID locationId = UUID.fromString("e298ef32-5878-4cab-993c-043836571f42"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -285,14 +301,14 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @return AzureSubscriptionQueryResult
      */
     public AzureSubscriptionQueryResult getAzureSubscriptions() { 
 
         final UUID locationId = UUID.fromString("bcd6189c-0303-471f-a8e1-acb22b74d700"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -303,7 +319,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * Proxy for a GET request defined by an &#039;endpoint&#039;. The request is authorized using a service connection. The response is filtered using an XPath/Json based selector.
+     * [Preview API 3.1-preview.1] Proxy for a GET request defined by an &#039;endpoint&#039;. The request is authorized using a service connection. The response is filtered using an XPath/Json based selector.
      * 
      * @param endpoint 
      *            Describes the URL to fetch.
@@ -312,7 +328,7 @@ public abstract class TaskAgentHttpClientBase
     public ArrayList<String> queryEndpoint(final TaskDefinitionEndpoint endpoint) { 
 
         final UUID locationId = UUID.fromString("f223b809-8c33-4b7d-b53f-07232569b5d6"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -325,7 +341,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param hubName 
      *            
@@ -338,7 +354,7 @@ public abstract class TaskAgentHttpClientBase
         final Boolean includeEnterpriseUsersCount) { 
 
         final UUID locationId = UUID.fromString("f9f0f436-b8a1-4475-9041-1ccdbf8f0128"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("hubName", hubName); //$NON-NLS-1$
@@ -357,7 +373,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param taskHubLicenseDetails 
      *            
@@ -370,7 +386,7 @@ public abstract class TaskAgentHttpClientBase
         final String hubName) { 
 
         final UUID locationId = UUID.fromString("f9f0f436-b8a1-4475-9041-1ccdbf8f0128"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("hubName", hubName); //$NON-NLS-1$
@@ -387,6 +403,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param taskId 
      *            
      * @param versionString 
@@ -398,7 +416,7 @@ public abstract class TaskAgentHttpClientBase
         final String versionString) { 
 
         final UUID locationId = UUID.fromString("63463108-174d-49d4-b8cb-235eea42a5e1"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("taskId", taskId); //$NON-NLS-1$
@@ -414,6 +432,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param requestId 
@@ -427,7 +447,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID lockToken) { 
 
         final UUID locationId = UUID.fromString("fc825784-c92a-4299-9221-998a02d1b54f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -447,6 +467,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param requestId 
@@ -458,7 +480,7 @@ public abstract class TaskAgentHttpClientBase
         final long requestId) { 
 
         final UUID locationId = UUID.fromString("fc825784-c92a-4299-9221-998a02d1b54f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -474,6 +496,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param agentId 
@@ -488,7 +512,7 @@ public abstract class TaskAgentHttpClientBase
         final Integer completedRequestCount) { 
 
         final UUID locationId = UUID.fromString("fc825784-c92a-4299-9221-998a02d1b54f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -508,6 +532,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param agentIds 
@@ -522,7 +548,7 @@ public abstract class TaskAgentHttpClientBase
         final Integer completedRequestCount) { 
 
         final UUID locationId = UUID.fromString("fc825784-c92a-4299-9221-998a02d1b54f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -542,6 +568,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param planId 
@@ -556,7 +584,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID jobId) { 
 
         final UUID locationId = UUID.fromString("fc825784-c92a-4299-9221-998a02d1b54f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -576,6 +604,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param request 
      *            
      * @param poolId 
@@ -587,7 +617,7 @@ public abstract class TaskAgentHttpClientBase
         final int poolId) { 
 
         final UUID locationId = UUID.fromString("fc825784-c92a-4299-9221-998a02d1b54f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -604,6 +634,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param request 
      *            
      * @param poolId 
@@ -621,7 +653,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID lockToken) { 
 
         final UUID locationId = UUID.fromString("fc825784-c92a-4299-9221-998a02d1b54f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -643,6 +675,476 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param machineGroup 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @return DeploymentMachineGroup
+     */
+    public DeploymentMachineGroup addDeploymentMachineGroup(
+        final DeploymentMachineGroup machineGroup, 
+        final String project) { 
+
+        final UUID locationId = UUID.fromString("d4adf50f-80c6-4ac8-9ca1-6e4e544286e9"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               machineGroup,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, DeploymentMachineGroup.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param machineGroup 
+     *            
+     * @param project 
+     *            Project ID
+     * @return DeploymentMachineGroup
+     */
+    public DeploymentMachineGroup addDeploymentMachineGroup(
+        final DeploymentMachineGroup machineGroup, 
+        final UUID project) { 
+
+        final UUID locationId = UUID.fromString("d4adf50f-80c6-4ac8-9ca1-6e4e544286e9"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               machineGroup,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, DeploymentMachineGroup.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param machineGroupId 
+     *            
+     */
+    public void deleteDeploymentMachineGroup(
+        final String project, 
+        final int machineGroupId) { 
+
+        final UUID locationId = UUID.fromString("d4adf50f-80c6-4ac8-9ca1-6e4e544286e9"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("machineGroupId", machineGroupId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        super.sendRequest(httpRequest);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param project 
+     *            Project ID
+     * @param machineGroupId 
+     *            
+     */
+    public void deleteDeploymentMachineGroup(
+        final UUID project, 
+        final int machineGroupId) { 
+
+        final UUID locationId = UUID.fromString("d4adf50f-80c6-4ac8-9ca1-6e4e544286e9"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("machineGroupId", machineGroupId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        super.sendRequest(httpRequest);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param machineGroupId 
+     *            
+     * @param actionFilter 
+     *            
+     * @return DeploymentMachineGroup
+     */
+    public DeploymentMachineGroup getDeploymentMachineGroup(
+        final String project, 
+        final int machineGroupId, 
+        final MachineGroupActionFilter actionFilter) { 
+
+        final UUID locationId = UUID.fromString("d4adf50f-80c6-4ac8-9ca1-6e4e544286e9"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("machineGroupId", machineGroupId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("actionFilter", actionFilter); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, DeploymentMachineGroup.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param project 
+     *            Project ID
+     * @param machineGroupId 
+     *            
+     * @param actionFilter 
+     *            
+     * @return DeploymentMachineGroup
+     */
+    public DeploymentMachineGroup getDeploymentMachineGroup(
+        final UUID project, 
+        final int machineGroupId, 
+        final MachineGroupActionFilter actionFilter) { 
+
+        final UUID locationId = UUID.fromString("d4adf50f-80c6-4ac8-9ca1-6e4e544286e9"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("machineGroupId", machineGroupId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("actionFilter", actionFilter); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, DeploymentMachineGroup.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param machineGroupName 
+     *            
+     * @param actionFilter 
+     *            
+     * @return ArrayList&lt;DeploymentMachineGroup&gt;
+     */
+    public ArrayList<DeploymentMachineGroup> getDeploymentMachineGroups(
+        final String project, 
+        final String machineGroupName, 
+        final MachineGroupActionFilter actionFilter) { 
+
+        final UUID locationId = UUID.fromString("d4adf50f-80c6-4ac8-9ca1-6e4e544286e9"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotEmpty("machineGroupName", machineGroupName); //$NON-NLS-1$
+        queryParameters.addIfNotNull("actionFilter", actionFilter); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<DeploymentMachineGroup>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param project 
+     *            Project ID
+     * @param machineGroupName 
+     *            
+     * @param actionFilter 
+     *            
+     * @return ArrayList&lt;DeploymentMachineGroup&gt;
+     */
+    public ArrayList<DeploymentMachineGroup> getDeploymentMachineGroups(
+        final UUID project, 
+        final String machineGroupName, 
+        final MachineGroupActionFilter actionFilter) { 
+
+        final UUID locationId = UUID.fromString("d4adf50f-80c6-4ac8-9ca1-6e4e544286e9"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotEmpty("machineGroupName", machineGroupName); //$NON-NLS-1$
+        queryParameters.addIfNotNull("actionFilter", actionFilter); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<DeploymentMachineGroup>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param machineGroup 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param machineGroupId 
+     *            
+     * @return DeploymentMachineGroup
+     */
+    public DeploymentMachineGroup updateDeploymentMachineGroup(
+        final DeploymentMachineGroup machineGroup, 
+        final String project, 
+        final int machineGroupId) { 
+
+        final UUID locationId = UUID.fromString("d4adf50f-80c6-4ac8-9ca1-6e4e544286e9"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("machineGroupId", machineGroupId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               machineGroup,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, DeploymentMachineGroup.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param machineGroup 
+     *            
+     * @param project 
+     *            Project ID
+     * @param machineGroupId 
+     *            
+     * @return DeploymentMachineGroup
+     */
+    public DeploymentMachineGroup updateDeploymentMachineGroup(
+        final DeploymentMachineGroup machineGroup, 
+        final UUID project, 
+        final int machineGroupId) { 
+
+        final UUID locationId = UUID.fromString("d4adf50f-80c6-4ac8-9ca1-6e4e544286e9"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("machineGroupId", machineGroupId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               machineGroup,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, DeploymentMachineGroup.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param project 
+     *            Project ID or project name
+     * @param machineGroupId 
+     *            
+     * @param tagFilters 
+     *            
+     * @return ArrayList&lt;DeploymentMachine&gt;
+     */
+    public ArrayList<DeploymentMachine> getDeploymentMachines(
+        final String project, 
+        final int machineGroupId, 
+        final List<String> tagFilters) { 
+
+        final UUID locationId = UUID.fromString("966c3874-c347-4b18-a90c-d509116717fd"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("machineGroupId", machineGroupId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("tagFilters", tagFilters); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<DeploymentMachine>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param project 
+     *            Project ID
+     * @param machineGroupId 
+     *            
+     * @param tagFilters 
+     *            
+     * @return ArrayList&lt;DeploymentMachine&gt;
+     */
+    public ArrayList<DeploymentMachine> getDeploymentMachines(
+        final UUID project, 
+        final int machineGroupId, 
+        final List<String> tagFilters) { 
+
+        final UUID locationId = UUID.fromString("966c3874-c347-4b18-a90c-d509116717fd"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("machineGroupId", machineGroupId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("tagFilters", tagFilters); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<DeploymentMachine>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param deploymentMachines 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param machineGroupId 
+     *            
+     * @return ArrayList&lt;DeploymentMachine&gt;
+     */
+    public ArrayList<DeploymentMachine> updateDeploymentMachines(
+        final List<DeploymentMachine> deploymentMachines, 
+        final String project, 
+        final int machineGroupId) { 
+
+        final UUID locationId = UUID.fromString("966c3874-c347-4b18-a90c-d509116717fd"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("machineGroupId", machineGroupId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               deploymentMachines,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<DeploymentMachine>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param deploymentMachines 
+     *            
+     * @param project 
+     *            Project ID
+     * @param machineGroupId 
+     *            
+     * @return ArrayList&lt;DeploymentMachine&gt;
+     */
+    public ArrayList<DeploymentMachine> updateDeploymentMachines(
+        final List<DeploymentMachine> deploymentMachines, 
+        final UUID project, 
+        final int machineGroupId) { 
+
+        final UUID locationId = UUID.fromString("966c3874-c347-4b18-a90c-d509116717fd"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("machineGroupId", machineGroupId); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PATCH,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               deploymentMachines,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<DeploymentMachine>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param messageId 
@@ -656,7 +1158,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID sessionId) { 
 
         final UUID locationId = UUID.fromString("c3a054f6-7a8a-49c0-944e-3a8e5d7adfd7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -676,6 +1178,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param sessionId 
@@ -690,7 +1194,7 @@ public abstract class TaskAgentHttpClientBase
         final Integer lastMessageId) { 
 
         final UUID locationId = UUID.fromString("c3a054f6-7a8a-49c0-944e-3a8e5d7adfd7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -710,6 +1214,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param agentId 
@@ -720,7 +1226,7 @@ public abstract class TaskAgentHttpClientBase
         final int agentId) { 
 
         final UUID locationId = UUID.fromString("c3a054f6-7a8a-49c0-944e-3a8e5d7adfd7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -739,13 +1245,15 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      */
     public void refreshAgents(final int poolId) { 
 
         final UUID locationId = UUID.fromString("c3a054f6-7a8a-49c0-944e-3a8e5d7adfd7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -760,6 +1268,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param message 
      *            
      * @param poolId 
@@ -773,7 +1283,7 @@ public abstract class TaskAgentHttpClientBase
         final long requestId) { 
 
         final UUID locationId = UUID.fromString("c3a054f6-7a8a-49c0-944e-3a8e5d7adfd7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -794,254 +1304,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.2]
      * 
-     * @param definition 
-     *            
-     * @param project 
-     *            Project ID or project name
-     * @return MetaTaskDefinition
-     */
-    public MetaTaskDefinition addMetaTaskDefinition(
-        final MetaTaskDefinition definition, 
-        final String project) { 
-
-        final UUID locationId = UUID.fromString("71aa53a2-0ce0-46f2-856b-8cbc1cdffa4e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               definition,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, MetaTaskDefinition.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1]
-     * 
-     * @param definition 
-     *            
-     * @param project 
-     *            Project ID
-     * @return MetaTaskDefinition
-     */
-    public MetaTaskDefinition addMetaTaskDefinition(
-        final MetaTaskDefinition definition, 
-        final UUID project) { 
-
-        final UUID locationId = UUID.fromString("71aa53a2-0ce0-46f2-856b-8cbc1cdffa4e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               definition,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, MetaTaskDefinition.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1]
-     * 
-     * @param project 
-     *            Project ID or project name
-     * @param metaTaskDefinitionId 
-     *            
-     */
-    public void deleteMetaTaskDefinition(
-        final String project, 
-        final UUID metaTaskDefinitionId) { 
-
-        final UUID locationId = UUID.fromString("71aa53a2-0ce0-46f2-856b-8cbc1cdffa4e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("metaTaskDefinitionId", metaTaskDefinitionId); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        super.sendRequest(httpRequest);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1]
-     * 
-     * @param project 
-     *            Project ID
-     * @param metaTaskDefinitionId 
-     *            
-     */
-    public void deleteMetaTaskDefinition(
-        final UUID project, 
-        final UUID metaTaskDefinitionId) { 
-
-        final UUID locationId = UUID.fromString("71aa53a2-0ce0-46f2-856b-8cbc1cdffa4e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("metaTaskDefinitionId", metaTaskDefinitionId); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.DELETE,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        super.sendRequest(httpRequest);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1]
-     * 
-     * @param project 
-     *            Project ID or project name
-     * @param metaTaskDefinitionId 
-     *            
-     * @param expanded 
-     *            
-     * @return ArrayList&lt;MetaTaskDefinition&gt;
-     */
-    public ArrayList<MetaTaskDefinition> getMetaTaskDefinitions(
-        final String project, 
-        final UUID metaTaskDefinitionId, 
-        final Boolean expanded) { 
-
-        final UUID locationId = UUID.fromString("71aa53a2-0ce0-46f2-856b-8cbc1cdffa4e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("metaTaskDefinitionId", metaTaskDefinitionId); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.addIfNotNull("expanded", expanded); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               queryParameters,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, new TypeReference<ArrayList<MetaTaskDefinition>>() {});
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1]
-     * 
-     * @param project 
-     *            Project ID
-     * @param metaTaskDefinitionId 
-     *            
-     * @param expanded 
-     *            
-     * @return ArrayList&lt;MetaTaskDefinition&gt;
-     */
-    public ArrayList<MetaTaskDefinition> getMetaTaskDefinitions(
-        final UUID project, 
-        final UUID metaTaskDefinitionId, 
-        final Boolean expanded) { 
-
-        final UUID locationId = UUID.fromString("71aa53a2-0ce0-46f2-856b-8cbc1cdffa4e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("metaTaskDefinitionId", metaTaskDefinitionId); //$NON-NLS-1$
-
-        final NameValueCollection queryParameters = new NameValueCollection();
-        queryParameters.addIfNotNull("expanded", expanded); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               queryParameters,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, new TypeReference<ArrayList<MetaTaskDefinition>>() {});
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1]
-     * 
-     * @param definition 
-     *            
-     * @param project 
-     *            Project ID or project name
-     * @return MetaTaskDefinition
-     */
-    public MetaTaskDefinition updateMetaTaskDefinition(
-        final MetaTaskDefinition definition, 
-        final String project) { 
-
-        final UUID locationId = UUID.fromString("71aa53a2-0ce0-46f2-856b-8cbc1cdffa4e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               definition,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, MetaTaskDefinition.class);
-    }
-
-    /** 
-     * [Preview API 3.0-preview.1]
-     * 
-     * @param definition 
-     *            
-     * @param project 
-     *            Project ID
-     * @return MetaTaskDefinition
-     */
-    public MetaTaskDefinition updateMetaTaskDefinition(
-        final MetaTaskDefinition definition, 
-        final UUID project) { 
-
-        final UUID locationId = UUID.fromString("71aa53a2-0ce0-46f2-856b-8cbc1cdffa4e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               definition,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, MetaTaskDefinition.class);
-    }
-
-    /** 
      * @param packageType 
      *            
      * @param platform 
@@ -1056,7 +1320,7 @@ public abstract class TaskAgentHttpClientBase
         final String version) { 
 
         final UUID locationId = UUID.fromString("8ffcd551-079c-493a-9c02-54346299d144"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("packageType", packageType); //$NON-NLS-1$
@@ -1073,6 +1337,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.2]
+     * 
      * @param packageType 
      *            
      * @param platform 
@@ -1087,7 +1353,7 @@ public abstract class TaskAgentHttpClientBase
         final Integer top) { 
 
         final UUID locationId = UUID.fromString("8ffcd551-079c-493a-9c02-54346299d144"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("packageType", packageType); //$NON-NLS-1$
@@ -1107,7 +1373,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param poolId 
      *            
@@ -1116,7 +1382,7 @@ public abstract class TaskAgentHttpClientBase
     public ArrayList<IdentityRef> getAgentPoolRoles(final Integer poolId) { 
 
         final UUID locationId = UUID.fromString("381dd2bb-35cf-4103-ae8c-3c815b25763c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -1131,6 +1397,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param pool 
      *            
      * @return TaskAgentPool
@@ -1138,7 +1406,7 @@ public abstract class TaskAgentHttpClientBase
     public TaskAgentPool addAgentPool(final TaskAgentPool pool) { 
 
         final UUID locationId = UUID.fromString("a8c47e17-4d56-4a56-92bb-de7ea7dc65be"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -1151,13 +1419,15 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      */
     public void deleteAgentPool(final int poolId) { 
 
         final UUID locationId = UUID.fromString("a8c47e17-4d56-4a56-92bb-de7ea7dc65be"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -1172,24 +1442,30 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param properties 
+     *            
+     * @param actionFilter 
      *            
      * @return TaskAgentPool
      */
     public TaskAgentPool getAgentPool(
         final int poolId, 
-        final List<String> properties) { 
+        final List<String> properties, 
+        final TaskAgentPoolActionFilter actionFilter) { 
 
         final UUID locationId = UUID.fromString("a8c47e17-4d56-4a56-92bb-de7ea7dc65be"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("properties", properties); //$NON-NLS-1$
+        queryParameters.addIfNotNull("actionFilter", actionFilter); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -1202,22 +1478,32 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolName 
      *            
      * @param properties 
+     *            
+     * @param poolType 
+     *            
+     * @param actionFilter 
      *            
      * @return ArrayList&lt;TaskAgentPool&gt;
      */
     public ArrayList<TaskAgentPool> getAgentPools(
         final String poolName, 
-        final List<String> properties) { 
+        final List<String> properties, 
+        final TaskAgentPoolType poolType, 
+        final TaskAgentPoolActionFilter actionFilter) { 
 
         final UUID locationId = UUID.fromString("a8c47e17-4d56-4a56-92bb-de7ea7dc65be"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("poolName", poolName); //$NON-NLS-1$
         queryParameters.addIfNotNull("properties", properties); //$NON-NLS-1$
+        queryParameters.addIfNotNull("poolType", poolType); //$NON-NLS-1$
+        queryParameters.addIfNotNull("actionFilter", actionFilter); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -1229,6 +1515,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param pool 
      *            
      * @param poolId 
@@ -1240,7 +1528,7 @@ public abstract class TaskAgentHttpClientBase
         final int poolId) { 
 
         final UUID locationId = UUID.fromString("a8c47e17-4d56-4a56-92bb-de7ea7dc65be"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -1257,7 +1545,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param queueId 
      *            
@@ -1266,7 +1554,7 @@ public abstract class TaskAgentHttpClientBase
     public ArrayList<IdentityRef> getAgentQueueRoles(final Integer queueId) { 
 
         final UUID locationId = UUID.fromString("b0c6d64d-c9fa-4946-b8de-77de623ee585"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("queueId", queueId); //$NON-NLS-1$
@@ -1281,7 +1569,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param queue 
      *            
@@ -1290,7 +1578,7 @@ public abstract class TaskAgentHttpClientBase
     public TaskAgentQueue addAgentQueue(final TaskAgentQueue queue) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -1303,7 +1591,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param queue 
      *            
@@ -1316,7 +1604,7 @@ public abstract class TaskAgentHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1333,7 +1621,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param queue 
      *            
@@ -1346,7 +1634,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1363,13 +1651,13 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      */
-    public void createQueuesForAgentPools() { 
+    public void createTeamProject() { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
                                                                locationId,
@@ -1380,15 +1668,15 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
      */
-    public void createQueuesForAgentPools(final String project) { 
+    public void createTeamProject(final String project) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1403,15 +1691,15 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
      */
-    public void createQueuesForAgentPools(final UUID project) { 
+    public void createTeamProject(final UUID project) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1426,7 +1714,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param queueId 
      *            
@@ -1434,7 +1722,7 @@ public abstract class TaskAgentHttpClientBase
     public void deleteAgentQueue(final int queueId) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("queueId", queueId); //$NON-NLS-1$
@@ -1449,7 +1737,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -1461,7 +1749,7 @@ public abstract class TaskAgentHttpClientBase
         final int queueId) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1477,7 +1765,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -1489,7 +1777,7 @@ public abstract class TaskAgentHttpClientBase
         final int queueId) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1505,7 +1793,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -1521,7 +1809,7 @@ public abstract class TaskAgentHttpClientBase
         final TaskAgentQueueActionFilter actionFilter) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1541,7 +1829,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -1557,7 +1845,7 @@ public abstract class TaskAgentHttpClientBase
         final TaskAgentQueueActionFilter actionFilter) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1577,7 +1865,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param queueId 
      *            
@@ -1590,7 +1878,7 @@ public abstract class TaskAgentHttpClientBase
         final TaskAgentQueueActionFilter actionFilter) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("queueId", queueId); //$NON-NLS-1$
@@ -1609,7 +1897,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -1625,7 +1913,7 @@ public abstract class TaskAgentHttpClientBase
         final TaskAgentQueueActionFilter actionFilter) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1645,7 +1933,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -1661,7 +1949,7 @@ public abstract class TaskAgentHttpClientBase
         final TaskAgentQueueActionFilter actionFilter) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1681,7 +1969,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param queueName 
      *            
@@ -1694,7 +1982,7 @@ public abstract class TaskAgentHttpClientBase
         final TaskAgentQueueActionFilter actionFilter) { 
 
         final UUID locationId = UUID.fromString("900fa995-c559-4923-aae7-f8424fe4fbea"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("queueName", queueName); //$NON-NLS-1$
@@ -1710,7 +1998,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param serviceEndpointRequest 
      *            
@@ -1726,7 +2014,7 @@ public abstract class TaskAgentHttpClientBase
         final String endpointId) { 
 
         final UUID locationId = UUID.fromString("f956a7de-d766-43af-81b1-e9e349245634"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1747,7 +2035,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param serviceEndpointRequest 
      *            
@@ -1763,7 +2051,7 @@ public abstract class TaskAgentHttpClientBase
         final String endpointId) { 
 
         final UUID locationId = UUID.fromString("f956a7de-d766-43af-81b1-e9e349245634"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1784,7 +2072,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Proxy for a GET request defined by an service endpoint. The request is authorized using a data source in service endpoint. The response is filtered using an XPath/Json based selector.
+     * [Preview API 3.1-preview.2] Proxy for a GET request defined by an service endpoint. The request is authorized using a data source in service endpoint. The response is filtered using an XPath/Json based selector.
      * 
      * @param binding 
      *            Describes the data source to fetch.
@@ -1797,7 +2085,7 @@ public abstract class TaskAgentHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("f956a7de-d766-43af-81b1-e9e349245634"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1814,7 +2102,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2] Proxy for a GET request defined by an service endpoint. The request is authorized using a data source in service endpoint. The response is filtered using an XPath/Json based selector.
+     * [Preview API 3.1-preview.2] Proxy for a GET request defined by an service endpoint. The request is authorized using a data source in service endpoint. The response is filtered using an XPath/Json based selector.
      * 
      * @param binding 
      *            Describes the data source to fetch.
@@ -1827,7 +2115,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("f956a7de-d766-43af-81b1-e9e349245634"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1844,7 +2132,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param endpoint 
      *            
@@ -1857,7 +2145,7 @@ public abstract class TaskAgentHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("dca61d2f-3444-410a-b5ec-db2fc4efb4c5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1874,7 +2162,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param endpoint 
      *            
@@ -1887,7 +2175,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("dca61d2f-3444-410a-b5ec-db2fc4efb4c5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1904,7 +2192,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param project 
      *            Project ID or project name
@@ -1916,7 +2204,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID endpointId) { 
 
         final UUID locationId = UUID.fromString("dca61d2f-3444-410a-b5ec-db2fc4efb4c5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1932,7 +2220,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param project 
      *            Project ID
@@ -1944,7 +2232,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID endpointId) { 
 
         final UUID locationId = UUID.fromString("dca61d2f-3444-410a-b5ec-db2fc4efb4c5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1960,7 +2248,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param project 
      *            Project ID or project name
@@ -1973,7 +2261,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID endpointId) { 
 
         final UUID locationId = UUID.fromString("dca61d2f-3444-410a-b5ec-db2fc4efb4c5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -1989,7 +2277,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param project 
      *            Project ID
@@ -2002,7 +2290,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID endpointId) { 
 
         final UUID locationId = UUID.fromString("dca61d2f-3444-410a-b5ec-db2fc4efb4c5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2018,7 +2306,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param project 
      *            Project ID or project name
@@ -2040,7 +2328,7 @@ public abstract class TaskAgentHttpClientBase
         final Boolean includeFailed) { 
 
         final UUID locationId = UUID.fromString("dca61d2f-3444-410a-b5ec-db2fc4efb4c5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2062,7 +2350,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param project 
      *            Project ID
@@ -2084,7 +2372,7 @@ public abstract class TaskAgentHttpClientBase
         final Boolean includeFailed) { 
 
         final UUID locationId = UUID.fromString("dca61d2f-3444-410a-b5ec-db2fc4efb4c5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2106,7 +2394,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param endpoint 
      *            
@@ -2122,7 +2410,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID endpointId) { 
 
         final UUID locationId = UUID.fromString("dca61d2f-3444-410a-b5ec-db2fc4efb4c5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2140,7 +2428,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param endpoint 
      *            
@@ -2156,7 +2444,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID endpointId) { 
 
         final UUID locationId = UUID.fromString("dca61d2f-3444-410a-b5ec-db2fc4efb4c5"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2174,7 +2462,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param type 
      *            
@@ -2187,7 +2475,7 @@ public abstract class TaskAgentHttpClientBase
         final String scheme) { 
 
         final UUID locationId = UUID.fromString("7c74af83-8605-45c1-a30b-7a05d5d7f8c1"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("type", type); //$NON-NLS-1$
@@ -2203,6 +2491,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param session 
      *            
      * @param poolId 
@@ -2214,7 +2504,7 @@ public abstract class TaskAgentHttpClientBase
         final int poolId) { 
 
         final UUID locationId = UUID.fromString("134e239e-2df3-4794-a6f6-24f1f19ec8dc"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -2231,6 +2521,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param poolId 
      *            
      * @param sessionId 
@@ -2241,7 +2533,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID sessionId) { 
 
         final UUID locationId = UUID.fromString("134e239e-2df3-4794-a6f6-24f1f19ec8dc"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$
@@ -2257,7 +2549,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param taskGroup 
      *            
@@ -2270,7 +2562,7 @@ public abstract class TaskAgentHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("6c08ffbf-dbf1-4f9a-94e5-a1cbd47005e7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2287,7 +2579,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param taskGroup 
      *            
@@ -2300,7 +2592,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("6c08ffbf-dbf1-4f9a-94e5-a1cbd47005e7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2317,7 +2609,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -2329,7 +2621,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID taskGroupId) { 
 
         final UUID locationId = UUID.fromString("6c08ffbf-dbf1-4f9a-94e5-a1cbd47005e7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2345,7 +2637,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -2357,7 +2649,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID taskGroupId) { 
 
         final UUID locationId = UUID.fromString("6c08ffbf-dbf1-4f9a-94e5-a1cbd47005e7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2373,7 +2665,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID or project name
@@ -2389,7 +2681,7 @@ public abstract class TaskAgentHttpClientBase
         final Boolean expanded) { 
 
         final UUID locationId = UUID.fromString("6c08ffbf-dbf1-4f9a-94e5-a1cbd47005e7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2409,7 +2701,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param project 
      *            Project ID
@@ -2425,7 +2717,7 @@ public abstract class TaskAgentHttpClientBase
         final Boolean expanded) { 
 
         final UUID locationId = UUID.fromString("6c08ffbf-dbf1-4f9a-94e5-a1cbd47005e7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2445,7 +2737,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param taskGroup 
      *            
@@ -2458,7 +2750,7 @@ public abstract class TaskAgentHttpClientBase
         final String project) { 
 
         final UUID locationId = UUID.fromString("6c08ffbf-dbf1-4f9a-94e5-a1cbd47005e7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2475,7 +2767,7 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param taskGroup 
      *            
@@ -2488,7 +2780,7 @@ public abstract class TaskAgentHttpClientBase
         final UUID project) { 
 
         final UUID locationId = UUID.fromString("6c08ffbf-dbf1-4f9a-94e5-a1cbd47005e7"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("project", project); //$NON-NLS-1$
@@ -2505,13 +2797,15 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param taskId 
      *            
      */
     public void deleteTaskDefinition(final UUID taskId) { 
 
         final UUID locationId = UUID.fromString("60aac929-f0cd-4bc8-9ce4-6b30e8f1b1bd"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("taskId", taskId); //$NON-NLS-1$
@@ -2526,6 +2820,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param taskId 
      *            
      * @param versionString 
@@ -2543,7 +2839,7 @@ public abstract class TaskAgentHttpClientBase
         final Boolean scopeLocal) { 
 
         final UUID locationId = UUID.fromString("60aac929-f0cd-4bc8-9ce4-6b30e8f1b1bd"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("taskId", taskId); //$NON-NLS-1$
@@ -2564,6 +2860,8 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param taskId 
      *            
      * @param versionString 
@@ -2581,7 +2879,7 @@ public abstract class TaskAgentHttpClientBase
         final Boolean scopeLocal) { 
 
         final UUID locationId = UUID.fromString("60aac929-f0cd-4bc8-9ce4-6b30e8f1b1bd"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("taskId", taskId); //$NON-NLS-1$
@@ -2602,6 +2900,44 @@ public abstract class TaskAgentHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param taskId 
+     *            
+     * @param visibility 
+     *            
+     * @param scopeLocal 
+     *            
+     * @return ArrayList&lt;TaskDefinition&gt;
+     */
+    public ArrayList<TaskDefinition> getTaskDefinitions(
+        final UUID taskId, 
+        final List<String> visibility, 
+        final Boolean scopeLocal) { 
+
+        final UUID locationId = UUID.fromString("60aac929-f0cd-4bc8-9ce4-6b30e8f1b1bd"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("taskId", taskId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("visibility", visibility); //$NON-NLS-1$
+        queryParameters.addIfNotNull("scopeLocal", scopeLocal); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, new TypeReference<ArrayList<TaskDefinition>>() {});
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param userCapabilities 
      *            
      * @param poolId 
@@ -2616,7 +2952,7 @@ public abstract class TaskAgentHttpClientBase
         final int agentId) { 
 
         final UUID locationId = UUID.fromString("30ba3ada-fedf-4da8-bbb5-dacf2f82e176"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("poolId", poolId); //$NON-NLS-1$

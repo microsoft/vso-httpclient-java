@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonSerializer;
+import com.microsoft.alm.teamfoundation.distributedtask.common.contracts.ProcessParameters;
 import com.microsoft.alm.visualstudio.services.webapi.PropertiesCollection;
 
 /** 
@@ -61,6 +62,10 @@ public class BuildDefinition
     */
     private int jobTimeoutInMinutes;
     private ArrayList<BuildOption> options;
+    /**
+    * Process Parameters
+    */
+    private ProcessParameters processParameters;
     private PropertiesCollection properties;
     /**
     * The repository
@@ -190,6 +195,20 @@ public class BuildDefinition
 
     public void setOptions(final ArrayList<BuildOption> options) {
         this.options = options;
+    }
+
+    /**
+    * Process Parameters
+    */
+    public ProcessParameters getProcessParameters() {
+        return processParameters;
+    }
+
+    /**
+    * Process Parameters
+    */
+    public void setProcessParameters(final ProcessParameters processParameters) {
+        this.processParameters = processParameters;
     }
 
     public PropertiesCollection getProperties() {

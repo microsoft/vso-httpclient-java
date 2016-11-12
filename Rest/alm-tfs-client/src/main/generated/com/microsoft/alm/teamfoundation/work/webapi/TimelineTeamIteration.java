@@ -31,6 +31,10 @@ public class TimelineTeamIteration {
     */
     private String name;
     /**
+    * All the partially paged workitems in this iteration.
+    */
+    private ArrayList<Object[]> partiallyPagedWorkItems;
+    /**
     * The iteration path
     */
     private String path;
@@ -42,10 +46,6 @@ public class TimelineTeamIteration {
     * The status of this iteration
     */
     private TimelineIterationStatus status;
-    /**
-    * All the work item ids in this iteration, including the paged as well as unpaged ones.
-    */
-    private ArrayList<Integer> workItemIds;
     /**
     * The work items that have been paged in this iteration
     */
@@ -77,6 +77,20 @@ public class TimelineTeamIteration {
     */
     public void setName(final String name) {
         this.name = name;
+    }
+
+    /**
+    * All the partially paged workitems in this iteration.
+    */
+    public ArrayList<Object[]> getPartiallyPagedWorkItems() {
+        return partiallyPagedWorkItems;
+    }
+
+    /**
+    * All the partially paged workitems in this iteration.
+    */
+    public void setPartiallyPagedWorkItems(final ArrayList<Object[]> partiallyPagedWorkItems) {
+        this.partiallyPagedWorkItems = partiallyPagedWorkItems;
     }
 
     /**
@@ -119,20 +133,6 @@ public class TimelineTeamIteration {
     */
     public void setStatus(final TimelineIterationStatus status) {
         this.status = status;
-    }
-
-    /**
-    * All the work item ids in this iteration, including the paged as well as unpaged ones.
-    */
-    public ArrayList<Integer> getWorkItemIds() {
-        return workItemIds;
-    }
-
-    /**
-    * All the work item ids in this iteration, including the paged as well as unpaged ones.
-    */
-    public void setWorkItemIds(final ArrayList<Integer> workItemIds) {
-        this.workItemIds = workItemIds;
     }
 
     /**

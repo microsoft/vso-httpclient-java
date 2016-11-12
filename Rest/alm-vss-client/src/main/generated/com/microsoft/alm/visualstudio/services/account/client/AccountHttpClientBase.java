@@ -62,6 +62,8 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param accountId 
      *            
      * @return UUID
@@ -69,7 +71,7 @@ public abstract class AccountHttpClientBase
     public UUID deleteAccount(final UUID accountId) { 
 
         final UUID locationId = UUID.fromString("6468322a-cb4d-43a3-84ad-be573301bbb3"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("accountId", accountId); //$NON-NLS-1$
@@ -84,6 +86,8 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param info 
      *            
      * @param usePrecreated 
@@ -95,7 +99,7 @@ public abstract class AccountHttpClientBase
         final Boolean usePrecreated) { 
 
         final UUID locationId = UUID.fromString("229a6a53-b428-4ffb-a835-e8f36b5b4b1e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("usePrecreated", usePrecreated); //$NON-NLS-1$
@@ -112,6 +116,8 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param accountId 
      *            
      * @param properties 
@@ -123,7 +129,7 @@ public abstract class AccountHttpClientBase
         final String properties) { 
 
         final UUID locationId = UUID.fromString("229a6a53-b428-4ffb-a835-e8f36b5b4b1e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("accountId", accountId); //$NON-NLS-1$
@@ -142,6 +148,8 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param creatorId 
      *            
      * @param ownerId 
@@ -165,7 +173,7 @@ public abstract class AccountHttpClientBase
         final Boolean includeDisabledAccounts) { 
 
         final UUID locationId = UUID.fromString("229a6a53-b428-4ffb-a835-e8f36b5b4b1e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("creatorId", creatorId); //$NON-NLS-1$
@@ -185,6 +193,8 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.1]
+     * 
      * @param account 
      *            
      * @param accountId 
@@ -195,7 +205,7 @@ public abstract class AccountHttpClientBase
         final UUID accountId) { 
 
         final UUID locationId = UUID.fromString("229a6a53-b428-4ffb-a835-e8f36b5b4b1e"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("accountId", accountId); //$NON-NLS-1$
@@ -212,7 +222,7 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param accountName 
      *            
@@ -221,7 +231,7 @@ public abstract class AccountHttpClientBase
     public AccountNameAvailability isValidAccountName(final String accountName) { 
 
         final UUID locationId = UUID.fromString("65dd1dc5-53fe-4c67-9b4e-0ec3e2539998"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("accountName", accountName); //$NON-NLS-1$
@@ -236,14 +246,14 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @return ArrayList&lt;AccountRegion&gt;
      */
     public ArrayList<AccountRegion> getRegions() { 
 
         final UUID locationId = UUID.fromString("642a93c7-8385-4d63-a5a5-20d044fe504f"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -254,14 +264,14 @@ public abstract class AccountHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @return HashMap&lt;String, String&gt;
      */
     public HashMap<String, String> getAccountSettings() { 
 
         final UUID locationId = UUID.fromString("4e012dd4-f8e1-485d-9bb3-c50d83c5b71b"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,

@@ -15,54 +15,11 @@
 
 package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
+import com.microsoft.alm.teamfoundation.distributedtask.common.contracts.TaskSourceDefinitionBase;
 
 /** 
  */
-public class TaskSourceDefinition {
+public class TaskSourceDefinition
+    extends TaskSourceDefinitionBase {
 
-    private String authKey;
-    private String endpoint;
-    private String keySelector;
-    private String selector;
-    private String target;
-
-    public String getAuthKey() {
-        return authKey;
-    }
-
-    public void setAuthKey(final String authKey) {
-        this.authKey = authKey;
-    }
-
-    public String getEndpoint() {
-        return endpoint;
-    }
-
-    public void setEndpoint(final String endpoint) {
-        this.endpoint = endpoint;
-    }
-
-    public String getKeySelector() {
-        return keySelector;
-    }
-
-    public void setKeySelector(final String keySelector) {
-        this.keySelector = keySelector;
-    }
-
-    public String getSelector() {
-        return selector;
-    }
-
-    public void setSelector(final String selector) {
-        this.selector = selector;
-    }
-
-    public String getTarget() {
-        return target;
-    }
-
-    public void setTarget(final String target) {
-        this.target = target;
-    }
 }

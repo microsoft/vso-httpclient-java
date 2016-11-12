@@ -25,19 +25,19 @@ public class GitImportGitSource {
     /**
     * Url for the source repo
     */
-    private String sourceUrl;
+    private String url;
 
     /**
     * Url for the source repo
     */
-    public String getSourceUrl() {
-        return sourceUrl;
+    public String getUrl() {
+        return url;
     }
 
     /**
     * Url for the source repo
     */
-    public void setSourceUrl(final String sourceUrl) {
-        this.sourceUrl = sourceUrl;
+    public void setUrl(final String url) {
+        this.url = url;
     }
 }

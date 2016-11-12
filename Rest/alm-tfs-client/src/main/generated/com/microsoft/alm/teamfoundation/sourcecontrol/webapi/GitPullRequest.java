@@ -27,6 +27,7 @@ import com.microsoft.alm.visualstudio.services.webapi.ResourceRef;
 public class GitPullRequest {
 
     private ReferenceLinks _links;
+    private String artifactId;
     private IdentityRef autoCompleteSetBy;
     private IdentityRef closedBy;
     private Date closedDate;
@@ -62,6 +63,14 @@ public class GitPullRequest {
     @JsonProperty("_links")
     public void setLinks(final ReferenceLinks _links) {
         this._links = _links;
+    }
+
+    public String getArtifactId() {
+        return artifactId;
+    }
+
+    public void setArtifactId(final String artifactId) {
+        this.artifactId = artifactId;
     }
 
     public IdentityRef getAutoCompleteSetBy() {

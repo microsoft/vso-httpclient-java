@@ -26,6 +26,10 @@ public class GitChange
     */
     private int changeId;
     /**
+    * New Content template to be used
+    */
+    private GitTemplate newContentTemplate;
+    /**
     * Original path of item if different from current path
     */
     private String originalPath;
@@ -42,6 +46,20 @@ public class GitChange
     */
     public void setChangeId(final int changeId) {
         this.changeId = changeId;
+    }
+
+    /**
+    * New Content template to be used
+    */
+    public GitTemplate getNewContentTemplate() {
+        return newContentTemplate;
+    }
+
+    /**
+    * New Content template to be used
+    */
+    public void setNewContentTemplate(final GitTemplate newContentTemplate) {
+        this.newContentTemplate = newContentTemplate;
     }
 
     /**

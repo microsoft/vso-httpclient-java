@@ -33,6 +33,7 @@ import com.microsoft.alm.client.VssRestRequest;
 import com.microsoft.alm.visualstudio.services.profile.Avatar;
 import com.microsoft.alm.visualstudio.services.profile.CreateProfileContext;
 import com.microsoft.alm.visualstudio.services.profile.GeoRegion;
+import com.microsoft.alm.visualstudio.services.profile.model.RemoteProfile;
 import com.microsoft.alm.visualstudio.services.profile.Profile;
 import com.microsoft.alm.visualstudio.services.profile.ProfileAttribute;
 import com.microsoft.alm.visualstudio.services.profile.ProfileAttributeBase;
@@ -68,7 +69,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param id 
      *            
@@ -80,7 +81,7 @@ public abstract class ProfileHttpClientBase
         final String descriptor) { 
 
         final UUID locationId = UUID.fromString("1392b6ac-d511-492e-af5b-2263e5545a5d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -99,7 +100,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param id 
      *            
@@ -112,7 +113,7 @@ public abstract class ProfileHttpClientBase
         final String descriptor) { 
 
         final UUID locationId = UUID.fromString("1392b6ac-d511-492e-af5b-2263e5545a5d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -131,7 +132,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param id 
      *            
@@ -156,7 +157,7 @@ public abstract class ProfileHttpClientBase
         final String coreAttributes) { 
 
         final UUID locationId = UUID.fromString("1392b6ac-d511-492e-af5b-2263e5545a5d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -179,7 +180,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param container 
      *            
@@ -194,7 +195,7 @@ public abstract class ProfileHttpClientBase
         final String descriptor) { 
 
         final UUID locationId = UUID.fromString("1392b6ac-d511-492e-af5b-2263e5545a5d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -215,7 +216,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.2]
+     * [Preview API 3.1-preview.2]
      * 
      * @param attributesCollection 
      *            
@@ -227,7 +228,7 @@ public abstract class ProfileHttpClientBase
         final String id) { 
 
         final UUID locationId = UUID.fromString("1392b6ac-d511-492e-af5b-2263e5545a5d"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.2"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.2"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -244,7 +245,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param id 
      *            
@@ -260,7 +261,7 @@ public abstract class ProfileHttpClientBase
         final String format) { 
 
         final UUID locationId = UUID.fromString("67436615-b382-462a-b659-5367a492fb3c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -280,7 +281,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param container 
      *            
@@ -302,7 +303,7 @@ public abstract class ProfileHttpClientBase
         final String displayName) { 
 
         final UUID locationId = UUID.fromString("67436615-b382-462a-b659-5367a492fb3c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -325,7 +326,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param id 
      *            
@@ -333,7 +334,7 @@ public abstract class ProfileHttpClientBase
     public void resetAvatar(final String id) { 
 
         final UUID locationId = UUID.fromString("67436615-b382-462a-b659-5367a492fb3c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -348,7 +349,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param container 
      *            
@@ -360,7 +361,7 @@ public abstract class ProfileHttpClientBase
         final String id) { 
 
         final UUID locationId = UUID.fromString("67436615-b382-462a-b659-5367a492fb3c"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -377,7 +378,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * Lookup up country/region based on provided IPv4, null if using the remote IPv4 address.
+     * [Preview API 3.1-preview.1] Lookup up country/region based on provided IPv4, null if using the remote IPv4 address.
      * 
      * @param ipaddress 
      *            IPv4 address to be used for reverse lookup, null if using RemoteIPAddress in request context
@@ -386,7 +387,7 @@ public abstract class ProfileHttpClientBase
     public GeoRegion getGeoRegion(final String ipaddress) { 
 
         final UUID locationId = UUID.fromString("3bcda9c0-3078-48a5-a1e0-83bd05931ad0"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotEmpty("ipaddress", ipaddress); //$NON-NLS-1$
@@ -401,7 +402,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * Create profile
+     * [Preview API 3.1-preview.3] Create profile
      * 
      * @param createProfileContext 
      *            Context for profile creation
@@ -414,7 +415,7 @@ public abstract class ProfileHttpClientBase
         final Boolean autoCreate) { 
 
         final UUID locationId = UUID.fromString("f83735dc-483f-4238-a291-d45f6080a9af"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("autoCreate", autoCreate); //$NON-NLS-1$
@@ -431,6 +432,8 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
+     * [Preview API 3.1-preview.3]
+     * 
      * @param id 
      *            
      * @param details 
@@ -454,7 +457,7 @@ public abstract class ProfileHttpClientBase
         final Boolean forceRefresh) { 
 
         final UUID locationId = UUID.fromString("f83735dc-483f-4238-a291-d45f6080a9af"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -477,7 +480,7 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * Update profile
+     * [Preview API 3.1-preview.3] Update profile
      * 
      * @param profile 
      *            Update profile
@@ -489,7 +492,7 @@ public abstract class ProfileHttpClientBase
         final String id) { 
 
         final UUID locationId = UUID.fromString("f83735dc-483f-4238-a291-d45f6080a9af"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.3"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("id", id); //$NON-NLS-1$
@@ -506,14 +509,14 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @return ProfileRegions
      */
     public ProfileRegions getRegions() { 
 
         final UUID locationId = UUID.fromString("92d8d1c9-26b8-4774-a929-d640a73da524"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -524,14 +527,14 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @return HashSet&lt;String&gt;
      */
     public HashSet<String> getSupportedLcids() { 
 
         final UUID locationId = UUID.fromString("d5bd1aa6-c269-4bcd-ad32-75fa17475584"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
                                                                locationId,
@@ -542,16 +545,16 @@ public abstract class ProfileHttpClientBase
     }
 
     /** 
-     * [Preview API 3.0-preview.1]
+     * [Preview API 3.1-preview.1]
      * 
      * @param includeAvatar 
      *            
-     * @return Profile
+     * @return RemoteProfile
      */
-    public Profile getUserDefaults(final Boolean includeAvatar) { 
+    public RemoteProfile getRemoteProfile(final Boolean includeAvatar) { 
 
         final UUID locationId = UUID.fromString("b583a356-1da7-4237-9f4c-1deb2edbc7e8"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0-preview.1"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final NameValueCollection queryParameters = new NameValueCollection();
         queryParameters.addIfNotNull("includeAvatar", includeAvatar); //$NON-NLS-1$
@@ -560,6 +563,54 @@ public abstract class ProfileHttpClientBase
                                                                locationId,
                                                                apiVersion,
                                                                queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, RemoteProfile.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param includeAvatar 
+     *            
+     * @return Profile
+     */
+    public Profile getUserDefaults(final Boolean includeAvatar) { 
+
+        final UUID locationId = UUID.fromString("b583a356-1da7-4237-9f4c-1deb2edbc7e8"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("includeAvatar", includeAvatar); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.GET,
+                                                               locationId,
+                                                               apiVersion,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, Profile.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1]
+     * 
+     * @param id 
+     *            
+     * @return Profile
+     */
+    public Profile refreshUserDefaults(final String id) { 
+
+        final UUID locationId = UUID.fromString("b583a356-1da7-4237-9f4c-1deb2edbc7e8"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("id", id); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.PUT,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, Profile.class);

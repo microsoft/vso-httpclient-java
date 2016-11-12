@@ -58,7 +58,7 @@ public abstract class OperationsHttpClientBase
     }
 
     /** 
-     * Gets an operation from the the Id.
+     * [Preview API 3.1-preview.1] Gets an operation from the the Id.
      * 
      * @param operationId 
      *            The id for the operation.
@@ -67,7 +67,7 @@ public abstract class OperationsHttpClientBase
     public Operation getOperation(final UUID operationId) { 
 
         final UUID locationId = UUID.fromString("9a1b74b4-2ca8-4a9f-8470-c2f2e6fdc949"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.0"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
 
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("operationId", operationId); //$NON-NLS-1$

@@ -69,6 +69,10 @@ public enum ExtensionQueryFlags {
     */
     USE_FALLBACK_ASSET_URI(1024),
     /**
+    * This flag is used to get all the metadata values associated with the extension. This is not applicable to VSTS or VSCode extensions and usage is only internal.
+    */
+    INCLUDE_METADATA(2048),
+    /**
     * AllAttributes is designed to be a mask that defines all sub-elements of the extension should be returned.  NOTE: This is not actually All flags. This is now locked to the set defined since changing this enum would be a breaking change and would change the behavior of anyone using it. Try not to use this value when making calls to the service, instead be explicit about the options required.
     */
     ALL_ATTRIBUTES(479),
@@ -134,6 +138,10 @@ public enum ExtensionQueryFlags {
 
         if (name.equals("USE_FALLBACK_ASSET_URI")) { //$NON-NLS-1$
             return "useFallbackAssetUri"; //$NON-NLS-1$
+        }
+
+        if (name.equals("INCLUDE_METADATA")) { //$NON-NLS-1$
+            return "includeMetadata"; //$NON-NLS-1$
         }
 
         if (name.equals("ALL_ATTRIBUTES")) { //$NON-NLS-1$

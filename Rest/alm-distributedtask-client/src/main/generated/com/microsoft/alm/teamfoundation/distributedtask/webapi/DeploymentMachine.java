@@ -13,33 +13,30 @@
 *   https://vsowiki.com/index.php?title=Rest_Client_Generation
 */
 
-package com.microsoft.alm.teamfoundation.work.webapi;
+package com.microsoft.alm.teamfoundation.distributedtask.webapi;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 /** 
- * Mapping of teams to the corresponding workitem types
- * 
  */
-public class TeamWorkItemTypeMapping {
+public class DeploymentMachine {
 
-    private UUID teamId;
-    private ArrayList<String> workItemTypeNames;
+    private TaskAgentReference agent;
+    private ArrayList<String> tags;
 
-    public UUID getTeamId() {
-        return teamId;
+    public TaskAgentReference getAgent() {
+        return agent;
     }
 
-    public void setTeamId(final UUID teamId) {
-        this.teamId = teamId;
+    public void setAgent(final TaskAgentReference agent) {
+        this.agent = agent;
     }
 
-    public ArrayList<String> getWorkItemTypeNames() {
-        return workItemTypeNames;
+    public ArrayList<String> getTags() {
+        return tags;
     }
 
-    public void setWorkItemTypeNames(final ArrayList<String> workItemTypeNames) {
-        this.workItemTypeNames = workItemTypeNames;
+    public void setTags(final ArrayList<String> tags) {
+        this.tags = tags;
     }
 }

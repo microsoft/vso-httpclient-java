@@ -65,9 +65,13 @@ public enum ExtensionQueryFilterType {
     */
     FEATURED_IN_CATEGORY(11),
     /**
-    * When retrieving extensions from a query, exclude the extensions which are having the given flags. The value specified for this filter should be a string representing the integer values of the flags to be excluded. In case of mulitple flags to be specified, a logical OR of the interger values should be given as value for this filter This should be at most one filter of this type. This filter is only supported when search text is specified
+    * When retrieving extensions from a query, exclude the extensions which are having the given flags. The value specified for this filter should be a string representing the integer values of the flags to be excluded. In case of mulitple flags to be specified, a logical OR of the interger values should be given as value for this filter This should be at most one filter of this type. This only acts as a restrictive filter after. In case of having a particular flag in both IncludeWithFlags and ExcludeWithFlags, excludeFlags will remove the included extensions giving empty result for that flag.
     */
     EXCLUDE_WITH_FLAGS(12),
+    /**
+    * When retrieving extensions from a query, include the extensions which are having the given flags. The value specified for this filter should be a string representing the integer values of the flags to be included. In case of mulitple flags to be specified, a logical OR of the interger values should be given as value for this filter This should be at most one filter of this type. This only acts as a restrictive filter after. In case of having a particular flag in both IncludeWithFlags and ExcludeWithFlags, excludeFlags will remove the included extensions giving empty result for that flag. In case of multiple flags given in IncludeWithFlags in ORed fashion, extensions having any of the given flags will be included.
+    */
+    INCLUDE_WITH_FLAGS(13),
     ;
 
     private int value;
@@ -130,6 +134,10 @@ public enum ExtensionQueryFilterType {
 
         if (name.equals("EXCLUDE_WITH_FLAGS")) { //$NON-NLS-1$
             return "excludeWithFlags"; //$NON-NLS-1$
+        }
+
+        if (name.equals("INCLUDE_WITH_FLAGS")) { //$NON-NLS-1$
+            return "includeWithFlags"; //$NON-NLS-1$
         }
 
         return null;

@@ -23,12 +23,21 @@ import java.util.HashMap;
 public class WorkItemType
     extends WorkItemTrackingResource {
 
+    private String color;
     private String description;
     private ArrayList<WorkItemTypeFieldInstance> fieldInstances;
     private ArrayList<WorkItemTypeFieldInstance> fields;
     private String name;
     private HashMap<String, WorkItemStateTransition[]> transitions;
     private String xmlForm;
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(final String color) {
+        this.color = color;
+    }
 
     public String getDescription() {
         return description;

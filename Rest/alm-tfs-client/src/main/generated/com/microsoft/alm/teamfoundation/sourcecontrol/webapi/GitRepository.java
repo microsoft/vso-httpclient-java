@@ -31,6 +31,7 @@ public class GitRepository {
     private TeamProjectReference project;
     private String remoteUrl;
     private String url;
+    private String[] validRemoteUrls;
 
     @JsonProperty("_links")
     public ReferenceLinks getLinks() {
@@ -88,5 +89,13 @@ public class GitRepository {
 
     public void setUrl(final String url) {
         this.url = url;
+    }
+
+    public String[] getValidRemoteUrls() {
+        return validRemoteUrls;
+    }
+
+    public void setValidRemoteUrls(final String[] validRemoteUrls) {
+        this.validRemoteUrls = validRemoteUrls;
     }
 }

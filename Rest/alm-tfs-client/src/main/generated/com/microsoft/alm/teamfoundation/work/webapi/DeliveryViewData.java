@@ -18,7 +18,6 @@ package com.microsoft.alm.teamfoundation.work.webapi;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.UUID;
 
 /** 
  * Data contract for Data of Delivery View
@@ -43,10 +42,6 @@ public class DeliveryViewData
     * All the team data
     */
     private ArrayList<TimelineTeamData> teams;
-    /**
-    * Work Item Types configured for the team.
-    */
-    private HashMap<UUID, ArrayList<String>> workItemTypes;
 
     /**
     * Work item child id to parenet id map
@@ -102,19 +97,5 @@ public class DeliveryViewData
     */
     public void setTeams(final ArrayList<TimelineTeamData> teams) {
         this.teams = teams;
-    }
-
-    /**
-    * Work Item Types configured for the team.
-    */
-    public HashMap<UUID, ArrayList<String>> getWorkItemTypes() {
-        return workItemTypes;
-    }
-
-    /**
-    * Work Item Types configured for the team.
-    */
-    public void setWorkItemTypes(final HashMap<UUID, ArrayList<String>> workItemTypes) {
-        this.workItemTypes = workItemTypes;
     }
 }

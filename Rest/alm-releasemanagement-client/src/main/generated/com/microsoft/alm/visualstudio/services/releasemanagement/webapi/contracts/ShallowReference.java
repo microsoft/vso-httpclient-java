@@ -15,14 +15,27 @@
 
 package com.microsoft.alm.visualstudio.services.releasemanagement.webapi.contracts;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.microsoft.alm.visualstudio.services.webapi.ReferenceLinks;
 
 /** 
  */
 public class ShallowReference {
 
+    private ReferenceLinks _links;
     private int id;
     private String name;
     private String url;
+
+    @JsonProperty("_links")
+    public ReferenceLinks getLinks() {
+        return _links;
+    }
+
+    @JsonProperty("_links")
+    public void setLinks(final ReferenceLinks _links) {
+        this._links = _links;
+    }
 
     public int getId() {
         return id;

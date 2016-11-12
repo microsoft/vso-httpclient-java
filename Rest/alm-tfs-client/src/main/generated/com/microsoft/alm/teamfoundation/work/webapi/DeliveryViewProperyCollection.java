@@ -24,13 +24,13 @@ import java.util.ArrayList;
 public class DeliveryViewProperyCollection
     extends PlanPropertyCollection {
 
-    private ArrayList<TeamWorkItemTypeMapping> teamWorkItemTypeMapping;
+    private ArrayList<TeamBacklogMapping> teamBacklogMappings;
 
-    public ArrayList<TeamWorkItemTypeMapping> getTeamWorkItemTypeMapping() {
-        return teamWorkItemTypeMapping;
+    public ArrayList<TeamBacklogMapping> getTeamBacklogMappings() {
+        return teamBacklogMappings;
     }
 
-    public void setTeamWorkItemTypeMapping(final ArrayList<TeamWorkItemTypeMapping> teamWorkItemTypeMapping) {
-        this.teamWorkItemTypeMapping = teamWorkItemTypeMapping;
+    public void setTeamBacklogMappings(final ArrayList<TeamBacklogMapping> teamBacklogMappings) {
+        this.teamBacklogMappings = teamBacklogMappings;
     }
 }

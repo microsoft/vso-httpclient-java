@@ -22,6 +22,8 @@ public class AzureSubscription {
 
     private String displayName;
     private String subscriptionId;
+    private String subscriptionTenantId;
+    private String subscriptionTenantName;
 
     public String getDisplayName() {
         return displayName;
@@ -37,5 +39,21 @@ public class AzureSubscription {
 
     public void setSubscriptionId(final String subscriptionId) {
         this.subscriptionId = subscriptionId;
+    }
+
+    public String getSubscriptionTenantId() {
+        return subscriptionTenantId;
+    }
+
+    public void setSubscriptionTenantId(final String subscriptionTenantId) {
+        this.subscriptionTenantId = subscriptionTenantId;
+    }
+
+    public String getSubscriptionTenantName() {
+        return subscriptionTenantName;
+    }
+
+    public void setSubscriptionTenantName(final String subscriptionTenantName) {
+        this.subscriptionTenantName = subscriptionTenantName;
     }
 }
