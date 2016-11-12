@@ -9649,11 +9649,14 @@ public abstract class GitHttpClientBase
      *            
      * @param repositoryId 
      *            
+     * @param linkBranchWorkitems 
+     *            
      * @return GitPullRequest
      */
     public GitPullRequest createPullRequest(
         final GitPullRequest gitPullRequestToCreate, 
-        final String repositoryId) { 
+        final String repositoryId, 
+        final Boolean linkBranchWorkitems) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
@@ -9661,12 +9664,16 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("linkBranchWorkitems", linkBranchWorkitems); //$NON-NLS-1$
+
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
                                                                routeValues,
                                                                apiVersion,
                                                                gitPullRequestToCreate,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
@@ -9679,11 +9686,14 @@ public abstract class GitHttpClientBase
      *            
      * @param repositoryId 
      *            
+     * @param linkBranchWorkitems 
+     *            
      * @return GitPullRequest
      */
     public GitPullRequest createPullRequest(
         final GitPullRequest gitPullRequestToCreate, 
-        final UUID repositoryId) { 
+        final UUID repositoryId, 
+        final Boolean linkBranchWorkitems) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
@@ -9691,39 +9701,8 @@ public abstract class GitHttpClientBase
         final Map<String, Object> routeValues = new HashMap<String, Object>();
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
-        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
-                                                               locationId,
-                                                               routeValues,
-                                                               apiVersion,
-                                                               gitPullRequestToCreate,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
-                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
-
-        return super.sendRequest(httpRequest, GitPullRequest.class);
-    }
-
-    /** 
-     * [Preview API 3.1-preview.1] Create a git pull request
-     * 
-     * @param gitPullRequestToCreate 
-     *            
-     * @param project 
-     *            Project ID or project name
-     * @param repositoryId 
-     *            
-     * @return GitPullRequest
-     */
-    public GitPullRequest createPullRequest(
-        final GitPullRequest gitPullRequestToCreate, 
-        final String project, 
-        final String repositoryId) { 
-
-        final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
-        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
-
-        final Map<String, Object> routeValues = new HashMap<String, Object>();
-        routeValues.put("project", project); //$NON-NLS-1$
-        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("linkBranchWorkitems", linkBranchWorkitems); //$NON-NLS-1$
 
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
@@ -9731,6 +9710,7 @@ public abstract class GitHttpClientBase
                                                                apiVersion,
                                                                gitPullRequestToCreate,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
@@ -9745,12 +9725,15 @@ public abstract class GitHttpClientBase
      *            Project ID or project name
      * @param repositoryId 
      *            
+     * @param linkBranchWorkitems 
+     *            
      * @return GitPullRequest
      */
     public GitPullRequest createPullRequest(
         final GitPullRequest gitPullRequestToCreate, 
         final String project, 
-        final UUID repositoryId) { 
+        final String repositoryId, 
+        final Boolean linkBranchWorkitems) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
@@ -9759,12 +9742,57 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("linkBranchWorkitems", linkBranchWorkitems); //$NON-NLS-1$
+
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
                                                                routeValues,
                                                                apiVersion,
                                                                gitPullRequestToCreate,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE);
+
+        return super.sendRequest(httpRequest, GitPullRequest.class);
+    }
+
+    /** 
+     * [Preview API 3.1-preview.1] Create a git pull request
+     * 
+     * @param gitPullRequestToCreate 
+     *            
+     * @param project 
+     *            Project ID or project name
+     * @param repositoryId 
+     *            
+     * @param linkBranchWorkitems 
+     *            
+     * @return GitPullRequest
+     */
+    public GitPullRequest createPullRequest(
+        final GitPullRequest gitPullRequestToCreate, 
+        final String project, 
+        final UUID repositoryId, 
+        final Boolean linkBranchWorkitems) { 
+
+        final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
+        final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
+
+        final Map<String, Object> routeValues = new HashMap<String, Object>();
+        routeValues.put("project", project); //$NON-NLS-1$
+        routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
+
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("linkBranchWorkitems", linkBranchWorkitems); //$NON-NLS-1$
+
+        final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
+                                                               locationId,
+                                                               routeValues,
+                                                               apiVersion,
+                                                               gitPullRequestToCreate,
+                                                               VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
@@ -9779,12 +9807,15 @@ public abstract class GitHttpClientBase
      *            Project ID
      * @param repositoryId 
      *            
+     * @param linkBranchWorkitems 
+     *            
      * @return GitPullRequest
      */
     public GitPullRequest createPullRequest(
         final GitPullRequest gitPullRequestToCreate, 
         final UUID project, 
-        final String repositoryId) { 
+        final String repositoryId, 
+        final Boolean linkBranchWorkitems) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
@@ -9793,12 +9824,16 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("linkBranchWorkitems", linkBranchWorkitems); //$NON-NLS-1$
+
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
                                                                routeValues,
                                                                apiVersion,
                                                                gitPullRequestToCreate,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
@@ -9813,12 +9848,15 @@ public abstract class GitHttpClientBase
      *            Project ID
      * @param repositoryId 
      *            
+     * @param linkBranchWorkitems 
+     *            
      * @return GitPullRequest
      */
     public GitPullRequest createPullRequest(
         final GitPullRequest gitPullRequestToCreate, 
         final UUID project, 
-        final UUID repositoryId) { 
+        final UUID repositoryId, 
+        final Boolean linkBranchWorkitems) { 
 
         final UUID locationId = UUID.fromString("9946fd70-0d40-406e-b686-b4744cbbcc37"); //$NON-NLS-1$
         final ApiResourceVersion apiVersion = new ApiResourceVersion("3.1-preview.1"); //$NON-NLS-1$
@@ -9827,12 +9865,16 @@ public abstract class GitHttpClientBase
         routeValues.put("project", project); //$NON-NLS-1$
         routeValues.put("repositoryId", repositoryId); //$NON-NLS-1$
 
+        final NameValueCollection queryParameters = new NameValueCollection();
+        queryParameters.addIfNotNull("linkBranchWorkitems", linkBranchWorkitems); //$NON-NLS-1$
+
         final VssRestRequest httpRequest = super.createRequest(HttpMethod.POST,
                                                                locationId,
                                                                routeValues,
                                                                apiVersion,
                                                                gitPullRequestToCreate,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE,
+                                                               queryParameters,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE);
 
         return super.sendRequest(httpRequest, GitPullRequest.class);
