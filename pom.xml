@@ -88,7 +88,7 @@
         <version.minor>105</version.minor>
         <version.service>1</version.service>
 
-        <alm.http.client.version>15.108.0-SNAPSHOT</alm.http.client.version>
+        <alm.http.client.version>15.105.1-SNAPSHOT</alm.http.client.version>
 
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
         <buildNumber>${version.major}.${version.minor}.${version.service}.${maven.build.timestamp}</buildNumber>
