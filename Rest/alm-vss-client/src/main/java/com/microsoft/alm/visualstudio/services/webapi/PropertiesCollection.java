@@ -3,44 +3,7 @@
 
 package com.microsoft.alm.visualstudio.services.webapi;
 
-import java.util.List;
+import java.util.HashMap;
 
-public class PropertiesCollection {
-
-    private int count;
-    private Object item;
-    private List<String> keys;
-    private List<String> values;
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(final int count) {
-        this.count = count;
-    }
-
-    public Object getItem() {
-        return item;
-    }
-
-    public void setItem(final Object item) {
-        this.item = item;
-    }
-
-    public List<String> getKeys() {
-        return keys;
-    }
-
-    public void setKeys(final List<String> keys) {
-        this.keys = keys;
-    }
-
-    public List<String> getValues() {
-        return values;
-    }
-
-    public void setValues(final List<String> values) {
-        this.values = values;
-    }
-}
+public class PropertiesCollection 
+    extends HashMap<String, String> { }
