@@ -23,13 +23,13 @@ package com.microsoft.alm.teamfoundation.sourcecontrol.webapi;
 public class GitPullRequestStatus
     extends GitStatus {
 
-    private int iterationId;
+    private Integer iterationId;
 
-    public int getIterationId() {
+    public Integer getIterationId() {
         return iterationId;
     }
 
-    public void setIterationId(final int iterationId) {
+    public void setIterationId(final Integer iterationId) {
         this.iterationId = iterationId;
     }
 }
