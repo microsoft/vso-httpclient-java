@@ -1,7 +1,22 @@
-.idea
+# Maven
+target/
+
+# IntelliJ IDEA
+*.iws
 *.iml
-target
+*.ipr
+.idea/
+
+# ---- Mac OS X
+.DS_Store
+
+# Eclipse
+.classpath                                                                                                                                                            
+.project                                                                                                                                                              
+.settings
+
+# Others
 .metadata
 .recommenders
 bin
-.DS_Store
+
