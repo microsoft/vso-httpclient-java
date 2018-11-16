@@ -22,56 +22,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.microsoft.alm.client.HttpMethod;
-import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.client.VssHttpClientBase;
 import com.microsoft.alm.client.VssMediaTypes;
 import com.microsoft.alm.client.VssRestClientHandler;
 import com.microsoft.alm.client.VssRestRequest;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.AssociatedWorkItem;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.Comment;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitAsyncRefOperationParameters;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitBaseVersionDescriptor;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitBlobRef;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitBranchStats;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitCherryPick;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitCommit;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitCommitChanges;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitCommitDiffs;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitCommitRef;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitConflict;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitDeletedRepository;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitImportRequest;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitItem;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitItemRequestData;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequest;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequestCommentThread;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequestIteration;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequestIterationChanges;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequestQuery;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequestSearchCriteria;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPullRequestStatus;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPush;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitPushSearchCriteria;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitQueryBranchStatsCriteria;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitQueryCommitsCriteria;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitRef;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitRefFavorite;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitRefLockRequest;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitRefUpdate;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitRefUpdateResult;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitRepository;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitRevert;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitStatus;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitSuggestion;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitTargetVersionDescriptor;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitTreeDiff;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitTreeDiffResponse;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitTreeRef;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.GitVersionDescriptor;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.IdentityRefWithVote;
-import com.microsoft.alm.teamfoundation.sourcecontrol.webapi.VersionControlRecursionType;
+import com.microsoft.alm.client.model.NameValueCollection;
 import com.microsoft.alm.visualstudio.services.webapi.ApiResourceVersion;
 import com.microsoft.alm.visualstudio.services.webapi.IdentityRef;
 
@@ -8039,7 +7997,7 @@ public abstract class GitHttpClientBase
      *            
      * @return ArrayList&lt;GitPullRequestIteration&gt;
      */
-    public ArrayList<GitPullRequestIteration> getPullRequestIterations(
+    public List<GitPullRequestIteration> getPullRequestIterations(
         final String project, 
         final String repositoryId, 
         final int pullRequestId, 
@@ -8063,7 +8021,7 @@ public abstract class GitHttpClientBase
                                                                queryParameters,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitPullRequestIteration>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<List<GitPullRequestIteration>>() {});
     }
 
     /** 
@@ -16166,7 +16124,7 @@ public abstract class GitHttpClientBase
      *            
      * @return ArrayList&lt;GitRepository&gt;
      */
-    public ArrayList<GitRepository> getRepositories(
+    public List<GitRepository> getRepositories(
         final String project, 
         final Boolean includeLinks, 
         final Boolean includeAllUrls) { 
@@ -16188,7 +16146,7 @@ public abstract class GitHttpClientBase
                                                                queryParameters,
                                                                VssMediaTypes.APPLICATION_JSON_TYPE);
 
-        return super.sendRequest(httpRequest, new TypeReference<ArrayList<GitRepository>>() {});
+        return super.sendRequest(httpRequest, new TypeReference<List<GitRepository>>() {});
     }
 
     /** 
