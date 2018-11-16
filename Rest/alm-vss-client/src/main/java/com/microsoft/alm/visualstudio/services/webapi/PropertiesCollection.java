@@ -5,5 +5,8 @@ package com.microsoft.alm.visualstudio.services.webapi;
 
 import java.util.HashMap;
 
-public class PropertiesCollection 
-    extends HashMap<String, String> { }
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(using = PropertiesCollectionDeserializer.class)
+public class PropertiesCollection extends HashMap<String, String> {
+}
