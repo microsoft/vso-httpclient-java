@@ -169,13 +169,13 @@
         <repository>
             <id>vss-artifacts</id>
             <name>Private Maven releases repository on artifacts.cloudapp.net</name>
-            <url>http://artifacts.eastus.cloudapp.azure.com:8081/nexus/content/repositories/releases</url>
+            <url>https://artifacts.eastus.cloudapp.azure.com:8081/nexus/content/repositories/releases</url>
             <uniqueVersion>false</uniqueVersion>
         </repository>
         <snapshotRepository>
             <id>vss-artifacts-snapshots</id>
             <name>Private Maven snapshot repository on artifacts.cloudapp.net</name>
-            <url>http://artifacts.eastus.cloudapp.azure.com:8081/nexus/content/repositories/snapshots</url>
+            <url>https://artifacts.eastus.cloudapp.azure.com:8081/nexus/content/repositories/snapshots</url>
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
